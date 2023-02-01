@@ -1,0 +1,26 @@
+name: Build site and deploy to GHPages
+on:
+  push:
+    branches:
+      - 'main'
+
+permissions:
+  contents: write
+
+jobs:
+  build_deploy:
+    name: Build site and deploy to GHPages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2.4.0
+
+      - name: Install and build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Deploy to GHPages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist

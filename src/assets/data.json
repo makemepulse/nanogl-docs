@@ -1,0 +1,513 @@
+{
+  "libs": [
+    {
+      "name": "nanogl-node",
+      "classes": [
+        {
+          "name": "Node",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L16",
+          "comment": "This is the base class for all 3D objects. It's like a simplified equivalent to Object3D for Three.js.",
+          "constructors": [
+            {
+              "name": "constructor",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L45"
+            }
+          ],
+          "properties": [
+            {
+              "name": "_children",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L40"
+            },
+            {
+              "name": "_invalidM",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L42"
+            },
+            {
+              "name": "_invalidW",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L43"
+            },
+            {
+              "name": "_matrix",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L34"
+            },
+            {
+              "name": "_parent",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L39"
+            },
+            {
+              "name": "_wmatrix",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L35"
+            },
+            {
+              "name": "_wposition",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L37"
+            },
+            {
+              "name": "position",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L22",
+              "comment": "Node's local position."
+            },
+            {
+              "name": "rotation",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L27",
+              "comment": "Node's local rotation."
+            },
+            {
+              "name": "scale",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L32",
+              "comment": "Node's local scale."
+            }
+          ],
+          "accessors": [
+            {
+              "name": "x",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L69"
+            },
+            {
+              "name": "y",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L70"
+            },
+            {
+              "name": "z",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L71"
+            }
+          ],
+          "methods": [
+            {
+              "name": "_computeWorldMatrix",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L193"
+            },
+            {
+              "name": "_hasInvalidWorldMatrix",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L213"
+            },
+            {
+              "name": "add",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L121",
+              "comment": "Add child to this node. If child already has a parent, it will be removed as a node can only have one parent."
+            },
+            {
+              "name": "invalidate",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L148",
+              "comment": "Invalidate this node's local matrix and world matrix."
+            },
+            {
+              "name": "lookAt",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L94",
+              "comment": "Rotate node to look at target position."
+            },
+            {
+              "name": "remove",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L136",
+              "comment": "Remove child from this node's children."
+            },
+            {
+              "name": "rotateX",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L56",
+              "comment": "Rotate node around X-axis."
+            },
+            {
+              "name": "rotateY",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L61",
+              "comment": "Rotate node around Y-axis."
+            },
+            {
+              "name": "rotateZ",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L66",
+              "comment": "Rotate node around Z-axis."
+            },
+            {
+              "name": "setMatrix",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L109",
+              "comment": "Set node transformation matrix."
+            },
+            {
+              "name": "setScale",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L82",
+              "comment": "Set node scale for all axis."
+            },
+            {
+              "name": "updateMatrix",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L157",
+              "comment": "Update node's local matrix, if it has been declared invalid."
+            },
+            {
+              "name": "updateWorldMatrix",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/index.ts#L176",
+              "comment": "Update node's world matrix if it has been declared invalid, and recursively update all children's world matrices."
+            }
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "name": "decomposeMat4",
+          "source": "https://github.com/evanmartiin/nanogl-node/blob/410b0d9/src/math.ts#L5",
+          "constructors": [],
+          "properties": [],
+          "accessors": [],
+          "methods": []
+        }
+      ]
+    },
+    {
+      "name": "nanogl-primitives-2d",
+      "classes": [
+        {
+          "name": "Circle",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle.ts#L9",
+          "comment": "Create a circle geometry",
+          "constructors": [
+            {
+              "name": "constructor",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle.ts#L11"
+            }
+          ],
+          "properties": [
+            {
+              "name": "attribs"
+            },
+            {
+              "name": "buffer"
+            },
+            {
+              "name": "byteLength"
+            },
+            {
+              "name": "gl"
+            },
+            {
+              "name": "length"
+            },
+            {
+              "name": "stride"
+            },
+            {
+              "name": "usage"
+            }
+          ],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "_computeLength"
+            },
+            {
+              "name": "attrib"
+            },
+            {
+              "name": "attribPointer"
+            },
+            {
+              "name": "bind"
+            },
+            {
+              "name": "data"
+            },
+            {
+              "name": "dispose"
+            },
+            {
+              "name": "draw"
+            },
+            {
+              "name": "drawLineLoop"
+            },
+            {
+              "name": "drawLineStrip"
+            },
+            {
+              "name": "drawLines"
+            },
+            {
+              "name": "drawPoints"
+            },
+            {
+              "name": "drawTriangleFan"
+            },
+            {
+              "name": "drawTriangleStrip"
+            },
+            {
+              "name": "drawTriangles"
+            },
+            {
+              "name": "render",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle.ts#L41",
+              "comment": "Render the circle"
+            },
+            {
+              "name": "subData"
+            }
+          ]
+        },
+        {
+          "name": "CircleOutline",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle-outline.ts#L9",
+          "comment": "Create an outlined circle geometry",
+          "constructors": [
+            {
+              "name": "constructor",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle-outline.ts#L12"
+            }
+          ],
+          "properties": [
+            {
+              "name": "attribs"
+            },
+            {
+              "name": "buffer"
+            },
+            {
+              "name": "byteLength"
+            },
+            {
+              "name": "gl"
+            },
+            {
+              "name": "length"
+            },
+            {
+              "name": "stride"
+            },
+            {
+              "name": "usage"
+            }
+          ],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "_computeLength"
+            },
+            {
+              "name": "attrib"
+            },
+            {
+              "name": "attribPointer"
+            },
+            {
+              "name": "bind"
+            },
+            {
+              "name": "data"
+            },
+            {
+              "name": "dispose"
+            },
+            {
+              "name": "draw"
+            },
+            {
+              "name": "drawLineLoop"
+            },
+            {
+              "name": "drawLineStrip"
+            },
+            {
+              "name": "drawLines"
+            },
+            {
+              "name": "drawPoints"
+            },
+            {
+              "name": "drawTriangleFan"
+            },
+            {
+              "name": "drawTriangleStrip"
+            },
+            {
+              "name": "drawTriangles"
+            },
+            {
+              "name": "render",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle-outline.ts#L51",
+              "comment": "Render the outlined circle"
+            },
+            {
+              "name": "subData"
+            }
+          ]
+        },
+        {
+          "name": "Rect",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect.ts#L16",
+          "comment": "Create a rectangle geometry",
+          "constructors": [
+            {
+              "name": "constructor",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect.ts#L18"
+            }
+          ],
+          "properties": [
+            {
+              "name": "attribs"
+            },
+            {
+              "name": "buffer"
+            },
+            {
+              "name": "byteLength"
+            },
+            {
+              "name": "gl"
+            },
+            {
+              "name": "length"
+            },
+            {
+              "name": "stride"
+            },
+            {
+              "name": "usage"
+            }
+          ],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "_computeLength"
+            },
+            {
+              "name": "attrib"
+            },
+            {
+              "name": "attribPointer"
+            },
+            {
+              "name": "bind"
+            },
+            {
+              "name": "data"
+            },
+            {
+              "name": "dispose"
+            },
+            {
+              "name": "draw"
+            },
+            {
+              "name": "drawLineLoop"
+            },
+            {
+              "name": "drawLineStrip"
+            },
+            {
+              "name": "drawLines"
+            },
+            {
+              "name": "drawPoints"
+            },
+            {
+              "name": "drawTriangleFan"
+            },
+            {
+              "name": "drawTriangleStrip"
+            },
+            {
+              "name": "drawTriangles"
+            },
+            {
+              "name": "render",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect.ts#L39",
+              "comment": "Render the rectangle"
+            },
+            {
+              "name": "subData"
+            }
+          ]
+        },
+        {
+          "name": "RectOutline",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect-outline.ts#L15",
+          "comment": "Create an outlined rectangle geometry",
+          "constructors": [
+            {
+              "name": "constructor",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect-outline.ts#L17"
+            }
+          ],
+          "properties": [
+            {
+              "name": "attribs"
+            },
+            {
+              "name": "buffer"
+            },
+            {
+              "name": "byteLength"
+            },
+            {
+              "name": "gl"
+            },
+            {
+              "name": "length"
+            },
+            {
+              "name": "stride"
+            },
+            {
+              "name": "usage"
+            }
+          ],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "_computeLength"
+            },
+            {
+              "name": "attrib"
+            },
+            {
+              "name": "attribPointer"
+            },
+            {
+              "name": "bind"
+            },
+            {
+              "name": "data"
+            },
+            {
+              "name": "dispose"
+            },
+            {
+              "name": "draw"
+            },
+            {
+              "name": "drawLineLoop"
+            },
+            {
+              "name": "drawLineStrip"
+            },
+            {
+              "name": "drawLines"
+            },
+            {
+              "name": "drawPoints"
+            },
+            {
+              "name": "drawTriangleFan"
+            },
+            {
+              "name": "drawTriangleStrip"
+            },
+            {
+              "name": "drawTriangles"
+            },
+            {
+              "name": "render",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect-outline.ts#L56",
+              "comment": "Render the outlined rectangle"
+            },
+            {
+              "name": "subData"
+            }
+          ]
+        }
+      ],
+      "functions": []
+    }
+  ]
+}
