@@ -6,135 +6,135 @@
         {
           "name": "Node",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L16",
-          "comment": "This is the base class for all 3D objects. It's like a simplified equivalent to Object3D for three.js.",
+          "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L16",
+          "comment": "This is the base class for all 3D objects. It's like a simplified equivalent to Object3D for Threejs.",
           "constructors": [
             {
               "name": "constructor",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L45"
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L45"
             }
           ],
           "properties": [
             {
               "name": "_children",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L40"
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L40"
             },
             {
               "name": "_invalidM",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L42"
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L42"
             },
             {
               "name": "_invalidW",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L43"
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L43"
             },
             {
               "name": "_matrix",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L34"
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L34"
             },
             {
               "name": "_parent",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L39"
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L39"
             },
             {
               "name": "_wmatrix",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L35"
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L35"
             },
             {
               "name": "_wposition",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L37"
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L37"
             },
             {
               "name": "position",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L22",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L22",
               "comment": "Node's local position."
             },
             {
               "name": "rotation",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L27",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L27",
               "comment": "Node's local rotation."
             },
             {
               "name": "scale",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L32",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L32",
               "comment": "Node's local scale."
             }
           ],
           "accessors": [
             {
               "name": "x",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L69"
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L69"
             },
             {
               "name": "y",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L70"
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L70"
             },
             {
               "name": "z",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L71"
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L71"
             }
           ],
           "methods": [
             {
               "name": "_computeWorldMatrix",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L193"
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L193"
             },
             {
               "name": "_hasInvalidWorldMatrix",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L213"
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L213"
             },
             {
               "name": "add",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L121",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L121",
               "comment": "Add child to this node. If child already has a parent, it will be removed as a node can only have one parent."
             },
             {
               "name": "invalidate",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L148",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L148",
               "comment": "Invalidate this node's local matrix and world matrix."
             },
             {
               "name": "lookAt",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L94",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L94",
               "comment": "Rotate node to look at target position."
             },
             {
               "name": "remove",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L136",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L136",
               "comment": "Remove child from this node's children."
             },
             {
               "name": "rotateX",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L56",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L56",
               "comment": "Rotate node around X-axis."
             },
             {
               "name": "rotateY",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L61",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L61",
               "comment": "Rotate node around Y-axis."
             },
             {
               "name": "rotateZ",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L66",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L66",
               "comment": "Rotate node around Z-axis."
             },
             {
               "name": "setMatrix",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L109",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L109",
               "comment": "Set node transformation matrix."
             },
             {
               "name": "setScale",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L82",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L82",
               "comment": "Set node scale for all axis."
             },
             {
               "name": "updateMatrix",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L157",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L157",
               "comment": "Update node's local matrix, if it has been declared invalid."
             },
             {
               "name": "updateWorldMatrix",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/index.ts#L176",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/index.ts#L176",
               "comment": "Update node's world matrix if it has been declared invalid, and recursively update all children's world matrices."
             }
           ]
@@ -143,7 +143,7 @@
       "functions": [
         {
           "name": "decomposeMat4",
-          "source": "https://github.com/evanmartiin/nanogl-node/blob/45883d9/src/math.ts#L5",
+          "source": "https://github.com/evanmartiin/nanogl-node/blob/b8015f0/src/math.ts#L5",
           "constructors": [],
           "properties": [],
           "accessors": [],
