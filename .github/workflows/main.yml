@@ -27,3 +27,15 @@ jobs:
           message: 'update: docs'
           author_email: 'evan.martiin29@gmail.com'
           author_name: 'evanmartiin'
+
+      - name: Trigger deploy Action
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.ACTIONS_KEY }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'evanmartiin',
+              repo: 'nanogl-docs',
+              workflow_id: 'deploy.yml',
+              ref: 'main'
+            })

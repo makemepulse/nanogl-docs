@@ -1,5 +1,7 @@
 name: Build site and deploy to GHPages
 on:
+  workflow_dispatch
+  repository_dispatch
   push:
     branches:
       - 'main'
