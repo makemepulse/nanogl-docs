@@ -3,12 +3,12 @@ import { ref } from 'vue'
 import LibsList from './components/LibsList.vue'
 import ExportedList from './components/ExportedList.vue';
 import Class from './components/Class.vue';
-// import { fetchLibs } from './scripts/fetch.js';
+import { fetchLibs } from './scripts/fetch.js';
 
 const libs = ref([]);
 libs.value = import.meta.glob('./assets/data.json', { eager: true })['./assets/data.json'].libs;
 // console.log(libs.value);
-// fetchLibs();
+fetchLibs();
 
 const selectedLib = ref({});
 const selectedExported = ref({});

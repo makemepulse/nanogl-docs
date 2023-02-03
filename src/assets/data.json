@@ -11,8 +11,9 @@
           "comment": "This is the base class for all 3D objects. It's like a simplified equivalent to Object3D for threejs.",
           "constructors": [
             {
-              "name": "constructor",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/cbc7951/src/index.ts#L45"
+              "name": "Node",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/cbc7951/src/index.ts#L45",
+              "type": "Node"
             }
           ],
           "properties": [
@@ -76,15 +77,57 @@
           "accessors": [
             {
               "name": "x",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/cbc7951/src/index.ts#L69"
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/cbc7951/src/index.ts#L69",
+              "setter": {
+                "name": "set x",
+                "type": "void",
+                "params": [
+                  {
+                    "name": "v",
+                    "type": "number"
+                  }
+                ]
+              },
+              "getter": {
+                "name": "get x",
+                "type": "number"
+              }
             },
             {
               "name": "y",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/cbc7951/src/index.ts#L70"
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/cbc7951/src/index.ts#L70",
+              "setter": {
+                "name": "set y",
+                "type": "void",
+                "params": [
+                  {
+                    "name": "v",
+                    "type": "number"
+                  }
+                ]
+              },
+              "getter": {
+                "name": "get y",
+                "type": "number"
+              }
             },
             {
               "name": "z",
-              "source": "https://github.com/evanmartiin/nanogl-node/blob/cbc7951/src/index.ts#L71"
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/cbc7951/src/index.ts#L71",
+              "setter": {
+                "name": "set z",
+                "type": "void",
+                "params": [
+                  {
+                    "name": "v",
+                    "type": "number"
+                  }
+                ]
+              },
+              "getter": {
+                "name": "get z",
+                "type": "number"
+              }
             }
           ],
           "methods": [
@@ -239,7 +282,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "extends": null
         }
       ],
       "functions": [
@@ -250,7 +294,8 @@
           "constructors": [],
           "properties": [],
           "accessors": [],
-          "methods": []
+          "methods": [],
+          "extends": null
         }
       ]
     },
@@ -265,250 +310,36 @@
           "comment": "Create a circle geometry",
           "constructors": [
             {
-              "name": "constructor",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle.ts#L11"
-            }
-          ],
-          "properties": [
-            {
-              "name": "attribs",
-              "type": "AttributeDef[]"
-            },
-            {
-              "name": "buffer",
-              "type": "WebGLBuffer"
-            },
-            {
-              "name": "byteLength",
-              "type": "number"
-            },
-            {
-              "name": "gl",
-              "type": "GLContext"
-            },
-            {
-              "name": "length",
-              "type": "number"
-            },
-            {
-              "name": "stride",
-              "type": "number"
-            },
-            {
-              "name": "usage",
-              "type": "number"
-            }
-          ],
-          "accessors": [],
-          "methods": [
-            {
-              "name": "_computeLength",
-              "type": "void"
-            },
-            {
-              "name": "attrib",
+              "name": "Circle",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle.ts#L11",
               "type": "Circle",
               "params": [
                 {
-                  "name": "name",
-                  "type": "string"
+                  "name": "gl",
+                  "type": "GLContext"
                 },
                 {
-                  "name": "size",
+                  "name": "radius",
                   "type": "number"
                 },
                 {
-                  "name": "type",
+                  "name": "segs",
                   "type": "number"
-                },
-                {
-                  "name": "normalize",
-                  "type": "boolean",
-                  "optional": true
                 }
               ]
-            },
-            {
-              "name": "attribPointer",
-              "type": "void",
-              "params": [
-                {
-                  "name": "program",
-                  "type": "Program"
-                }
-              ]
-            },
-            {
-              "name": "bind",
-              "type": "void"
-            },
-            {
-              "name": "data",
-              "type": "void",
-              "params": [
-                {
-                  "name": "array",
-                  "type": "number | BufferSource"
-                }
-              ]
-            },
-            {
-              "name": "dispose",
-              "type": "void"
-            },
-            {
-              "name": "draw",
-              "type": "void",
-              "params": [
-                {
-                  "name": "mode",
-                  "type": "number"
-                },
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawLineLoop",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawLineStrip",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawLines",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawPoints",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawTriangleFan",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawTriangleStrip",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawTriangles",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
+            }
+          ],
+          "properties": [],
+          "accessors": [],
+          "methods": [
             {
               "name": "render",
               "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle.ts#L41",
               "comment": "Render the circle",
               "type": "void"
-            },
-            {
-              "name": "subData",
-              "type": "void",
-              "params": [
-                {
-                  "name": "array",
-                  "type": "BufferSource"
-                },
-                {
-                  "name": "offset",
-                  "type": "number"
-                }
-              ]
             }
-          ]
+          ],
+          "extends": "ArrayBuffer"
         },
         {
           "id": 2,
@@ -518,250 +349,40 @@
           "comment": "Create an outlined circle geometry",
           "constructors": [
             {
-              "name": "constructor",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle-outline.ts#L12"
+              "name": "CircleOutline",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle-outline.ts#L12",
+              "type": "CircleOutline",
+              "params": [
+                {
+                  "name": "gl",
+                  "type": "GLContext"
+                },
+                {
+                  "name": "radius",
+                  "type": "number"
+                },
+                {
+                  "name": "segs",
+                  "type": "number"
+                },
+                {
+                  "name": "thickness",
+                  "type": "number"
+                }
+              ]
             }
           ],
-          "properties": [
-            {
-              "name": "attribs",
-              "type": "AttributeDef[]"
-            },
-            {
-              "name": "buffer",
-              "type": "WebGLBuffer"
-            },
-            {
-              "name": "byteLength",
-              "type": "number"
-            },
-            {
-              "name": "gl",
-              "type": "GLContext"
-            },
-            {
-              "name": "length",
-              "type": "number"
-            },
-            {
-              "name": "stride",
-              "type": "number"
-            },
-            {
-              "name": "usage",
-              "type": "number"
-            }
-          ],
+          "properties": [],
           "accessors": [],
           "methods": [
-            {
-              "name": "_computeLength",
-              "type": "void"
-            },
-            {
-              "name": "attrib",
-              "type": "Node",
-              "params": [
-                {
-                  "name": "name",
-                  "type": "string"
-                },
-                {
-                  "name": "size",
-                  "type": "number"
-                },
-                {
-                  "name": "type",
-                  "type": "number"
-                },
-                {
-                  "name": "normalize",
-                  "type": "boolean",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "attribPointer",
-              "type": "void",
-              "params": [
-                {
-                  "name": "program",
-                  "type": "Program"
-                }
-              ]
-            },
-            {
-              "name": "bind",
-              "type": "void"
-            },
-            {
-              "name": "data",
-              "type": "void",
-              "params": [
-                {
-                  "name": "array",
-                  "type": "number | BufferSource"
-                }
-              ]
-            },
-            {
-              "name": "dispose",
-              "type": "void"
-            },
-            {
-              "name": "draw",
-              "type": "void",
-              "params": [
-                {
-                  "name": "mode",
-                  "type": "number"
-                },
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawLineLoop",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawLineStrip",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawLines",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawPoints",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawTriangleFan",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawTriangleStrip",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawTriangles",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
             {
               "name": "render",
               "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle-outline.ts#L51",
               "comment": "Render the outlined circle",
               "type": "void"
-            },
-            {
-              "name": "subData",
-              "type": "void",
-              "params": [
-                {
-                  "name": "array",
-                  "type": "BufferSource"
-                },
-                {
-                  "name": "offset",
-                  "type": "number"
-                }
-              ]
             }
-          ]
+          ],
+          "extends": "ArrayBuffer"
         },
         {
           "id": 219,
@@ -771,250 +392,44 @@
           "comment": "Create a rectangle geometry",
           "constructors": [
             {
-              "name": "constructor",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect.ts#L18"
-            }
-          ],
-          "properties": [
-            {
-              "name": "attribs",
-              "type": "AttributeDef[]"
-            },
-            {
-              "name": "buffer",
-              "type": "WebGLBuffer"
-            },
-            {
-              "name": "byteLength",
-              "type": "number"
-            },
-            {
-              "name": "gl",
-              "type": "GLContext"
-            },
-            {
-              "name": "length",
-              "type": "number"
-            },
-            {
-              "name": "stride",
-              "type": "number"
-            },
-            {
-              "name": "usage",
-              "type": "number"
-            }
-          ],
-          "accessors": [],
-          "methods": [
-            {
-              "name": "_computeLength",
-              "type": "void"
-            },
-            {
-              "name": "attrib",
+              "name": "Rect",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect.ts#L18",
               "type": "Rect",
               "params": [
                 {
-                  "name": "name",
-                  "type": "string"
+                  "name": "gl",
+                  "type": "GLContext"
                 },
                 {
-                  "name": "size",
+                  "name": "x",
                   "type": "number"
                 },
                 {
-                  "name": "type",
+                  "name": "y",
                   "type": "number"
                 },
                 {
-                  "name": "normalize",
-                  "type": "boolean",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "attribPointer",
-              "type": "void",
-              "params": [
-                {
-                  "name": "program",
-                  "type": "Program"
-                }
-              ]
-            },
-            {
-              "name": "bind",
-              "type": "void"
-            },
-            {
-              "name": "data",
-              "type": "void",
-              "params": [
-                {
-                  "name": "array",
-                  "type": "number | BufferSource"
-                }
-              ]
-            },
-            {
-              "name": "dispose",
-              "type": "void"
-            },
-            {
-              "name": "draw",
-              "type": "void",
-              "params": [
-                {
-                  "name": "mode",
+                  "name": "w",
                   "type": "number"
                 },
                 {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
+                  "name": "h",
+                  "type": "number"
                 }
               ]
-            },
-            {
-              "name": "drawLineLoop",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawLineStrip",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawLines",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawPoints",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawTriangleFan",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawTriangleStrip",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawTriangles",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
+            }
+          ],
+          "properties": [],
+          "accessors": [],
+          "methods": [
             {
               "name": "render",
               "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect.ts#L39",
               "comment": "Render the rectangle",
               "type": "void"
-            },
-            {
-              "name": "subData",
-              "type": "void",
-              "params": [
-                {
-                  "name": "array",
-                  "type": "BufferSource"
-                },
-                {
-                  "name": "offset",
-                  "type": "number"
-                }
-              ]
             }
-          ]
+          ],
+          "extends": "ArrayBuffer"
         },
         {
           "id": 145,
@@ -1024,250 +439,48 @@
           "comment": "Create an outlined rectangle geometry",
           "constructors": [
             {
-              "name": "constructor",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect-outline.ts#L17"
-            }
-          ],
-          "properties": [
-            {
-              "name": "attribs",
-              "type": "AttributeDef[]"
-            },
-            {
-              "name": "buffer",
-              "type": "WebGLBuffer"
-            },
-            {
-              "name": "byteLength",
-              "type": "number"
-            },
-            {
-              "name": "gl",
-              "type": "GLContext"
-            },
-            {
-              "name": "length",
-              "type": "number"
-            },
-            {
-              "name": "stride",
-              "type": "number"
-            },
-            {
-              "name": "usage",
-              "type": "number"
-            }
-          ],
-          "accessors": [],
-          "methods": [
-            {
-              "name": "_computeLength",
-              "type": "void"
-            },
-            {
-              "name": "attrib",
+              "name": "RectOutline",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect-outline.ts#L17",
               "type": "RectOutline",
               "params": [
                 {
-                  "name": "name",
-                  "type": "string"
+                  "name": "gl",
+                  "type": "GLContext"
                 },
                 {
-                  "name": "size",
+                  "name": "x",
                   "type": "number"
                 },
                 {
-                  "name": "type",
+                  "name": "y",
                   "type": "number"
                 },
                 {
-                  "name": "normalize",
-                  "type": "boolean",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "attribPointer",
-              "type": "void",
-              "params": [
-                {
-                  "name": "program",
-                  "type": "Program"
-                }
-              ]
-            },
-            {
-              "name": "bind",
-              "type": "void"
-            },
-            {
-              "name": "data",
-              "type": "void",
-              "params": [
-                {
-                  "name": "array",
-                  "type": "number | BufferSource"
-                }
-              ]
-            },
-            {
-              "name": "dispose",
-              "type": "void"
-            },
-            {
-              "name": "draw",
-              "type": "void",
-              "params": [
-                {
-                  "name": "mode",
+                  "name": "w",
                   "type": "number"
                 },
                 {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
+                  "name": "h",
+                  "type": "number"
                 },
                 {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
+                  "name": "thickness",
+                  "type": "number"
                 }
               ]
-            },
-            {
-              "name": "drawLineLoop",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawLineStrip",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawLines",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawPoints",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawTriangleFan",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawTriangleStrip",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "name": "drawTriangles",
-              "type": "void",
-              "params": [
-                {
-                  "name": "count",
-                  "type": "number",
-                  "optional": true
-                },
-                {
-                  "name": "offset",
-                  "type": "number",
-                  "optional": true
-                }
-              ]
-            },
+            }
+          ],
+          "properties": [],
+          "accessors": [],
+          "methods": [
             {
               "name": "render",
               "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect-outline.ts#L56",
               "comment": "Render the outlined rectangle",
               "type": "void"
-            },
-            {
-              "name": "subData",
-              "type": "void",
-              "params": [
-                {
-                  "name": "array",
-                  "type": "BufferSource"
-                },
-                {
-                  "name": "offset",
-                  "type": "number"
-                }
-              ]
             }
-          ]
+          ],
+          "extends": "ArrayBuffer"
         }
       ],
       "functions": []

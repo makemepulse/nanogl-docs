@@ -1,4 +1,6 @@
 <script setup>
+import Method from './Method.vue'
+
 defineProps({
   libClass: {
     type: Object,
@@ -8,15 +10,13 @@ defineProps({
 </script>
 
 <template>
+  <p v-if="libClass.extends">{{ libClass.extends }} →</p>
   <h1>{{ libClass.name }}<span v-if="libClass.source.length"> - <a :href="libClass.source" target="_blank">source</a></span></h1>
   <p>{{ libClass.comment }}</p>
   <div v-if="libClass.constructors.length">
     <hr>
-    <h2>Constructors</h2>
-    <div v-for="constructor in libClass.constructors">
-      <h4>{{ constructor.name }}<span v-if="constructor.source?.length"> - <a :href="constructor.source" target="_blank">source</a></span></h4>
-      <p>{{ constructor.comment }}</p>
-    </div>
+    <h2>Constructor</h2>
+    <Method v-for="constructor in libClass.constructors" :method="constructor" :isConstructor="true" />
   </div>
   <div v-if="libClass.properties.length">
     <hr>
@@ -33,23 +33,20 @@ defineProps({
     <div v-for="accessor in libClass.accessors">
       <h4>{{ accessor.name }}<span v-if="accessor.source?.length"> - <a :href="accessor.source" target="_blank">source</a></span></h4>
       <p>{{ accessor.comment }}</p>
+      <div v-if="accessor.setter">
+        <h4>Setter :</h4>
+        <Method :method="accessor.setter" />
+      </div>
+      <div v-if="accessor.getter">
+        <h4>Getter :</h4>
+        <Method :method="accessor.getter" />
+      </div>
     </div>
   </div>
   <div v-if="libClass.methods.length">
     <hr>
     <h2>Methods</h2>
-    <div v-for="method in libClass.methods">
-      <h4>
-        {{ method.name }}
-        (<span v-if="method.params"><span v-for="param, index in method.params">{{ param.name }}<span v-if="param.optional">?</span>: {{ param.type }}<span v-if="index + 1 < method.params.length">, </span></span></span>)
-        <span v-if="method.type"> : {{ method.type }} </span>
-        <span v-if="method.source?.length"> - <a :href="method.source" target="_blank">source</a></span>
-      </h4>
-      <p>{{ method.comment }}</p>
-      <i v-if="method.params">
-        <p v-for="param in method.params">{{ param.name }}<span v-if="param.optional"> (optional) </span><span v-if="param.type"> : {{ param.type }}</span> - {{ param.comment }}</p>
-      </i>
-    </div>
+    <Method v-for="method in libClass.methods" :method="method" />
   </div>
 </template>
 

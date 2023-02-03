@@ -50,39 +50,49 @@ function sortLibs(libs) {
                     properties: [],
                     accessors: [],
                     methods: [],
+                    extends: exported.extendedTypes ? resolveTypes(exported.extendedTypes[0], lib.name) : null,
                 }
 
                 exportedList.push({
                     id: exported.id,
-                    name: exported.name
+                    name: exported.name,
+                    lib: lib.name,
                 })
 
                 exported.children?.forEach(child => {
+                    if (child.inheritedFrom) {
+                        return;
+                    }
+
                     const childObj = {
-                        name: child.name,
+                        name: child.kindString === 'Constructor' ? exported.name : child.name,
                         source: child.sources[0].url,
                     }
 
                     if (child.kindString === 'Constructor') {
+                        resolveMethod(childObj, child.signatures[0], lib.name);
                         exportedObj.constructors.push(childObj);
                     } else if (child.kindString === 'Property') {
                         childObj.comment = child.comment?.summary[0]?.text;
                         childObj.defaultValue = child.comment?.blockTags[0]?.content[0]?.text;
-                        childObj.type = resolveTypes(child.type);
+                        childObj.type = resolveTypes(child.type, lib.name);
                         exportedObj.properties.push(childObj);
                     } else if (child.kindString === 'Accessor') {
+                        if (child.setSignature) {
+                            childObj.setter = {
+                                name: `set ${child.name}`,
+                            };
+                            resolveMethod(childObj.setter, child.setSignature, lib.name);
+                        }
+                        if (child.getSignature) {
+                            childObj.getter = {
+                                name: `get ${child.name}`,
+                            };
+                            resolveMethod(childObj.getter, child.getSignature, lib.name);
+                        }
                         exportedObj.accessors.push(childObj);
                     } else if (child.kindString === 'Method') {
-                        childObj.comment = child.signatures[0]?.comment?.summary[0]?.text;
-                        childObj.type = resolveTypes(child.signatures[0]?.type);
-                        childObj.params = child.signatures[0]?.parameters?.map(param => {
-                            return {
-                                name: param.name,
-                                type: resolveTypes(param.type),
-                                comment: param.comment?.summary[0]?.text,
-                                optional: param.flags?.isOptional,
-                            }
-                        })
+                        resolveMethod(childObj, child.signatures[0], lib.name);
                         exportedObj.methods.push(childObj);
                     }
                 })
@@ -112,14 +122,27 @@ function createJson(data) {
     });
 }
 
-function resolveTypes(type) {
+function resolveMethod(obj, method, lib) {
+    obj.comment = method.comment?.summary[0]?.text;
+    obj.type = resolveTypes(method.type, lib);
+    obj.params = method.parameters?.map(param => {
+        return {
+            name: param.name,
+            type: resolveTypes(param.type, lib),
+            comment: param.comment?.summary[0]?.text,
+            optional: param.flags?.isOptional,
+        }
+    })
+}
+
+function resolveTypes(type, lib) {
     if (type.type === 'union') {
-        return type.types.map(type => resolveTypes(type)).join(' | ');
+        return type.types.map(type => resolveTypes(type, lib)).join(' | ');
     } else if (type.type === 'intrinsic') {
         return type.name;
     } else if (type.type === 'reference') {
         if (type.id) {
-            const exported = exportedList.find(exported => exported.id === type.id);
+            const exported = exportedList.find(exported => exported.id === type.id && exported.lib === lib);
             if (exported) {
                 return exported.name;
             }
@@ -127,7 +150,7 @@ function resolveTypes(type) {
             return type.name;
         }
     } else if (type.type === 'array') {
-        return `${resolveTypes(type.elementType)}[]`;
+        return `${resolveTypes(type.elementType, lib)}[]`;
     } else if (type.type === 'literal') {
         return `${type.value}`;
     }
