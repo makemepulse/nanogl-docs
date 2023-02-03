@@ -7,6 +7,8 @@ const LIBS_URLS = {
 
 const OUTPUT_PATH = './src/assets/data.json';
 
+const exportedList = [];
+
 async function fetchLibs() {
     const libs = [];
     for (const [lib, url] of Object.entries(LIBS_URLS)) {
@@ -39,6 +41,7 @@ function sortLibs(libs) {
         lib.children.forEach(file => {
             file.children.forEach(exported => {
                 const exportedObj = {
+                    id: exported.id,
                     name: exported.name,
                     originalName: exported.originalName,
                     source: exported.sources[0].url,
@@ -49,6 +52,11 @@ function sortLibs(libs) {
                     methods: [],
                 }
 
+                exportedList.push({
+                    id: exported.id,
+                    name: exported.name
+                })
+
                 exported.children?.forEach(child => {
                     const childObj = {
                         name: child.name,
@@ -58,12 +66,23 @@ function sortLibs(libs) {
                     if (child.kindString === 'Constructor') {
                         exportedObj.constructors.push(childObj);
                     } else if (child.kindString === 'Property') {
-                        childObj.comment = child.comment?.summary[0].text;
+                        childObj.comment = child.comment?.summary[0]?.text;
+                        childObj.defaultValue = child.comment?.blockTags[0]?.content[0]?.text;
+                        childObj.type = resolveTypes(child.type);
                         exportedObj.properties.push(childObj);
                     } else if (child.kindString === 'Accessor') {
                         exportedObj.accessors.push(childObj);
                     } else if (child.kindString === 'Method') {
-                        childObj.comment = child.signatures[0].comment?.summary[0].text;
+                        childObj.comment = child.signatures[0]?.comment?.summary[0]?.text;
+                        childObj.type = resolveTypes(child.signatures[0]?.type);
+                        childObj.params = child.signatures[0]?.parameters?.map(param => {
+                            return {
+                                name: param.name,
+                                type: resolveTypes(param.type),
+                                comment: param.comment?.summary[0]?.text,
+                                optional: param.flags?.isOptional,
+                            }
+                        })
                         exportedObj.methods.push(childObj);
                     }
                 })
@@ -91,6 +110,27 @@ function createJson(data) {
      
         console.log("JSON file has been saved.");
     });
+}
+
+function resolveTypes(type) {
+    if (type.type === 'union') {
+        return type.types.map(type => resolveTypes(type)).join(' | ');
+    } else if (type.type === 'intrinsic') {
+        return type.name;
+    } else if (type.type === 'reference') {
+        if (type.id) {
+            const exported = exportedList.find(exported => exported.id === type.id);
+            if (exported) {
+                return exported.name;
+            }
+        } else {
+            return type.name;
+        }
+    } else if (type.type === 'array') {
+        return `${resolveTypes(type.elementType)}[]`;
+    } else if (type.type === 'literal') {
+        return `${type.value}`;
+    }
 }
 
 fetchLibs();
