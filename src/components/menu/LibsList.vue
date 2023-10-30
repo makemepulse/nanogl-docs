@@ -1,19 +1,19 @@
 <script setup>
-import { ref } from 'vue';
-
 defineProps({
   libs: {
     type: Object,
     required: true
+  },
+  selectedLib: {
+    type: String,
+    required: false
   }
 })
 
 const emit = defineEmits(['selectLib']);
-const selectedLib = ref("")
 
 function selectLib(lib) {
   emit('selectLib', lib);
-  selectedLib.value = lib.name;
 }
 </script>
 

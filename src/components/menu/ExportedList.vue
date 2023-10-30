@@ -1,19 +1,19 @@
 <script setup>
-import { ref } from 'vue';
-
 defineProps({
   lib: {
     type: Object,
     required: true
+  },
+  selectedExported: {
+    type: String,
+    required: false
   }
 })
 
 const emit = defineEmits(['selectExported']);
-const selectedExported = ref("");
 
 function selectExported(exported) {
   emit('selectExported', exported);
-  selectedExported.value = exported.name;
 }
 </script>
 
@@ -24,7 +24,7 @@ function selectExported(exported) {
       <p v-for="libClass in lib.classes" @click="selectExported(libClass)" :class="{ selected: selectedExported === libClass.name }">{{ libClass.name }}</p>
     </div>
     <div v-if="lib.functions.length">
-      <h2>Functions</h2>
+      <h3>Functions</h3>
       <p v-for="func in lib.functions" @click="selectExported(func)" :class="{ selected: selectedExported === func.name }">{{ func.name }}</p>
     </div>
   </div>
