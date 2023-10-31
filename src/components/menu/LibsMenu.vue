@@ -13,11 +13,11 @@ defineProps({
 
 <template>
   <div>
-    <h2 class="my-4">Libraries</h2>
+    <h2 class="my-8">Libraries</h2>
     <RouterLink
       v-for="lib in libs"
       :to="`/libraries/${lib.name}`"
-      :class="{ 'font-bold': selectedLib === lib.name }"
+      :class="{ selected: selectedLib === lib.name }"
     >
       {{ lib.name }}
     </RouterLink>

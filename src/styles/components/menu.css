@@ -1,9 +1,13 @@
 .menu {
-  p, a {
-    @apply block;
+  p, a:not(.logo) {
+    @apply block opacity-75 py-4;
 
     &:hover {
-      @apply cursor-pointer font-bold;
+      @apply cursor-pointer opacity-100;
+    }
+
+    &.selected {
+      @apply text-primary opacity-100;
     }
   }
 }

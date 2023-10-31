@@ -24,14 +24,14 @@ const guideRoutes = router.getRoutes().reduce((acc, route) => {
 
 <template>
   <div>
-    <h2 class="my-4">Guide</h2>
+    <h2 class="my-8">Guide</h2>
     <div v-for="(articles, section) in guideRoutes">
-      <h3 class="my-2">{{ section }}</h3>
+      <h3 class="my-4">{{ section }}</h3>
       <template v-for="article in articles">
         <RouterLink
           v-if="!!article"
           :to="article.route.path"
-          :class="{ 'font-bold': router.currentRoute.value.name === article.route.name }"
+          :class="{ selected: router.currentRoute.value.name === article.route.name }"
         >
           {{ article.name }}
         </RouterLink>
