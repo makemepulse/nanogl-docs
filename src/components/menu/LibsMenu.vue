@@ -9,18 +9,18 @@ defineProps({
     required: false
   }
 })
-
-const emit = defineEmits(['selectLib']);
-
-function selectLib(lib) {
-  emit('selectLib', lib);
-}
 </script>
 
 <template>
-  <div class="libsList">
+  <div class="libsMenu">
     <h2>Libraries</h2>
-    <p v-for="lib in libs" @click="selectLib(lib)" :class="{ selected: selectedLib === lib.name }">{{ lib.name }}</p>
+    <RouterLink
+      v-for="lib in libs"
+      :to="`/libraries/${lib.name}`"
+      :class="{ selected: selectedLib === lib.name }"
+    >
+      {{ lib.name }}
+    </RouterLink>
   </div>
 </template>
 

@@ -1,64 +1,31 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useRouter } from 'vue-router';
 
 import { fetchLibs } from './scripts/fetch.js';
-import { articlesData } from './articles/articlesData.js';
 
-import Class from './components/content/Class.vue';
-import Article from './components/content/Article.vue';
-import LibsList from './components/menu/LibsList.vue'
-import ArticleList from './components/menu/ArticleList.vue';
-import ExportedList from './components/menu/ExportedList.vue';
+import UIMenu from './components/menu/UIMenu.vue';
 
 const libs = ref([]);
 libs.value = import.meta.glob('./assets/data.json', { eager: true })['./assets/data.json'].libs;
-// console.log(libs.value);
 fetchLibs();
 
-const articleSections = ref(articlesData);
+const { currentRoute } = useRouter();
 
-const selectedArticle = ref({});
-const selectedLib = ref({});
-const selectedExported = ref({});
-
-function onSelectArticle(article) {
-  selectedArticle.value = article;
-  selectedLib.value = {};
-  selectedExported.value = {};
-}
-
-function onSelectLib(lib) {
-  selectedLib.value = lib;
-  selectedArticle.value = {};
-}
-
-function onSelectExported(exported) {
-  selectedExported.value = exported;
-  selectedArticle.value = {};
-}
-
+const currentLib = computed(() => {
+  const lib = libs.value.find(lib => lib.name === currentRoute.value.params.library);
+  return lib || {};
+})
 </script>
 
 <template>
   <div class="app">
-    <div class="sidebar">
-      <ArticleList
-        :article-sections="articleSections"
-        :selected-article="selectedArticle.id"
-        @select-article="onSelectArticle" />
-      <LibsList
-        :libs="libs"
-        :selected-lib="selectedLib.name"
-        @select-lib="onSelectLib" />
-      <ExportedList
-        v-if="Object.keys(selectedLib).length"
-        :lib="selectedLib"
-        :selected-exported="selectedExported.name"
-        @select-exported="onSelectExported" />
-    </div>
+    <UIMenu
+      :libs="libs"
+      :selected-lib="currentLib"
+    />
     <div class="content">
-      <Article v-if="Object.keys(selectedArticle).length" :article="selectedArticle" />
-      <Class v-else-if="Object.keys(selectedExported).length" :lib-class="selectedExported" />
+      <RouterView :currentLib="currentLib"/>
     </div>
   </div>
 </template>
@@ -69,36 +36,10 @@ function onSelectExported(exported) {
   flex-direction: row;
 }
 
-.sidebar {
-  width: 300px;
-  height: 100vh;
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  > div {
-    padding: 10px;
-    background-color: #eee;
-
-    h3 {
-      margin: 0 0 4px 0;
-    }
-
-    p {
-      margin: 0;
-
-      &:hover {
-        cursor: pointer;
-        font-weight: bold;
-      }
-    }
-  }
-}
-
 .content {
   width: 100%;
   margin: 20px;
+  padding-left: 320px;
 }
 </style>
 

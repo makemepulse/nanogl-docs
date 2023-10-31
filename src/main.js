@@ -1,5 +1,22 @@
 import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+
 import './style.css'
 import App from './App.vue'
+import routes from '~pages'
 
-createApp(App).mount('#app')
+const router = createRouter({
+  routes,
+  history: createWebHistory(),
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return { el: to.hash }
+    }
+
+    return { top: 0 }
+  },
+})
+
+createApp(App)
+  .use(router)
+  .mount('#app');
