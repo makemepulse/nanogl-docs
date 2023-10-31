@@ -1,0 +1,23 @@
+.content {
+  h1 {
+    @apply my-16;
+  }
+  h2 {
+    @apply my-8;
+  }
+  h3 {
+    @apply my-4;
+  }
+  p {
+    @apply my-16;
+  }
+  a {
+    @apply font-medium underline text-primary;
+  }
+  hr {
+    @apply opacity-25;
+  }
+  .markdown-body {
+    @apply pt-32;
+  }
+}

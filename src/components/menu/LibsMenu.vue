@@ -12,20 +12,14 @@ defineProps({
 </script>
 
 <template>
-  <div class="libsMenu">
+  <div class="p-10">
     <h2>Libraries</h2>
     <RouterLink
       v-for="lib in libs"
       :to="`/libraries/${lib.name}`"
-      :class="{ selected: selectedLib === lib.name }"
+      :class="{ 'font-bold': selectedLib === lib.name }"
     >
       {{ lib.name }}
     </RouterLink>
   </div>
 </template>
-
-<style scoped lang="stylus">
-.selected {
-  font-weight: bold;
-}
-</style>

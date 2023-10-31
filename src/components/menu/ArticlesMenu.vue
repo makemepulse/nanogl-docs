@@ -23,7 +23,7 @@ const guideRoutes = router.getRoutes().reduce((acc, route) => {
 </script>
 
 <template>
-  <div class="articlesMenu">
+  <div class="p-10">
     <h2>Guide</h2>
     <div v-for="(articles, section) in guideRoutes">
       <h3>{{ section }}</h3>
@@ -31,7 +31,7 @@ const guideRoutes = router.getRoutes().reduce((acc, route) => {
         <RouterLink
           v-if="!!article"
           :to="article.route.path"
-          :class="{ selected: router.currentRoute.value.name === article.route.name }"
+          :class="{ 'font-bold': router.currentRoute.value.name === article.route.name }"
         >
           {{ article.name }}
         </RouterLink>
@@ -39,9 +39,3 @@ const guideRoutes = router.getRoutes().reduce((acc, route) => {
     </div>
   </div>
 </template>
-
-<style scoped lang="stylus">
-.selected {
-  font-weight: bold;
-}
-</style>

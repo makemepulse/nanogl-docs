@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="libItemsMenu">
+  <div class="p-10">
     <div v-if="lib.classes.length">
       <h2>Classes</h2>
       <LibItem

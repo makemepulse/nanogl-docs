@@ -1,0 +1,9 @@
+.menu {
+  p, a {
+    @apply block;
+
+    &:hover {
+      @apply cursor-pointer font-bold;
+    }
+  }
+}

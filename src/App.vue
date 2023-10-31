@@ -19,39 +19,13 @@ const currentLib = computed(() => {
 </script>
 
 <template>
-  <div class="app">
+  <div class="app grid grid-cols-10">
     <UIMenu
       :libs="libs"
       :selected-lib="currentLib"
     />
-    <div class="content">
+    <div class="content col-span-8 col-start-3 px-48 pb-32">
       <RouterView :currentLib="currentLib"/>
     </div>
   </div>
 </template>
-
-<style lang="stylus">
-.app {
-  display: flex;
-  flex-direction: row;
-}
-
-.content {
-  width: 100%;
-  margin: 20px;
-  padding-left: 320px;
-}
-</style>
-
-<style>
-* {
-  text-align: left;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  background-color: #fff;
-  color: #555;
-}
-</style>

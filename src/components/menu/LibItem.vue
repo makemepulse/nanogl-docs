@@ -32,13 +32,7 @@ const isSelected = computed(() => {
 <template>
   <RouterLink
     :to="`/libraries/${libraryName}#${type}-${itemName}`"
-    :class="{ selected: isSelected }">
+    :class="{ 'font-bold': isSelected }">
     {{ itemName }}
   </RouterLink>
 </template>
-
-<style scoped lang="stylus">
-.selected {
-  font-weight: bold;
-}
-</style>

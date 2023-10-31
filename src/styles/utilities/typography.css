@@ -1,0 +1,21 @@
+@layer utilities {
+  h1, h2, h3, h4 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply text-32;
+  }
+  h2 {
+    @apply text-24;
+  }
+  h3 {
+    @apply text-18;
+  }
+  h4 {
+    @apply text-16;
+  }
+  body {
+    @apply text-16;
+  }
+}

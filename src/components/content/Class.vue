@@ -1,5 +1,5 @@
 <template>
-  <div :id="`class-${libClass.name}`" class="classContainer">
+  <div :id="`class-${libClass.name}`" class="py-32 border-b">
     <p v-if="libClass.extends">{{ libClass.extends }} →</p>
     <h1>{{ libClass.name }}<span v-if="libClass.source.length"> - <a :href="libClass.source" target="_blank">source</a></span></h1>
     <p>{{ libClass.comment }}</p>
@@ -51,11 +51,3 @@ defineProps({
   }
 })
 </script>
-
-<style scoped>
-.classContainer {
-  padding-bottom: 32px;
-  margin-bottom: 32px;
-  border-bottom: 1px solid black;
-}
-</style>
