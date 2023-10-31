@@ -12,8 +12,8 @@ defineProps({
 </script>
 
 <template>
-  <div class="p-10">
-    <h2>Libraries</h2>
+  <div>
+    <h2 class="my-4">Libraries</h2>
     <RouterLink
       v-for="lib in libs"
       :to="`/libraries/${lib.name}`"

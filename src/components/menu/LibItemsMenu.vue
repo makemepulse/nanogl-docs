@@ -10,9 +10,10 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="p-10">
+  <div>
+    <h2 class="my-4">{{lib.name}}</h2>
     <div v-if="lib.classes.length">
-      <h2>Classes</h2>
+      <h3 class="my-2">Classes</h3>
       <LibItem
         v-for="libClass in lib.classes"
         :libraryName="lib.name"
@@ -21,7 +22,7 @@ const props = defineProps({
       />
     </div>
     <div v-if="lib.functions.length">
-      <h2>Functions</h2>
+      <h3 class="my-2">Functions</h3>
       <LibItem
         v-for="libFunc in lib.functions"
         :libraryName="lib.name"

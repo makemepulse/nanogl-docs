@@ -23,10 +23,10 @@ const guideRoutes = router.getRoutes().reduce((acc, route) => {
 </script>
 
 <template>
-  <div class="p-10">
-    <h2>Guide</h2>
+  <div>
+    <h2 class="my-4">Guide</h2>
     <div v-for="(articles, section) in guideRoutes">
-      <h3>{{ section }}</h3>
+      <h3 class="my-2">{{ section }}</h3>
       <template v-for="article in articles">
         <RouterLink
           v-if="!!article"
