@@ -1,4 +1,16 @@
 .menu {
+  h1 {
+    @apply text-32;
+  }
+  h2 {
+    @apply text-24;
+  }
+  h3 {
+    @apply text-18;
+  }
+  h4 {
+    @apply text-16;
+  }
   p, a:not(.logo) {
     @apply block opacity-75 py-4;
 

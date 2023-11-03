@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
+import Prism from 'markdown-it-prism'
 import Markdown from 'unplugin-vue-markdown/vite'
 
 // https://vitejs.dev/config/
@@ -14,6 +15,10 @@ export default defineConfig({
     Pages({
       extensions: ['vue', 'md'],
     }),
-    Markdown(),
+    Markdown({
+      markdownItSetup(md) {
+        md.use(Prism)
+      }
+    }),
   ],
 })

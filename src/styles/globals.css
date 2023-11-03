@@ -12,3 +12,4 @@
 /* @layer utilities */
 @import "tailwindcss/utilities";
 @import "./utilities/typography.css";
+@import "./utilities/prism.css";

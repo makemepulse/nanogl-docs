@@ -10,8 +10,8 @@ export default {
   theme: {
     colors: {
       transparent: "transparent",
-      black: "#262626",
-      grey: "#39393A",
+      black: "#111111",
+      grey: "#262626",
       white: "#FFFFFF",
       primary: "#63B0CD"
     },
