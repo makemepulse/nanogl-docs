@@ -5,106 +5,118 @@ meta:
   menuOrder: 0
 </route>
 
-Texture
-=======
-Texture class provide helpers for TEXTURE_2D textures:
-  - uploading from image, canvas, video, or data
+# Texture2D
+
+The Texture2D class provides helpers for `TEXTURE_2D`{language=js} textures :
+  - loading from an image, canvas, video, or data
   - filtering and wrapping
-It support any kind of pixel formats (RGB, RGBA, LUMINANCE etc)
-and any kind of pixel type (UNSIGNED_BYTE, FLOAT etc)
 
+It supports any kind of pixel formats (`RGB`{language=js}, `RGBA`{language=js}, `LUMINANCE`{language=js}, etc.) and any kind of pixel type (`UNSIGNED_BYTE`{language=js}, `FLOAT`{language=js}, etc.).
 
-##exemples
+## Texture creation
 
-##### Texture creation
+You can create a texture with the `Texture2D`{language=js} class, providing options or not.
 
-```JavaScript
-var Texture = require( 'nanogl' ).Texture;
+```js
+import Texture2D from "nanogl/texture-2d"
 
-var texture = new Texture( gl );
+const texture = new Texture2D(gl);
 
-// default pixel format is gl.RGB
-// you can specify different format as folowing
-var texture = new Texture( gl, gl.RGBA );
+// you can specify a pixel format (default is gl.RGB)
+const textureRGBA = new Texture2D(gl, gl.RGBA);
 
+// you can specify a pixel type (default is gl.UNSIGNED_BYTE)
+const textureFloat = new Texture2D(gl, gl.RGB, gl.FLOAT);
+
+// you can specify a pixel internal format (default is 'format' parameter value)
+const textureInternalFloat = new Texture2D(gl, gl.RGB, gl.UNSIGNED_BYTE, gl.RGBA);
 ```
 
 
-##### Load from image, canvas or video
+## Load from image, canvas or video
 
-```JavaScript
-//You must ensure your image is loaded before send it to texture
-img.onload = function(){
-  texture.fromImage( img )
+You can set the texture data from an HTML source with the `fromImage`{language=js} function.
+
+```js
+// you must ensure your image is loaded before send it to texture
+img.onload = function () {
+  texture.fromImage(img)
 }
 
 ```
 
+## Allocate empty texture
 
-##### Bind texture
+You can allocate an empty texture with the `fromData`{language=js} function.
 
-```JavaScript
-// by default, texture is bound to the current Active texture
-texture.bind();
-
-// to bind the texture to specific unit :
-texture.bind( 3 );
+```js
+// allocate empty 128x128 texture
+texture.fromData(128, 128);
 ```
 
-##### Allocate empty texture or load it from TypedArray
+## Load from TypedArray
 
-```JavaScript
+You can also set texture data from a TypedArray with the `fromData`{language=js} function.
 
-// allocate empty texture
-// default pixel type is gl.UNSIGNED_BYTE
-texture.fromData( 128, 128 );
-
-// you can also provide a specific pixel type
-texture.fromData( 128, 128, null, gl.FLOAT );
-
+```js
 // create texture from TypedArray (4x2 8bpp)
-var texture = new Texture( gl, gl.LUMINANCE );
+var texture = new Texture(gl, gl.LUMINANCE);
 var data = new Uint8Array([
   0, 10, 20, 30
   20, 30, 40, 50
 ]);
-texture.fromData( 4, 2, data );
-
+texture.fromData(4, 2, data);
 ```
 
-##### Play with sampler options
+## Bind texture
 
-Set MIN_FILTER and MAG_FILTER in a single call. (Texture ensure MIPMAP isn't used for MAG_FILTER)
+You can bind the texture with the `bind`{language=js} function, providing a texture unit or not.
 
-```JavaScript
-
-// texture must be explicitely bound before using following methods
+```js
+// by default, the texture is bound to the current active texture
 texture.bind();
 
-// play with filtering
-// setFilter( smooth, mipmap, miplinear )
+// to bind the texture to specific unit :
+texture.bind(3);
+```
+
+## Play with sampler options
+
+### Filtering parameters
+
+Set `MIN_FILTER`{language=js} and `MAG_FILTER`{language=js} in a single call with the `setFilter`{language=js} function. (Texture2D ensures MIPMAP isn't used for MAG_FILTER)
+
+You can choose, in order :
+- to use linear filtering or not
+- to enable mipmaping or not
+- to use linear mipmapping or not
+
+```js
+// texture must be explicitely bound before using following methods
+texture.bind();
 
 // sample LINEAR (default)
-texture.setFilter( true )
+texture.setFilter(true)
 
 // sample NEAREST
-texture.setFilter( false )
+texture.setFilter(false)
 
 // sample LINEAR_MIPMAP_NEAREST
-texture.setFilter( true, true )
+texture.setFilter(true, true)
 
 // sample LINEAR_MIPMAP_LINEAR
-texture.setFilter( true, true, true )
+texture.setFilter(true, true, true)
 ```
 
-Set WRAP_S and WRAP_T
+### Wrapping parameters
 
-```JavaScript
+Set `WRAP_S`{language=js} and `WRAP_T`{language=js} with the `repeat`{language=js}, `clamp`{language=js}, `mirror`{language=js} & `wrap`{language=js} functions.
 
+```js
 // texture must be explicitely bound before using following methods
 texture.bind();
 
-// wrap REPAET
+// wrap REPEAT
 texture.repeat()
 
 // wrap CLAMP_TO_EDGE
@@ -114,6 +126,13 @@ texture.clamp()
 texture.mirror()
 
 // or manual wrap
-texture.wrap( gl.REPEAT )
+texture.wrap(gl.REPEAT)
+```
 
+## Delete the texture
+
+You can delete the webgl texture with the `dispose`{language=js} function.
+
+```js
+texture.dispose();
 ```
