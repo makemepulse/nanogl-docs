@@ -13,8 +13,6 @@ export enum TABS {
 </script>
 
 <script lang="ts" setup>
-import TabButton from './TabButton.vue';
-
 defineProps({
   selectedTab: {
     type: String,

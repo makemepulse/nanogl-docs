@@ -4,8 +4,6 @@ import { useRouter } from 'vue-router';
 
 import { fetchLibs } from './scripts/fetch.js';
 
-import UIMenu from './components/menu/UIMenu.vue';
-
 const libs = ref([]);
 libs.value = import.meta.glob('./assets/data.json', { eager: true })['./assets/data.json'].libs;
 fetchLibs();

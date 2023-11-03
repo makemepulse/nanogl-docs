@@ -11,10 +11,6 @@
 </template>
 
 <script setup>
-import Class from '../../../components/content/Class.vue';
-import Function from '../../../components/content/Function.vue';
-import NotFound from '../../../components/NotFound.vue';
-
 const props = defineProps({
   currentLib: {
     type: Object,

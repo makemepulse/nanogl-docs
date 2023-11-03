@@ -13,7 +13,7 @@ The Texture2D class provides helpers for `TEXTURE_2D`{language=js} textures :
 
 It supports any kind of pixel formats (`RGB`{language=js}, `RGBA`{language=js}, `LUMINANCE`{language=js}, etc.) and any kind of pixel type (`UNSIGNED_BYTE`{language=js}, `FLOAT`{language=js}, etc.).
 
-## Texture creation
+## Create a texture
 
 You can create a texture with the `Texture2D`{language=js} class, providing options or not.
 
@@ -60,8 +60,8 @@ You can also set texture data from a TypedArray with the `fromData`{language=js}
 
 ```js
 // create texture from TypedArray (4x2 8bpp)
-var texture = new Texture(gl, gl.LUMINANCE);
-var data = new Uint8Array([
+const texture = new Texture(gl, gl.LUMINANCE);
+const data = new Uint8Array([
   0, 10, 20, 30
   20, 30, 40, 50
 ]);
@@ -80,7 +80,13 @@ texture.bind();
 texture.bind(3);
 ```
 
-## Play with sampler options
+## Use sampler options
+
+<UICallout type="important">
+
+**Important :** The texture must be bound manually before using the filtering & wrapping methods.
+
+</UICallout>
 
 ### Filtering parameters
 

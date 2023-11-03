@@ -10,7 +10,10 @@ export default {
   theme: {
     colors: {
       transparent: "transparent",
-      black: "#111111",
+      black: {
+        DEFAULT: "#111111",
+        50: "rgba(17, 17, 17, 0.5)"
+      },
       grey: "#262626",
       white: {
         DEFAULT: "#FFFFFF",
@@ -19,7 +22,14 @@ export default {
         10: "rgba(255, 255, 255, 0.1)",
         5: "rgba(255, 255, 255, 0.05)",
       },
-      primary: "#63B0CD"
+      primary: {
+        DEFAULT: "#63B0CD",
+        25: "rgba(99, 176, 205, 0.25)",
+      },
+      important: {
+        DEFAULT: "#f87171",
+        25: "#f8717140"
+      }
     },
     spacing: () => {
       const v = {

@@ -23,8 +23,6 @@
 </template>
 
 <script setup>
-import LibItem from './LibItem.vue';
-
 const props = defineProps({
   lib: {
     type: Object,

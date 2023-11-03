@@ -5,94 +5,118 @@ meta:
   menuOrder: 1
 </route>
 
-Program
-=======
-Program class provide shader compilation and gl program linking functionality.
-It also give you convinient access to active uniforms and attributes.
+# Program
 
+The Program class provides **shader compilation** and **gl program linking** functionality.
 
-##exemple
+It also give you convenient access to **active uniforms and attributes**.
 
-##### Create a program
-``` JavaScript
-var Program = require( 'nanogl/program' );
+## Create a program
 
-// create a new Program with a given gl context
-var prg = new Program( gl )
+You can create a program with the `Program`{language=js} class, providing its code as strings. The program will be compiled on its creation.
 
-// compile program with code strings
-prg.compile( vertexCode, fragmentCode );
+```js
+import Program from "nanogl/program"
+
+// create a new Program with a given gl context,
+// the vertex shader code & the fragment shader code
+const prg = new Program(gl, vertexCode, fragmentCode);
 ```
 
-##### play with uniforms
-Once compiled, the Program object list all used uniforms and provide setter function for each one.
+You can also create the program, then compile it with the code.
 
-eg : for the following shader code `uniform vec3 uDirection;` it create a method `program.uDirection( 1, 0, 0 );`
+```js
+import Program from "nanogl/program"
 
-Note that the program must be bound manually before using uniform setters.
-> A uniform setter function support Array or TypedArray argument (`uniformNfv`)
+// create a new Program with a given gl context
+const prg = new Program(gl)
 
-> or, if not a matrix, values as arguments directly (`uniformNf`)
+// compile program with code strings
+prg.compile(vertexCode, fragmentCode);
+```
 
-> setter functions return the uniform location, thus behave like getter when invoked with no arguments.
+## Uniforms
+Once compiled, the Program object lists **all used uniforms** and provides a **setter function** for each one.
 
-``` JavaScript
-// /!\ program must be in use BEFORE uploading some uniforms
+<UICallout>
+
+**Example :** if we write `uniform vec3 uDirection;`{language=glsl} in our shader, once compiled, we can use `program.uDirection(1, 0, 0);`{language=js}
+
+</UICallout>
+
+A uniform setter function supports :
+- providing values as Array or TypedArray arguments (`uniformNfv`{language=glsl})
+- providing values as arguments directly (except for matrices) (`uniformNf`{language=glsl})
+
+<UICallout type="important">
+
+**Important :** The program must be bound manually before using uniform setters.
+
+</UICallout>
+
+```js
+// program must be in use before uploading uniforms
 prg.use();
 
 // set a mat4 uniform with a Float32Array or array
-prg.uModelViewProjection( mvpMatrix );
+prg.uModelViewProjection(mvpMatrix);
 
 // set a vec3 with separate arguments
-prg.uColor( 1.0, 1.0, 1.0 )
+prg.uColor(1.0, 1.0, 1.0)
 
-// ... or (Typed)Array
-prg.uColor( [1.0, 0.0, 1.0] )
-
-// You can also access uniform's locations to manually do those stuff
-// just call the setter without arguments.
-gl.uniform3f( prg.uColor(), 1.0, 1.0, 1.0 );
+// set a vec3 with a (Typed)Array
+prg.uColor([1.0, 0.0, 1.0])
 ```
 
-##### play with samplers
+A setter function returns the uniform location, so it can also be used like getter when invoked with no arguments.
 
-Textures/samplers work like other uniforms, but in addition it also accept nanogl Textures as arguments.
-``` JavaScript
+```js
+// call the setter without arguments to get the uniform location
+// and set the uniform values manually
+gl.uniform3f(prg.uColor(), 1.0, 1.0, 1.0);
+```
+
+## Samplers
+
+Textures/samplers work like the other uniforms, but the setter function also supports providing a nanogl <router-link to="/guide/quick-guides/texture-2d">Texture2D</router-link> argument.
+
+```js
+// program must be in use before uploading uniforms
 prg.use();
 
-// link GL_TEXTURE1 unit to uTexture ...
-prg.uTexture( 1 );
+// link GL_TEXTURE1 unit to uTexture
+prg.uTexture(1);
 
-// ... or directly provide a Texture instance
-// in this case texture is bound, and assigned to the predefined unit for this sampler
-prg.uTexture( myNanoglTexture );
+// or directly provide a Texture instance
+// in this case, the texture is bound, and assigned to the predefined unit for this sampler
+prg.uTexture(myNanoglTexture);
 
-// ... you can also get the uniforms location, and do the job manually
-gl.uniform1i( prg.uTexture(), 1 );
+// as before, you can also get the uniform location
+// and set the uniform values manually
+gl.uniform1i(prg.uTexture(), 1);
 ```
 
-##### play with attributes
+## Attributes
 
-``` JavaScript
+Once compiled, the Program object also provides a **getter function** for each attribute, which returns the attribute location.
+
+<UICallout>
+
+**Example :** if we write `attribute vec3 aPosition;`{language=glsl} in our shader, once compiled, we can use `program.aPosition();`{language=js}
+
+</UICallout>
+
+<UICallout type="important">
+
+**Important :** The program must be bound manually before using call related gl methods.
+
+</UICallout>
+
+
+```js
 // again, be sure program is in use before call related gl methods
 prg.use();
-gl.vertexAttribPointer( prg.aPosition(), 3, gl.FLOAT, ... );
-//...
 
-```
-
-
-##### glsl code of the example above
-
-```GLSL
-attribute vec3 aPosition;
-
-uniform mat4 uModelViewProjection;
-uniform vec3 uColor;
-
-uniform sampler2D uTexture;
-
-void main(void){
-  // ...
-}
+// set the attribute data using the attribute location
+gl.vertexAttribPointer(prg.aPosition(), 3, gl.FLOAT, ...);
 ```

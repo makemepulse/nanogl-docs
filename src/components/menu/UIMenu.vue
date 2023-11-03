@@ -23,9 +23,7 @@
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 
-import DocsTab from './docs/DocsTab.vue';
-import GuideTab from './guide/GuideTab.vue';
-import MenuTabs, { TABS } from './MenuTabs.vue';
+import { TABS } from './MenuTabs.vue';
 
 defineProps({
   libs: {

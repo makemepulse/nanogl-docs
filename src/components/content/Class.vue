@@ -42,8 +42,6 @@
 </template>
 
 <script setup>
-import Method from './Method.vue'
-
 defineProps({
   libClass: {
     type: Object,

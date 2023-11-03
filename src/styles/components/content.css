@@ -12,7 +12,7 @@
     @apply text-18 my-8;
   }
   p {
-    @apply text-16 my-16;
+    @apply text-16 my-4;
   }
   a {
     @apply font-medium underline text-primary;
