@@ -1,14 +1,3 @@
-<script setup>
-import LibItem from './LibItem.vue';
-
-const props = defineProps({
-  lib: {
-    type: Object,
-    required: true
-  }
-})
-</script>
-
 <template>
   <div>
     <h2 class="my-8">{{lib.name}}</h2>
@@ -32,3 +21,14 @@ const props = defineProps({
     </div>
   </div>
 </template>
+
+<script setup>
+import LibItem from './LibItem.vue';
+
+const props = defineProps({
+  lib: {
+    type: Object,
+    required: true
+  }
+})
+</script>

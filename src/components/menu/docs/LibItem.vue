@@ -1,3 +1,11 @@
+<template>
+  <RouterLink
+    :to="`/docs/${libraryName}#${type}-${itemName}`"
+    :class="{ selected: isSelected }">
+    {{ itemName }}
+  </RouterLink>
+</template>
+
 <script setup>
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
@@ -28,11 +36,3 @@ const isSelected = computed(() => {
     && currentLibrary === props.libraryName && currentItem === props.itemName && currentType === props.type;
 })
 </script>
-
-<template>
-  <RouterLink
-    :to="`/libraries/${libraryName}#${type}-${itemName}`"
-    :class="{ selected: isSelected }">
-    {{ itemName }}
-  </RouterLink>
-</template>

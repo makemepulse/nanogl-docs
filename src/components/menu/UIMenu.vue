@@ -1,28 +1,33 @@
 <template>
   <div class="fixed grid grid-cols-10 w-full h-screen pointer-events-none">
-    <div class="menu h-full overflow-auto scrollbar col-span-2 px-20 py-32 flex flex-col gap-20 pointer-events-auto bg-black">
+    <div class="menu h-full overflow-auto scrollbar col-span-2 px-20 py-32 flex flex-col gap-24 pointer-events-auto bg-black">
       <h1>
         <RouterLink class="logo opacity-100" to="/">
           nanogl
         </RouterLink>
       </h1>
-      <ArticlesMenu />
-      <LibsMenu
-        :libs="libs"
-        :selected-lib="selectedLib.name" />
-      <LibItemsMenu
-        v-if="Object.keys(selectedLib).length"
-        :lib="selectedLib" />
+      <MenuTabs :selected-tab="selectedTab" />
+      <hr class="opacity-25">
+      <div class="flex flex-col gap-20">
+        <GuideTab v-if="selectedTab === TABS.GUIDE"/>
+        <DocsTab
+          v-if="selectedTab === TABS.DOCS"
+          :libs="libs"
+          :selected-lib="selectedLib" />
+      </div>
     </div>
   </div>
 </template>
 
-<script setup>
-import LibsMenu from './LibsMenu.vue';
-import ArticlesMenu from './ArticlesMenu.vue';
-import LibItemsMenu from './LibItemsMenu.vue';
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { useRouter } from 'vue-router';
 
-const props = defineProps({
+import DocsTab from './docs/DocsTab.vue';
+import GuideTab from './guide/GuideTab.vue';
+import MenuTabs, { TABS } from './MenuTabs.vue';
+
+defineProps({
   libs: {
     type: Object,
     required: true
@@ -31,5 +36,11 @@ const props = defineProps({
     type: Object,
     required: true
   },
+})
+
+const { currentRoute } = useRouter();
+
+const selectedTab = computed(() => {
+  return currentRoute.value.path.split('/')[1];
 })
 </script>
