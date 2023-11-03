@@ -17,7 +17,7 @@ export default defineConfig({
     }),
     Markdown({
       markdownItSetup(md) {
-        md.use(Prism)
+        md.use(Prism, { highlightInlineCode: true })
       }
     }),
   ],

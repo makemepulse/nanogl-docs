@@ -12,7 +12,13 @@ export default {
       transparent: "transparent",
       black: "#111111",
       grey: "#262626",
-      white: "#FFFFFF",
+      white: {
+        DEFAULT: "#FFFFFF",
+        50: "rgba(255, 255, 255, 0.5)",
+        25: "rgba(255, 255, 255, 0.25)",
+        10: "rgba(255, 255, 255, 0.1)",
+        5: "rgba(255, 255, 255, 0.05)",
+      },
       primary: "#63B0CD"
     },
     spacing: () => {

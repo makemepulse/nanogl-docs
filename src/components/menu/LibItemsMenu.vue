@@ -13,7 +13,7 @@ const props = defineProps({
   <div>
     <h2 class="my-8">{{lib.name}}</h2>
     <div v-if="lib.classes.length">
-      <h3 class="my-4">Classes</h3>
+      <h3 class="mt-8 mb-4">Classes</h3>
       <LibItem
         v-for="libClass in lib.classes"
         :libraryName="lib.name"
@@ -22,7 +22,7 @@ const props = defineProps({
       />
     </div>
     <div v-if="lib.functions.length">
-      <h3 class="my-4">Functions</h3>
+      <h3 class="mt-8 mb-4">Functions</h3>
       <LibItem
         v-for="libFunc in lib.functions"
         :libraryName="lib.name"

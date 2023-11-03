@@ -1,6 +1,6 @@
 <template>
   <div class="fixed grid grid-cols-10 w-full h-screen pointer-events-none">
-    <div class="menu col-span-2 px-20 py-32 flex flex-col gap-20 pointer-events-auto bg-black">
+    <div class="menu h-full overflow-auto scrollbar col-span-2 px-20 py-32 flex flex-col gap-20 pointer-events-auto bg-black">
       <h1>
         <RouterLink class="logo opacity-100" to="/">
           nanogl
