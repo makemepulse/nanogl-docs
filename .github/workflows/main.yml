@@ -19,8 +19,6 @@ jobs:
         run: |
           npm install
           npm run build-docs
-        env:
-          VITE_APP_BASE_URL: ${{ vars.VITE_APP_BASE_URL }}
 
       - name: Commit and push
         uses: actions-js/push@master
