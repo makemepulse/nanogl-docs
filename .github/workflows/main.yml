@@ -18,7 +18,7 @@ jobs:
       - name: Build docs
         run: |
           npm install
-          npm run build-docs
+          npm run build-docs $VITE_APP_BASE_URL
         env:
           VITE_APP_BASE_URL: ${{ vars.VITE_APP_BASE_URL }}
 
