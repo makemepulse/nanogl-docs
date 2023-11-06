@@ -20,7 +20,7 @@ jobs:
       - name: Install and build
         run: |
           npm ci
-          npm run build
+          npm run build && cp ./dist/index.html .dist/404.html
         env:
           VITE_APP_BASE_URL: ${{ vars.VITE_APP_BASE_URL }}
 
