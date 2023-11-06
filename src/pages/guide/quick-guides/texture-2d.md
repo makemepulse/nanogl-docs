@@ -18,7 +18,7 @@ It supports any kind of pixel formats (`RGB`{language=js}, `RGBA`{language=js}, 
 You can create a texture with the `Texture2D`{language=js} class, providing options or not.
 
 ```js
-import Texture2D from "nanogl/texture-2d"
+import Texture2D from "nanogl/texture-2d";
 
 const texture = new Texture2D(gl);
 
@@ -40,7 +40,7 @@ You can set the texture data from an HTML source with the `fromImage`{language=j
 ```js
 // you must ensure your image is loaded before send it to texture
 img.onload = function () {
-  texture.fromImage(img)
+  texture.fromImage(img);
 }
 
 ```
@@ -84,7 +84,7 @@ texture.bind(3);
 
 <UICallout type="important">
 
-**Important :** The texture must be bound manually before using the filtering & wrapping methods.
+**Important :** The texture must be bound before using the filtering & wrapping methods.
 
 </UICallout>
 
@@ -98,20 +98,20 @@ You can choose, in order :
 - to use linear mipmapping or not
 
 ```js
-// texture must be explicitely bound before using following methods
+// texture must be bound before using these methods
 texture.bind();
 
 // sample LINEAR (default)
-texture.setFilter(true)
+texture.setFilter(true);
 
 // sample NEAREST
-texture.setFilter(false)
+texture.setFilter(false);
 
 // sample LINEAR_MIPMAP_NEAREST
-texture.setFilter(true, true)
+texture.setFilter(true, true);
 
 // sample LINEAR_MIPMAP_LINEAR
-texture.setFilter(true, true, true)
+texture.setFilter(true, true, true);
 ```
 
 ### Wrapping parameters
@@ -119,20 +119,20 @@ texture.setFilter(true, true, true)
 Set `WRAP_S`{language=js} and `WRAP_T`{language=js} with the `repeat`{language=js}, `clamp`{language=js}, `mirror`{language=js} & `wrap`{language=js} functions.
 
 ```js
-// texture must be explicitely bound before using following methods
+// texture must be bound before using these methods
 texture.bind();
 
 // wrap REPEAT
-texture.repeat()
+texture.repeat();
 
 // wrap CLAMP_TO_EDGE
-texture.clamp()
+texture.clamp();
 
 // wrap MIRRORED_REPEAT
-texture.mirror()
+texture.mirror();
 
 // or manual wrap
-texture.wrap(gl.REPEAT)
+texture.wrap(gl.REPEAT);
 ```
 
 ## Delete the texture
