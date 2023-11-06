@@ -5,6 +5,8 @@ import './styles/globals.css'
 import App from './App.vue'
 import routes from '~pages'
 
+console.log('env', import.meta.env.VITE_APP_BASE_URL)
+
 const router = createRouter({
   routes: [
     ...routes,
