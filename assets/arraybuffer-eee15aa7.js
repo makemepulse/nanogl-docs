@@ -1,4 +1,4 @@
-import{b as a}from"./route-block-83d24a4e.js";import{c as r,o as t,b as o}from"./index-63bd77e2.js";const n={class:"markdown-body"},f=o(`<h1>ArrayBuffer</h1><p>Manage ARRAY_BUFFER type Arraybuffers.</p><p>##exemples</p><h5>ArrayBuffer creation</h5><pre class="language-JavaScript"><code class="language-JavaScript">// create empty Arraybuffer
+import{b as a}from"./route-block-83d24a4e.js";import{c as r,o as t,b as o}from"./index-2025befb.js";const n={class:"markdown-body"},f=o(`<h1>ArrayBuffer</h1><p>Manage ARRAY_BUFFER type Arraybuffers.</p><p>##exemples</p><h5>ArrayBuffer creation</h5><pre class="language-JavaScript"><code class="language-JavaScript">// create empty Arraybuffer
 var buffer = new ArrayBuffer( gl );
 
 // you can also provide initial data and optional usage hint
