@@ -8241,6 +8241,1603 @@
         }
       ],
       "functions": []
+    },
+    {
+      "name": "nanogl",
+      "classes": [
+        {
+          "id": 2,
+          "name": "ArrayBuffer",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29",
+          "constructors": [
+            {
+              "name": "ArrayBuffer",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L41",
+              "type": "ArrayBuffer",
+              "params": [
+                {
+                  "name": "gl"
+                },
+                {
+                  "name": "data",
+                  "type": "number | BufferSource",
+                  "optional": true
+                },
+                {
+                  "name": "usage",
+                  "type": "number"
+                },
+                {
+                  "name": "glbuffer",
+                  "type": "WebGLBuffer",
+                  "optional": true
+                }
+              ]
+            }
+          ],
+          "properties": [
+            {
+              "name": "attribs",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L38",
+              "type": "AttributeDef[]"
+            },
+            {
+              "name": "buffer",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L32",
+              "type": "WebGLBuffer"
+            },
+            {
+              "name": "byteLength",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L36",
+              "type": "number"
+            },
+            {
+              "name": "gl",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L31"
+            },
+            {
+              "name": "length",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L37",
+              "type": "number"
+            },
+            {
+              "name": "stride",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L35",
+              "type": "number"
+            },
+            {
+              "name": "usage",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L34",
+              "type": "number"
+            }
+          ],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "_computeLength",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L152",
+              "type": "void"
+            },
+            {
+              "name": "attrib",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L74",
+              "comment": "Add attribute declaration for this buffer. Once attributes declared, the buffer can be linked to\nprograms attributes using ",
+              "type": "ArrayBuffer",
+              "params": [
+                {
+                  "name": "name",
+                  "type": "string",
+                  "comment": "the name of the program's attribute"
+                },
+                {
+                  "name": "size",
+                  "type": "number",
+                  "comment": "the size of the attribute (3 for a vec3)"
+                },
+                {
+                  "name": "type",
+                  "type": "number",
+                  "comment": "the type of data (GL_FLOAT, GL_SHORT etc)"
+                },
+                {
+                  "name": "normalize",
+                  "type": "boolean",
+                  "comment": "indicate if the data must be normalized",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "attribPointer",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L120",
+              "comment": "Link given program attributes to this buffer. You should first declare attributes using ",
+              "type": "void",
+              "params": [
+                {
+                  "name": "program",
+                  "comment": "the nanogl Program"
+                }
+              ]
+            },
+            {
+              "name": "bind",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L62",
+              "comment": "Bind the underlying webgl buffer.",
+              "type": "void"
+            },
+            {
+              "name": "data",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L93",
+              "comment": "Fill webgl buffer with the given data. You can also pass a uint  to allocate the buffer to the given size.",
+              "type": "void",
+              "params": [
+                {
+                  "name": "array",
+                  "type": "number | BufferSource",
+                  "comment": "the data to send to the buffer, or a size."
+                }
+              ]
+            },
+            {
+              "name": "dispose",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L148",
+              "comment": "Delete underlying webgl objects",
+              "type": "void"
+            },
+            {
+              "name": "draw",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L141",
+              "comment": "Shortcut to gl.drawArrays",
+              "type": "void",
+              "params": [
+                {
+                  "name": "mode",
+                  "type": "number",
+                  "comment": "the type of primitive to draw (GL_TRIANGLE, GL_POINTS etc)"
+                },
+                {
+                  "name": "count",
+                  "type": "number",
+                  "comment": "the number of vertices to draw (full buffer is used if omited)",
+                  "optional": true
+                },
+                {
+                  "name": "offset",
+                  "type": "number",
+                  "comment": "the position of the first vertex to draw",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "subData",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L108",
+              "comment": "Set a part of the buffer with the given data, starting a offset (in bytes)",
+              "type": "void",
+              "params": [
+                {
+                  "name": "array",
+                  "type": "BufferSource",
+                  "comment": "the data to send to buffer"
+                },
+                {
+                  "name": "offset",
+                  "type": "number",
+                  "comment": "the offset in byte where the data will be written"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 72,
+          "name": "BaseBuffer",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2",
+          "constructors": [
+            {
+              "name": "BaseBuffer",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2",
+              "type": "BaseBuffer"
+            }
+          ],
+          "properties": [],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "bind",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L4",
+              "type": "void"
+            },
+            {
+              "name": "data",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L8",
+              "type": "void",
+              "params": [
+                {
+                  "name": "array",
+                  "type": "number | BufferSource"
+                }
+              ]
+            },
+            {
+              "name": "dispose",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L6",
+              "type": "void"
+            },
+            {
+              "name": "draw",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L12",
+              "type": "void",
+              "params": [
+                {
+                  "name": "mode",
+                  "type": "number"
+                },
+                {
+                  "name": "count",
+                  "type": "number",
+                  "optional": true
+                },
+                {
+                  "name": "offset",
+                  "type": "number",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "drawLineLoop",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L44",
+              "comment": "Shortcut to gl.drawArrays( gl.LINE_LOOP, offset, count )",
+              "type": "void",
+              "params": [
+                {
+                  "name": "count",
+                  "type": "number",
+                  "comment": "the number of vertices to draw (full buffer is used if omited)",
+                  "optional": true
+                },
+                {
+                  "name": "offset",
+                  "type": "number",
+                  "comment": "the position in buffer to start from.",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "drawLineStrip",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L55",
+              "comment": "Shortcut to gl.drawArrays( gl.LINE_STRIP, offset, count )",
+              "type": "void",
+              "params": [
+                {
+                  "name": "count",
+                  "type": "number",
+                  "comment": "the number of vertices to draw (full buffer is used if omited)",
+                  "optional": true
+                },
+                {
+                  "name": "offset",
+                  "type": "number",
+                  "comment": "the position in buffer to start from.",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "drawLines",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L33",
+              "comment": "Shortcut to gl.drawArrays( gl.LINES, offset, count )",
+              "type": "void",
+              "params": [
+                {
+                  "name": "count",
+                  "type": "number",
+                  "comment": "the number of vertices to draw (full buffer is used if omited)",
+                  "optional": true
+                },
+                {
+                  "name": "offset",
+                  "type": "number",
+                  "comment": "the position in buffer to start from.",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "drawPoints",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L21",
+              "comment": "Shortcut to gl.drawArrays( gl.POINTS, offset, count )",
+              "type": "void",
+              "params": [
+                {
+                  "name": "count",
+                  "type": "number",
+                  "comment": "the number of vertices to draw (full buffer is used if omited)",
+                  "optional": true
+                },
+                {
+                  "name": "offset",
+                  "type": "number",
+                  "comment": "the position in buffer to start from.",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "drawTriangleFan",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L88",
+              "comment": "Shortcut to gl.drawArrays( gl.TRIANGLE_FAN, offset, count )",
+              "type": "void",
+              "params": [
+                {
+                  "name": "count",
+                  "type": "number",
+                  "comment": "the number of vertices to draw (full buffer is used if omited)",
+                  "optional": true
+                },
+                {
+                  "name": "offset",
+                  "type": "number",
+                  "comment": "the position in buffer to start from.",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "drawTriangleStrip",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L77",
+              "comment": "Shortcut to gl.drawArrays( gl.TRIANGLE_STRIP, offset, count )",
+              "type": "void",
+              "params": [
+                {
+                  "name": "count",
+                  "type": "number",
+                  "comment": "the number of vertices to draw (full buffer is used if omited)",
+                  "optional": true
+                },
+                {
+                  "name": "offset",
+                  "type": "number",
+                  "comment": "the position in buffer to start from.",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "drawTriangles",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L66",
+              "comment": "Shortcut to gl.drawArrays( gl.TRIANGLES, offset, count )",
+              "type": "void",
+              "params": [
+                {
+                  "name": "count",
+                  "type": "number",
+                  "comment": "the number of vertices to draw (full buffer is used if omited)",
+                  "optional": true
+                },
+                {
+                  "name": "offset",
+                  "type": "number",
+                  "comment": "the position in buffer to start from.",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "subData",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L10",
+              "type": "void",
+              "params": [
+                {
+                  "name": "array",
+                  "type": "BufferSource"
+                },
+                {
+                  "name": "offset",
+                  "type": "number"
+                }
+              ]
+            }
+          ],
+          "extends": null
+        },
+        {
+          "id": 121,
+          "name": "Attachment",
+          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L20",
+          "constructors": [
+            {
+              "name": "Attachment",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L26",
+              "type": "Attachment",
+              "params": [
+                {
+                  "name": "target"
+                }
+              ]
+            }
+          ],
+          "properties": [
+            {
+              "name": "_isTexture",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L24",
+              "type": "boolean"
+            },
+            {
+              "name": "level",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L22",
+              "type": "number"
+            },
+            {
+              "name": "target",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L23"
+            }
+          ],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "_attach",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L49",
+              "type": "void",
+              "params": [
+                {
+                  "name": "bindingPoint",
+                  "type": "number"
+                }
+              ]
+            },
+            {
+              "name": "_detach",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L58",
+              "type": "void",
+              "params": [
+                {
+                  "name": "bindingPoint",
+                  "type": "number"
+                }
+              ]
+            },
+            {
+              "name": "_resize",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L37",
+              "type": "void",
+              "params": [
+                {
+                  "name": "w",
+                  "type": "number"
+                },
+                {
+                  "name": "h",
+                  "type": "number"
+                }
+              ]
+            },
+            {
+              "name": "dispose",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L67",
+              "type": "void"
+            },
+            {
+              "name": "isTexture",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L33",
+              "type": "boolean"
+            }
+          ],
+          "extends": null
+        },
+        {
+          "id": 142,
+          "name": "Fbo",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L85",
+          "constructors": [
+            {
+              "name": "Fbo",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L97",
+              "type": "Fbo",
+              "params": [
+                {
+                  "name": "gl"
+                }
+              ]
+            }
+          ],
+          "properties": [
+            {
+              "name": "attachments",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L91",
+              "type": "Record"
+            },
+            {
+              "name": "attachmentsList",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L90",
+              "type": "Attachment[]"
+            },
+            {
+              "name": "fbo",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L88",
+              "type": "WebGLFramebuffer"
+            },
+            {
+              "name": "gl",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L87"
+            },
+            {
+              "name": "height",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L94",
+              "type": "number"
+            },
+            {
+              "name": "width",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L93",
+              "type": "number"
+            }
+          ],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "_allocate",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L252",
+              "type": "void"
+            },
+            {
+              "name": "attach",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L110",
+              "type": "Attachment",
+              "params": [
+                {
+                  "name": "bindingPoint",
+                  "type": "number"
+                },
+                {
+                  "name": "res"
+                }
+              ]
+            },
+            {
+              "name": "attachColor",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L169",
+              "comment": "Shortcut to attach texture to color attachment 0",
+              "type": "Attachment",
+              "params": [
+                {
+                  "name": "format",
+                  "type": "number",
+                  "optional": true
+                },
+                {
+                  "name": "type",
+                  "type": "number",
+                  "optional": true
+                },
+                {
+                  "name": "internal",
+                  "type": "number",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "attachDepth",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L180",
+              "comment": "shortcut to attach depth/stencil renderbuffer/texture to this FBO",
+              "type": "Attachment",
+              "params": [
+                {
+                  "name": "depth",
+                  "type": "boolean",
+                  "optional": true
+                },
+                {
+                  "name": "stencil",
+                  "type": "boolean",
+                  "optional": true
+                },
+                {
+                  "name": "useTexture",
+                  "type": "boolean",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "bind",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L209",
+              "comment": "Bind the Fbo ( simple shortcut for gl.bindFramebuffer(...) )",
+              "type": "void"
+            },
+            {
+              "name": "clear",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L217",
+              "type": "void"
+            },
+            {
+              "name": "defaultViewport",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L222",
+              "type": "void"
+            },
+            {
+              "name": "detach",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L125",
+              "type": "void",
+              "params": [
+                {
+                  "name": "bindingPoint",
+                  "type": "number"
+                }
+              ]
+            },
+            {
+              "name": "dispose",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L238",
+              "comment": "Delete all webgl objects related to this Fbo (fbo, and all attachments )",
+              "type": "void"
+            },
+            {
+              "name": "getAttachment",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L136",
+              "type": "null | Attachment",
+              "params": [
+                {
+                  "name": "bindingPoint",
+                  "type": "number"
+                }
+              ]
+            },
+            {
+              "name": "getColor",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L145",
+              "type": "null | ",
+              "params": [
+                {
+                  "name": "index",
+                  "type": "number"
+                }
+              ]
+            },
+            {
+              "name": "getColorTexture",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L151",
+              "params": [
+                {
+                  "name": "index",
+                  "type": "number"
+                }
+              ]
+            },
+            {
+              "name": "getDepth",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L158",
+              "type": "null | "
+            },
+            {
+              "name": "isValid",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L230",
+              "comment": "Check if the Fbo is valid,\nThe Fbo must be explicitely bound before calling this method",
+              "type": "boolean"
+            },
+            {
+              "name": "resize",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L198",
+              "comment": "Resize FBO attachments",
+              "type": "void",
+              "params": [
+                {
+                  "name": "w",
+                  "type": "number",
+                  "comment": "new width"
+                },
+                {
+                  "name": "h",
+                  "type": "number",
+                  "comment": "new height"
+                }
+              ]
+            }
+          ],
+          "extends": null
+        },
+        {
+          "id": 197,
+          "name": "IndexBuffer",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L18",
+          "constructors": [
+            {
+              "name": "IndexBuffer",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L28",
+              "type": "IndexBuffer",
+              "params": [
+                {
+                  "name": "gl"
+                },
+                {
+                  "name": "type",
+                  "type": "number"
+                },
+                {
+                  "name": "data",
+                  "type": "number | BufferSource",
+                  "optional": true
+                },
+                {
+                  "name": "usage",
+                  "type": "number"
+                },
+                {
+                  "name": "glbuffer",
+                  "type": "WebGLBuffer",
+                  "optional": true
+                }
+              ]
+            }
+          ],
+          "properties": [
+            {
+              "name": "buffer",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L21",
+              "type": "WebGLBuffer"
+            },
+            {
+              "name": "byteLength",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L26",
+              "type": "number"
+            },
+            {
+              "name": "gl",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L20"
+            },
+            {
+              "name": "type",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L24",
+              "type": "number"
+            },
+            {
+              "name": "typeSize",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L25",
+              "type": "number"
+            },
+            {
+              "name": "usage",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L23",
+              "type": "number"
+            }
+          ],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "bind",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L49",
+              "comment": "Bind the underlying webgl buffer.",
+              "type": "void"
+            },
+            {
+              "name": "data",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L66",
+              "comment": "Fill webgl buffer with the given data. You can also pass a uint  to allocate the buffer to the given size.",
+              "type": "void",
+              "params": [
+                {
+                  "name": "array",
+                  "type": "number | BufferSource",
+                  "comment": "the data to send to the buffer, or a size."
+                }
+              ]
+            },
+            {
+              "name": "dispose",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L89",
+              "comment": "Delete underlying webgl objects",
+              "type": "void"
+            },
+            {
+              "name": "draw",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L99",
+              "comment": "Shortcut to gl.drawArrays",
+              "type": "void",
+              "params": [
+                {
+                  "name": "mode",
+                  "type": "number",
+                  "comment": "the type of primitive to draw (GL_TRIANGLE, GL_POINTS etc)"
+                },
+                {
+                  "name": "count",
+                  "type": "number",
+                  "comment": "the number of indices to draw (full buffer is used if omited)",
+                  "optional": true
+                },
+                {
+                  "name": "offset",
+                  "type": "number",
+                  "comment": "the position of the first index to draw",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "setType",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L57",
+              "comment": "Change the type of internal type of the IndexBuffer",
+              "type": "void",
+              "params": [
+                {
+                  "name": "type",
+                  "type": "number",
+                  "comment": "the integer type of the indices (GL_UNSIGNED_BYTE, GL_UNSIGNED_INT etc)"
+                }
+              ]
+            },
+            {
+              "name": "subData",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L79",
+              "comment": "Set a part of the buffer with the given data, starting a offset (in bytes)",
+              "type": "void",
+              "params": [
+                {
+                  "name": "array",
+                  "type": "BufferSource",
+                  "comment": "the data to send to buffer"
+                },
+                {
+                  "name": "offset",
+                  "type": "number",
+                  "comment": "the offset in byte where the data will be written"
+                }
+              ]
+            }
+          ],
+          "extends": "BaseBuffer"
+        },
+        {
+          "id": 259,
+          "name": "Program",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31",
+          "comment": "Program constructor. Create gl program and shaders. You can pass optional shader code to immediatly compile shaders",
+          "constructors": [
+            {
+              "name": "Program",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L52",
+              "type": "Program",
+              "params": [
+                {
+                  "name": "gl"
+                },
+                {
+                  "name": "vert",
+                  "type": "string",
+                  "optional": true
+                },
+                {
+                  "name": "frag",
+                  "type": "string",
+                  "optional": true
+                },
+                {
+                  "name": "defs",
+                  "type": "string",
+                  "optional": true
+                }
+              ]
+            }
+          ],
+          "properties": [
+            {
+              "name": "_cuid",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L48",
+              "type": "number"
+            },
+            {
+              "name": "_uid",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L47",
+              "type": "number"
+            },
+            {
+              "name": "dyns",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L44",
+              "type": "string[]"
+            },
+            {
+              "name": "fShader",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L42",
+              "type": "WebGLShader"
+            },
+            {
+              "name": "gl",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L38"
+            },
+            {
+              "name": "program",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L40",
+              "type": "WebGLProgram"
+            },
+            {
+              "name": "ready",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L46",
+              "type": "boolean"
+            },
+            {
+              "name": "vShader",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L41",
+              "type": "WebGLShader"
+            },
+            {
+              "name": "debug",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L36",
+              "comment": "Program.debug\n  can be set to true to check and log compilation and linking errors (default to false)",
+              "type": "boolean"
+            }
+          ],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "_grabParameters",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L138",
+              "type": "void"
+            },
+            {
+              "name": "bind",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L81",
+              "type": "void"
+            },
+            {
+              "name": "compile",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L92",
+              "comment": "Compile vertex and fragment shader then link gl program\nThis method can be safely called several times.",
+              "type": "boolean",
+              "params": [
+                {
+                  "name": "vert",
+                  "type": "string",
+                  "comment": "vertex shader code"
+                },
+                {
+                  "name": "frag",
+                  "type": "string",
+                  "comment": "fragment shader code"
+                },
+                {
+                  "name": "prefix",
+                  "type": "string",
+                  "comment": "an optional string append to both fragment and vertex code",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "dispose",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L123",
+              "comment": "Delete program and shaders",
+              "type": "void"
+            },
+            {
+              "name": "use",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L74",
+              "comment": "Shortcut for gl.useProgram()\nalias program.bind()",
+              "type": "void"
+            }
+          ],
+          "extends": null
+        },
+        {
+          "id": 291,
+          "name": "RenderBuffer",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L14",
+          "constructors": [
+            {
+              "name": "RenderBuffer",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L27",
+              "type": "RenderBuffer",
+              "params": [
+                {
+                  "name": "gl"
+                },
+                {
+                  "name": "format",
+                  "type": "number"
+                },
+                {
+                  "name": "samples",
+                  "type": "number"
+                }
+              ]
+            }
+          ],
+          "properties": [
+            {
+              "name": "_uid",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L24",
+              "type": "number"
+            },
+            {
+              "name": "_valid",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L25",
+              "type": "boolean"
+            },
+            {
+              "name": "format",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L19",
+              "type": "number"
+            },
+            {
+              "name": "gl",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L16"
+            },
+            {
+              "name": "height",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L22",
+              "type": "number"
+            },
+            {
+              "name": "id",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L17",
+              "type": "WebGLRenderbuffer"
+            },
+            {
+              "name": "samples",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L18",
+              "type": "number"
+            },
+            {
+              "name": "width",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L21",
+              "type": "number"
+            }
+          ],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "_storage",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L90",
+              "type": "void"
+            },
+            {
+              "name": "allocate",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L65",
+              "comment": "check renderbuffer for  validity and allocate it if invalid.\nthis method may leave RENDERBUFFER binding point empty",
+              "type": "void"
+            },
+            {
+              "name": "bind",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L75",
+              "comment": "Bind the renderbuffer",
+              "type": "void"
+            },
+            {
+              "name": "dispose",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L83",
+              "comment": "delete the webgl renderbuffer",
+              "type": "void"
+            },
+            {
+              "name": "resize",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L53",
+              "type": "void",
+              "params": [
+                {
+                  "name": "w",
+                  "type": "number"
+                },
+                {
+                  "name": "h",
+                  "type": "number"
+                }
+              ]
+            }
+          ],
+          "extends": null
+        },
+        {
+          "id": 318,
+          "name": "Sampler",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L11",
+          "constructors": [
+            {
+              "name": "Sampler",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L17",
+              "type": "Sampler",
+              "params": [
+                {
+                  "name": "gl",
+                  "type": "WebGL2RenderingContext"
+                }
+              ]
+            }
+          ],
+          "properties": [
+            {
+              "name": "_uid",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L12",
+              "type": "number"
+            },
+            {
+              "name": "gl",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L14",
+              "type": "WebGL2RenderingContext"
+            },
+            {
+              "name": "id",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L15",
+              "type": "WebGLSampler"
+            }
+          ],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "bind",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L28",
+              "comment": "Bind the sampler",
+              "type": "void",
+              "params": [
+                {
+                  "name": "unit",
+                  "type": "number",
+                  "comment": "texture unit to on which bind the sampler",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "clamp",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L62",
+              "comment": "Set both WRAP_S and WRAP_T property to gl.CLAMP_TO_EDGE",
+              "type": "void"
+            },
+            {
+              "name": "dispose",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L36",
+              "comment": "delete the webgl sampler",
+              "type": "void"
+            },
+            {
+              "name": "mirror",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L69",
+              "comment": "Set both WRAP_S and WRAP_T property to gl.MIRRORED_REPEAT",
+              "type": "void"
+            },
+            {
+              "name": "repeat",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L55",
+              "comment": "Set both WRAP_S and WRAP_T property to gl.REPEAT",
+              "type": "void"
+            },
+            {
+              "name": "setFilter",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L46",
+              "comment": "Change the filtering parameters",
+              "type": "void",
+              "params": [
+                {
+                  "name": "smooth",
+                  "type": "boolean",
+                  "comment": "if true, use LINEAR filtering",
+                  "optional": true
+                },
+                {
+                  "name": "mipmap",
+                  "type": "boolean",
+                  "comment": "if true, enable mipmaping",
+                  "optional": true
+                },
+                {
+                  "name": "miplinear",
+                  "type": "boolean",
+                  "comment": "if true, use linear Mipmapping",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "wrap",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L77",
+              "comment": "Set both WRAP_S and WRAP_T property to the given value",
+              "type": "void",
+              "params": [
+                {
+                  "name": "wrap",
+                  "type": "number",
+                  "comment": "the wrap enum"
+                }
+              ]
+            }
+          ],
+          "extends": null
+        },
+        {
+          "id": 345,
+          "name": "Texture2D",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L15",
+          "constructors": [
+            {
+              "name": "Texture2D",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L22",
+              "type": "Texture2D",
+              "params": [
+                {
+                  "name": "gl"
+                },
+                {
+                  "name": "format",
+                  "type": "number",
+                  "optional": true
+                },
+                {
+                  "name": "type",
+                  "type": "number",
+                  "optional": true
+                },
+                {
+                  "name": "internal",
+                  "type": "number",
+                  "optional": true
+                }
+              ]
+            }
+          ],
+          "properties": [
+            {
+              "name": "_target",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L19",
+              "type": "number"
+            },
+            {
+              "name": "textureType",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L17"
+            }
+          ],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "fromData",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L50",
+              "comment": "Allocate texture to the given size, with optional data (TypedArray) and data type",
+              "type": "void",
+              "params": [
+                {
+                  "name": "width",
+                  "type": "number",
+                  "comment": "the new texture's width"
+                },
+                {
+                  "name": "height",
+                  "type": "number",
+                  "comment": "the new texture's height"
+                },
+                {
+                  "name": "data",
+                  "type": "null | ArrayBufferView",
+                  "comment": "TypedArray of texture data, can be null",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "fromImage",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L33",
+              "comment": "set texture data from html source",
+              "type": "void",
+              "params": [
+                {
+                  "name": "img",
+                  "type": "TexImageSource"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 402,
+          "name": "AbstractTexture",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L30",
+          "constructors": [
+            {
+              "name": "AbstractTexture",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L49",
+              "type": "AbstractTexture",
+              "params": [
+                {
+                  "name": "gl"
+                },
+                {
+                  "name": "format",
+                  "type": "number",
+                  "optional": true
+                },
+                {
+                  "name": "type",
+                  "type": "number",
+                  "optional": true
+                },
+                {
+                  "name": "internal",
+                  "type": "number",
+                  "optional": true
+                }
+              ]
+            }
+          ],
+          "properties": [
+            {
+              "name": "_target",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L47",
+              "type": "number"
+            },
+            {
+              "name": "_uid",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L45",
+              "type": "number"
+            },
+            {
+              "name": "format",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L41",
+              "type": "number"
+            },
+            {
+              "name": "gl",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L34"
+            },
+            {
+              "name": "height",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L39",
+              "type": "number"
+            },
+            {
+              "name": "id",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L35",
+              "type": "WebGLTexture"
+            },
+            {
+              "name": "internal",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L42",
+              "type": "number"
+            },
+            {
+              "name": "textureType",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L32",
+              "type": "TextureType"
+            },
+            {
+              "name": "type",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L43",
+              "type": "number"
+            },
+            {
+              "name": "width",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L38",
+              "type": "number"
+            }
+          ],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "bind",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L77",
+              "comment": "Bind the texture",
+              "type": "void",
+              "params": [
+                {
+                  "name": "unit",
+                  "type": "number",
+                  "comment": "optional texture unit to make active before binding",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "clamp",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L117",
+              "comment": "Set both WRAP_S and WRAP_T property to gl.CLAMP_TO_EDGE",
+              "type": "AbstractTexture"
+            },
+            {
+              "name": "dispose",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L89",
+              "comment": "delete the webgl texture",
+              "type": "void"
+            },
+            {
+              "name": "mirror",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L125",
+              "comment": "Set both WRAP_S and WRAP_T property to gl.MIRRORED_REPEAT",
+              "type": "AbstractTexture"
+            },
+            {
+              "name": "repeat",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L109",
+              "comment": "Set both WRAP_S and WRAP_T property to gl.REPEAT",
+              "type": "AbstractTexture"
+            },
+            {
+              "name": "setFilter",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L99",
+              "comment": "Change the filtering parameters",
+              "type": "AbstractTexture",
+              "params": [
+                {
+                  "name": "smooth",
+                  "type": "boolean",
+                  "comment": "if true, use LINEAR filtering",
+                  "optional": true
+                },
+                {
+                  "name": "mipmap",
+                  "type": "boolean",
+                  "comment": "if true, enable mipmaping",
+                  "optional": true
+                },
+                {
+                  "name": "miplinear",
+                  "type": "boolean",
+                  "comment": "if true, use linear Mipmapping",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "setFormat",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L65",
+              "comment": "define underlying format, internal format and data type of texture",
+              "type": "void",
+              "params": [
+                {
+                  "name": "format",
+                  "type": "number",
+                  "optional": true
+                },
+                {
+                  "name": "type",
+                  "type": "number",
+                  "optional": true
+                },
+                {
+                  "name": "internal",
+                  "type": "number",
+                  "comment": "the pixel internal format, default to the same value than 'format' parameter (which must be in webgl 1)",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "name": "wrap",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L134",
+              "comment": "Set both WRAP_S and WRAP_T property to the given value",
+              "type": "AbstractTexture",
+              "params": [
+                {
+                  "name": "wrap",
+                  "type": "number",
+                  "comment": "the wrap enum"
+                }
+              ]
+            }
+          ],
+          "extends": null
+        },
+        {
+          "id": 444,
+          "name": "TextureCube",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-cube.ts#L15",
+          "constructors": [
+            {
+              "name": "TextureCube",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-cube.ts#L22",
+              "type": "TextureCube",
+              "params": [
+                {
+                  "name": "gl"
+                },
+                {
+                  "name": "format",
+                  "type": "number",
+                  "optional": true
+                },
+                {
+                  "name": "type",
+                  "type": "number",
+                  "optional": true
+                },
+                {
+                  "name": "internal",
+                  "type": "number",
+                  "optional": true
+                }
+              ]
+            }
+          ],
+          "properties": [
+            {
+              "name": "_target",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-cube.ts#L19",
+              "type": "number"
+            },
+            {
+              "name": "textureType",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-cube.ts#L17"
+            }
+          ],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "fromImages",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-cube.ts#L31",
+              "type": "void",
+              "params": [
+                {
+                  "name": "imgs",
+                  "type": "TexImageSource[]"
+                }
+              ]
+            }
+          ],
+          "extends": "AbstractTexture"
+        }
+      ],
+      "functions": [
+        {
+          "id": 489,
+          "name": "isWebgl2",
+          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L3",
+          "params": [
+            {
+              "name": "context",
+              "type": "GLContext"
+            }
+          ]
+        },
+        {
+          "id": 502,
+          "name": "getComponentSize",
+          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/utils.ts#L21",
+          "type": "ComponentSize",
+          "params": [
+            {
+              "name": "type",
+              "type": "number"
+            }
+          ]
+        },
+        {
+          "id": 497,
+          "name": "getTextureFiltering",
+          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/utils.ts#L15",
+          "type": "GLenum",
+          "params": [
+            {
+              "name": "smooth",
+              "type": "boolean"
+            },
+            {
+              "name": "mipmap",
+              "type": "boolean"
+            },
+            {
+              "name": "miplinear",
+              "type": "boolean"
+            }
+          ]
+        },
+        {
+          "id": 494,
+          "name": "isBufferSource",
+          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/utils.ts#L2",
+          "params": [
+            {
+              "name": "val",
+              "type": "number | BufferSource"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
