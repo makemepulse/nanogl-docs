@@ -16,7 +16,7 @@ It also give you convenient access to **active uniforms and attributes**.
 You can create a program with the `Program`{language=js} class, providing its code as strings. The program will be compiled on its creation.
 
 ```js
-import Program from "nanogl/program"
+import Program from "nanogl/program";
 
 // create a new Program with a given gl context,
 // the vertex shader code & the fragment shader code
@@ -26,13 +26,21 @@ const prg = new Program(gl, vertexCode, fragmentCode);
 You can also create the program, then compile it with the code.
 
 ```js
-import Program from "nanogl/program"
+import Program from "nanogl/program";
 
 // create a new Program with a given gl context
-const prg = new Program(gl)
+const prg = new Program(gl);
 
 // compile program with code strings
 prg.compile(vertexCode, fragmentCode);
+```
+
+## Bind program
+
+You can bind the program with the `use`{language=js} function.
+
+```js
+prg.use();
 ```
 
 ## Uniforms
@@ -50,22 +58,21 @@ A uniform setter function supports :
 
 <UICallout type="important">
 
-**Important :** The program must be bound manually before using uniform setters.
+**Important :** The program must be bound before using uniform setters.
 
 </UICallout>
 
 ```js
-// program must be in use before uploading uniforms
 prg.use();
 
 // set a mat4 uniform with a Float32Array or array
 prg.uModelViewProjection(mvpMatrix);
 
 // set a vec3 with separate arguments
-prg.uColor(1.0, 1.0, 1.0)
+prg.uColor(1.0, 1.0, 1.0);
 
 // set a vec3 with a (Typed)Array
-prg.uColor([1.0, 0.0, 1.0])
+prg.uColor([1.0, 0.0, 1.0]);
 ```
 
 A setter function returns the uniform location, so it can also be used like getter when invoked with no arguments.
@@ -80,8 +87,13 @@ gl.uniform3f(prg.uColor(), 1.0, 1.0, 1.0);
 
 Textures/samplers work like the other uniforms, but the setter function also supports providing a nanogl <router-link to="/guide/quick-guides/texture-2d">Texture2D</router-link> argument.
 
+<UICallout type="important">
+
+**Important :** The program must be bound before using sampler/texture setters.
+
+</UICallout>
+
 ```js
-// program must be in use before uploading uniforms
 prg.use();
 
 // link GL_TEXTURE1 unit to uTexture
@@ -108,13 +120,12 @@ Once compiled, the Program object also provides a **getter function** for each a
 
 <UICallout type="important">
 
-**Important :** The program must be bound manually before using call related gl methods.
+**Important :** The program must be bound before using call related gl methods.
 
 </UICallout>
 
 
 ```js
-// again, be sure program is in use before call related gl methods
 prg.use();
 
 // set the attribute data using the attribute location
