@@ -1,4 +1,4 @@
-import{b as e}from"./route-block-83d24a4e.js";import{c as n,o as t,b as o}from"./index-2d8dba22.js";const r={class:"markdown-body"},c=o(`<h1>IndexBuffer</h1><p>Manage ELEMENT_ARRAY_BUFFER type IndexBuffers.</p><p>##exemples</p><h5>IndexBuffer creation</h5><pre class="language-JavaScript"><code class="language-JavaScript">// create empty IndexBuffer
+import{b as e}from"./route-block-83d24a4e.js";import{c as n,o as t,b as o}from"./index-264a812b.js";const r={class:"markdown-body"},c=o(`<h1>IndexBuffer</h1><p>Manage ELEMENT_ARRAY_BUFFER type IndexBuffers.</p><p>##exemples</p><h5>IndexBuffer creation</h5><pre class="language-JavaScript"><code class="language-JavaScript">// create empty IndexBuffer
 // initialized as UNSIGNED_SHORT / DYNAMIC_DRAW
 var buffer = new IndexBuffer( gl );
 
