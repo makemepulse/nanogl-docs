@@ -3,6 +3,13 @@ import fs from 'fs';
 const LIBS_URLS = {
     'nanogl-node': 'https://raw.githubusercontent.com/evanmartiin/nanogl-node/develop/docs/data.json',
     'nanogl-primitives-2d': 'https://raw.githubusercontent.com/evanmartiin/nanogl-primitives-2d/master/docs/data.json',
+    'nanogl-camera': 'https://raw.githubusercontent.com/evanmartiin/nanogl-camera/develop/docs/data.json',
+    'nanogl-pbr': 'https://raw.githubusercontent.com/evanmartiin/nanogl-pbr/master/docs/data.json',
+    'nanogl-pf': 'https://raw.githubusercontent.com/evanmartiin/nanogl-pf/develop/docs/data.json',
+    'nanogl-post': 'https://raw.githubusercontent.com/evanmartiin/nanogl-post/develop/docs/data.json',
+    'nanogl-state': 'https://raw.githubusercontent.com/evanmartiin/nanogl-state/develop/docs/data.json',
+    'nanogl-sync': 'https://raw.githubusercontent.com/evanmartiin/nanogl-sync/master/docs/data.json',
+    'nanogl-vao': 'https://raw.githubusercontent.com/evanmartiin/nanogl-vao/develop/docs/data.json',
 }
 
 const OUTPUT_PATH = './src/assets/data.json';
@@ -41,84 +48,92 @@ function sortLibs(libs) {
             functions: []
         };
 
-        // lib.children contains all .ts files present in the lib's /src folder
-        lib.children.forEach(file => {
-            // file.children contains all exported objects from the file
-            file.children.forEach(exported => {
-                exportedList.push({
+        const resolveExported = (exported) => {
+            exportedList.push({
+                id: exported.id,
+                name: exported.name,
+                lib: lib.name,
+            })
+
+            if (exported.kindString === 'Class') {
+                const exportedObj = {
                     id: exported.id,
                     name: exported.name,
-                    lib: lib.name,
+                    originalName: exported.originalName,
+                    source: exported.sources[0].url,
+                    comment: exported.comment?.summary?.[0]?.text,
+                    constructors: [],
+                    properties: [],
+                    accessors: [],
+                    methods: [],
+                    extends: exported.extendedTypes ? resolveTypes(exported.extendedTypes[0], lib.name) : null,
+                }
+
+                // exported.children contains all objects coming from the class (constructor, properties, methods, ...)
+                exported.children?.forEach(child => {
+                    if (child.inheritedFrom) {
+                        return;
+                    }
+
+                    const childObj = {
+                        name: child.kindString === 'Constructor' ? exported.name : child.name,
+                        source: child.sources ? child.sources[0].url : exportedObj.source, // Some classes don't have a constructor, so we use the class source instead of the constructor one
+                    }
+
+                    if (child.kindString === 'Constructor') {
+                        resolveMethod(childObj, child.signatures[0], lib.name);
+                        exportedObj.constructors.push(childObj);
+                    } else if (child.kindString === 'Property') {
+                        childObj.comment = child.comment?.summary[0]?.text;
+                        childObj.defaultValue = child.comment?.blockTags?.[0]?.content[0]?.text;
+                        childObj.type = resolveTypes(child.type, lib.name);
+                        exportedObj.properties.push(childObj);
+                    } else if (child.kindString === 'Accessor') {
+                        if (child.setSignature) {
+                            childObj.setter = {
+                                name: `set ${child.name}`,
+                            };
+                            resolveMethod(childObj.setter, child.setSignature, lib.name);
+                        }
+                        if (child.getSignature) {
+                            childObj.getter = {
+                                name: `get ${child.name}`,
+                            };
+                            resolveMethod(childObj.getter, child.getSignature, lib.name);
+                        }
+                        exportedObj.accessors.push(childObj);
+                    } else if (child.kindString === 'Method') {
+                        resolveMethod(childObj, child.signatures[0], lib.name);
+                        exportedObj.methods.push(childObj);
+                    }
                 })
 
-                if (exported.kindString === 'Class') {
-                    const exportedObj = {
-                        id: exported.id,
-                        name: exported.name,
-                        originalName: exported.originalName,
-                        source: exported.sources[0].url,
-                        comment: exported.comment?.summary[0].text,
-                        constructors: [],
-                        properties: [],
-                        accessors: [],
-                        methods: [],
-                        extends: exported.extendedTypes ? resolveTypes(exported.extendedTypes[0], lib.name) : null,
-                    }
-    
-                    // exported.children contains all objects coming from the class (constructor, properties, methods, ...)
-                    exported.children?.forEach(child => {
-                        if (child.inheritedFrom) {
-                            return;
-                        }
-    
-                        const childObj = {
-                            name: child.kindString === 'Constructor' ? exported.name : child.name,
-                            source: child.sources[0].url,
-                        }
-    
-                        if (child.kindString === 'Constructor') {
-                            resolveMethod(childObj, child.signatures[0], lib.name);
-                            exportedObj.constructors.push(childObj);
-                        } else if (child.kindString === 'Property') {
-                            childObj.comment = child.comment?.summary[0]?.text;
-                            childObj.defaultValue = child.comment?.blockTags[0]?.content[0]?.text;
-                            childObj.type = resolveTypes(child.type, lib.name);
-                            exportedObj.properties.push(childObj);
-                        } else if (child.kindString === 'Accessor') {
-                            if (child.setSignature) {
-                                childObj.setter = {
-                                    name: `set ${child.name}`,
-                                };
-                                resolveMethod(childObj.setter, child.setSignature, lib.name);
-                            }
-                            if (child.getSignature) {
-                                childObj.getter = {
-                                    name: `get ${child.name}`,
-                                };
-                                resolveMethod(childObj.getter, child.getSignature, lib.name);
-                            }
-                            exportedObj.accessors.push(childObj);
-                        } else if (child.kindString === 'Method') {
-                            resolveMethod(childObj, child.signatures[0], lib.name);
-                            exportedObj.methods.push(childObj);
-                        }
-                    })
+                libObj.classes.push(exportedObj);
+            } else if (exported.kindString === 'Function') {
+                const functionObj = {};
+                resolveMethod(functionObj, exported.signatures[0], lib.name);
 
-                    libObj.classes.push(exportedObj);
-                } else if (exported.kindString === 'Function') {
-                    const functionObj = {};
-                    resolveMethod(functionObj, exported.signatures[0], lib.name);
-
-                    const exportedObj = {
-                        id: exported.id,
-                        name: exported.name,
-                        source: exported.sources[0].url,
-                        ...functionObj,
-                    }
-                    libObj.functions.push(exportedObj);
+                const exportedObj = {
+                    id: exported.id,
+                    name: exported.name,
+                    source: exported.sources[0].url,
+                    ...functionObj,
                 }
+                libObj.functions.push(exportedObj);
+            }
+        }
+
+        // If a lib contains only 1 file, it's categorized as a 'Project' and its direct children are the exported objects
+        // If a lib contains more than 1 file, its direct children are the files containing the exported objects
+        if (lib.kindString === 'Project') {
+            // lib.children contains all .ts files present in the lib's /src folder
+            lib.children.forEach(resolveExported);
+        } else {
+            lib.children.forEach(file => {
+                // file.children contains all exported objects from the file
+                file.children.forEach(resolveExported);
             })
-        })
+        }
 
         data.libs.push(libObj);
     });

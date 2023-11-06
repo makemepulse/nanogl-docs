@@ -6,9 +6,11 @@
       :lib-class="libClass" />
     <div v-if="currentLib.functions.length > 0">
       <h1>Functions</h1>
-      <Function
-        v-for="libFunc in currentLib.functions"
-        :lib-function="libFunc" />
+      <div class="space-y-32">
+        <Function
+          v-for="libFunc in currentLib.functions"
+          :lib-function="libFunc" />
+      </div>
     </div>
   </div>
 </template>
