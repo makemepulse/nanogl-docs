@@ -1,0 +1,16 @@
+/* @font-face declarations */
+
+/* @layer base */
+@import "tailwindcss/base";
+@import "./base/root.css";
+
+/* @layer components */
+@import "tailwindcss/components";
+@import "./components/menu.css";
+@import "./components/content.css";
+
+/* @layer utilities */
+@import "tailwindcss/utilities";
+@import "./utilities/typography.css";
+@import "./utilities/prism.css";
+@import "./utilities/scrollbar.css";

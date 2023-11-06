@@ -17,5 +17,4 @@ export async function fetchLibs() {
             libs.push(response)
         });
     }
-    console.log(libs);
 }

@@ -1,0 +1,40 @@
+.content {
+  h1 {
+    @apply text-40 mb-20;
+  }
+  h2 {
+    @apply text-30 my-16;
+  }
+  h3 {
+    @apply text-24 my-8;
+  }
+  h4 {
+    @apply text-18 my-8;
+  }
+  p {
+    @apply text-16 my-4;
+  }
+  a {
+    @apply font-medium underline text-primary;
+  }
+  hr {
+    @apply opacity-25;
+  }
+  ul {
+    @apply pl-16 my-16;
+  }
+  li {
+    @apply my-4;
+
+    &::before {
+      @apply inline-block mr-12 w-8 h-px align-middle bg-white;
+      content: "";
+    }
+  }
+  pre[class*=language-] {
+    @apply my-16;
+  }
+  .markdown-body {
+    @apply pt-32;
+  }
+}

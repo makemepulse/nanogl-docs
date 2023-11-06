@@ -23,6 +23,3 @@ defineProps({
     <p v-for="param in method.params">{{ param.name }}<span v-if="param.optional"> (optional) </span><span v-if="param.type"> : {{ param.type }}</span> - {{ param.comment }}</p>
   </i>
 </template>
-
-<style scoped>
-</style>
