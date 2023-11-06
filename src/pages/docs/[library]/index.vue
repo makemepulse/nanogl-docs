@@ -4,9 +4,12 @@
     <Class
       v-for="libClass in currentLib.classes"
       :lib-class="libClass" />
-    <Function
-      v-for="libFunc in currentLib.functions"
-      :lib-function="libFunc" />
+    <div v-if="currentLib.functions.length > 0">
+      <h1>Functions</h1>
+      <Function
+        v-for="libFunc in currentLib.functions"
+        :lib-function="libFunc" />
+    </div>
   </div>
 </template>
 
