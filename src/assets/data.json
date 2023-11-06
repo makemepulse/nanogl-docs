@@ -291,11 +291,30 @@
           "id": 65,
           "name": "decomposeMat4",
           "source": "https://github.com/evanmartiin/nanogl-node/blob/6ad0ba4/src/math.ts#L12",
-          "constructors": [],
-          "properties": [],
-          "accessors": [],
-          "methods": [],
-          "extends": null
+          "comment": "Retrieve position, rotation and scale from a given 4*4 matrix.",
+          "type": "void",
+          "params": [
+            {
+              "name": "m4",
+              "type": "mat4",
+              "comment": "4*4 matrix to decompose."
+            },
+            {
+              "name": "p",
+              "type": "vec3",
+              "comment": "Position vector."
+            },
+            {
+              "name": "q",
+              "type": "quat",
+              "comment": "Rotation quaternion."
+            },
+            {
+              "name": "s",
+              "type": "vec3",
+              "comment": "Scale vector."
+            }
+          ]
         }
       ]
     },
