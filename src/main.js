@@ -25,7 +25,7 @@ const router = createRouter({
       redirect: '/guide/quick-guides/texture-2d',
     },
   ],
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.VITE_APP_BASE_URL || '/'),
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
       return { el: to.hash }
