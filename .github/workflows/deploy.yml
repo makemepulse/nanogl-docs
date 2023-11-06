@@ -21,6 +21,8 @@ jobs:
         run: |
           npm ci
           npm run build
+        env:
+          VITE_APP_BASE_URL: ${{ env.VITE_APP_BASE_URL }}
 
       - name: Deploy to GHPages
         uses: JamesIves/github-pages-deploy-action@v4
