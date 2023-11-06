@@ -1,1 +1,0 @@
-import{b as t}from"./route-block-83d24a4e.js";import{o as s,c as n,d as e}from"./index-a7fac469.js";const c={class:"markdown-body"},a=e("h1",null,"Creating a scene",-1),r=e("p",null,"Lorem ipsum",-1),_=[a,r],i={__name:"creating-a-scene",setup(m,{expose:o}){return o({frontmatter:{}}),(l,p)=>(s(),n("div",c,_))}};typeof t=="function"&&t(i);export{i as default};
