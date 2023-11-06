@@ -10,6 +10,7 @@ const LIBS_URLS = {
     'nanogl-state': 'https://raw.githubusercontent.com/evanmartiin/nanogl-state/develop/docs/data.json',
     'nanogl-sync': 'https://raw.githubusercontent.com/evanmartiin/nanogl-sync/master/docs/data.json',
     'nanogl-vao': 'https://raw.githubusercontent.com/evanmartiin/nanogl-vao/develop/docs/data.json',
+    'nanogl': 'https://raw.githubusercontent.com/evanmartiin/nanogl/develop/docs/data.json',
 }
 
 const OUTPUT_PATH = './src/assets/data.json';
