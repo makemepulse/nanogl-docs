@@ -1,6 +1,6 @@
 <template>
   <RouterLink
-    :to="`/docs/${libraryName}#${type}-${itemName}`"
+    :to="`/docs/${libraryName}/${type}/${itemName}`"
     :class="{ selected: isSelected }">
     {{ itemName }}
   </RouterLink>
@@ -8,9 +8,12 @@
 
 <script setup>
 import { computed } from 'vue';
-import { useRouter } from 'vue-router';
 
 const props = defineProps({
+  type: {
+    type: String,
+    required: true
+  },
   libraryName: {
     type: String,
     required: true
@@ -19,20 +22,17 @@ const props = defineProps({
     type: String,
     required: true
   },
-  type: {
+  selectedType: {
     type: String,
-    required: true
+    required: false
+  },
+  selectedItemName: {
+    type: String,
+    required: false
   }
 })
 
-const { currentRoute } = useRouter();
-
 const isSelected = computed(() => {
-  const currentLibrary = currentRoute.value.params.library;
-  const currentItem = currentRoute.value.hash.replace(/#\w+-/, '');
-  const currentType = currentRoute.value.hash.replace(/#/, '').split('-')[0];
-
-  return !!currentLibrary && !!currentItem && !!currentType
-    && currentLibrary === props.libraryName && currentItem === props.itemName && currentType === props.type;
+  return props.type === props.selectedType && props.itemName === props.selectedItemName;
 })
 </script>

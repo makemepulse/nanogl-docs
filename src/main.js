@@ -18,7 +18,7 @@ const router = createRouter({
     {
       path: '/docs',
       name: 'docs',
-      redirect: '/docs/nanogl-node',
+      redirect: '/docs/nanogl',
     },
     {
       path: '/guide/getting-started',

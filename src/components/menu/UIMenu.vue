@@ -13,7 +13,9 @@
         <DocsTab
           v-if="selectedTab === TABS.DOCS"
           :libs="libs"
-          :selected-lib="selectedLib" />
+          :selected-lib="selectedLib"
+          :selected-type="selectedType"
+          :selected-item="selectedItem" />
       </div>
     </div>
   </div>
@@ -32,7 +34,15 @@ defineProps({
   },
   selectedLib: {
     type: Object,
-    required: true
+    required: false
+  },
+  selectedType: {
+    type: String,
+    required: false
+  },
+  selectedItem: {
+    type: Object,
+    required: false
   },
 })
 

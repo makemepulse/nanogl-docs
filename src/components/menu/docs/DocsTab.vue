@@ -1,10 +1,12 @@
 <template>
   <LibsMenu
     :libs="libs"
-    :selected-lib="selectedLib.name" />
+    :selected-lib="selectedLib?.name" />
   <LibItemsMenu
-    v-if="Object.keys(selectedLib).length"
-    :lib="selectedLib" />
+    v-if="!!selectedLib"
+    :lib="selectedLib"
+    :selected-type="selectedType"
+    :selected-item="selectedItem" />
 </template>
 
 <script setup>
@@ -15,7 +17,15 @@ const props = defineProps({
   },
   selectedLib: {
     type: Object,
-    required: true
+    required: false
+  },
+  selectedType: {
+    type: String,
+    required: false
+  },
+  selectedItem: {
+    type: Object,
+    required: false
   },
 })
 </script>
