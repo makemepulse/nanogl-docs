@@ -9041,12 +9041,12 @@
           "id": 74,
           "name": "Circle",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle.ts#L9",
-          "comment": "Create a circle geometry",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle.ts#L9",
+          "comment": "Creates a circle geometry",
           "constructors": [
             {
               "name": "Circle",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle.ts#L11",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle.ts#L11",
               "type": "Circle",
               "params": [
                 {
@@ -9069,7 +9069,7 @@
           "methods": [
             {
               "name": "render",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle.ts#L41",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle.ts#L41",
               "comment": "Render the circle",
               "type": "void"
             }
@@ -9080,12 +9080,12 @@
           "id": 2,
           "name": "CircleOutline",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle-outline.ts#L9",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle-outline.ts#L9",
           "comment": "Create an outlined circle geometry",
           "constructors": [
             {
               "name": "CircleOutline",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle-outline.ts#L12",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle-outline.ts#L12",
               "type": "CircleOutline",
               "params": [
                 {
@@ -9112,7 +9112,7 @@
           "methods": [
             {
               "name": "render",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/circle-outline.ts#L51",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle-outline.ts#L51",
               "comment": "Render the outlined circle",
               "type": "void"
             }
@@ -9123,12 +9123,12 @@
           "id": 219,
           "name": "Rect",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect.ts#L16",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect.ts#L16",
           "comment": "Create a rectangle geometry",
           "constructors": [
             {
               "name": "Rect",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect.ts#L18",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect.ts#L18",
               "type": "Rect",
               "params": [
                 {
@@ -9159,7 +9159,7 @@
           "methods": [
             {
               "name": "render",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect.ts#L39",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect.ts#L39",
               "comment": "Render the rectangle",
               "type": "void"
             }
@@ -9170,12 +9170,12 @@
           "id": 145,
           "name": "RectOutline",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect-outline.ts#L15",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect-outline.ts#L15",
           "comment": "Create an outlined rectangle geometry",
           "constructors": [
             {
               "name": "RectOutline",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect-outline.ts#L17",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect-outline.ts#L17",
               "type": "RectOutline",
               "params": [
                 {
@@ -9210,7 +9210,7 @@
           "methods": [
             {
               "name": "render",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/df87856/src/rect-outline.ts#L56",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect-outline.ts#L56",
               "comment": "Render the outlined rectangle",
               "type": "void"
             }
