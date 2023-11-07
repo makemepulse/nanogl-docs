@@ -1,16 +1,16 @@
 import fs from 'fs';
 
 const LIBS_URLS = {
-    'nanogl-node': 'https://raw.githubusercontent.com/evanmartiin/nanogl-node/develop/docs/data.json',
-    'nanogl-primitives-2d': 'https://raw.githubusercontent.com/evanmartiin/nanogl-primitives-2d/master/docs/data.json',
+    'nanogl': 'https://raw.githubusercontent.com/evanmartiin/nanogl/develop/docs/data.json',
     'nanogl-camera': 'https://raw.githubusercontent.com/evanmartiin/nanogl-camera/develop/docs/data.json',
-    'nanogl-pbr': 'https://raw.githubusercontent.com/evanmartiin/nanogl-pbr/master/docs/data.json',
+    'nanogl-node': 'https://raw.githubusercontent.com/evanmartiin/nanogl-node/develop/docs/data.json',
+    'nanogl-pbr': 'https://raw.githubusercontent.com/evanmartiin/nanogl-pbr/next/3.0/docs/data.json',
     'nanogl-pf': 'https://raw.githubusercontent.com/evanmartiin/nanogl-pf/develop/docs/data.json',
     'nanogl-post': 'https://raw.githubusercontent.com/evanmartiin/nanogl-post/develop/docs/data.json',
+    'nanogl-primitives-2d': 'https://raw.githubusercontent.com/evanmartiin/nanogl-primitives-2d/master/docs/data.json',
     'nanogl-state': 'https://raw.githubusercontent.com/evanmartiin/nanogl-state/develop/docs/data.json',
     'nanogl-sync': 'https://raw.githubusercontent.com/evanmartiin/nanogl-sync/master/docs/data.json',
     'nanogl-vao': 'https://raw.githubusercontent.com/evanmartiin/nanogl-vao/develop/docs/data.json',
-    'nanogl': 'https://raw.githubusercontent.com/evanmartiin/nanogl/develop/docs/data.json',
 }
 
 const OUTPUT_PATH = './src/assets/data.json';
