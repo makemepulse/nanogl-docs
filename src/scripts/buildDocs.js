@@ -1,17 +1,17 @@
 import fs from 'fs';
 
-const LIBS_URLS = {
-    'nanogl-node': 'https://raw.githubusercontent.com/evanmartiin/nanogl-node/develop/docs/data.json',
-    'nanogl-primitives-2d': 'https://raw.githubusercontent.com/evanmartiin/nanogl-primitives-2d/master/docs/data.json',
-    'nanogl-camera': 'https://raw.githubusercontent.com/evanmartiin/nanogl-camera/develop/docs/data.json',
-    'nanogl-pbr': 'https://raw.githubusercontent.com/evanmartiin/nanogl-pbr/master/docs/data.json',
-    'nanogl-pf': 'https://raw.githubusercontent.com/evanmartiin/nanogl-pf/develop/docs/data.json',
-    'nanogl-post': 'https://raw.githubusercontent.com/evanmartiin/nanogl-post/develop/docs/data.json',
-    'nanogl-state': 'https://raw.githubusercontent.com/evanmartiin/nanogl-state/develop/docs/data.json',
-    'nanogl-sync': 'https://raw.githubusercontent.com/evanmartiin/nanogl-sync/master/docs/data.json',
-    'nanogl-vao': 'https://raw.githubusercontent.com/evanmartiin/nanogl-vao/develop/docs/data.json',
-    'nanogl': 'https://raw.githubusercontent.com/evanmartiin/nanogl/develop/docs/data.json',
-}
+const LIBS_URLS = [
+    { name: 'nanogl', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl/develop/docs/data.json' },
+    { name: 'nanogl-camera', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-camera/develop/docs/data.json' },
+    { name: 'nanogl-node', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-node/develop/docs/data.json' },
+    { name: 'nanogl-primitives-2d', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-primitives-2d/master/docs/data.json' },
+    { name: 'nanogl-pbr', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-pbr/next/3.0/docs/data.json' },
+    { name: 'nanogl-pf', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-pf/develop/docs/data.json' },
+    { name: 'nanogl-post', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-post/develop/docs/data.json' },
+    { name: 'nanogl-state', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-state/develop/docs/data.json' },
+    { name: 'nanogl-sync', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-sync/master/docs/data.json' },
+    { name: 'nanogl-vao', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-vao/develop/docs/data.json' },
+]
 
 const OUTPUT_PATH = './src/assets/data.json';
 
@@ -21,7 +21,7 @@ const exportedList = [];
 // Fetch all 'data.json' files from libs
 async function fetchLibs() {
     const libs = [];
-    for (const [lib, url] of Object.entries(LIBS_URLS)) {
+    for (const { name, url} of LIBS_URLS) {
         await fetch(url, {
             method: 'GET',
             headers: {
@@ -149,7 +149,7 @@ function createJson(data) {
             console.log("An error occured while writing JSON Object to File.");
             return console.log(err);
         }
-     
+
         console.log("JSON file has been saved.");
     });
 }
