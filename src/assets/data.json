@@ -9221,6 +9221,192 @@
       "functions": []
     },
     {
+      "name": "nanogl-primitives-2d",
+      "classes": [
+        {
+          "id": 74,
+          "name": "Circle",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle.ts#L9",
+          "comment": "Creates a circle geometry",
+          "constructors": [
+            {
+              "name": "Circle",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle.ts#L11",
+              "type": "Circle",
+              "params": [
+                {
+                  "name": "gl",
+                  "type": "GLContext"
+                },
+                {
+                  "name": "radius",
+                  "type": "number"
+                },
+                {
+                  "name": "segs",
+                  "type": "number"
+                }
+              ]
+            }
+          ],
+          "properties": [],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "render",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle.ts#L41",
+              "comment": "Render the circle",
+              "type": "void"
+            }
+          ],
+          "extends": "ArrayBuffer"
+        },
+        {
+          "id": 2,
+          "name": "CircleOutline",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle-outline.ts#L9",
+          "comment": "Create an outlined circle geometry",
+          "constructors": [
+            {
+              "name": "CircleOutline",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle-outline.ts#L12",
+              "type": "CircleOutline",
+              "params": [
+                {
+                  "name": "gl",
+                  "type": "GLContext"
+                },
+                {
+                  "name": "radius",
+                  "type": "number"
+                },
+                {
+                  "name": "segs",
+                  "type": "number"
+                },
+                {
+                  "name": "thickness",
+                  "type": "number"
+                }
+              ]
+            }
+          ],
+          "properties": [],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "render",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle-outline.ts#L51",
+              "comment": "Render the outlined circle",
+              "type": "void"
+            }
+          ],
+          "extends": "ArrayBuffer"
+        },
+        {
+          "id": 219,
+          "name": "Rect",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect.ts#L16",
+          "comment": "Create a rectangle geometry",
+          "constructors": [
+            {
+              "name": "Rect",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect.ts#L18",
+              "type": "Rect",
+              "params": [
+                {
+                  "name": "gl",
+                  "type": "GLContext"
+                },
+                {
+                  "name": "x",
+                  "type": "number"
+                },
+                {
+                  "name": "y",
+                  "type": "number"
+                },
+                {
+                  "name": "w",
+                  "type": "number"
+                },
+                {
+                  "name": "h",
+                  "type": "number"
+                }
+              ]
+            }
+          ],
+          "properties": [],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "render",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect.ts#L39",
+              "comment": "Render the rectangle",
+              "type": "void"
+            }
+          ],
+          "extends": "ArrayBuffer"
+        },
+        {
+          "id": 145,
+          "name": "RectOutline",
+          "originalName": "default",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect-outline.ts#L15",
+          "comment": "Create an outlined rectangle geometry",
+          "constructors": [
+            {
+              "name": "RectOutline",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect-outline.ts#L17",
+              "type": "RectOutline",
+              "params": [
+                {
+                  "name": "gl",
+                  "type": "GLContext"
+                },
+                {
+                  "name": "x",
+                  "type": "number"
+                },
+                {
+                  "name": "y",
+                  "type": "number"
+                },
+                {
+                  "name": "w",
+                  "type": "number"
+                },
+                {
+                  "name": "h",
+                  "type": "number"
+                },
+                {
+                  "name": "thickness",
+                  "type": "number"
+                }
+              ]
+            }
+          ],
+          "properties": [],
+          "accessors": [],
+          "methods": [
+            {
+              "name": "render",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect-outline.ts#L56",
+              "comment": "Render the outlined rectangle",
+              "type": "void"
+            }
+          ],
+          "extends": "ArrayBuffer"
+        }
+      ],
+      "functions": []
+    },
+    {
       "name": "nanogl-state",
       "classes": [
         {
