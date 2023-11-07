@@ -10,19 +10,8 @@
   </div>
 </template>
 
-<script setup>
-const props = defineProps({
-  currentLib: {
-    type: Object,
-    required: false
-  },
-  currentType: {
-    type: String,
-    required: false
-  },
-  currentItem: {
-    type: Object,
-    required: false
-  }
-})
+<script setup lang="ts">
+import { useStore } from '@lib/store';
+
+const { currentLib, currentType, currentItem } = useStore();
 </script>

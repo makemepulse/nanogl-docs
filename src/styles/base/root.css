@@ -9,6 +9,6 @@
   }
 
   html, body {
-    @apply text-white bg-grey;
+    @apply text-white bg-black;
   }
 }

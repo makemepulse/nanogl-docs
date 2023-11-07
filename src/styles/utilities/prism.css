@@ -7,5 +7,5 @@ pre[class*=language-] {
 }
 
 .callout code[class*=language-], :not(pre)>code[class*=language-], pre[class*=language-] {
-  @apply bg-black-50;
+  @apply bg-grey-50;
 }

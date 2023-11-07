@@ -34,7 +34,4 @@
   pre[class*=language-] {
     @apply my-16;
   }
-  .markdown-body {
-    @apply pt-32;
-  }
 }

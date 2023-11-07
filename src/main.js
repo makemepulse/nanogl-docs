@@ -11,14 +11,14 @@ const router = createRouter({
   routes: [
     ...routes,
     {
-      path: '/guide',
-      name: 'guide',
+      path: '/',
+      name: 'homepage',
       redirect: '/guide/getting-started/installation',
     },
     {
-      path: '/docs',
-      name: 'docs',
-      redirect: '/docs/nanogl',
+      path: '/guide',
+      name: 'guide',
+      redirect: '/guide/getting-started/installation',
     },
     {
       path: '/guide/getting-started',
