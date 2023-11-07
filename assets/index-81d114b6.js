@@ -1,0 +1,1 @@
+import{o as n,h as o,i as r,_ as c}from"./index-b778b0a5.js";const s={__name:"index",props:{currentLib:{type:Object,required:!0}},setup(e){return(_,u)=>{const t=c;return e.currentLib?r("",!0):(n(),o(t,{key:0}))}}};export{s as default};
