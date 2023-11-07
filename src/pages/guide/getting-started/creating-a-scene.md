@@ -5,6 +5,8 @@ meta:
   menuOrder: 1
 </route>
 
+[[toc]]
+
 # Creating a scene
 
 Lorem ipsum

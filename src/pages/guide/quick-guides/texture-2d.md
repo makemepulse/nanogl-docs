@@ -5,6 +5,8 @@ meta:
   menuOrder: 0
 </route>
 
+[[toc]]
+
 # Texture2D
 
 The Texture2D class provides helpers for `TEXTURE_2D`{language=js} textures :
@@ -13,7 +15,7 @@ The Texture2D class provides helpers for `TEXTURE_2D`{language=js} textures :
 
 It supports any kind of pixel formats (`RGB`{language=js}, `RGBA`{language=js}, `LUMINANCE`{language=js}, etc.) and any kind of pixel type (`UNSIGNED_BYTE`{language=js}, `FLOAT`{language=js}, etc.).
 
-## Create a texture
+## Create a texture {#create}
 
 You can create a texture with the `Texture2D`{language=js} class, providing options or not.
 
@@ -33,7 +35,7 @@ const textureInternalFloat = new Texture2D(gl, gl.RGB, gl.UNSIGNED_BYTE, gl.RGBA
 ```
 
 
-## Load from image, canvas or video
+## Load from image, canvas or video {#load-from-html}
 
 You can set the texture data from an HTML source with the `fromImage`{language=js} function.
 
@@ -80,7 +82,7 @@ texture.bind();
 texture.bind(3);
 ```
 
-## Use sampler options
+## Use sampler options {#sampler-options}
 
 <UICallout type="important">
 
@@ -135,7 +137,7 @@ texture.mirror();
 texture.wrap(gl.REPEAT);
 ```
 
-## Delete the texture
+## Delete the texture {#delete}
 
 You can delete the webgl texture with the `dispose`{language=js} function.
 

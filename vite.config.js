@@ -2,7 +2,10 @@ import { defineConfig, loadEnv } from 'vite'
 
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
-import Prism from 'markdown-it-prism'
+import MdToC from 'markdown-it-table-of-contents'
+import MdPrism from 'markdown-it-prism'
+import MdAttrs from 'markdown-it-attrs'
+import MdAnchor from 'markdown-it-anchor'
 import Markdown from 'unplugin-vue-markdown/vite'
 import Components from 'unplugin-vue-components/vite'
 
@@ -21,7 +24,10 @@ export default defineConfig(({ mode }) => {
       }),
       Markdown({
         markdownItSetup(md) {
-          md.use(Prism, { highlightInlineCode: true })
+          md.use(MdPrism, { highlightInlineCode: true })
+          md.use(MdAttrs)
+          md.use(MdAnchor.default)
+          md.use(MdToC)
         }
       }),
       Components({

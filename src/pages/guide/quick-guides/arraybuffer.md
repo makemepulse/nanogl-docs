@@ -5,6 +5,8 @@ meta:
   menuOrder: 3
 </route>
 
+[[toc]]
+
 # ArrayBuffer
 
 The ArrayBuffer class provides helpers for `ARRAY_BUFFER`{language=js} type buffers :
@@ -12,7 +14,7 @@ The ArrayBuffer class provides helpers for `ARRAY_BUFFER`{language=js} type buff
   - handling attributes
   - drawing commands
 
-## Create an arraybuffer
+## Create an arraybuffer {#create}
 
 You can create an arraybuffer with the `ArrayBuffer`{language=js} class, providing options or not.
 
@@ -29,7 +31,7 @@ const bufferData = new ArrayBuffer(gl, data);
 const bufferHint = new ArrayBuffer(gl, data, gl.DYNAMIC_DRAW);
 ```
 
-## Populate buffer
+## Populate buffer {#populate}
 
 You can set the arraybuffer data from a TypedArray with the `data`{language=js} function. You can also pass a uint to allocate the buffer size instead.
 
@@ -120,7 +122,7 @@ You can also use the `draw`{language=js} function, choosing the type of primitiv
 buffer.draw(gl.TRIANGLES, count, offset)
 ```
 
-## Delete the arraybuffer
+## Delete the arraybuffer {#delete}
 
 You can delete the webgl buffer with the `dispose`{language=js} function.
 

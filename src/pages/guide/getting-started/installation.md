@@ -5,13 +5,15 @@ meta:
   menuOrder: 0
 </route>
 
+[[toc]]
+
 # Installation
 
 You can use nanogl in any Javascript project.
 
-## Setup nanogl in your project
+## Setup nanogl in your project {#setup}
 
-### Install with a package manager
+### Install with a package manager {#package-manager}
 
 The easiest way to install nanogl is with a package manager.
 You will need to install [Node.js](https://nodejs.org/en) or [Yarn](https://yarnpkg.com/), then you can run the corresponding line :
@@ -30,7 +32,7 @@ You can then import what you need like this :
 import Program from "nanogl/program"
 ```
 
-### Use the source files
+### Use the source files {#source-files}
 
 <!-- TODO : vérifier si on garde ça + s'il y a d'autres méthodes -->
 

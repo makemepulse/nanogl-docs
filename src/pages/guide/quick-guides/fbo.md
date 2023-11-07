@@ -5,6 +5,8 @@ meta:
   menuOrder: 2
 </route>
 
+[[toc]]
+
 # Fbo
 
 The Fbo class manages **framebuffers creation** with :
@@ -15,7 +17,7 @@ The Fbo class manages **framebuffers creation** with :
 
 It supports any kind of pixel formats (`RGB`{language=js}, `RGBA`{language=js}, `LUMINANCE`{language=js}, etc.) and any kind of pixel type (`UNSIGNED_BYTE`{language=js}, `FLOAT`{language=js}, etc.).
 
-## Create an FBO
+## Create an FBO {#create}
 
 You can create an FBO with the `Fbo`{language=js} class, providing the gl context.
 
@@ -182,7 +184,7 @@ fbo.defaultViewport();
 fbo.clear();
 ```
 
-## Delete the FBO
+## Delete the FBO {#delete}
 
 You can delete the webgl objects related to this FBO with the `dispose`{language=js} function.
 

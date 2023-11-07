@@ -5,13 +5,15 @@ meta:
   menuOrder: 1
 </route>
 
+[[toc]]
+
 # Program
 
 The Program class provides **shader compilation** and **gl program linking** functionality.
 
 It also give you convenient access to **active uniforms and attributes**.
 
-## Create a program
+## Create a program {#create}
 
 You can create a program with the `Program`{language=js} class, providing its code as strings. The program will be compiled on its creation.
 

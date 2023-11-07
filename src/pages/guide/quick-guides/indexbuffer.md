@@ -5,6 +5,8 @@ meta:
   menuOrder: 4
 </route>
 
+[[toc]]
+
 # IndexBuffer
 
 The IndexBuffer class provides helpers for `ELEMENT_ARRAY_BUFFER`{language=js} type buffers :
@@ -12,7 +14,7 @@ The IndexBuffer class provides helpers for `ELEMENT_ARRAY_BUFFER`{language=js} t
   - changing type
   - drawing commands
 
-## Create an indexbuffer
+## Create an indexbuffer {#create}
 
 You can create an indexbuffer with the `IndexBuffer`{language=js} class, providing options or not.
 
@@ -36,7 +38,7 @@ const bufferData = new IndexBuffer(gl, gl.UNSIGNED_BYTE, data);
 const bufferHint = new IndexBuffer(gl, gl.UNSIGNED_BYTE, data, gl.DYNAMIC_DRAW);
 ```
 
-## Set data type
+## Set data type {#set-type}
 
 Change the type of the indexbuffer data with the `setType`{language=js} function.
 
@@ -45,7 +47,7 @@ Change the type of the indexbuffer data with the `setType`{language=js} function
 buffer.setType(gl.UNSIGNED_INT);
 ```
 
-## Populate Buffer
+## Populate Buffer {#populate}
 
 You can set the indexbuffer data from a TypedArray with the `data`{language=js} function. You can also pass a uint to allocate the buffer size instead.
 
@@ -104,7 +106,7 @@ You can also use the `draw`{language=js} function, choosing the type of primitiv
 buffer.draw(gl.TRIANGLES, count, offset)
 ```
 
-## Delete the indexbuffer
+## Delete the indexbuffer {#delete}
 
 You can delete the webgl buffer with the `dispose`{language=js} function.
 
