@@ -10,7 +10,7 @@ init();
     <MainMenu />
     <div class="grid grid-cols-10 mt-menu">
       <SideMenu />
-      <div class="content col-span-8 col-start-3">
+      <div class="content col-span-8 col-start-3 relative">
         <RouterView />
       </div>
     </div>

@@ -3,9 +3,11 @@ import { computed, ref } from "vue";
 
 import { APILib } from "@lib/apiData";
 import { GuideSection } from "@lib/guideData";
+import { examplesData } from "./exampleData";
 
 const libsData = ref<APILib[]>([]);
 const guideList = ref<GuideSection[]>([]);
+const examplesList = ref([]);
 
 export function useStore() {
   const router = useRouter();
@@ -38,6 +40,12 @@ export function useStore() {
     }, {} as { [key: string]: GuideSection });
 
     guideList.value = Object.values(guideRoutes).sort((a, b) => a.name.localeCompare(b.name));
+
+    examplesList.value = Object.entries(examplesData).map(([category, examples]) => {
+      return examples.map(example => {
+        return { ...example, category }
+      })
+    }).flat();
   }
 
   const currentSection = computed(() => {
@@ -67,6 +75,11 @@ export function useStore() {
     return items.find(item => item.name === itemName) || null;
   })
 
+  const currentExample = computed(() => {
+    const example = examplesList.value.find(example => example.id === router.currentRoute.value.params.example);
+    return example || null;
+  })
+
   return {
     init,
     libsData,
@@ -75,5 +88,6 @@ export function useStore() {
     currentType,
     currentItem,
     currentSection,
+    currentExample,
   }
 }
