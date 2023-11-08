@@ -1,0 +1,1 @@
+import{f as s,u as a,h as n,o,i as c,c as r,d as _,t as u,j as i}from"./index-5dcb3d0b.js";const p={key:1},k=s({__name:"index",setup(l){const{currentLib:e}=a();return(m,d)=>{const t=i;return n(e)?(o(),r("div",p,[_("h1",null,u(n(e).name),1)])):(o(),c(t,{key:0}))}}});export{k as default};
