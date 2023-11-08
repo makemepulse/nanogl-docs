@@ -4,6 +4,7 @@
       <div class="flex flex-col gap-20">
         <GuideMenu v-if="currentSection === SECTIONS.GUIDE" />
         <APIMenu v-if="currentSection === SECTIONS.API" />
+        <ExamplesMenu v-if="currentSection === SECTIONS.EXAMPLES" />
       </div>
     </div>
   </div>
