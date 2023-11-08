@@ -15,6 +15,7 @@
     "markdown-it-prism": "^2.3.0",
     "markdown-it-table-of-contents": "^0.6.0",
     "unplugin-vue-markdown": "^0.24.3",
+    "vite-svg-loader": "^4.0.0",
     "vue": "^3.2.45",
     "vue-router": "^4.2.5"
   },

@@ -1,5 +1,5 @@
 <template>
-  <div :id="`class-${libClass.name}`" class="py-32">
+  <div :id="`class-${libClass.name}`">
     <p v-if="libClass.extends">{{ libClass.extends }} →</p>
     <h1>{{ libClass.name }}<span v-if="libClass.source.length"> - <a :href="libClass.source" target="_blank">source</a></span></h1>
     <p>{{ libClass.comment }}</p>
@@ -51,7 +51,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 defineProps({
   libClass: {
     type: Object,

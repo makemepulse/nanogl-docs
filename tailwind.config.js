@@ -9,12 +9,16 @@ export default {
   ],
   theme: {
     colors: {
+      current: 'currentColor',
       transparent: "transparent",
       black: {
         DEFAULT: "#111111",
         50: "rgba(17, 17, 17, 0.5)"
       },
-      grey: "#262626",
+      grey: {
+        DEFAULT: "#262626",
+        50: "rgba(38, 38, 38, 0.5)"
+      },
       white: {
         DEFAULT: "#FFFFFF",
         50: "rgba(255, 255, 255, 0.5)",
