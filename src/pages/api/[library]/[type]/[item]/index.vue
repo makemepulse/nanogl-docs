@@ -1,6 +1,6 @@
 <template>
   <NotFound v-if="!currentLib || !currentType || !currentItem" />
-  <div v-else>
+  <div v-else class="page-body-toc">
     <Class
       v-if="currentType === 'classes'"
       :lib-class="currentItem" />

@@ -1,37 +1,57 @@
 .content {
-  h1 {
-    @apply text-40 mb-20 scroll-mt-80;
-  }
-  h2 {
-    @apply text-30 my-16 scroll-mt-80;
-  }
-  h3 {
-    @apply text-24 my-8 scroll-mt-72;
-  }
-  h4 {
-    @apply text-18 my-8 scroll-mt-72;
-  }
-  p {
-    @apply text-16 my-4 scroll-mt-68;
-  }
-  a:not(.custom-link) {
-    @apply font-medium underline text-primary;
-  }
-  hr {
-    @apply opacity-25;
-  }
-  ul {
-    @apply pl-16 my-16;
-  }
-  li {
-    @apply my-4;
+  .page-body,
+  .markdown-body .content-wrapper,
+  .page-body-toc .content-wrapper {
+    h1 {
+      @apply text-40 mb-20 scroll-mt-80;
+    }
+    h2 {
+      @apply text-30 my-16 scroll-mt-80;
+    }
+    h3 {
+      @apply text-24 my-8 scroll-mt-72;
+    }
+    h4 {
+      @apply text-18 my-8 scroll-mt-72;
+    }
+    p {
+      @apply text-16 my-4 scroll-mt-68;
+    }
+    a:not(.custom-link) {
+      @apply font-medium underline text-primary;
+    }
+    hr {
+      @apply opacity-25;
+    }
+    ul {
+      @apply pl-16 my-16;
+    }
+    li {
+      @apply my-4;
 
-    &::before {
-      @apply inline-block mr-12 w-8 h-px align-middle bg-white;
-      content: "";
+      &::before {
+        @apply inline-block mr-12 w-8 h-px align-middle bg-white;
+        content: "";
+      }
+    }
+    pre[class*=language-] {
+      @apply my-16;
     }
   }
-  pre[class*=language-] {
-    @apply my-16;
+
+  .markdown-body, .page-body-toc {
+    @apply grid grid-cols-8;
+
+    .content-wrapper {
+      @apply col-span-6 px-20 py-32;
+    }
+
+    .toc-wrapper {
+      @apply col-span-2 col-start-7 sticky top-menu h-full-menu px-20 py-32 overflow-auto scrollbar;
+    }
+  }
+
+  .page-body {
+    @apply py-32 pl-20 pr-40;
   }
 }

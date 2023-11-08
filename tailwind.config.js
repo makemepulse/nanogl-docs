@@ -54,6 +54,8 @@ export default {
         68: rem(68),
         "1/2em": ".5em",
         em: "1em",
+        menu: rem(64),
+        'full-menu': 'calc(100vh - theme(spacing.menu))'
       };
       for (let i = 0; i <= 50; i++) {
         v[`${i * 8}`] = rem(i * 8);

@@ -5,8 +5,16 @@ meta:
   menuOrder: 1
 </route>
 
-[[toc]]
+<div class="content-wrapper">
 
 # Creating a scene
 
 Lorem ipsum
+
+</div>
+
+<div class="toc-wrapper">
+
+[[toc]]
+
+</div>

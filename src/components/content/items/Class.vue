@@ -1,18 +1,18 @@
 <template>
-  <div :id="`class-${libClass.name}`">
+  <div class="content-wrapper" :id="`class-${libClass.name}`">
     <p v-if="libClass.extends">{{ libClass.extends }} →</p>
-    <h1>{{ libClass.name }}<span v-if="libClass.source.length"> - <a :href="libClass.source" target="_blank">source</a></span></h1>
+    <h1 id="introduction">{{ libClass.name }}<span v-if="libClass.source.length"> - <a :href="libClass.source" target="_blank">source</a></span></h1>
     <p>{{ libClass.comment }}</p>
     <div v-if="libClass.constructors.length">
       <hr>
-      <h2>Constructor</h2>
+      <h2 id="constructor">Constructor</h2>
       <div class="space-y-32">
         <Method v-for="constructor in libClass.constructors" :method="constructor" :isConstructor="true" />
       </div>
     </div>
     <div v-if="libClass.properties.length">
       <hr>
-      <h2>Properties</h2>
+      <h2 id="properties">Properties</h2>
       <div class="space-y-32">
         <div v-for="property in libClass.properties">
           <h4>{{ property.name }}<span v-if="property.type"> : {{ property.type }} </span><span v-if="property.source?.length"> - <a :href="property.source" target="_blank">source</a></span></h4>
@@ -23,7 +23,7 @@
     </div>
     <div v-if="libClass.accessors.length">
       <hr>
-      <h2>Accessors</h2>
+      <h2 id="accessors">Accessors</h2>
       <div class="space-y-32">
         <div v-for="accessor in libClass.accessors">
           <h4>{{ accessor.name }}<span v-if="accessor.source?.length"> - <a :href="accessor.source" target="_blank">source</a></span></h4>
@@ -43,10 +43,32 @@
     </div>
     <div v-if="libClass.methods.length">
       <hr>
-      <h2>Methods</h2>
+      <h2 id="methods">Methods</h2>
       <div class="space-y-32">
         <Method v-for="method in libClass.methods" :method="method" />
       </div>
+    </div>
+  </div>
+  <div class="toc-wrapper">
+    <div class="toc">
+      <h2>Summary</h2>
+      <ul>
+        <li>
+          <a href="#introduction">Introduction</a>
+        </li>
+        <li v-if="libClass.constructors.length">
+          <a href="#constructor">Constructor</a>
+        </li>
+        <li v-if="libClass.properties.length">
+          <a href="#properties">Properties</a>
+        </li>
+        <li v-if="libClass.accessors.length">
+          <a href="#accessors">Accessors</a>
+        </li>
+        <li v-if="libClass.methods.length">
+          <a href="#methods">Methods</a>
+        </li>
+      </ul>
     </div>
   </div>
 </template>

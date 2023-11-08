@@ -5,7 +5,7 @@ meta:
   menuOrder: 1
 </route>
 
-[[toc]]
+<div class="content-wrapper">
 
 # Program
 
@@ -133,3 +133,11 @@ prg.use();
 // set the attribute data using the attribute location
 gl.vertexAttribPointer(prg.aPosition(), 3, gl.FLOAT, ...);
 ```
+
+</div>
+
+<div class="toc-wrapper">
+
+[[toc]]
+
+</div>
