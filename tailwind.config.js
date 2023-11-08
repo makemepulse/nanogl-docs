@@ -13,12 +13,14 @@ export default {
       transparent: "transparent",
       black: {
         DEFAULT: "#111111",
-        50: "rgba(17, 17, 17, 0.5)"
+        50: "rgba(17, 17, 17, 0.5)",
+        30: "rgba(17, 17, 17, 0.3)",
       },
       grey: {
         DEFAULT: "#262626",
         50: "rgba(38, 38, 38, 0.5)"
       },
+      'light-grey': '#303030',
       white: {
         DEFAULT: "#FFFFFF",
         50: "rgba(255, 255, 255, 0.5)",
@@ -29,6 +31,7 @@ export default {
       primary: {
         DEFAULT: "#63B0CD",
         25: "rgba(99, 176, 205, 0.25)",
+        5: "rgba(99, 176, 205, 0.05)",
       },
       important: {
         DEFAULT: "#f87171",

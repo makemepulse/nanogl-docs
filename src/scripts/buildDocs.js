@@ -1,16 +1,56 @@
 import fs from 'fs';
 
 const LIBS_URLS = [
-    { name: 'nanogl', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl/develop/docs/data.json' },
-    { name: 'nanogl-camera', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-camera/develop/docs/data.json' },
-    { name: 'nanogl-node', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-node/develop/docs/data.json' },
-    { name: 'nanogl-primitives-2d', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-primitives-2d/master/docs/data.json' },
-    { name: 'nanogl-pbr', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-pbr/next/3.0/docs/data.json' },
-    { name: 'nanogl-pf', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-pf/develop/docs/data.json' },
-    { name: 'nanogl-post', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-post/develop/docs/data.json' },
-    { name: 'nanogl-state', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-state/develop/docs/data.json' },
-    { name: 'nanogl-sync', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-sync/master/docs/data.json' },
-    { name: 'nanogl-vao', url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-vao/develop/docs/data.json' },
+    {
+        name: 'nanogl',
+        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl/develop/docs/data.json',
+        description: 'WebGL micro framework'
+    },
+    {
+        name: 'nanogl-camera',
+        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-camera/develop/docs/data.json',
+        description: 'Cameras for nanogl'
+    },
+    {
+        name: 'nanogl-node',
+        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-node/develop/docs/data.json',
+        description: 'Handle nested objects transform in 3D space'
+    },
+    {
+        name: 'nanogl-primitives-2d',
+        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-primitives-2d/master/docs/data.json',
+        description: 'Basic 2D primitives for nanogl'
+    },
+    {
+        name: 'nanogl-pbr',
+        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-pbr/next/3.0/docs/data.json',
+        description: 'Physically based rendering materials for nanogl'
+    },
+    {
+        name: 'nanogl-pf',
+        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-pf/develop/docs/data.json',
+        description: 'Provide pixel format related capabilities'
+    },
+    {
+        name: 'nanogl-post',
+        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-post/develop/docs/data.json',
+        description: 'Post-processing for nanogl'
+    },
+    {
+        name: 'nanogl-state',
+        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-state/develop/docs/data.json',
+        description: 'Efficient webgl state management'
+    },
+    {
+        name: 'nanogl-sync',
+        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-sync/master/docs/data.json',
+        description: 'WebGLSync for nanogl'
+    },
+    {
+        name: 'nanogl-vao',
+        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-vao/develop/docs/data.json',
+        description: 'OES_vertex_array_object extension support for nanogl'
+    },
 ]
 
 const OUTPUT_PATH = './src/assets/data.json';
@@ -21,7 +61,7 @@ const exportedList = [];
 // Fetch all 'data.json' files from libs
 async function fetchLibs() {
     const libs = [];
-    for (const { name, url } of LIBS_URLS) {
+    for (const { name, url, description } of LIBS_URLS) {
         await fetch(url, {
             method: 'GET',
             headers: {
@@ -30,7 +70,7 @@ async function fetchLibs() {
         })
         .then(response => response.json())
         .then(response => {
-            libs.push(response)
+            libs.push({ ...response, description })
         });
     }
     sortLibs(libs);
@@ -45,8 +85,9 @@ function sortLibs(libs) {
     libs.forEach(lib => {
         const libObj = {
             name: lib.name,
+            description: lib.description,
             classes: [],
-            functions: []
+            functions: [],
         };
 
         const resolveExported = (exported) => {

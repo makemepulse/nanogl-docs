@@ -14,7 +14,7 @@
   p {
     @apply text-16 my-4 scroll-mt-68;
   }
-  a {
+  a:not(.custom-link) {
     @apply font-medium underline text-primary;
   }
   hr {
