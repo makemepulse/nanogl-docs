@@ -48,6 +48,7 @@ export default {
         18: rem(18),
         20: rem(20),
         30: rem(30),
+        68: rem(68),
         "1/2em": ".5em",
         em: "1em",
       };

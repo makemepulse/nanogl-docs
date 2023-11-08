@@ -1,18 +1,18 @@
 .content {
   h1 {
-    @apply text-40 mb-20;
+    @apply text-40 mb-20 scroll-mt-80;
   }
   h2 {
-    @apply text-30 my-16;
+    @apply text-30 my-16 scroll-mt-80;
   }
   h3 {
-    @apply text-24 my-8;
+    @apply text-24 my-8 scroll-mt-72;
   }
   h4 {
-    @apply text-18 my-8;
+    @apply text-18 my-8 scroll-mt-72;
   }
   p {
-    @apply text-16 my-4;
+    @apply text-16 my-4 scroll-mt-68;
   }
   a {
     @apply font-medium underline text-primary;
