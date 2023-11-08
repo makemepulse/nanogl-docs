@@ -1,0 +1,1 @@
+import{o,c as t,d as e}from"./index-911575b9.js";const n={viewBox:"0 0 15 15"},s=e("path",{d:"m1.414 5.657 7.071 7.07-1.414 1.415L0 7.071z"},null,-1),c=e("path",{d:"m14.142 7.071-7.07 7.071-1.415-1.414 7.071-7.071z"},null,-1),r=[s,c];function a(d,_){return o(),t("svg",n,r)}const h={render:a};export{h as default,a as render};
