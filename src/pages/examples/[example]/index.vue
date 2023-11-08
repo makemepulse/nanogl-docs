@@ -7,7 +7,7 @@
     <iframe
       class="absolute top-0 left-0 w-full h-[calc(100vh-4rem)] z-0"
       allow="autoplay"
-      :src="`../examples/${currentExample.src}`"
+      :src="`/examples/${currentExample.src}`"
     ></iframe>
   </div>
 </template>
