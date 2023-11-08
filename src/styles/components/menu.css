@@ -1,4 +1,4 @@
-.menu {
+.menu, .toc {
   h1 {
     @apply text-32;
   }
@@ -21,5 +21,11 @@
     &.selected {
       @apply text-primary opacity-100;
     }
+  }
+}
+
+.toc {
+  li li {
+    @apply pl-16;
   }
 }

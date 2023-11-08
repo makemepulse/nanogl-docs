@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed top-0 left-0 w-screen h-64 z-10 bg-grey">
+  <div class="fixed top-0 left-0 w-screen h-menu z-10 bg-grey">
     <div class="h-full w-full max-w-screen-2xl mx-auto px-20 flex items-center justify-between">
       <h1 class="text-32">
         <RouterLink class="logo opacity-100" to="/">

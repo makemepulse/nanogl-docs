@@ -5,7 +5,7 @@ meta:
   menuOrder: 0
 </route>
 
-[[toc]]
+<div class="content-wrapper">
 
 # Texture2D
 
@@ -144,3 +144,11 @@ You can delete the webgl texture with the `dispose`{language=js} function.
 ```js
 texture.dispose();
 ```
+
+</div>
+
+<div class="toc-wrapper">
+
+[[toc]]
+
+</div>

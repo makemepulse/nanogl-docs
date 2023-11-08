@@ -5,7 +5,7 @@ meta:
   menuOrder: 0
 </route>
 
-[[toc]]
+<div class="content-wrapper">
 
 # Installation
 
@@ -64,3 +64,11 @@ You can also install some nanogl libraries for useful features :
 ### Other libraries
 
 The [gl-matrix](https://glmatrix.net/) package is also useful for vector & matrix math.
+
+</div>
+
+<div class="toc-wrapper">
+
+[[toc]]
+
+</div>

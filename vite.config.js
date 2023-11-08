@@ -37,7 +37,11 @@ export default defineConfig(({ mode }) => {
           md.use(MdPrism, { highlightInlineCode: true })
           md.use(MdAttrs)
           md.use(MdAnchor.default)
-          md.use(MdToC)
+          md.use(MdToC, {
+            containerClass: 'toc',
+            includeLevel: [2, 3, 4],
+            containerHeaderHtml: '<h2 class="my-8">Summary</h2>',
+          })
         }
       }),
       Components({

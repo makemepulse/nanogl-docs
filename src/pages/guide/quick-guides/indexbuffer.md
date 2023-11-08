@@ -5,7 +5,7 @@ meta:
   menuOrder: 4
 </route>
 
-[[toc]]
+<div class="content-wrapper">
 
 # IndexBuffer
 
@@ -113,3 +113,11 @@ You can delete the webgl buffer with the `dispose`{language=js} function.
 ```js
 buffer.dispose();
 ```
+
+</div>
+
+<div class="toc-wrapper">
+
+[[toc]]
+
+</div>

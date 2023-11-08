@@ -2,6 +2,7 @@
   "libs": [
     {
       "name": "nanogl",
+      "description": "WebGL micro framework",
       "classes": [
         {
           "id": 2,
@@ -1599,6 +1600,7 @@
     },
     {
       "name": "nanogl-camera",
+      "description": "Cameras for nanogl",
       "classes": [
         {
           "id": 9,
@@ -2087,6 +2089,7 @@
     },
     {
       "name": "nanogl-node",
+      "description": "Handle nested objects transform in 3D space",
       "classes": [
         {
           "id": 2,
@@ -2405,6 +2408,7 @@
     },
     {
       "name": "nanogl-primitives-2d",
+      "description": "Basic 2D primitives for nanogl",
       "classes": [
         {
           "id": 74,
@@ -2591,6 +2595,7 @@
     },
     {
       "name": "nanogl-pbr",
+      "description": "Physically based rendering materials for nanogl",
       "classes": [
         {
           "id": 5,
@@ -7214,6 +7219,7 @@
     },
     {
       "name": "nanogl-pf",
+      "description": "Provide pixel format related capabilities",
       "classes": [
         {
           "id": 6,
@@ -7438,6 +7444,7 @@
     },
     {
       "name": "nanogl-post",
+      "description": "Post-processing for nanogl",
       "classes": [
         {
           "id": 6,
@@ -9222,6 +9229,7 @@
     },
     {
       "name": "nanogl-state",
+      "description": "Efficient webgl state management",
       "classes": [
         {
           "id": 2,
@@ -10023,6 +10031,7 @@
     },
     {
       "name": "nanogl-sync",
+      "description": "WebGLSync for nanogl",
       "classes": [
         {
           "id": 1,
@@ -10160,6 +10169,7 @@
     },
     {
       "name": "nanogl-vao",
+      "description": "OES_vertex_array_object extension support for nanogl",
       "classes": [
         {
           "id": 1,
