@@ -5,7 +5,7 @@ meta:
   menuOrder: 2
 </route>
 
-[[toc]]
+<div class="content-wrapper">
 
 # Fbo
 
@@ -191,3 +191,11 @@ You can delete the webgl objects related to this FBO with the `dispose`{language
 ```js
 fbo.dispose();
 ```
+
+</div>
+
+<div class="toc-wrapper">
+
+[[toc]]
+
+</div>
