@@ -1,14 +1,38 @@
 <template>
   <div :id="`method-${method.name}`">
-    <h4>
-      {{ method.name }}(<span v-if="method.params"><span v-for="param, index in method.params">{{ param.name }}<span v-if="param.optional">?</span>: {{ param.type }}<span v-if="index + 1 < method.params.length">, </span></span></span>)
-      <span v-if="method.type && !isConstructor"> : {{ method.type }} </span>
-      <span v-if="method.source?.length"> - <a :href="method.source" target="_blank">source</a></span>
-    </h4>
-    <p>{{ method.comment }}</p>
-    <i v-if="method.params">
-      <p v-for="param in method.params">{{ param.name }}<span v-if="param.optional"> (optional) </span><span v-if="param.type"> : {{ param.type }}</span> - {{ param.comment }}</p>
-    </i>
+    <pre class="language-ts flex">
+      <code class="language-ts flex flex-wrap">
+        <span class="token function">{{ method.name }}</span>
+        <span class="token punctuation">(</span>
+        <template v-for="param, index in method.params">
+          <span class="token param">{{ param.name }}</span>
+          <span v-if="param.optional" class="token boolean">?</span>
+          <span v-if="param.type" class="flex w-fit">
+            <span class="token punctuation">:</span><span class="token type"> {{ param.type }}</span>
+          </span>
+          <span v-if="index + 1 < method.params.length" class="token punctuation">, </span>
+        </template>
+        <span class="token punctuation">)</span>
+        <span v-if="method.type && !isConstructor" class="flex">
+          <span class="token punctuation"> : </span>
+          <span class="token type">{{ method.type }}</span>
+        </span>
+      </code>
+    </pre>
+    <p v-if="method.comment" class="my-16">{{ method.comment }}</p>
+    <div v-if="method.params" class="my-16">
+      <h2 v-if="isFullPage" :id="`method-${method.name}-params`">Parameters</h2>
+      <h4 v-else>Parameters</h4>
+      <div class="space-y-16">
+        <Variable
+          v-for="param in method.params"
+          :name="param.name"
+          :type="param.type"
+          :optional="param.optional"
+          :comment="param.comment"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -19,6 +43,11 @@ defineProps({
     required: true
   },
   isConstructor: {
+    type: Boolean,
+    required: false,
+    default: false
+  },
+  isFullPage: {
     type: Boolean,
     required: false,
     default: false
