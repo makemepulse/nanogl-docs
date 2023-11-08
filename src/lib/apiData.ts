@@ -43,6 +43,7 @@ export type APIFunction = {
 
 export type APILib = {
   name: string;
+  description: string;
   classes: APIClass[];
   functions: APIFunction[];
 }
