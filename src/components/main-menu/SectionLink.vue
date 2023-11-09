@@ -24,7 +24,7 @@
     </RouterLink>
     <div
       v-if="isHovered && subMenu"
-      class="absolute top-full pt-4 left-1/2 -translate-x-1/2 w-fit"
+      class="absolute top-full pt-4 -right-16 w-fit"
     >
       <div class="flex flex-col bg-light-grey rounded-md p-4">
         <RouterLink

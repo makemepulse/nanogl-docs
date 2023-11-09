@@ -18,7 +18,11 @@
       @apply text-16 my-4 scroll-mt-68;
     }
     a:not(.custom-link) {
-      @apply font-medium underline text-primary;
+      @apply relative font-medium text-primary;
+
+      &:hover {
+        background-image: linear-gradient(transparent calc(100% - 2px), theme('colors.primary.DEFAULT') 100%);
+      }
     }
     hr {
       @apply opacity-25;
