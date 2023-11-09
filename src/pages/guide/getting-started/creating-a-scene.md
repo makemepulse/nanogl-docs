@@ -189,38 +189,12 @@ const fragmentShader = `
 const prg = new Program(gl, vertexShader, fragmentShader);
 ```
 
-## Create the node
-
-Before we draw the shape, maybe we'd like for it to have a specific position, rotation or scale. To setup these transform values, we can use a [Node](../../api/nanogl/classes/Node).
-
-This Node will provide us some helpers to set these values, and will allow us to get the corresponding matrix.
-
-```js
-// ...
-
-import Node from "nanogl-node";
-
-// ...
-
-const node = new Node();
-
-// set position with x = 1 & y = -1
-node.position.set([1, -1, 0]);
-// set the scale to 2
-node.setScale(2);
-// rotate by 45deg on the x axis
-node.rotateX(45 * (Math.PI / 180.0)); // rotation is in radians
-// update world matrix after the changes
-node.updateWorldMatrix();
-```
-
 ## Draw the shape
 
 Finally, let's create a render function and call it.
 
 - First, we need to set the viewport size & clear the viewport.
 - Then we'll update the camera world matrix & view projection matrix.
-- Then we can get the model view projection matrix.
 - Then we'll update the program uniforms.
 - And finally we can link the shape buffer to the program, and draw the triangle.
 
@@ -230,8 +204,6 @@ Finally, let's create a render function and call it.
 import { mat4 } from 'gl-matrix'
 
 // ...
-
-const M4 = mat4.create();
 
 const render = () => {
   // set viewport size
@@ -244,16 +216,13 @@ const render = () => {
   camera.updateWorldMatrix();
   camera.updateViewProjectionMatrix(size.width, size.height);
 
-  // get model view projection matrix from camera with node world matrix
-  camera.modelViewProjectionMatrix(M4, node._wmatrix);
-
   // bind program
   prg.use();
   // update program uniforms
-  prg.program.uMVP(M4);
+  prg.uMVP(camera._viewProj);
 
   // link the shape buffer to the program, and draw
-  shape.attribPointer(this.prg);
+  shape.attribPointer(prg);
   shape.drawTriangles();
 }
 
@@ -343,21 +312,7 @@ const fragmentShader = `
 
 const prg = new Program(gl, vertexShader, fragmentShader);
 
-// --NODE--
-
-const node = new Node();
-// set position with x = 1 & y = -1
-node.position.set([1, -1, 0]);
-// set the scale to 2
-node.setScale(2);
-// rotate by 45deg on the x axis
-node.rotateX(45 * (Math.PI / 180.0)); // rotation is in radians
-// update world matrix after the changes
-node.updateWorldMatrix();
-
 // --RENDER--
-
-const M4 = mat4.create();
 
 const render = () => {
   // set viewport size
@@ -370,16 +325,13 @@ const render = () => {
   camera.updateWorldMatrix();
   camera.updateViewProjectionMatrix(size.width, size.height);
 
-  // get model view projection matrix from camera with node world matrix
-  camera.modelViewProjectionMatrix(M4, node._wmatrix);
-
   // bind program
   prg.use();
   // update program uniforms
-  prg.program.uMVP(M4);
+  prg.uMVP(camera._viewProj);
 
   // link the shape buffer to the program, and draw
-  shape.attribPointer(this.prg);
+  shape.attribPointer(prg);
   shape.drawTriangles();
 }
 
