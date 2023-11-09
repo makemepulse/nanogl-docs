@@ -1,20 +1,27 @@
+import { Example } from '@examples/utils/example';
+import SimpleQuad from "@examples/simple-quad";
+import Clearcoat from "@examples/clearcoat";
+import Unlit from "@examples/unlit";
+import OutlinedCircle from '@examples/outlined-circle';
+
 export enum ExampleCategory {
-  GLTF = "GLTFs",
+  GEOMETRY = "Geometry",
   MATERIAL = "Materials",
 }
 
-export type Example = {
+export type ExampleEntry = {
   id: string;
   name: string;
-  src: string;
+  module: Example;
 }
 
-export const examplesData: Record<ExampleCategory, Example[]> = {
-  [ExampleCategory.GLTF]: [
-    { id: "loading-suzanne", name: "Loading Suzanne", src: "gltfs/loading-suzanne.html" },
+export const examplesData: Record<ExampleCategory, ExampleEntry[]> = {
+  [ExampleCategory.GEOMETRY]: [
+    { id: "simple-quad", name: "Simple quad", module: SimpleQuad },
+    { id: "outlined-circle", name: "Outlined circle", module: OutlinedCircle },
   ],
   [ExampleCategory.MATERIAL]: [
-    { id: "clearcoat", name: "Clearcoat", src: "materials/clearcoat.html" },
-    { id: "unlit", name: "Unlit", src: "materials/unlit.html" }
+    { id: "clearcoat", name: "Clearcoat", module: Clearcoat },
+    { id: "unlit", name: "Unlit", module: Unlit },
   ],
 }

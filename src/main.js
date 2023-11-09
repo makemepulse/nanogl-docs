@@ -31,6 +31,11 @@ const router = createRouter({
       redirect: '/guide/quick-guides/texture-2d',
     },
     {
+      path: '/examples',
+      name: 'examples',
+      redirect: '/examples/simple-quad',
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: NotFound

@@ -23,6 +23,7 @@ export default defineConfig(({ mode }) => {
         { find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) },
         { find: '@lib', replacement: fileURLToPath(new URL('./src/lib', import.meta.url)) },
         { find: '@assets', replacement: fileURLToPath(new URL('./src/assets', import.meta.url)) },
+        { find: '@examples', replacement: fileURLToPath(new URL('./src/examples', import.meta.url)) },
       ]
     },
     plugins: [
