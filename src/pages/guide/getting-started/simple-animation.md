@@ -7,7 +7,7 @@ meta:
 
 <div class="content-wrapper">
 
-# Full-screen shader
+# Simple animation
 
 Lorem ipsum
 
