@@ -11,7 +11,7 @@
             <BlockLink
               v-for="libClass in currentLib.classes"
               class="px-16 py-8"
-              :to="`/${SECTIONS.API}/${currentLib.name}/${LIB_ITEM_TYPE.CLASS}/${libClass.name}`"
+              :url="`/${SECTIONS.API}/${currentLib.name}/${LIB_ITEM_TYPE.CLASS}/${libClass.name}`"
               :text="libClass.name"
             />
           </div>
@@ -22,7 +22,7 @@
             <BlockLink
               v-for="libFunc in currentLib.functions"
               class="px-16 py-8"
-              :to="`/${SECTIONS.API}/${currentLib.name}/${LIB_ITEM_TYPE.FUNCTION}/${libFunc.name}`"
+              :url="`/${SECTIONS.API}/${currentLib.name}/${LIB_ITEM_TYPE.FUNCTION}/${libFunc.name}`"
               :text="libFunc.name"
             />
           </div>
