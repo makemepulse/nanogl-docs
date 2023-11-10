@@ -11,6 +11,8 @@ import MdToC from 'markdown-it-table-of-contents'
 import MdPrism from 'markdown-it-prism'
 import MdAttrs from 'markdown-it-attrs'
 import MdAnchor from 'markdown-it-anchor'
+import MdLinkAttrs from 'markdown-it-link-attributes'
+import MdReplaceLink from 'markdown-it-replace-link'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -36,6 +38,21 @@ export default defineConfig(({ mode }) => {
       }),
       Markdown({
         markdownItSetup(md) {
+          md.use(MdReplaceLink, {
+            replaceLink: (link) => {
+              const baseURL = env.VITE_APP_BASE_URL;
+              return link.startsWith('/') && !!baseURL
+                ? `${baseURL}${link}`
+                : link;
+            }
+          })
+          md.use(MdLinkAttrs, {
+            matcher: (link) => /^https?:\/\//.test(link),
+            attrs: {
+              target: '_blank',
+              rel: 'noopener',
+            },
+          })
           md.use(MdPrism, { highlightInlineCode: true })
           md.use(MdAttrs)
           md.use(MdAnchor.default)

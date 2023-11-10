@@ -1,7 +1,7 @@
 <template>
   <RouterLink
     :to="url"
-    class="custom-link bg-grey-50 hover:bg-grey rounded-md"
+    class="custom-link bg-grey-50 hover:bg-grey rounded-md transition-colors"
   >
     <div :class="{ 'flex items-center justify-between gap-16': true, 'h-full': fullHeight }">
       <div :class="{ 'flex flex-col gap-4': true, 'h-full': fullHeight }">

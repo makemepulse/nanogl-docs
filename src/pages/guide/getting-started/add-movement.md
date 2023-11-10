@@ -38,7 +38,7 @@ You can also remove the render call from the ```handleResize```{language=js} fun
 
 ## Create the node
 
-To add some movement, we'd like to be able to choose a specific position, rotation and scale. To setup these transform values, we can use a [Node](../../api/nanogl/classes/Node).
+To add some movement, we'd like to be able to choose a specific position, rotation and scale. To setup these transform values, we can use a [Node](/api/nanogl/classes/Node).
 
 The Node will provide us some helpers to set these values, and get the corresponding world matrix.
 

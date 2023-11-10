@@ -86,7 +86,7 @@ const preview = (canvasEl) => {
     // set viewport size
     gl.viewport(0, 0, size.width, size.height);
     // clear viewport
-    gl.clearColor(0.5, 0.5, 0.5, 1);
+    gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
 
     // update camera matrices
