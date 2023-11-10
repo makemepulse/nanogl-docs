@@ -63,7 +63,11 @@
     }
   }
 
-  .page-body, .page-examples {
-    @apply py-32 px-20;
+  .page-body {
+    @apply px-20 py-32;
+  }
+
+  .page-examples {
+    @apply p-20;
   }
 }
