@@ -11,6 +11,7 @@
       "@lib/*": ["lib/*"],
       "@assets/*": ["assets/*"],
       "@examples/*": ["examples/*"],
+      "@gl-preview/*": ["gl-preview/*"],
     },
   },
   "include": ["src/**/*"],

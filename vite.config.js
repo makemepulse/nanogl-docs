@@ -24,6 +24,7 @@ export default defineConfig(({ mode }) => {
         { find: '@lib', replacement: fileURLToPath(new URL('./src/lib', import.meta.url)) },
         { find: '@assets', replacement: fileURLToPath(new URL('./src/assets', import.meta.url)) },
         { find: '@examples', replacement: fileURLToPath(new URL('./src/examples', import.meta.url)) },
+        { find: '@gl-preview', replacement: fileURLToPath(new URL('./src/gl-preview', import.meta.url)) },
       ]
     },
     plugins: [
