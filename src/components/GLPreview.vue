@@ -46,7 +46,7 @@ const isValidName = () => {
 }
 
 const setup = async () => {
-  if (!isValidFolder() || isValidName()) return;
+  if (!isValidFolder() || !isValidName()) return;
 
   const module = await import(`@gl-preview/${props.folder}/${props.name}.js`);
 
