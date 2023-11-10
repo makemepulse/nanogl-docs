@@ -3,6 +3,7 @@ import Camera from "nanogl-camera";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
 import Rect from "nanogl-primitives-2d/rect";
 import { vec3 } from "gl-matrix";
+import { Pane } from 'tweakpane';
 
 const preview = (canvasEl) => {
   // --CANVAS & CONTEXT--
@@ -50,8 +51,14 @@ const preview = (canvasEl) => {
 
   // --RECTANGLE--
 
+  const PARAMS = {
+    position: { x: -0.5, y: -0.5 },
+    width: 1,
+    height: 1,
+  };
+
   // simple Rectangle made of 2 triangles in an ArrayBuffer
-  const rect = new Rect(gl, -0.5, -0.5, 1, 1);
+  let rect = new Rect(gl, PARAMS.position.x, PARAMS.position.y, PARAMS.width, PARAMS.height);
 
   // --PROGRAM--
 
@@ -105,9 +112,36 @@ const preview = (canvasEl) => {
     rect.render();
   };
 
+  // --DEBUG--
+
+  const pane = new Pane({
+    container: document.getElementById('debug')
+  });
+
+  const recreateGeometry = () => {
+    rect.dispose();
+    rect = null;
+    rect = new Rect(gl, PARAMS.position.x, PARAMS.position.y, PARAMS.width, PARAMS.height);
+    render();
+  }
+
+  pane.addBinding(PARAMS, 'position', {
+    min: -1.5,
+    max: 0.5,
+  }).on('change', recreateGeometry);
+  pane.addBinding(PARAMS, 'width', {
+    min: 0.1,
+    max: 2,
+  }).on('change', recreateGeometry);
+  pane.addBinding(PARAMS, 'height', {
+    min: 0.1,
+    max: 2,
+  }).on('change', recreateGeometry);
+
   // dont forget to disconnect, discard, dispose, delete things at the end, to prevent memory leaks
   const dispose = () => {
     resizeObserver.disconnect();
+    pane.dispose();
   }
 
   return dispose;

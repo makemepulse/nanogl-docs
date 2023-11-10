@@ -1,7 +1,7 @@
 <template>
   <NotFound v-if="!currentExample" />
   <div v-else class="w-full h-full">
-    <div class="relative z-[1] w-full h-full p-24 pointer-events-none">
+    <div class="relative z-[1] w-full h-full p-24 pointer-events-none overflow-hidden">
       <h1 class="text-16 bg-black-30 px-12 py-8 rounded-md inline-block">{{ currentExample.category }} — {{ currentExample.name }}</h1>
       <p class="text-14 px-12 py-8 w-1/3 pointer-events-auto" v-if="exampleDescription" v-html="exampleDescription"></p>
       <a :href="SOURCE_PATH + currentExample.id + '.js'" target="_blank" class="pointer-events-auto absolute bottom-24 right-24 flex items-center gap-10 bg-black-50 px-12 py-8 rounded-md opacity-50 hover:opacity-100 transition">
@@ -11,6 +11,7 @@
             class="scale-[0.2] -m-40"
           />
       </a>
+      <div id="debug" class="pointer-events-auto absolute top-24 right-24"></div>
     </div>
     <GLPreview :name="exampleName" folder="examples" class="absolute top-0 left-0 w-full z-0" />
   </div>
