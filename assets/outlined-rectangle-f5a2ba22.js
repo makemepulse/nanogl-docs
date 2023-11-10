@@ -13,11 +13,11 @@ import{A as b,C as A,P as C,a as R}from"./arraybuffer-aead3aa0.js";import{P as T
     }
   `,g=`
     precision lowp float;
-    
+
     varying vec2 vTexCoord;
 
     void main(void){
       vec3 color = vec3(1., 1., 0.);
       gl_FragColor = vec4(color, 1.0);
     }
-  `,m=new R(o,v,g),l=()=>{o.viewport(0,0,i.width,i.height),o.clearColor(.5,.5,.5,1),o.clear(o.COLOR_BUFFER_BIT),e.updateWorldMatrix(),e.updateViewProjectionMatrix(i.width,i.height),m.use(),m.uMVP(e._viewProj),s.attribPointer(m),s.render()},c=new T({container:document.getElementById("debug")}),p=()=>{s.dispose(),s=null,s=new x(o,t.position.x,t.position.y,t.width,t.height,t.thickness),l()};return c.addBinding(t,"position",{min:-1.5,max:.5}).on("change",p),c.addBinding(t,"width",{min:.1,max:2}).on("change",p),c.addBinding(t,"height",{min:.1,max:2}).on("change",p),c.addBinding(t,"thickness",{min:0,max:1}).on("change",p),()=>{a.disconnect(),c.dispose()}};export{L as preview};
+  `,m=new R(o,v,g),l=()=>{o.viewport(0,0,i.width,i.height),o.clearColor(0,0,0,0),o.clear(o.COLOR_BUFFER_BIT),e.updateWorldMatrix(),e.updateViewProjectionMatrix(i.width,i.height),m.use(),m.uMVP(e._viewProj),s.attribPointer(m),s.render()},c=new T({container:document.getElementById("debug")}),p=()=>{s.dispose(),s=null,s=new x(o,t.position.x,t.position.y,t.width,t.height,t.thickness),l()};return c.addBinding(t,"position",{min:-1.5,max:.5}).on("change",p),c.addBinding(t,"width",{min:.1,max:2}).on("change",p),c.addBinding(t,"height",{min:.1,max:2}).on("change",p),c.addBinding(t,"thickness",{min:0,max:1}).on("change",p),()=>{a.disconnect(),c.dispose()}};export{L as preview};

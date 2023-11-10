@@ -13,4 +13,4 @@ import{C as m,P,A as f,a as M}from"./arraybuffer-aead3aa0.js";import{c as R}from
       vec3 red = vec3(1.0, 0.0, 0.0);
       gl_FragColor = vec4(red, 1.0);
     }
-  `,n=new M(e,w,g),l=()=>{e.viewport(0,0,o.width,o.height),e.clearColor(.5,.5,.5,1),e.clear(e.COLOR_BUFFER_BIT),t.updateWorldMatrix(),t.updateViewProjectionMatrix(o.width,o.height),n.use(),n.uMVP(t._viewProj),r.attribPointer(n),r.drawTriangles()};return()=>{a.disconnect()}};export{C as preview};
+  `,n=new M(e,w,g),l=()=>{e.viewport(0,0,o.width,o.height),e.clearColor(0,0,0,0),e.clear(e.COLOR_BUFFER_BIT),t.updateWorldMatrix(),t.updateViewProjectionMatrix(o.width,o.height),n.use(),n.uMVP(t._viewProj),r.attribPointer(n),r.drawTriangles()};return()=>{a.disconnect()}};export{C as preview};
