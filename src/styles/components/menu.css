@@ -12,7 +12,7 @@
     @apply text-16;
   }
   p, a:not(.logo) {
-    @apply block opacity-75 py-4;
+    @apply block opacity-75 py-4 transition-opacity;
 
     &:hover {
       @apply cursor-pointer opacity-100;

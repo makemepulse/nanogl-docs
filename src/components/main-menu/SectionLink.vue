@@ -7,7 +7,7 @@
     <RouterLink
       :to="`/${section}`"
       :class="[
-        'flex justify-start items-center font-bold hover:text-primary',
+        'flex justify-start items-center font-bold hover:text-primary transition-colors',
         currentSection === section ? 'selected text-primary' : ''
       ]"
     >
@@ -15,23 +15,26 @@
       <span v-if="subMenu" class="relative ml-8">
         <UIIcon
           name="arrow-down"
-          :class="{
-            'h-10 w-auto': true,
-            'rotate-180 translate-y-1/4': isHovered
-          }"
+          :class="[
+            'h-10 w-auto transition-transform',
+            isHovered ? 'rotate-180 translate-y-1/4' : ''
+          ]"
         />
       </span>
     </RouterLink>
     <div
-      v-if="isHovered && subMenu"
-      class="absolute top-full pt-4 -right-16 w-fit"
+      v-if="subMenu"
+      :class="[
+        'absolute top-full pt-4 -right-16 w-fit clip-path-vertical',
+        isHovered ? 'clip-path-vertical__hovered' : ''
+      ]"
     >
       <div class="flex flex-col bg-light-grey rounded-md p-4">
         <RouterLink
           v-for="link in subMenu"
           :to="link.path"
           :class="[
-            'rounded-md px-8 py-6 whitespace-nowrap text-14',
+            'rounded-md px-8 py-6 whitespace-nowrap text-14 transition-colors',
             isSubmenuSelected(link.path) ? 'bg-primary-5 text-primary' : 'hover:bg-white-5'
           ]"
         >

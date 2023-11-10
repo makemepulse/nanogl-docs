@@ -1,0 +1,9 @@
+.clip-path-vertical {
+  @apply transition-[clip-path,visibility] pointer-events-none invisible;
+  clip-path: inset(0 0 100% 0);
+
+  &__hovered {
+    @apply pointer-events-auto visible;
+    clip-path: inset(0 0 0 0);
+  }
+}

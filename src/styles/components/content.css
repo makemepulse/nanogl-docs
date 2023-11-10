@@ -17,13 +17,6 @@
     p {
       @apply text-16 my-4 scroll-mt-68;
     }
-    a:not(.custom-link) {
-      @apply relative font-medium text-primary;
-
-      &:hover {
-        background-image: linear-gradient(transparent calc(100% - 2px), theme('colors.primary.DEFAULT') 100%);
-      }
-    }
     hr {
       @apply opacity-25;
     }
@@ -43,6 +36,21 @@
     }
   }
 
+  .page-body,
+  .page-examples,
+  .markdown-body .content-wrapper,
+  .page-body-toc .content-wrapper {
+    a:not(.custom-link) {
+      @apply relative font-medium text-primary bg-left-bottom bg-no-repeat transition-[background-size];
+      background-size: 0% 1px;
+      background-image: linear-gradient(theme('colors.primary.DEFAULT'), theme('colors.primary.DEFAULT'));
+
+      &:hover {
+        background-size: 100% 1px;
+      }
+    }
+  }
+
   .markdown-body, .page-body-toc {
     @apply grid grid-cols-8;
 
@@ -55,7 +63,7 @@
     }
   }
 
-  .page-body {
-    @apply py-32 pl-20 pr-40;
+  .page-body, .page-examples {
+    @apply py-32 px-20;
   }
 }
