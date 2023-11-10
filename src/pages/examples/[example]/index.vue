@@ -1,15 +1,28 @@
 <template>
   <NotFound v-if="!currentExample" />
-  <div v-else class="w-full h-full">
-    <div class="relative z-[1] w-full h-full p-24 pointer-events-none">
-      <h1 class="text-16 bg-black-30 px-12 py-8 rounded-md inline-block">{{ currentExample.category }} — {{ currentExample.name }}</h1>
-      <p class="text-14 px-12 py-8 w-1/3 pointer-events-auto" v-if="exampleDescription" v-html="exampleDescription"></p>
-      <a :href="SOURCE_PATH + currentExample.id + '.js'" target="_blank" class="pointer-events-auto absolute bottom-24 right-24 flex items-center gap-10 bg-black-50 px-12 py-8 rounded-md opacity-50 hover:opacity-100 transition">
-        <p class="text-16 font-bold">View code</p>
-        <UIIcon
+  <div v-else class="w-full h-full page-examples">
+    <div class="relative z-[1] w-full h-full flex flex-col justify-between pointer-events-none">
+      <div class="self-start w-fit max-w-[33%] p-12 flex flex-col bg-light-grey rounded-md pointer-events-auto">
+        <h1 class="text-16">
+          {{ currentExample.category }} — {{ currentExample.name }}
+        </h1>
+        <p
+          v-if="exampleDescription"
+          class="text-14 mt-4"
+          v-html="exampleDescription" />
+      </div>
+      <a
+        :href="SOURCE_PATH + currentExample.id + '.js'"
+        target="_blank"
+        class="custom-link self-end bg-light-grey rounded-md overflow-hidden pointer-events-auto"
+      >
+        <div class="hover:bg-white-5 flex items-center justify-center gap-10 px-12 py-8 transition-colors">
+          <p class="text-16 font-bold">View code</p>
+          <UIIcon
             name="github"
-            class="scale-[0.2] -m-40"
+            class="h-20 w-auto"
           />
+        </div>
       </a>
     </div>
     <GLPreview :name="exampleName" folder="examples" class="absolute top-0 left-0 w-full z-0" />
@@ -40,9 +53,3 @@ const exampleDescription = computed(() => {
   });
 });
 </script>
-
-<style>
-p a {
-  @apply font-bold text-primary;
-}
-</style>
