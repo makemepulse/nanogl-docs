@@ -1,10 +1,10 @@
 import Program from "nanogl/program";
 import Camera from "nanogl-camera";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
-import RectOutline from "nanogl-primitives-2d/rect-outline";
+import Rect from "nanogl-primitives-2d/rect";
 import { vec3 } from "gl-matrix";
 
-class OutlinedQuad {
+class Rectangle {
   constructor() {
     // --CANVAS & CONTEXT--
 
@@ -49,10 +49,10 @@ class OutlinedQuad {
     this.camera.position.set([0, 0, 5]); // set camera back on z axis
     this.camera.lookAt(vec3.create()); // look at origin point
 
-    // --QUAD--
+    // --RECTANGLE--
 
-    // simple Rect made of 2 triangles in an ArrayBuffer
-    this.quad = new RectOutline(this.gl, -0.5, -0.5, 1, 1);
+    // simple Rectangle made of 2 triangles in an ArrayBuffer
+    this.rect = new Rect(this.gl, -0.5, -0.5, 1, 1);
 
     // --PROGRAM--
 
@@ -76,7 +76,7 @@ class OutlinedQuad {
       varying vec2 vTexCoord;
 
       void main(void){
-        vec3 color = vec3(1., 1., 0.);
+        vec3 color = vec3(vTexCoord, 0.0);
         gl_FragColor = vec4(color, 1.0);
       }
     `;
@@ -102,9 +102,9 @@ class OutlinedQuad {
     // update program uniforms
     this.prg.uMVP(this.camera._viewProj);
 
-    // link the quad buffer to the program, and draw
-    this.quad.attribPointer(this.prg);
-    this.quad.render();
+    // link the rectangle buffer to the program, and draw
+    this.rect.attribPointer(this.prg);
+    this.rect.render();
   }
 
   dispose() {
@@ -112,4 +112,4 @@ class OutlinedQuad {
   }
 }
 
-export default OutlinedQuad;
+export default Rectangle;
