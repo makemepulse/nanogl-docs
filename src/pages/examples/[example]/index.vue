@@ -29,17 +29,11 @@ watch(currentExample, (newExample) => onExampleChange(newExample))
 
 const onExampleChange = (newExample: Example) => {
   if (!newExample) return;
-  exampleModule.value?.dispose();
+  exampleModule.value?.dispose?.();
   exampleModule.value = new newExample.module();
-}
-
-const render = () => {
-  window.requestAnimationFrame(render);
-  exampleModule.value?.update();
 }
 
 onMounted(() => {
   onExampleChange(currentExample.value);
-  // render();
 })
 </script>

@@ -15,6 +15,7 @@
     "markdown-it-prism": "^2.3.0",
     "markdown-it-table-of-contents": "^0.6.0",
     "nanogl": "^2.3.2",
+    "nanogl-camera": "^1.1.2",
     "nanogl-node": "^1.2.1",
     "nanogl-primitives-2d": "^1.1.0",
     "nanogl-state": "^2.1.0",
