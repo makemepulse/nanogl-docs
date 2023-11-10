@@ -1,10 +1,10 @@
 import Program from "nanogl/program";
 import Camera from "nanogl-camera";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
-import CircleOutline from "nanogl-primitives-2d/circle-outline";
+import Circle from "nanogl-primitives-2d/circle";
 import { vec3 } from "gl-matrix";
 
-class OutlinedCircle {
+class CircleExample {
   constructor() {
     // --CANVAS & CONTEXT--
 
@@ -52,32 +52,26 @@ class OutlinedCircle {
 
     // --CIRCLE--
 
-    // Outlined circle made with an ArrayBuffer
-    this.circle = new CircleOutline(this.gl, 0.5, 32, 0.2);
+    // simple Circle made with an ArrayBuffer
+    this.circle = new Circle(this.gl, 0.5);
 
     // --PROGRAM--
 
     const vertexShader = `
       attribute vec2 aPosition;
-      attribute float aSide;
 
       uniform mat4 uMVP;
-
-      varying float vSide;
 
       void main(void){
         vec4 pos = vec4(aPosition, 0.0, 1.0);
         gl_Position = uMVP * pos;
-        vSide = aSide;
       }
     `;
     const fragmentShader = `
       precision lowp float;
 
-      varying float vSide;
-
       void main(void){
-        vec3 color = vec3(0.0, vSide, 0.0);
+        vec3 color = vec3(0.5, 0.0, 0.5);
         gl_FragColor = vec4(color, 1.0);
       }
     `;
@@ -109,4 +103,4 @@ class OutlinedCircle {
   }
 }
 
-export default OutlinedCircle;
+export default CircleExample;

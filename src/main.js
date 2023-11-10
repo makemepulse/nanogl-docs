@@ -33,7 +33,7 @@ const router = createRouter({
     {
       path: '/examples',
       name: 'examples',
-      redirect: '/examples/simple-quad',
+      redirect: '/examples/triangle',
     },
     {
       path: '/:pathMatch(.*)*',

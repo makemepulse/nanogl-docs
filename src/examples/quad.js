@@ -1,10 +1,10 @@
 import Program from "nanogl/program";
 import Camera from "nanogl-camera";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
-import CircleOutline from "nanogl-primitives-2d/circle-outline";
+import Rect from "nanogl-primitives-2d/rect";
 import { vec3 } from "gl-matrix";
 
-class OutlinedCircle {
+class Quad {
   constructor() {
     // --CANVAS & CONTEXT--
 
@@ -40,7 +40,6 @@ class OutlinedCircle {
     this.resizeObserver = new ResizeObserver(handleResize);
     this.resizeObserver.observe(canvas);
 
-
     // --CAMERA--
 
     this.camera = new Camera(new PerspectiveLens());
@@ -50,34 +49,34 @@ class OutlinedCircle {
     this.camera.position.set([0, 0, 5]); // set camera back on z axis
     this.camera.lookAt(vec3.create()); // look at origin point
 
-    // --CIRCLE--
+    // --QUAD--
 
-    // Outlined circle made with an ArrayBuffer
-    this.circle = new CircleOutline(this.gl, 0.5, 32, 0.2);
+    // simple Rect made of 2 triangles in an ArrayBuffer
+    this.quad = new Rect(this.gl, -0.5, -0.5, 1, 1);
 
     // --PROGRAM--
 
     const vertexShader = `
       attribute vec2 aPosition;
-      attribute float aSide;
+      attribute vec2 aTexCoord;
 
       uniform mat4 uMVP;
 
-      varying float vSide;
+      varying vec2 vTexCoord;
 
       void main(void){
         vec4 pos = vec4(aPosition, 0.0, 1.0);
         gl_Position = uMVP * pos;
-        vSide = aSide;
+        vTexCoord = aTexCoord;
       }
     `;
     const fragmentShader = `
       precision lowp float;
-
-      varying float vSide;
+      
+      varying vec2 vTexCoord;
 
       void main(void){
-        vec3 color = vec3(0.0, vSide, 0.0);
+        vec3 color = vec3(vTexCoord, 0.0);
         gl_FragColor = vec4(color, 1.0);
       }
     `;
@@ -103,10 +102,14 @@ class OutlinedCircle {
     // update program uniforms
     this.prg.uMVP(this.camera._viewProj);
 
-    // link the circle buffer to the program, and draw
-    this.circle.attribPointer(this.prg);
-    this.circle.render();
+    // link the quad buffer to the program, and draw
+    this.quad.attribPointer(this.prg);
+    this.quad.render();
+  }
+
+  dispose() {
+    this.resizeObserver.disconnect();
   }
 }
 
-export default OutlinedCircle;
+export default Quad;
