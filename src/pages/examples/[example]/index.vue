@@ -2,7 +2,7 @@
   <NotFound v-if="!currentExample" />
   <div v-else class="w-full h-full page-examples">
     <div class="relative z-[1] w-full h-full flex flex-col justify-between pointer-events-none">
-      <div class="self-start w-fit max-w-[33%] p-12 flex flex-col bg-light-grey rounded-md pointer-events-auto">
+      <div class="self-start w-fit lg:max-w-[33%] p-12 flex flex-col bg-light-grey rounded-md pointer-events-auto">
         <h1 class="text-16">
           {{ currentExample.category }} — {{ currentExample.name }}
         </h1>
@@ -33,23 +33,38 @@
 import { useStore } from "@lib/store";
 import { computed } from "vue";
 
-const SOURCE_PATH = "https://github.com/makemepulse/nanogl-docs/tree/main/src/examples/";
+import * as MarkdownIt from 'markdown-it';
+import MdLinkAttrs from 'markdown-it-link-attributes'
+import MdReplaceLink from 'markdown-it-replace-link'
+
+const SOURCE_PATH = "https://github.com/makemepulse/nanogl-docs/tree/main/src/gl-preview/examples/";
 
 const { currentExample } = useStore();
 
-const exampleName = computed(() => currentExample.value?.id);
+const md = new MarkdownIt();
+md.use(MdReplaceLink, {
+  replaceLink: (link) => {
+    const baseURL = import.meta.env.VITE_APP_BASE_URL;
+    return link.startsWith('/') && !!baseURL
+      ? `${baseURL}${link}`
+      : link;
+  }
+})
+md.use(MdLinkAttrs, {
+  matcher: (link) => /^https?:\/\//.test(link),
+  attrs: {
+    target: '_blank',
+    rel: 'noopener',
+  },
+});
 
-const root = import.meta.env.VITE_APP_BASE_URL || '';
+const exampleName = computed(() => currentExample.value?.id);
 
 const exampleDescription = computed(() => {
   const description = currentExample.value?.description;
+
   if (!description) return;
 
-  // Parse markdown links to HTML <a> tags
-  return description.replace(/\[([^\[]+)\](\(([^)]*))\)/gim, (match, text, _, link) => {
-    const isInternalLink = !link.startsWith('http');
-    const url = isInternalLink ? `${root}${link}` : link;
-    return `<a href="${url}" target="_blank">${text}</a>`;
-  });
+  return md.render(description)
 });
 </script>
