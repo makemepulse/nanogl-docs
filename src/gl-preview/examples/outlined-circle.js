@@ -3,6 +3,7 @@ import Camera from "nanogl-camera";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
 import CircleOutline from "nanogl-primitives-2d/circle-outline";
 import { vec3 } from "gl-matrix";
+import { Pane } from 'tweakpane';
 
 const preview = (canvasEl) => {
   // --CANVAS & CONTEXT--
@@ -50,8 +51,14 @@ const preview = (canvasEl) => {
 
   // --CIRCLE--
 
+  const PARAMS = {
+    radius: 0.5,
+    segments: 32,
+    thickness: 0.2,
+  };
+
   // Outlined circle made with an ArrayBuffer
-  const circle = new CircleOutline(gl, 0.5, 32, 0.2);
+  let circle = new CircleOutline(gl, PARAMS.radius, PARAMS.segments, PARAMS.thickness);
 
   // --PROGRAM--
 
@@ -105,9 +112,37 @@ const preview = (canvasEl) => {
     circle.render();
   };
 
+  // --DEBUG--
+
+  const pane = new Pane({
+    container: document.getElementById('debug')
+  });
+
+  const recreateGeometry = () => {
+    circle.dispose();
+    circle = null;
+    circle = new CircleOutline(gl, PARAMS.radius, PARAMS.segments, PARAMS.thickness);
+    render();
+  }
+
+  pane.addBinding(PARAMS, 'radius', {
+    min: 0.1,
+    max: 1,
+  }).on('change', recreateGeometry);
+  pane.addBinding(PARAMS, 'segments', {
+    min: 1,
+    max: 50,
+    step: 1,
+  }).on('change', recreateGeometry);
+  pane.addBinding(PARAMS, 'thickness', {
+    min: 0,
+    max: 1,
+  }).on('change', recreateGeometry);
+
   // dont forget to disconnect, discard, dispose, delete things at the end, to prevent memory leaks
   const dispose = () => {
     resizeObserver.disconnect();
+    pane.dispose();
   }
 
   return dispose;
