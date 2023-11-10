@@ -1,9 +1,3 @@
-import Triangle from "@examples/triangle";
-import Quad from "@examples/quad";
-import CircleExample from "@examples/circle";
-import OutlinedCircle from "@examples/outlined-circle";
-import OutlinedQuad from "@examples/outlined-quad";
-
 export enum ExampleCategory {
   GEOMETRY = "Geometry",
   MATERIAL = "Materials",
@@ -12,23 +6,16 @@ export enum ExampleCategory {
 export type ExampleEntry = {
   id: string;
   name: string;
-  module: Example;
-}
-
-type Example = {
-  load(): Promise<void>;
-  render(): void;
-  dispose(): void;
+  description?: string;
 }
 
 export const examplesData: Record<ExampleCategory, ExampleEntry[]> = {
   [ExampleCategory.GEOMETRY]: [
-    { id: "triangle", name: "Triangle", module: Triangle },
-    { id: "quad", name: "Quad with UVs", module: Quad },
-    { id: "circle", name: "Circle", module: CircleExample },
-    { id: "outlined-quad", name: "Outlined quad", module: OutlinedQuad },
-    { id: "outlined-circle", name: "Outlined circle", module: OutlinedCircle },
-    // { id: "outlined-circle", name: "Outlined circle", module: OutlinedCircle },
+    { id: "triangle", name: "Triangle" },
+    { id: "rectangle", name: "Rectangle", description: "The color here represents UVs, directly included in the 4 [nanogl-primitives-2d](/api/nanogl-primitives-2d) geometries, with the \"aTexCoord\" vec2 attribute." },
+    { id: "circle", name: "Circle" },
+    { id: "outlined-rectangle", name: "Outlined rectangle" },
+    { id: "outlined-circle", name: "Outlined circle", description: "The color here represents the distance from the inner edge of the geometry, directly included in [CircleOutline](/api/nanogl-primitives-2d/classes/CircleOutline) and [RectOutline](/api/nanogl-primitives-2d/classes/RectOutline), with the \"aSide\" float attribute." },
   ],
   [ExampleCategory.MATERIAL]: [
     // { id: "clearcoat", name: "Clearcoat", module: Clearcoat },

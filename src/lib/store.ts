@@ -8,6 +8,7 @@ import { examplesData } from "./exampleData";
 const libsData = ref<APILib[]>([]);
 const guideList = ref<GuideSection[]>([]);
 const examplesList = ref([]);
+const examplesNames = ref<string[]>([]);
 
 export function useStore() {
   const router = useRouter();
@@ -46,6 +47,8 @@ export function useStore() {
         return { ...example, category }
       })
     }).flat();
+
+    examplesNames.value = examplesList.value.map(example => example.id);
   }
 
   const currentSection = computed(() => {
@@ -89,5 +92,6 @@ export function useStore() {
     currentItem,
     currentSection,
     currentExample,
+    examplesNames,
   }
 }
