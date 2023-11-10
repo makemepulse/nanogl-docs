@@ -26,10 +26,18 @@ const { currentExample } = useStore();
 
 const exampleName = computed(() => currentExample.value?.id);
 
+const root = import.meta.env.VITE_APP_BASE_URL || '';
+
 const exampleDescription = computed(() => {
   const description = currentExample.value?.description;
   if (!description) return;
-  return description.replace(/\[([^\[]+)\](\(([^)]*))\)/gim, '<a href="$3" target="_blank">$1</a>'); // Parse markdown links to HTML <a> tags
+
+  // Parse markdown links to HTML <a> tags
+  return description.replace(/\[([^\[]+)\](\(([^)]*))\)/gim, (match, text, _, link) => {
+    const isInternalLink = !link.startsWith('http');
+    const url = isInternalLink ? `${root}${link}` : link;
+    return `<a href="${url}" target="_blank">${text}</a>`;
+  });
 });
 </script>
 
