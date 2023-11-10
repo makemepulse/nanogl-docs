@@ -44,7 +44,17 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.VITE_APP_BASE_URL || '/'),
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
-      return { el: to.hash }
+      const elem = document.querySelector(to.hash)
+
+      if (!elem) {
+        return { el: to.hash }
+      }
+
+      const offset = parseFloat(getComputedStyle(elem).scrollMarginTop)
+      return {
+        el: to.hash,
+        top:  offset
+      }
     }
 
     return { top: 0 }

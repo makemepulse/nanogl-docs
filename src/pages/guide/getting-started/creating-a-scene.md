@@ -25,7 +25,7 @@ Let's begin by creating a simple scene, rendering a triangle.
 
 </UICallout>
 
-We can start by setting up the canvas & context. This is not specific to nanogl, you can do this as you would your usual WebGL project.
+We can start by setting up the canvas & context. This is not specific to nanogl, you can do this as you would in your usual WebGL project.
 
 First, in a Javascript file, we need to create the canvas in which we will render our WebGL project, and get the WebGL rendering context.
 
@@ -59,10 +59,12 @@ const size = {
 };
 const pixelRatio = window.devicePixelRatio;
 
-const handleResize = () => {
-  // get window width & height (since our canvas is full-screen)
-  const canvasWidth = window.innerWidth;
-  const canvasHeight = window.innerHeight;
+const handleResize = (entries) => {
+  // get canvas width & height
+  const {
+    width: canvasWidth,
+    height: canvasHeight
+  } = entries[0].contentRect;
 
   // set canvas size to display size multiplied by pixel ratio
   canvas.width = Math.round(canvasWidth * pixelRatio);
@@ -73,8 +75,8 @@ const handleResize = () => {
   size.height = gl.drawingBufferHeight;
 }
 
-window.addEventListener('resize', handleResize);
-handleResize();
+const resizeObserver = new ResizeObserver(handleResize);
+resizeObserver.observe(canvas);
 ```
 
 ## Create the camera
@@ -229,6 +231,34 @@ const render = () => {
 render();
 ```
 
+Let's also call the render function when the canvas is resized, to adapt the render to the new size.
+
+<UICallout type="info">
+
+**Node :** We will only call a render on resize here because the render is static. When the render is updated on each frame, it is not useful.
+
+</UICallout>
+
+```js
+// ...
+
+const handleResize = (entries) => {
+  // ...
+
+  // the render is static,
+  // so let's update it on resize
+  render();
+}
+
+// ...
+```
+
+## Result
+
+And now we can see a red triangle in the middle of the canvas !
+
+<GLPreview name="creating-a-scene" folder="guide"/>
+
 ## Final code
 
 Here is the complete code for the js file :
@@ -255,22 +285,28 @@ const size = {
 };
 const pixelRatio = window.devicePixelRatio;
 
-const handleResize = () => {
-  // get window width & height (since our canvas is full-screen)
-  const canvasWidth = window.innerWidth;
-  const canvasHeight = window.innerHeight;
+const handleResize = (entries) => {
+  // get canvas width & height
+  const {
+    width: canvasWidth,
+    height: canvasHeight
+  } = entries[0].contentRect;
 
   // set canvas size to display size multiplied by pixel ratio
   canvas.width = Math.round(canvasWidth * pixelRatio);
   canvas.height = Math.round(canvasHeight * pixelRatio);
 
-  // set size to actual size of the current drawing buffer
+  // set size variable to actual size of the current drawing buffer
   size.width = gl.drawingBufferWidth;
   size.height = gl.drawingBufferHeight;
+
+  // as we are not updating the render,
+  // let's render when the canvas is resized
+  render();
 }
 
-window.addEventListener('resize', handleResize);
-handleResize();
+const resizeObserver = new ResizeObserver(handleResize);
+resizeObserver.observe(canvas);
 
 // --CAMERA--
 
