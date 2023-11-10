@@ -34,9 +34,9 @@
 
 <script setup lang="ts">
 import { useStore } from "@lib/store";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 
-import * as MarkdownIt from 'markdown-it';
+import MarkdownIt from 'markdown-it';
 import MdLinkAttrs from 'markdown-it-link-attributes'
 import MdReplaceLink from 'markdown-it-replace-link'
 
@@ -44,22 +44,28 @@ const SOURCE_PATH = "https://github.com/makemepulse/nanogl-docs/tree/main/src/gl
 
 const { currentExample } = useStore();
 
-const md = new MarkdownIt();
-md.use(MdReplaceLink, {
-  replaceLink: (link) => {
-    const baseURL = import.meta.env.VITE_APP_BASE_URL;
-    return link.startsWith('/') && !!baseURL
-      ? `${baseURL}${link}`
-      : link;
-  }
-})
-md.use(MdLinkAttrs, {
-  matcher: (link) => /^https?:\/\//.test(link),
-  attrs: {
-    target: '_blank',
-    rel: 'noopener',
-  },
-});
+const md = ref<MarkdownIt | null>(null);
+
+const setupMd = () => {
+  if (!!md.value) return;
+
+  md.value = new MarkdownIt();
+  md.value.use(MdReplaceLink, {
+    replaceLink: (link) => {
+      const baseURL = import.meta.env.VITE_APP_BASE_URL;
+      return link.startsWith('/') && !!baseURL
+        ? `${baseURL}${link}`
+        : link;
+    }
+  })
+  md.value.use(MdLinkAttrs, {
+    matcher: (link) => /^https?:\/\//.test(link),
+    attrs: {
+      target: '_blank',
+      rel: 'noopener',
+    },
+  });
+}
 
 const exampleName = computed(() => currentExample.value?.id);
 
@@ -68,6 +74,8 @@ const exampleDescription = computed(() => {
 
   if (!description) return;
 
-  return md.render(description)
+  setupMd();
+
+  return md.value.render(description)
 });
 </script>
