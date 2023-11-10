@@ -2,20 +2,20 @@
   <canvas
     ref="canvasRef"
     :class="[
-      'w-full bg-grey-50 rounded-md',
-      fillParent ? 'h-full' : 'aspect-[4/3] my-16',
+      'w-full bg-grey-50',
+      folder === 'examples' ? 'h-full' : 'aspect-[4/3] my-16 rounded-md',
       isValid ? 'block' : 'hidden'
     ]">
   </canvas>
 </template>
 
-<script lang="ts">
-const FOLDERS = ['guide'];
-const NAMES = ['add-movement', 'creating-a-scene'];
-</script>
-
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { useStore } from "@lib/store";
+
+const { examplesNames } = useStore();
+const FOLDERS = ['guide', 'examples'];
+const NAMES = ['add-movement', 'creating-a-scene', ...examplesNames.value];
 
 const props = defineProps({
   name: {
@@ -25,10 +25,6 @@ const props = defineProps({
   folder: {
     type: String,
     required: true
-  },
-  fillParent: {
-    type: Boolean,
-    default: false
   }
 })
 
@@ -56,11 +52,20 @@ const setup = async () => {
   stop.value = module.preview(canvasRef.value);
 }
 
+const unmount = () => {
+  if (stop.value) stop.value();
+}
+
 onMounted(() => {
   setup();
 })
 
 onBeforeUnmount(() => {
-  if (stop.value) stop.value();
+  unmount();
+})
+
+watch(() => props.name, (newName) => {
+  unmount();
+  setup();
 })
 </script>

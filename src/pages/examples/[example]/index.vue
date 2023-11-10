@@ -12,36 +12,25 @@
           />
       </a>
     </div>
-    <canvas class="absolute top-0 left-0 w-full h-[calc(100vh-4rem)] z-0" id="canvas"></canvas>
+    <GLPreview :name="exampleName" folder="examples" class="absolute top-0 left-0 w-full z-0" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { useStore } from "@lib/store";
-import { watch, ref, onMounted, computed } from "vue";
-import Example from "@examples/utils/example";
+import { computed } from "vue";
 
 const SOURCE_PATH = "https://github.com/makemepulse/nanogl-docs/tree/main/src/examples/";
 
 const { currentExample } = useStore();
-const exampleModule = ref<Example>();
+
+const exampleName = computed(() => currentExample.value?.id);
+
 const exampleDescription = computed(() => {
   const description = currentExample.value?.description;
   if (!description) return;
   return description.replace(/\[([^\[]+)\](\(([^)]*))\)/gim, '<a href="$3" target="_blank">$1</a>'); // Parse markdown links to HTML <a> tags
 });
-
-watch(currentExample, (newExample) => onExampleChange(newExample))
-
-const onExampleChange = (newExample: Example) => {
-  if (!newExample) return;
-  exampleModule.value?.dispose?.();
-  exampleModule.value = new newExample.module();
-}
-
-onMounted(() => {
-  onExampleChange(currentExample.value);
-})
 </script>
 
 <style>
