@@ -81,7 +81,7 @@ resizeObserver.observe(canvas);
 
 ## Create the camera
 
-Now we can create the [Camera](../../api/nanogl-camera/classes/Camera). We will use a [PerspectiveLens](../../api/nanogl-camera/classes/PerspectiveLens), but you can also choose an [OrthographicLens](../../api/nanogl-camera/classes/OrthographicLens).
+Now we can create the [Camera](/api/nanogl-camera/classes/Camera). We will use a [PerspectiveLens](/api/nanogl-camera/classes/PerspectiveLens), but you can also choose an [OrthographicLens](/api/nanogl-camera/classes/OrthographicLens).
 
 We'll set some parameters too : the FOV, the near & far planes, the position & the rotation.
 
@@ -103,7 +103,7 @@ camera.lookAt([0, 0, 0]); // look at origin point
 
 Next, we can create the shape we want to render. To keep things simple, we'll create a triangle.
 
-Let's create an [ArrayBuffer](../../api/nanogl/classes/ArrayBuffer), with the information we need for each vertice of our triangle. For this example, we only need the position attribute. In other cases, we might need the uvs too, for example.
+Let's create an [ArrayBuffer](/api/nanogl/classes/ArrayBuffer), with the information we need for each vertice of our triangle. For this example, we only need the position attribute. In other cases, we might need the uvs too, for example.
 
 ```js
 // ...
@@ -120,11 +120,11 @@ const shape = new ArrayBuffer(gl, shapeVertices);
 shape.attrib('aPosition', 2, gl.FLOAT);
 ```
 
-Based on this example, you could create any shape you want by providing the wanted shape's vertices data & the indices data if needed (with an [IndexBuffer](../../api/nanogl/classes/IndexBuffer)).
+Based on this example, you could create any shape you want by providing the wanted shape's vertices data & the indices data if needed (with an [IndexBuffer](/api/nanogl/classes/IndexBuffer)).
 
 ## Create the program
 
-Now, we need to create the [Program](../../api/nanogl/classes/Program), with the shader we want to use to render our shape.
+Now, we need to create the [Program](/api/nanogl/classes/Program), with the shader we want to use to render our shape.
 
 Let's start with the shader.
 
