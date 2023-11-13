@@ -1,21 +1,24 @@
 <template>
-  <RouterLink
-    v-if="!!url && url.isInternal"
-    :class="{ 'code-link': isCode }"
-    :to="url.path"
-    target="_blank"
-  >
-    {{ name }}
-  </RouterLink>
-  <a
-    v-else-if="!!url && !url.isInternal"
-    :class="{ 'code-link': isCode }"
-    :href="url.path"
-    target="_blank"
-  >
-    {{ name }}
-  </a>
-  <span v-else>{{ name }}</span>
+  <span>
+    <RouterLink
+      v-if="!!url && url.isInternal"
+      :class="{ 'code-link': isCode }"
+      :to="url.path"
+      target="_blank"
+    >
+      {{ type.name }}
+    </RouterLink>
+    <a
+      v-else-if="!!url && !url.isInternal"
+      :class="{ 'code-link': isCode }"
+      :href="url.path"
+      target="_blank"
+    >
+      {{ type.name }}
+    </a>
+    <span v-else>{{ type.name }}</span>
+    <span v-if="type.isArray">[]</span>
+  </span>
 </template>
 
 <script setup lang="ts">
@@ -62,9 +65,5 @@ const url = computed(() => {
   }
 
   return null
-})
-
-const name = computed(() => {
-  return props.type.isArray ? `${props.type.name}[]` : props.type.name
 })
 </script>
