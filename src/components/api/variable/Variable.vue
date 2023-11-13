@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-4">
+  <div :id="`item-${id}`" class="flex flex-col gap-4 scroll-mt-72">
     <div class="inline-block">
       <code class="language-ts inline-block">
         {{ name }}
@@ -11,7 +11,7 @@
     </div>
     <div>
       <span v-if="optional">(optional) </span>
-      <span v-if="comment">{{ comment }}</span>
+      <Comment v-if="comment" :comment="comment" class="inline" />
     </div>
     <div v-if="defaultValue">
       <span>Default : </span>
@@ -21,13 +21,19 @@
 </template>
 
 <script setup lang="ts">
+import { APICommentItem, APIType } from '@lib/apiData';
+
 defineProps({
+  id: {
+    type: Number,
+    required: true
+  },
   name: {
     type: String,
     required: true
   },
   type: {
-    type: Object || Array<Object>,
+    type: Object || Array<APIType>,
     required: false
   },
   optional: {
@@ -35,7 +41,7 @@ defineProps({
     required: false
   },
   comment: {
-    type: String,
+    type: Array<APICommentItem>,
     required: false
   },
   defaultValue: {

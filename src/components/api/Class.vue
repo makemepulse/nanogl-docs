@@ -15,7 +15,7 @@
         <a :href="libClass.source" target="_blank">source</a>
       </span>
     </h1>
-    <p v-if="libClass.comment">{{ libClass.comment }}</p>
+    <Comment v-if="libClass.comment" :comment="libClass.comment" />
     <div v-if="libClass.constructors.length" class="mb-48">
       <h2 id="constructor">Constructor</h2>
       <div class="space-y-16">
@@ -27,6 +27,7 @@
       <div class="space-y-16">
         <Variable
           v-for="property in libClass.properties"
+          :id="property.id"
           :name="property.name"
           :type="property.type"
           :optional="property.optional"
@@ -40,13 +41,13 @@
       <h2 id="accessors">Accessors</h2>
       <div class="space-y-32">
         <div v-for="accessor in libClass.accessors">
-          <h3>
+          <h3 :id="`item-${accessor.id}`">
             <code class="language-ts inline-block">
               {{ accessor.name }}
             </code>
           </h3>
           <div class="pl-24">
-            <p v-if="accessor.comment">{{ accessor.comment }}</p>
+            <Comment v-if="accessor.comment" :comment="accessor.comment" />
             <div class="space-y-16">
               <div v-if="accessor.getter">
                 <h4>Getter</h4>
@@ -69,8 +70,8 @@
       <h2 id="methods">Methods</h2>
       <div class="space-y-32">
         <div v-for="method in libClass.methods">
-          <h3>{{ method.name }}</h3>
-          <Method :method="method" class="pl-24" />
+          <h3 :id="`item-${method.id}`">{{ method.name }}</h3>
+          <Method :method="method" class="pl-24" has-title />
         </div>
       </div>
     </div>

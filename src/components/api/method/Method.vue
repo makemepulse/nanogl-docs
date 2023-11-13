@@ -1,5 +1,8 @@
 <template>
-  <div :id="`method-${method.name}`">
+  <div
+    :id="!hasTitle ? `item-${method.id}` : ''"
+    :class="{ 'scroll-mt-72 ': !hasTitle }"
+  >
     <pre class="language-ts flex">
       <code class="language-ts flex flex-wrap">
         <span class="token function">{{ method.name }}</span>
@@ -24,13 +27,14 @@
         </span>
       </code>
     </pre>
-    <p v-if="method.comment" class="my-16">{{ method.comment }}</p>
+    <Comment v-if="method.comment" :comment="method.comment" class="my-16" />
     <div v-if="method.params" class="my-16">
-      <h2 v-if="isFullPage" :id="`method-${method.name}-params`">Parameters</h2>
+      <h2 v-if="isFullPage" :id="`${method.name}-params`">Parameters</h2>
       <h4 v-else>Parameters</h4>
       <div class="space-y-16">
         <Variable
           v-for="param in method.params"
+          :id="param.id"
           :name="param.name"
           :type="param.type"
           :optional="param.optional"
@@ -56,6 +60,10 @@ defineProps({
     type: Boolean,
     required: false,
     default: false
+  },
+  hasTitle: {
+    type: Boolean,
+    required: false
   }
 })
 </script>

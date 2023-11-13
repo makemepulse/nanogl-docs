@@ -16,7 +16,7 @@
           <a href="#introduction">Introduction</a>
         </li>
         <li v-if="libFunction.params">
-          <a :href="`#method-${libFunction.name}-params`">Parameters</a>
+          <a :href="`#${libFunction.name}-params`">Parameters</a>
         </li>
       </ul>
     </div>

@@ -114,7 +114,7 @@ function parseLibsData(libs) {
                     name: exported.name,
                     originalName: exported.originalName,
                     source: exported.sources[0].url,
-                    comment: exported.comment?.summary?.[0]?.text,
+                    comment: resolveComment(exported.comment?.summary, lib.name),
                     constructors: [],
                     properties: [],
                     accessors: [],
@@ -129,6 +129,7 @@ function parseLibsData(libs) {
                     }
 
                     const childObj = {
+                        id: child.id,
                         name: child.kindString === 'Constructor' ? exported.name : child.name,
                         source: child.sources ? child.sources[0].url : exportedObj.source, // Some classes don't have a constructor, so we use the class source instead of the constructor one
                     }
@@ -137,7 +138,7 @@ function parseLibsData(libs) {
                         resolveMethod(childObj, child.signatures[0], lib.name);
                         exportedObj.constructors.push(childObj);
                     } else if (child.kindString === 'Property') {
-                        childObj.comment = child.comment?.summary[0]?.text;
+                        childObj.comment = resolveComment(child.comment?.summary, lib.name);
                         childObj.defaultValue = resolveDefaultValue(child);
                         childObj.type = resolveTypes(child.type, lib.name);
                         exportedObj.properties.push(childObj);
@@ -221,31 +222,50 @@ function createJson(data) {
     });
 }
 
-function resolveDefaultValue(elem) {
-    if (elem.comment?.blockTags) {
-        const defaultValueTag = elem.comment.blockTags.find(blockTag => blockTag.tag === '@defaultValue');
+// Resolve the default value of an item
+function resolveDefaultValue(item) {
+    if (item.comment?.blockTags) {
+        const defaultValueTag = item.comment.blockTags.find(blockTag => blockTag.tag === '@defaultValue');
 
         if (defaultValueTag?.content[0]?.text) {
             return defaultValueTag.content[0].text;
         }
     }
 
-    if (elem.defaultValue && elem.defaultValue !== '...') {
-        return elem.defaultValue;
+    if (item.defaultValue && item.defaultValue !== '...') {
+        return item.defaultValue;
     }
 
     return undefined;
 }
 
+// Resolve the commebt of an item
+function resolveComment(comment, currentLib) {
+    return comment?.map(content => {
+        if (content.kind === 'text') {
+            return {
+                text: content.text
+            };
+        }
+        if (content.kind === 'inline-tag' && content.tag === '@link') {
+            return {
+                text: content.text,
+                target: content.target,
+            }
+        }
+    })
+}
+
 // Resolve the type, comment and params of a method
 function resolveMethod(obj, method, lib) {
-    obj.comment = method.comment?.summary[0]?.text;
+    obj.comment = resolveComment(method.comment?.summary, lib);
     obj.type = resolveTypes(method.type, lib);
     obj.params = method.parameters?.map(param => {
         return {
+            id: param.id,
             name: param.name,
             type: resolveTypes(param.type, lib),
-            comment: param.comment?.summary[0]?.text,
+            comment: resolveComment(param.comment?.summary, lib),
             optional: param.flags?.isOptional,
         }
     })
