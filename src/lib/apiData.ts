@@ -1,7 +1,14 @@
+export type APIType = {
+  name: string;
+  lib?: string;
+  kind?: string;
+  source?: string;
+}
+
 export type APIParam = {
   name: string;
   optional: boolean;
-  type: string;
+  type: APIType | APIType[];
   comment: string;
   defaultValue: string;
 }
@@ -9,7 +16,7 @@ export type APIParam = {
 export type APIMethod = {
   name: string;
   params: APIParam[];
-  type: string;
+  type: APIType | APIType[];
   source: string;
   comment: string;
 }
@@ -36,7 +43,7 @@ export type APIClass = {
 export type APIFunction = {
   name: string;
   params: APIParam[];
-  type: string;
+  type: APIType | APIType[];
   source: string;
   comment: string;
 }

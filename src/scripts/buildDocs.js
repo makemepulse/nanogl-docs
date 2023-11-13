@@ -73,11 +73,27 @@ async function fetchLibs() {
             libs.push({ ...response, description })
         });
     }
-    sortLibs(libs);
+    setupExportedList(libs);
+    parseLibsData(libs);
 }
 
-// Parse all 'data.json' files and create a new global one, ready to be used by the app
-function sortLibs(libs) {
+// Setup the exported list for each lib
+function setupExportedList(libs) {
+    libs.forEach(lib => {
+        libChildrenAction(lib, (exported) => {
+            exportedList.push({
+                id: exported.id,
+                name: exported.name,
+                lib: lib.name,
+                kind: exported.kindString,
+                source: exported.sources[0].url
+            })
+        })
+    })
+}
+
+// Parse all libs and create a new global file, ready to be used by the app
+function parseLibsData(libs) {
     const data = {
         libs: []
     };
@@ -91,12 +107,6 @@ function sortLibs(libs) {
         };
 
         const resolveExported = (exported) => {
-            exportedList.push({
-                id: exported.id,
-                name: exported.name,
-                lib: lib.name,
-            })
-
             if (exported.kindString === 'Class') {
                 const exportedObj = {
                     id: exported.id,
@@ -183,6 +193,21 @@ function sortLibs(libs) {
     createJson(data);
 }
 
+// Call a function for each lib children from 'data.json' file
+function libChildrenAction(lib, action) {
+    // If a lib contains only 1 file, it's categorized as a 'Project' and its direct children are the exported objects
+    // If a lib contains more than 1 file, its direct children are the files containing the exported objects
+    if (lib.kindString === 'Project') {
+        // lib.children contains all .ts files present in the lib's /src folder
+        lib.children.forEach(action);
+    } else {
+        lib.children.forEach(file => {
+            // file.children contains all exported objects from the file
+            file.children.forEach(action);
+        })
+    }
+}
+
 // Create the global 'data.json' file
 function createJson(data) {
     fs.writeFile(OUTPUT_PATH, JSON.stringify(data, null, 2), 'utf8', function (err) {
@@ -210,25 +235,44 @@ function resolveMethod(obj, method, lib) {
 }
 
 // Resolve the type of something (property, method, param, ...)
-function resolveTypes(type, lib) {
+function resolveTypes(type, currentLib) {
     if (type.type === 'union') {
-        return type.types.map(type => resolveTypes(type, lib)).join(' | ');
+        return type.types.map(type => resolveTypes(type, currentLib));
     } else if (type.type === 'intrinsic') {
-        return type.name;
+        return { name: type.name };
     } else if (type.type === 'reference') {
-        if (type.id) {
-            const exported = exportedList.find(exported => exported.id === type.id && exported.lib === lib); // Find the referenced object in the same lib
+        if (type.id || type.package) {
+            const lib = type.package || currentLib;
+
+            // Find the referenced object in the correct lib
+            const exported = type.id
+                ? exportedList.find(exported => exported.id === type.id && exported.lib === lib)
+                : exportedList.find(exported => exported.name === type.qualifiedName && exported.lib === lib);
+
             if (exported) {
-                return exported.name;
+                return {
+                    name: exported.name,
+                    lib: exported.lib,
+                    kind: exported.kind,
+                    source: exported.source
+                };
+
             }
-        } else {
-            return type.name;
         }
+
+        return { name: type.name };
     } else if (type.type === 'array') {
-        return `${resolveTypes(type.elementType, lib)}[]`;
+        return {
+            ...resolveTypes(type.elementType, currentLib),
+            isArray: true
+        };
     } else if (type.type === 'literal') {
-        return `${type.value}`;
+        return { name: `${type.value}` };
     }
+}
+
+function resolveExtends() {
+
 }
 
 fetchLibs();

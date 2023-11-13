@@ -40,13 +40,25 @@
   .page-examples,
   .markdown-body .content-wrapper,
   .page-body-toc .content-wrapper {
-    a:not(.custom-link) {
+    a:not(.custom-link,.code-link) {
       @apply relative font-medium text-primary bg-left-bottom bg-no-repeat transition-[background-size];
       background-size: 0% 1px;
       background-image: linear-gradient(theme('colors.primary.DEFAULT'), theme('colors.primary.DEFAULT'));
 
       &:hover {
         background-size: 100% 1px;
+      }
+    }
+
+    a.code-link {
+      @apply relative font-medium bg-no-repeat transition-[background-position,color];
+      background-size: 200% 1px;
+      background-position: 100% 100%;
+      background-image: linear-gradient(90deg, transparent 50%, theme('colors.current') 50%);
+
+      &:hover {
+        @apply text-primary;
+        background-position: 0% 100%;
       }
     }
   }

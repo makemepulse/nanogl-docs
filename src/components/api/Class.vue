@@ -1,6 +1,6 @@
 <template>
   <div class="content-wrapper" :id="`class-${libClass.name}`">
-    <p v-if="libClass.extends">{{ libClass.extends }} →</p>
+    <p v-if="libClass.extends"><Type :data="libClass.extends"/> →</p>
     <h1 id="introduction" class="flex gap-8 items-baseline">
       <span>{{ libClass.name }}</span>
       <span v-if="libClass.source.length" class="text-16">

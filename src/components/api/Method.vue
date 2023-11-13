@@ -8,14 +8,19 @@
           <span class="token param">{{ param.name }}</span>
           <span v-if="param.optional" class="token boolean">?</span>
           <span v-if="param.type" class="flex w-fit">
-            <span class="token punctuation">:</span><span class="token type"> {{ param.type }}</span>
+            <span class="token punctuation">: </span>
+            <span class="token type inline-flex">
+              <Type :data="param.type" is-code/>
+            </span>
           </span>
           <span v-if="index + 1 < method.params.length" class="token punctuation">, </span>
         </template>
         <span class="token punctuation">)</span>
         <span v-if="method.type && !isConstructor" class="flex">
           <span class="token punctuation"> : </span>
-          <span class="token type">{{ method.type }}</span>
+          <span class="token type inline-flex">
+            <Type :data="method.type" is-code />
+          </span>
         </span>
       </code>
     </pre>

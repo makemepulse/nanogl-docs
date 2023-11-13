@@ -6,7 +6,7 @@
       </code>
       <span v-if="type || optional || comment || defaultValue"> : </span>
       <code v-if="type" class="language-ts inline-block">
-        {{ type }}
+        <Type :data="type" is-code />
       </code>
     </div>
     <div>
@@ -27,7 +27,7 @@ defineProps({
     required: true
   },
   type: {
-    type: String,
+    type: Object || Array<Object>,
     required: false
   },
   optional: {
