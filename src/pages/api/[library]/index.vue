@@ -8,7 +8,7 @@
         <div v-if="currentLib.classes.length">
           <h3 id="classes" class="mt-8 mb-4">Classes</h3>
           <div class="grid grid-cols-1 md:grid-cols-2 auto-rows-fr gap-8">
-            <BlockLink
+            <UIBlockLink
               v-for="libClass in currentLib.classes"
               class="px-16 py-8"
               :url="`/${SECTIONS.API}/${currentLib.name}/${LIB_ITEM_TYPE.CLASS}/${libClass.name}`"
@@ -19,7 +19,7 @@
         <div v-if="currentLib.functions.length">
           <h3 id="functions" class="mt-8 mb-4">Functions</h3>
           <div class="grid grid-cols-1 md:grid-cols-2 auto-rows-fr gap-8">
-            <BlockLink
+            <UIBlockLink
               v-for="libFunc in currentLib.functions"
               class="px-16 py-8"
               :url="`/${SECTIONS.API}/${currentLib.name}/${LIB_ITEM_TYPE.FUNCTION}/${libFunc.name}`"
