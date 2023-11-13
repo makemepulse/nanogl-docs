@@ -1383,6 +1383,7 @@
               "name": "debug",
               "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L36",
               "comment": "Program.debug\n  can be set to true to check and log compilation and linking errors (default to false)",
+              "defaultValue": "false",
               "type": {
                 "name": "boolean"
               }
@@ -1544,6 +1545,7 @@
             {
               "name": "samples",
               "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L18",
+              "defaultValue": "0",
               "type": {
                 "name": "number"
               }
@@ -1820,6 +1822,7 @@
             {
               "name": "_target",
               "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L19",
+              "defaultValue": "GL_TEXTURE_2D",
               "type": {
                 "name": "number"
               }
@@ -1827,6 +1830,7 @@
             {
               "name": "textureType",
               "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L17",
+              "defaultValue": "TextureType.TEXTURE_2D",
               "type": {
                 "name": "TEXTURE_2D"
               }
@@ -1962,6 +1966,7 @@
             {
               "name": "format",
               "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L41",
+              "defaultValue": "0",
               "type": {
                 "name": "number"
               }
@@ -1993,6 +1998,7 @@
             {
               "name": "internal",
               "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L42",
+              "defaultValue": "0",
               "type": {
                 "name": "number"
               }
@@ -2000,6 +2006,7 @@
             {
               "name": "textureType",
               "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L32",
+              "defaultValue": "TextureType.NONE",
               "type": {
                 "name": "TextureType",
                 "lib": "nanogl",
@@ -2010,6 +2017,7 @@
             {
               "name": "type",
               "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L43",
+              "defaultValue": "0",
               "type": {
                 "name": "number"
               }
@@ -2228,6 +2236,7 @@
             {
               "name": "_target",
               "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-cube.ts#L19",
+              "defaultValue": "GL_TEXTURE_CUBE",
               "type": {
                 "name": "number"
               }
@@ -2235,6 +2244,7 @@
             {
               "name": "textureType",
               "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-cube.ts#L17",
+              "defaultValue": "TextureType.TEXTURE_CUBE",
               "type": {
                 "name": "TEXTURE_CUBE"
               }
@@ -3051,6 +3061,7 @@
             {
               "name": "_children",
               "source": "https://github.com/evanmartiin/nanogl-node/blob/6ad0ba4/src/index.ts#L40",
+              "defaultValue": "[]",
               "type": {
                 "name": "Node",
                 "lib": "nanogl-node",
@@ -3062,6 +3073,7 @@
             {
               "name": "_invalidM",
               "source": "https://github.com/evanmartiin/nanogl-node/blob/6ad0ba4/src/index.ts#L42",
+              "defaultValue": "true",
               "type": {
                 "name": "boolean"
               }
@@ -3069,6 +3081,7 @@
             {
               "name": "_invalidW",
               "source": "https://github.com/evanmartiin/nanogl-node/blob/6ad0ba4/src/index.ts#L43",
+              "defaultValue": "true",
               "type": {
                 "name": "boolean"
               }
@@ -3083,6 +3096,7 @@
             {
               "name": "_parent",
               "source": "https://github.com/evanmartiin/nanogl-node/blob/6ad0ba4/src/index.ts#L39",
+              "defaultValue": "null",
               "type": [
                 {
                   "name": "null"
@@ -4353,6 +4367,7 @@
             {
               "name": "_cachedSlots",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/ChunkCollection.ts#L20",
+              "defaultValue": "null",
               "type": [
                 {
                   "name": "null"
@@ -4368,6 +4383,7 @@
             {
               "name": "_chunks",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/ChunkCollection.ts#L16",
+              "defaultValue": "[]",
               "type": {
                 "name": "Chunk",
                 "lib": "nanogl-pbr",
@@ -4379,6 +4395,7 @@
             {
               "name": "_codes",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/ChunkCollection.ts#L18",
+              "defaultValue": "[]",
               "type": {
                 "name": "Chunk",
                 "lib": "nanogl-pbr",
@@ -4390,6 +4407,7 @@
             {
               "name": "_invalidCode",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/ChunkCollection.ts#L11",
+              "defaultValue": "true",
               "type": {
                 "name": "boolean"
               }
@@ -4397,6 +4415,7 @@
             {
               "name": "_invalidList",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/ChunkCollection.ts#L10",
+              "defaultValue": "true",
               "type": {
                 "name": "boolean"
               }
@@ -4404,6 +4423,7 @@
             {
               "name": "_revision",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/ChunkCollection.ts#L12",
+              "defaultValue": "0",
               "type": {
                 "name": "number"
               }
@@ -4411,6 +4431,7 @@
             {
               "name": "_setups",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/ChunkCollection.ts#L17",
+              "defaultValue": "[]",
               "type": {
                 "name": "Chunk",
                 "lib": "nanogl-pbr",
@@ -4580,6 +4601,7 @@
             {
               "name": "hash",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/ChunksSlots.ts#L59",
+              "defaultValue": "0",
               "type": {
                 "name": "number"
               }
@@ -5036,6 +5058,7 @@
             {
               "name": "_hash",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Hash.ts#L153",
+              "defaultValue": "0",
               "type": {
                 "name": "number"
               }
@@ -5158,6 +5181,7 @@
             {
               "name": "ptype",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L333",
+              "defaultValue": "ParamType.ATTRIBUTE",
               "type": {
                 "name": "ATTRIBUTE"
               }
@@ -5266,6 +5290,7 @@
             {
               "name": "_colorspace",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L121",
+              "defaultValue": "ColorSpace.AUTO",
               "type": {
                 "name": "ColorSpace",
                 "lib": "nanogl-pbr",
@@ -5347,6 +5372,7 @@
             {
               "name": "_hash",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L392",
+              "defaultValue": "0",
               "type": {
                 "name": "number"
               }
@@ -5354,6 +5380,7 @@
             {
               "name": "name",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L388",
+              "defaultValue": "''",
               "type": {
                 "name": "string"
               }
@@ -5361,6 +5388,7 @@
             {
               "name": "ptype",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L386",
+              "defaultValue": "ParamType.CONSTANT",
               "type": {
                 "name": "CONSTANT"
               }
@@ -5368,6 +5396,7 @@
             {
               "name": "size",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L389",
+              "defaultValue": "1",
               "type": {
                 "name": "InputSize"
               }
@@ -5375,6 +5404,7 @@
             {
               "name": "token",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L390",
+              "defaultValue": "''",
               "type": {
                 "name": "string"
               }
@@ -5382,6 +5412,7 @@
             {
               "name": "value",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L391",
+              "defaultValue": "0",
               "type": [
                 {
                   "name": "number"
@@ -5527,6 +5558,7 @@
             {
               "name": "_colorspace",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L459",
+              "defaultValue": "ColorSpace.LINEAR",
               "type": {
                 "name": "ColorSpace",
                 "lib": "nanogl-pbr",
@@ -5583,6 +5615,7 @@
             {
               "name": "ALL",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L452",
+              "defaultValue": "ShaderType.ALL",
               "type": {
                 "name": "ShaderType",
                 "lib": "nanogl-pbr",
@@ -5592,15 +5625,18 @@
             },
             {
               "name": "Attribute",
-              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L447"
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L447",
+              "defaultValue": "Attribute"
             },
             {
               "name": "Constant",
-              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L448"
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L448",
+              "defaultValue": "Constant"
             },
             {
               "name": "FRAGMENT",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L450",
+              "defaultValue": "ShaderType.FRAGMENT",
               "type": {
                 "name": "ShaderType",
                 "lib": "nanogl-pbr",
@@ -5610,15 +5646,18 @@
             },
             {
               "name": "Sampler",
-              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L445"
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L445",
+              "defaultValue": "Sampler"
             },
             {
               "name": "Uniform",
-              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L446"
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L446",
+              "defaultValue": "Uniform"
             },
             {
               "name": "VERTEX",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L451",
+              "defaultValue": "ShaderType.VERTEX",
               "type": {
                 "name": "ShaderType",
                 "lib": "nanogl-pbr",
@@ -5942,6 +5981,7 @@
             {
               "name": "ptype",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L158",
+              "defaultValue": "ParamType.SAMPLER",
               "type": {
                 "name": "SAMPLER"
               }
@@ -6148,6 +6188,7 @@
             {
               "name": "ptype",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L244",
+              "defaultValue": "ParamType.UNIFORM",
               "type": {
                 "name": "UNIFORM"
               }
@@ -6447,6 +6488,7 @@
             {
               "name": "_passes",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Material.ts#L58",
+              "defaultValue": "[]",
               "type": {
                 "name": "PassInstance",
                 "lib": "nanogl-pbr",
@@ -6488,6 +6530,7 @@
             {
               "name": "mask",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Material.ts#L51",
+              "defaultValue": "~0",
               "type": {
                 "name": "number"
               }
@@ -6495,6 +6538,7 @@
             {
               "name": "name",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Material.ts#L61",
+              "defaultValue": "''",
               "type": {
                 "name": "string"
               }
@@ -6659,6 +6703,7 @@
             {
               "name": "_program",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Material.ts#L20",
+              "defaultValue": "null",
               "type": [
                 {
                   "name": "null"
@@ -6809,6 +6854,7 @@
             {
               "name": "mask",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/MaterialPass.ts#L14",
+              "defaultValue": "~0",
               "type": {
                 "name": "number"
               }
@@ -6816,6 +6862,7 @@
             {
               "name": "name",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/MaterialPass.ts#L13",
+              "defaultValue": "''",
               "type": {
                 "name": "string"
               }
@@ -6895,6 +6942,7 @@
             {
               "name": "_morphInfos",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/MorphDeformer.ts#L24",
+              "defaultValue": "[]",
               "type": {
                 "name": "MorphAttribInfos",
                 "lib": "nanogl-pbr",
@@ -7043,6 +7091,7 @@
             {
               "name": "type",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/PbrSurface.ts#L19",
+              "defaultValue": "PbrWorkflowType.NONE",
               "type": {
                 "name": "PbrWorkflowType",
                 "lib": "nanogl-pbr",
@@ -7159,6 +7208,7 @@
             {
               "name": "type",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/PbrSurface.ts#L41",
+              "defaultValue": "PbrWorkflowType.METALNESS",
               "type": {
                 "name": "METALNESS"
               }
@@ -7272,6 +7322,7 @@
             {
               "name": "type",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/PbrSurface.ts#L78",
+              "defaultValue": "PbrWorkflowType.SPECULAR",
               "type": {
                 "name": "SPECULAR"
               }
@@ -7458,6 +7509,7 @@
             {
               "name": "_chunkCollections",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/ProgramSource.ts#L11",
+              "defaultValue": "[]",
               "type": {
                 "name": "ChunkCollection",
                 "lib": "nanogl-pbr",
@@ -7479,6 +7531,7 @@
             {
               "name": "_program",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/ProgramSource.ts#L16",
+              "defaultValue": "null",
               "type": [
                 {
                   "name": "null"
@@ -7494,6 +7547,7 @@
             {
               "name": "_revision",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/ProgramSource.ts#L17",
+              "defaultValue": "0",
               "type": {
                 "name": "number"
               }
@@ -8363,6 +8417,7 @@
             {
               "name": "_UID",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/TexCoord.ts#L183",
+              "defaultValue": "0",
               "type": {
                 "name": "number"
               }
@@ -8618,6 +8673,7 @@
             {
               "name": "_uid",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/TexCoord.ts#L154",
+              "defaultValue": "''",
               "type": {
                 "name": "string"
               }
@@ -9203,6 +9259,7 @@
             {
               "name": "_camera",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/DirectionalLight.ts#L19",
+              "defaultValue": "null",
               "type": [
                 {
                   "name": "null"
@@ -9225,6 +9282,7 @@
             {
               "name": "_type",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/DirectionalLight.ts#L15",
+              "defaultValue": "LightType.DIRECTIONAL",
               "type": {
                 "name": "DIRECTIONAL"
               }
@@ -9341,6 +9399,7 @@
             {
               "name": "type",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/DirectionalLightModel.ts#L12",
+              "defaultValue": "LightType.DIRECTIONAL",
               "type": {
                 "name": "DIRECTIONAL"
               }
@@ -9486,6 +9545,7 @@
             {
               "name": "_type",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Ibl.ts#L17",
+              "defaultValue": "LightType.IBL",
               "type": {
                 "name": "IBL"
               }
@@ -9494,6 +9554,7 @@
               "name": "ambiantIntensity",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Ibl.ts#L58",
               "comment": "intensity of the SH part",
+              "defaultValue": "1.0",
               "type": {
                 "name": "number"
               }
@@ -9518,6 +9579,7 @@
               "name": "enableBoxProjection",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Ibl.ts#L48",
               "comment": "enable box projection for reflection",
+              "defaultValue": "false",
               "type": {
                 "name": "boolean"
               }
@@ -9526,6 +9588,7 @@
               "name": "enableRotation",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Ibl.ts#L41",
               "comment": "enable rotation of the IBL",
+              "defaultValue": "false",
               "type": {
                 "name": "boolean"
               }
@@ -9544,6 +9607,7 @@
               "name": "hdrEncoding",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Ibl.ts#L27",
               "comment": "Encoding used to storee HDR values in the env map",
+              "defaultValue": "\"RGBM\"",
               "type": [
                 {
                   "name": "RGBM"
@@ -9560,6 +9624,7 @@
               "name": "iblFormat",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Ibl.ts#L22",
               "comment": "The type of Mapping of the env map",
+              "defaultValue": "'OCTA'",
               "type": [
                 {
                   "name": "OCTA"
@@ -9573,6 +9638,7 @@
               "name": "intensity",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Ibl.ts#L53",
               "comment": "global intensity of the ibl",
+              "defaultValue": "1.0",
               "type": {
                 "name": "number"
               }
@@ -9581,6 +9647,7 @@
               "name": "mipLevels",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Ibl.ts#L36",
               "comment": "number of available mip levels in the env map\nIn pmrem, the lower mip levels can be left unused (black) to keep definition in high roughness values",
+              "defaultValue": "5",
               "type": {
                 "name": "number"
               }
@@ -9595,6 +9662,7 @@
             {
               "name": "shFormat",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Ibl.ts#L30",
+              "defaultValue": "\"SH9\"",
               "type": [
                 {
                   "name": "SH9"
@@ -9608,6 +9676,7 @@
               "name": "specularIntensity",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Ibl.ts#L63",
               "comment": "intensity of environement reflections",
+              "defaultValue": "1.0",
               "type": {
                 "name": "number"
               }
@@ -9752,6 +9821,7 @@
             {
               "name": "type",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/IblModel.ts#L42",
+              "defaultValue": "LightType.IBL",
               "type": {
                 "name": "IBL"
               }
@@ -10106,6 +10176,7 @@
             {
               "name": "_type",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/PointLight.ts#L10",
+              "defaultValue": "LightType.POINT",
               "type": {
                 "name": "POINT"
               }
@@ -10264,6 +10335,7 @@
             {
               "name": "type",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/PointLightModel.ts#L12",
+              "defaultValue": "LightType.POINT",
               "type": {
                 "name": "POINT"
               }
@@ -10405,6 +10477,7 @@
             {
               "name": "_castShadows",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/PunctualLight.ts#L51",
+              "defaultValue": "false",
               "type": {
                 "name": "boolean"
               }
@@ -10419,6 +10492,7 @@
             {
               "name": "_fbo",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/PunctualLight.ts#L30",
+              "defaultValue": "null",
               "type": [
                 {
                   "name": "null"
@@ -10448,6 +10522,7 @@
             {
               "name": "shadowmapSize",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/PunctualLight.ts#L34",
+              "defaultValue": "512",
               "type": {
                 "name": "number"
               }
@@ -10671,6 +10746,7 @@
             {
               "name": "_camera",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/SpotLight.ts#L24",
+              "defaultValue": "null",
               "type": [
                 {
                   "name": "null"
@@ -10686,6 +10762,7 @@
             {
               "name": "_innerAngle",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/SpotLight.ts#L17",
+              "defaultValue": "0",
               "type": {
                 "name": "number"
               }
@@ -10693,6 +10770,7 @@
             {
               "name": "_outerAngle",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/SpotLight.ts#L18",
+              "defaultValue": "0",
               "type": {
                 "name": "number"
               }
@@ -10700,6 +10778,7 @@
             {
               "name": "_radius",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/SpotLight.ts#L19",
+              "defaultValue": "0",
               "type": {
                 "name": "number"
               }
@@ -10707,6 +10786,7 @@
             {
               "name": "_type",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/SpotLight.ts#L15",
+              "defaultValue": "LightType.SPOT",
               "type": {
                 "name": "SPOT"
               }
@@ -10951,6 +11031,7 @@
             {
               "name": "type",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/SpotLightModel.ts#L14",
+              "defaultValue": "LightType.SPOT",
               "type": {
                 "name": "SPOT"
               }
@@ -15885,15 +15966,18 @@
             },
             {
               "name": "auto",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/dbca127/src/index.ts#L43"
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/dbca127/src/index.ts#L43",
+              "defaultValue": "_auto"
             },
             {
               "name": "resolve",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/dbca127/src/index.ts#L42"
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/dbca127/src/index.ts#L42",
+              "defaultValue": "_resolve"
             },
             {
               "name": "stop",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/dbca127/src/index.ts#L44"
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/dbca127/src/index.ts#L44",
+              "defaultValue": "_stop"
             }
           ],
           "accessors": [],

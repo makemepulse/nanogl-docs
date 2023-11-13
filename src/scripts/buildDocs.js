@@ -137,7 +137,7 @@ function parseLibsData(libs) {
                         exportedObj.constructors.push(childObj);
                     } else if (child.kindString === 'Property') {
                         childObj.comment = child.comment?.summary[0]?.text;
-                        childObj.defaultValue = child.comment?.blockTags?.[0]?.content[0]?.text;
+                        childObj.defaultValue = resolveDefaultValue(child);
                         childObj.type = resolveTypes(child.type, lib.name);
                         exportedObj.properties.push(childObj);
                     } else if (child.kindString === 'Accessor') {
@@ -220,6 +220,22 @@ function createJson(data) {
     });
 }
 
+function resolveDefaultValue(elem) {
+    if (elem.comment?.blockTags) {
+        const defaultValueTag = elem.comment.blockTags.find(blockTag => blockTag.tag === '@defaultValue');
+
+        if (defaultValueTag?.content[0]?.text) {
+            return defaultValueTag.content[0].text;
+        }
+    }
+
+    if (elem.defaultValue && elem.defaultValue !== '...') {
+        return elem.defaultValue;
+    }
+
+    return undefined;
+}
+
 // Resolve the type, comment and params of a method
 function resolveMethod(obj, method, lib) {
     obj.comment = method.comment?.summary[0]?.text;
@@ -246,8 +262,8 @@ function resolveTypes(type, currentLib) {
 
             // Find the referenced object in the correct lib
             const exported = type.id
-                ? exportedList.find(exported => exported.id === type.id && exported.lib === lib)
-                : exportedList.find(exported => exported.name === type.qualifiedName && exported.lib === lib);
+            ? exportedList.find(exported => exported.id === type.id && exported.lib === lib)
+            : exportedList.find(exported => exported.name === type.qualifiedName && exported.lib === lib);
 
             if (exported) {
                 return {
