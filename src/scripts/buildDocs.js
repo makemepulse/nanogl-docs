@@ -242,16 +242,16 @@ function resolveDefaultValue(item) {
 // Resolve the commebt of an item
 function resolveComment(comment, currentLib) {
     return comment?.map(content => {
-        if (content.kind === 'text') {
-            return {
-                text: content.text
-            };
-        }
         if (content.kind === 'inline-tag' && content.tag === '@link') {
             return {
                 text: content.text,
                 target: content.target,
             }
+        }
+        if (!!content.text) {
+            return {
+                text: content.text
+            };
         }
     })
 }
@@ -267,6 +267,7 @@ function resolveMethod(obj, method, lib) {
             type: resolveTypes(param.type, lib),
             comment: resolveComment(param.comment?.summary, lib),
             optional: param.flags?.isOptional,
+            defaultValue: resolveDefaultValue(param)
         }
     })
 }

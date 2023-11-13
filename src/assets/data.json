@@ -50,7 +50,8 @@
                   "name": "usage",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "gl.STATIC_DRAW"
                 },
                 {
                   "id": 8,
@@ -202,7 +203,8 @@
                       "text": "indicate if the data must be normalized"
                     }
                   ],
-                  "optional": true
+                  "optional": true,
+                  "defaultValue": "false"
                 }
               ]
             },
@@ -350,7 +352,8 @@
                       "text": "the position of the first vertex to draw"
                     }
                   ],
-                  "optional": true
+                  "optional": true,
+                  "defaultValue": "0"
                 }
               ]
             },
@@ -1138,7 +1141,8 @@
                   "type": {
                     "name": "boolean"
                   },
-                  "optional": true
+                  "optional": true,
+                  "defaultValue": "true"
                 },
                 {
                   "id": 178,
@@ -1146,7 +1150,8 @@
                   "type": {
                     "name": "boolean"
                   },
-                  "optional": true
+                  "optional": true,
+                  "defaultValue": "false"
                 },
                 {
                   "id": 179,
@@ -1154,7 +1159,8 @@
                   "type": {
                     "name": "boolean"
                   },
-                  "optional": true
+                  "optional": true,
+                  "defaultValue": "false"
                 }
               ]
             },
@@ -1263,7 +1269,8 @@
                   "name": "index",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "0"
                 }
               ]
             },
@@ -1283,7 +1290,8 @@
                   "name": "index",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "0"
                 }
               ]
             },
@@ -1391,7 +1399,8 @@
                   "name": "type",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "gl.UNSIGNED_SHORT"
                 },
                 {
                   "id": 202,
@@ -1411,7 +1420,8 @@
                   "name": "usage",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "gl.STATIC_DRAW"
                 },
                 {
                   "id": 204,
@@ -1586,7 +1596,8 @@
                       "text": "the position of the first index to draw"
                     }
                   ],
-                  "optional": true
+                  "optional": true,
+                  "defaultValue": "0"
                 }
               ]
             },
@@ -1948,7 +1959,8 @@
                   "name": "samples",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "0"
                 }
               ]
             }
@@ -2259,7 +2271,8 @@
                       "text": "if true, use LINEAR filtering"
                     }
                   ],
-                  "optional": true
+                  "optional": true,
+                  "defaultValue": "false"
                 },
                 {
                   "id": 333,
@@ -2272,7 +2285,8 @@
                       "text": "if true, enable mipmaping"
                     }
                   ],
-                  "optional": true
+                  "optional": true,
+                  "defaultValue": "false"
                 },
                 {
                   "id": 334,
@@ -2285,7 +2299,8 @@
                       "text": "if true, use linear Mipmapping"
                     }
                   ],
-                  "optional": true
+                  "optional": true,
+                  "defaultValue": "false"
                 }
               ]
             },
@@ -2449,7 +2464,8 @@
                       "text": "TypedArray of texture data, can be null"
                     }
                   ],
-                  "optional": true
+                  "optional": true,
+                  "defaultValue": "null"
                 }
               ]
             },
@@ -2750,7 +2766,8 @@
                       "text": "if true, use LINEAR filtering"
                     }
                   ],
-                  "optional": true
+                  "optional": true,
+                  "defaultValue": "false"
                 },
                 {
                   "id": 432,
@@ -2763,7 +2780,8 @@
                       "text": "if true, enable mipmaping"
                     }
                   ],
-                  "optional": true
+                  "optional": true,
+                  "defaultValue": "false"
                 },
                 {
                   "id": 433,
@@ -2776,7 +2794,8 @@
                       "text": "if true, use linear Mipmapping"
                     }
                   ],
-                  "optional": true
+                  "optional": true,
+                  "defaultValue": "false"
                 }
               ]
             },
@@ -4334,7 +4353,8 @@
                     {
                       "text": "If true, parent's world matrix will not be updated."
                     }
-                  ]
+                  ],
+                  "defaultValue": "false"
                 }
               ]
             }
@@ -4449,14 +4469,16 @@
                   "name": "radius",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "1.0"
                 },
                 {
                   "id": 79,
                   "name": "segs",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "32"
                 }
               ]
             }
@@ -4530,21 +4552,24 @@
                   "name": "radius",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "1.0"
                 },
                 {
                   "id": 7,
                   "name": "segs",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "32"
                 },
                 {
                   "id": 8,
                   "name": "thickness",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "0.1"
                 }
               ]
             }
@@ -4618,28 +4643,32 @@
                   "name": "x",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "-1"
                 },
                 {
                   "id": 224,
                   "name": "y",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "-1"
                 },
                 {
                   "id": 225,
                   "name": "w",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "2"
                 },
                 {
                   "id": 226,
                   "name": "h",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "2"
                 }
               ]
             }
@@ -4713,35 +4742,40 @@
                   "name": "x",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "-1"
                 },
                 {
                   "id": 150,
                   "name": "y",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "-1"
                 },
                 {
                   "id": 151,
                   "name": "w",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "2"
                 },
                 {
                   "id": 152,
                   "name": "h",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "2"
                 },
                 {
                   "id": 153,
                   "name": "thickness",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": ".1"
                 }
               ]
             }
@@ -5067,14 +5101,16 @@
                   "name": "hasCode",
                   "type": {
                     "name": "boolean"
-                  }
+                  },
+                  "defaultValue": "false"
                 },
                 {
                   "id": 44,
                   "name": "hasSetup",
                   "type": {
                     "name": "boolean"
-                  }
+                  },
+                  "defaultValue": "false"
                 }
               ]
             }
@@ -5346,7 +5382,8 @@
                       "kind": "Class",
                       "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
                     }
-                  ]
+                  ],
+                  "defaultValue": "null"
                 }
               ]
             },
@@ -6119,7 +6156,8 @@
                   "name": "val",
                   "type": {
                     "name": "boolean"
-                  }
+                  },
+                  "defaultValue": "false"
                 }
               ]
             }
@@ -6205,7 +6243,8 @@
                   "name": "val",
                   "type": {
                     "name": "boolean"
-                  }
+                  },
+                  "defaultValue": "false"
                 }
               ]
             }
@@ -6488,14 +6527,16 @@
                   "name": "hasCode",
                   "type": {
                     "name": "boolean"
-                  }
+                  },
+                  "defaultValue": "false"
                 },
                 {
                   "id": 382,
                   "name": "hasSetup",
                   "type": {
                     "name": "boolean"
-                  }
+                  },
+                  "defaultValue": "false"
                 }
               ]
             }
@@ -6787,7 +6828,8 @@
                     "lib": "nanogl-pbr",
                     "kind": "Enumeration",
                     "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L23"
-                  }
+                  },
+                  "defaultValue": "ShaderType.FRAGMENT"
                 },
                 {
                   "id": 764,
@@ -6797,7 +6839,8 @@
                     "lib": "nanogl-pbr",
                     "kind": "Enumeration",
                     "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/ColorSpace.ts#L3"
-                  }
+                  },
+                  "defaultValue": "ColorSpace.LINEAR"
                 }
               ]
             }
@@ -7015,7 +7058,8 @@
                     "lib": "nanogl-pbr",
                     "kind": "Type alias",
                     "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Swizzle.ts#L1"
-                  }
+                  },
+                  "defaultValue": "'rgba'"
                 }
               ]
             },
@@ -7052,7 +7096,8 @@
                     "lib": "nanogl-pbr",
                     "kind": "Type alias",
                     "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Swizzle.ts#L1"
-                  }
+                  },
+                  "defaultValue": "'rgba'"
                 }
               ]
             },
@@ -7087,7 +7132,8 @@
                     "lib": "nanogl-pbr",
                     "kind": "Type alias",
                     "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Swizzle.ts#L1"
-                  }
+                  },
+                  "defaultValue": "'rgba'"
                 }
               ]
             },
@@ -7132,7 +7178,8 @@
                     "lib": "nanogl-pbr",
                     "kind": "Type alias",
                     "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Swizzle.ts#L1"
-                  }
+                  },
+                  "defaultValue": "'rgba'"
                 }
               ]
             },
@@ -7169,7 +7216,8 @@
                     "lib": "nanogl-pbr",
                     "kind": "Type alias",
                     "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Swizzle.ts#L1"
-                  }
+                  },
+                  "defaultValue": "'rgba'"
                 }
               ]
             },
@@ -7237,7 +7285,8 @@
                     "lib": "nanogl-pbr",
                     "kind": "Enumeration",
                     "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/ColorSpace.ts#L3"
-                  }
+                  },
+                  "defaultValue": "ColorSpace.AUTO"
                 }
               ]
             }
@@ -7836,7 +7885,8 @@
                   "name": "name",
                   "type": {
                     "name": "string"
-                  }
+                  },
+                  "defaultValue": "''"
                 }
               ]
             }
@@ -7943,7 +7993,8 @@
                   "name": "id",
                   "type": {
                     "name": "string"
-                  }
+                  },
+                  "defaultValue": "'color'"
                 }
               ]
             },
@@ -7980,7 +8031,8 @@
                   "name": "id",
                   "type": {
                     "name": "string"
-                  }
+                  },
+                  "defaultValue": "'color'"
                 }
               ]
             },
@@ -9137,7 +9189,8 @@
                     "lib": "nanogl-pbr",
                     "kind": "Type alias",
                     "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/interfaces/GlslPrecision.ts#L2"
-                  }
+                  },
+                  "defaultValue": "'mediump'"
                 }
               ]
             }
@@ -9229,7 +9282,8 @@
                   "name": "v",
                   "type": {
                     "name": "GlslVersion"
-                  }
+                  },
+                  "defaultValue": "'100'"
                 }
               ]
             }
@@ -9495,7 +9549,8 @@
                   "name": "name",
                   "type": {
                     "name": "string"
-                  }
+                  },
+                  "defaultValue": "'gltf-std-pass'"
                 }
               ]
             }
@@ -9551,7 +9606,8 @@
                   "name": "name",
                   "type": {
                     "name": "string"
-                  }
+                  },
+                  "defaultValue": "'gltf-std-pass'"
                 }
               ]
             }
@@ -9897,7 +9953,8 @@
                   "name": "name",
                   "type": {
                     "name": "string"
-                  }
+                  },
+                  "defaultValue": "'gltf-std-pass'"
                 }
               ]
             }
@@ -9953,7 +10010,8 @@
                   "name": "attrib",
                   "type": {
                     "name": "string"
-                  }
+                  },
+                  "defaultValue": "_DefaultTexCoord"
                 }
               ]
             }
@@ -10066,7 +10124,8 @@
                   "name": "y",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "x"
                 }
               ]
             },
@@ -10167,7 +10226,8 @@
                   "name": "attrib",
                   "type": {
                     "name": "string"
-                  }
+                  },
+                  "defaultValue": "_DefaultTexCoord"
                 },
                 {
                   "id": 1658,
@@ -10281,7 +10341,8 @@
                   "name": "attrib",
                   "type": {
                     "name": "string"
-                  }
+                  },
+                  "defaultValue": "_DefaultTexCoord"
                 },
                 {
                   "id": 1737,
@@ -10403,7 +10464,8 @@
                   "name": "trsOpt",
                   "type": {
                     "name": "TRSOpts"
-                  }
+                  },
+                  "defaultValue": "{}"
                 }
               ]
             },
@@ -10431,7 +10493,8 @@
                   "name": "matrix",
                   "type": {
                     "name": "mat3"
-                  }
+                  },
+                  "defaultValue": "M3_IDENTITY"
                 }
               ]
             },
@@ -10488,7 +10551,8 @@
                   "name": "name",
                   "type": {
                     "name": "string"
-                  }
+                  },
+                  "defaultValue": "'unlit-pass'"
                 }
               ]
             }
@@ -13459,7 +13523,8 @@
               "name": "hash",
               "type": {
                 "name": "number"
-              }
+              },
+              "defaultValue": "0"
             }
           ]
         },
@@ -13491,7 +13556,8 @@
               "name": "hash",
               "type": {
                 "name": "number"
-              }
+              },
+              "defaultValue": "0"
             }
           ]
         },
@@ -13523,7 +13589,8 @@
               "name": "hash",
               "type": {
                 "name": "number"
-              }
+              },
+              "defaultValue": "0"
             }
           ]
         },
@@ -13969,7 +14036,8 @@
                   "name": "internal",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "format"
                 }
               ]
             },
@@ -14005,7 +14073,8 @@
                   "name": "internal",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "defaultValue": "format"
                 }
               ]
             },
@@ -16706,7 +16775,8 @@
                   "name": "mipmap",
                   "type": {
                     "name": "boolean"
-                  }
+                  },
+                  "defaultValue": "false"
                 }
               ]
             }
@@ -17000,7 +17070,8 @@
                   "name": "fullframe",
                   "type": {
                     "name": "boolean"
-                  }
+                  },
+                  "defaultValue": "false"
                 }
               ]
             },
@@ -17720,7 +17791,8 @@
                   "name": "flag",
                   "type": {
                     "name": "boolean"
-                  }
+                  },
+                  "defaultValue": "true"
                 }
               ]
             },
@@ -17740,7 +17812,8 @@
                   "name": "flag",
                   "type": {
                     "name": "boolean"
-                  }
+                  },
+                  "defaultValue": "true"
                 }
               ]
             },
@@ -17760,7 +17833,8 @@
                   "name": "flag",
                   "type": {
                     "name": "boolean"
-                  }
+                  },
+                  "defaultValue": "true"
                 }
               ]
             },
@@ -17780,7 +17854,8 @@
                   "name": "flag",
                   "type": {
                     "name": "boolean"
-                  }
+                  },
+                  "defaultValue": "true"
                 }
               ]
             },
@@ -17800,7 +17875,8 @@
                   "name": "flag",
                   "type": {
                     "name": "boolean"
-                  }
+                  },
+                  "defaultValue": "true"
                 }
               ]
             },
@@ -17820,7 +17896,8 @@
                   "name": "flag",
                   "type": {
                     "name": "boolean"
-                  }
+                  },
+                  "defaultValue": "true"
                 }
               ]
             },
@@ -17840,7 +17917,8 @@
                   "name": "flag",
                   "type": {
                     "name": "boolean"
-                  }
+                  },
+                  "defaultValue": "true"
                 }
               ]
             },
@@ -18732,7 +18810,8 @@
                   "type": {
                     "name": "number"
                   },
-                  "optional": true
+                  "optional": true,
+                  "defaultValue": "1e6"
                 }
               ]
             },

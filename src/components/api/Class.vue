@@ -32,7 +32,6 @@
           :type="property.type"
           :optional="property.optional"
           :comment="property.comment"
-          :source="property.source"
           :default-value="property.defaultValue"
         />
       </div>

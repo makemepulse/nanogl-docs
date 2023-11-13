@@ -39,6 +39,7 @@
           :type="param.type"
           :optional="param.optional"
           :comment="param.comment"
+          :default-value="param.defaultValue"
         />
       </div>
     </div>
