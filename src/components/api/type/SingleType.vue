@@ -5,7 +5,7 @@
     :to="url.path"
     target="_blank"
   >
-    {{ type.name }}
+    {{ name }}
   </RouterLink>
   <a
     v-else-if="!!url && !url.isInternal"
@@ -13,9 +13,9 @@
     :href="url.path"
     target="_blank"
   >
-    {{ type.name }}
+    {{ name }}
   </a>
-  <span v-else>{{ type.name }}</span>
+  <span v-else>{{ name }}</span>
 </template>
 
 <script setup lang="ts">
@@ -62,5 +62,9 @@ const url = computed(() => {
   }
 
   return null
+})
+
+const name = computed(() => {
+  return props.type.isArray ? `${props.type.name}[]` : props.type.name
 })
 </script>

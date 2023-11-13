@@ -3,6 +3,7 @@ export type APIType = {
   lib?: string;
   kind?: string;
   source?: string;
+  isArray?: boolean;
 }
 
 export type APICommentItem = {
