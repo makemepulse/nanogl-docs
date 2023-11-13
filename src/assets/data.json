@@ -279,12 +279,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseBuffer",
-            "lib": "nanogl",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2"
-          }
+          "extends": [
+            {
+              "name": "BaseBuffer",
+              "lib": "nanogl",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2"
+            }
+          ]
         },
         {
           "id": 72,
@@ -1261,12 +1263,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseBuffer",
-            "lib": "nanogl",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2"
-          }
+          "extends": [
+            {
+              "name": "BaseBuffer",
+              "lib": "nanogl",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2"
+            }
+          ]
         },
         {
           "id": 259,
@@ -1892,12 +1896,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "AbstractTexture",
-            "lib": "nanogl",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L30"
-          }
+          "extends": [
+            {
+              "name": "AbstractTexture",
+              "lib": "nanogl",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L30"
+            }
+          ]
         },
         {
           "id": 402,
@@ -2269,12 +2275,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "AbstractTexture",
-            "lib": "nanogl",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L30"
-          }
+          "extends": [
+            {
+              "name": "AbstractTexture",
+              "lib": "nanogl",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L30"
+            }
+          ]
         }
       ],
       "functions": [
@@ -2547,12 +2555,14 @@
               }
             }
           ],
-          "extends": {
-            "name": "Node",
-            "lib": "nanogl-node",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-node/blob/6ad0ba4/src/index.ts#L16"
-          }
+          "extends": [
+            {
+              "name": "Node",
+              "lib": "nanogl-node",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/6ad0ba4/src/index.ts#L16"
+            }
+          ]
         },
         {
           "id": 99,
@@ -3534,12 +3544,20 @@
               }
             }
           ],
-          "extends": {
-            "name": "ArrayBuffer",
-            "lib": "nanogl",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29"
-          }
+          "extends": [
+            {
+              "name": "ArrayBuffer",
+              "lib": "nanogl",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29"
+            },
+            {
+              "name": "BaseBuffer",
+              "lib": "nanogl",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2"
+            }
+          ]
         },
         {
           "id": 2,
@@ -3600,12 +3618,20 @@
               }
             }
           ],
-          "extends": {
-            "name": "ArrayBuffer",
-            "lib": "nanogl",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29"
-          }
+          "extends": [
+            {
+              "name": "ArrayBuffer",
+              "lib": "nanogl",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29"
+            },
+            {
+              "name": "BaseBuffer",
+              "lib": "nanogl",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2"
+            }
+          ]
         },
         {
           "id": 219,
@@ -3672,12 +3698,20 @@
               }
             }
           ],
-          "extends": {
-            "name": "ArrayBuffer",
-            "lib": "nanogl",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29"
-          }
+          "extends": [
+            {
+              "name": "ArrayBuffer",
+              "lib": "nanogl",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29"
+            },
+            {
+              "name": "BaseBuffer",
+              "lib": "nanogl",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2"
+            }
+          ]
         },
         {
           "id": 145,
@@ -3750,12 +3784,20 @@
               }
             }
           ],
-          "extends": {
-            "name": "ArrayBuffer",
-            "lib": "nanogl",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29"
-          }
+          "extends": [
+            {
+              "name": "ArrayBuffer",
+              "lib": "nanogl",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29"
+            },
+            {
+              "name": "BaseBuffer",
+              "lib": "nanogl",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2"
+            }
+          ]
         }
       ],
       "functions": []
@@ -4799,12 +4841,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "MaterialPass",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/MaterialPass.ts#L11"
-          }
+          "extends": [
+            {
+              "name": "MaterialPass",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/MaterialPass.ts#L11"
+            }
+          ]
         },
         {
           "id": 187,
@@ -4916,12 +4960,14 @@
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Enum.ts#L39"
             }
           ],
-          "extends": {
-            "name": "Chunk",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
-          }
+          "extends": [
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 255,
@@ -5031,12 +5077,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "Chunk",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
-          }
+          "extends": [
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 346,
@@ -5249,12 +5297,20 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseParams",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L119"
-          }
+          "extends": [
+            {
+              "name": "BaseParams",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L119"
+            },
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 378,
@@ -5332,12 +5388,14 @@
             }
           ],
           "methods": [],
-          "extends": {
-            "name": "Chunk",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
-          }
+          "extends": [
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 678,
@@ -5498,12 +5556,20 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseParams",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L119"
-          }
+          "extends": [
+            {
+              "name": "BaseParams",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L119"
+            },
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 751,
@@ -5894,12 +5960,14 @@
               }
             }
           ],
-          "extends": {
-            "name": "Chunk",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
-          }
+          "extends": [
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 437,
@@ -6133,12 +6201,20 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseParams",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L119"
-          }
+          "extends": [
+            {
+              "name": "BaseParams",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L119"
+            },
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 516,
@@ -6436,12 +6512,20 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseParams",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L119"
-          }
+          "extends": [
+            {
+              "name": "BaseParams",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Input.ts#L119"
+            },
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 865,
@@ -7054,12 +7138,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "Chunk",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
-          }
+          "extends": [
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 1003,
@@ -7121,12 +7207,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "Chunk",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
-          }
+          "extends": [
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 1057,
@@ -7235,12 +7323,20 @@
               ]
             }
           ],
-          "extends": {
-            "name": "AbstractPbrSurface",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/PbrSurface.ts#L17"
-          }
+          "extends": [
+            {
+              "name": "AbstractPbrSurface",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/PbrSurface.ts#L17"
+            },
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 1117,
@@ -7349,12 +7445,20 @@
               ]
             }
           ],
-          "extends": {
-            "name": "AbstractPbrSurface",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/PbrSurface.ts#L17"
-          }
+          "extends": [
+            {
+              "name": "AbstractPbrSurface",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/PbrSurface.ts#L17"
+            },
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 1178,
@@ -7700,12 +7804,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "Chunk",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
-          }
+          "extends": [
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 1274,
@@ -7802,12 +7908,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "Chunk",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
-          }
+          "extends": [
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 1354,
@@ -7940,12 +8048,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "Chunk",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
-          }
+          "extends": [
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 1501,
@@ -7985,12 +8095,20 @@
           ],
           "accessors": [],
           "methods": [],
-          "extends": {
-            "name": "StandardPass",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/StandardPass.ts#L31"
-          }
+          "extends": [
+            {
+              "name": "StandardPass",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/StandardPass.ts#L31"
+            },
+            {
+              "name": "MaterialPass",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/MaterialPass.ts#L11"
+            }
+          ]
         },
         {
           "id": 1417,
@@ -8297,12 +8415,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "MaterialPass",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/MaterialPass.ts#L11"
-          }
+          "extends": [
+            {
+              "name": "MaterialPass",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/MaterialPass.ts#L11"
+            }
+          ]
         },
         {
           "id": 1460,
@@ -8342,12 +8462,20 @@
           ],
           "accessors": [],
           "methods": [],
-          "extends": {
-            "name": "StandardPass",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/StandardPass.ts#L31"
-          }
+          "extends": [
+            {
+              "name": "StandardPass",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/StandardPass.ts#L31"
+            },
+            {
+              "name": "MaterialPass",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/MaterialPass.ts#L11"
+            }
+          ]
         },
         {
           "id": 1545,
@@ -8528,12 +8656,20 @@
               }
             }
           ],
-          "extends": {
-            "name": "TexCoord",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/TexCoord.ts#L128"
-          }
+          "extends": [
+            {
+              "name": "TexCoord",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/TexCoord.ts#L128"
+            },
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 1640,
@@ -8624,12 +8760,20 @@
               }
             }
           ],
-          "extends": {
-            "name": "TexCoord",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/TexCoord.ts#L128"
-          }
+          "extends": [
+            {
+              "name": "TexCoord",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/TexCoord.ts#L128"
+            },
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 1719,
@@ -8809,12 +8953,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "Chunk",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
-          }
+          "extends": [
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 1795,
@@ -9000,12 +9146,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "MaterialPass",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/MaterialPass.ts#L11"
-          }
+          "extends": [
+            {
+              "name": "MaterialPass",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/MaterialPass.ts#L11"
+            }
+          ]
         },
         {
           "id": 2000,
@@ -9197,12 +9345,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "Chunk",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
-          }
+          "extends": [
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 1924,
@@ -9231,12 +9381,20 @@
               ]
             }
           ],
-          "extends": {
-            "name": "AbstractLightModel",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/AbstractLightModel.ts#L10"
-          }
+          "extends": [
+            {
+              "name": "AbstractLightModel",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/AbstractLightModel.ts#L10"
+            },
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 2077,
@@ -9327,12 +9485,26 @@
               ]
             }
           ],
-          "extends": {
-            "name": "PunctualLight",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/PunctualLight.ts#L26"
-          }
+          "extends": [
+            {
+              "name": "PunctualLight",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/PunctualLight.ts#L26"
+            },
+            {
+              "name": "Light",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Light.ts#L13"
+            },
+            {
+              "name": "Node",
+              "lib": "nanogl-node",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/6ad0ba4/src/index.ts#L16"
+            }
+          ]
         },
         {
           "id": 2179,
@@ -9498,12 +9670,26 @@
               ]
             }
           ],
-          "extends": {
-            "name": "ShadowMappedLightModel",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/AbstractLightModel.ts#L78"
-          }
+          "extends": [
+            {
+              "name": "ShadowMappedLightModel",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/AbstractLightModel.ts#L78"
+            },
+            {
+              "name": "AbstractLightModel",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/AbstractLightModel.ts#L10"
+            },
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 2264,
@@ -9684,12 +9870,20 @@
           ],
           "accessors": [],
           "methods": [],
-          "extends": {
-            "name": "Light",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Light.ts#L13"
-          }
+          "extends": [
+            {
+              "name": "Light",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Light.ts#L13"
+            },
+            {
+              "name": "Node",
+              "lib": "nanogl-node",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/6ad0ba4/src/index.ts#L16"
+            }
+          ]
         },
         {
           "id": 2347,
@@ -9923,12 +10117,20 @@
               ]
             }
           ],
-          "extends": {
-            "name": "AbstractLightModel",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/AbstractLightModel.ts#L10"
-          }
+          "extends": [
+            {
+              "name": "AbstractLightModel",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/AbstractLightModel.ts#L10"
+            },
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 2514,
@@ -9961,12 +10163,14 @@
           ],
           "accessors": [],
           "methods": [],
-          "extends": {
-            "name": "Node",
-            "lib": "nanogl-node",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-node/blob/6ad0ba4/src/index.ts#L16"
-          }
+          "extends": [
+            {
+              "name": "Node",
+              "lib": "nanogl-node",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/6ad0ba4/src/index.ts#L16"
+            }
+          ]
         },
         {
           "id": 2576,
@@ -10263,12 +10467,26 @@
               ]
             }
           ],
-          "extends": {
-            "name": "PunctualLight",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/PunctualLight.ts#L26"
-          }
+          "extends": [
+            {
+              "name": "PunctualLight",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/PunctualLight.ts#L26"
+            },
+            {
+              "name": "Light",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Light.ts#L13"
+            },
+            {
+              "name": "Node",
+              "lib": "nanogl-node",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/6ad0ba4/src/index.ts#L16"
+            }
+          ]
         },
         {
           "id": 2714,
@@ -10434,12 +10652,20 @@
               ]
             }
           ],
-          "extends": {
-            "name": "AbstractLightModel",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/AbstractLightModel.ts#L10"
-          }
+          "extends": [
+            {
+              "name": "AbstractLightModel",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/AbstractLightModel.ts#L10"
+            },
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 2794,
@@ -10711,12 +10937,20 @@
               ]
             }
           ],
-          "extends": {
-            "name": "Light",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Light.ts#L13"
-          }
+          "extends": [
+            {
+              "name": "Light",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Light.ts#L13"
+            },
+            {
+              "name": "Node",
+              "lib": "nanogl-node",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/6ad0ba4/src/index.ts#L16"
+            }
+          ]
         },
         {
           "id": 2896,
@@ -10935,12 +11169,26 @@
               ]
             }
           ],
-          "extends": {
-            "name": "PunctualLight",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/PunctualLight.ts#L26"
-          }
+          "extends": [
+            {
+              "name": "PunctualLight",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/PunctualLight.ts#L26"
+            },
+            {
+              "name": "Light",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Light.ts#L13"
+            },
+            {
+              "name": "Node",
+              "lib": "nanogl-node",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-node/blob/6ad0ba4/src/index.ts#L16"
+            }
+          ]
         },
         {
           "id": 3019,
@@ -11130,12 +11378,26 @@
               ]
             }
           ],
-          "extends": {
-            "name": "ShadowMappedLightModel",
-            "lib": "nanogl-pbr",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/AbstractLightModel.ts#L78"
-          }
+          "extends": [
+            {
+              "name": "ShadowMappedLightModel",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/AbstractLightModel.ts#L78"
+            },
+            {
+              "name": "AbstractLightModel",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/AbstractLightModel.ts#L10"
+            },
+            {
+              "name": "Chunk",
+              "lib": "nanogl-pbr",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+            }
+          ]
         },
         {
           "id": 3101,
@@ -12262,12 +12524,14 @@
               }
             }
           ],
-          "extends": {
-            "name": "BaseEffect",
-            "lib": "nanogl-post",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
-          }
+          "extends": [
+            {
+              "name": "BaseEffect",
+              "lib": "nanogl-post",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+            }
+          ]
         },
         {
           "id": 73,
@@ -12453,12 +12717,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseEffect",
-            "lib": "nanogl-post",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
-          }
+          "extends": [
+            {
+              "name": "BaseEffect",
+              "lib": "nanogl-post",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+            }
+          ]
         },
         {
           "id": 110,
@@ -12800,12 +13066,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseEffect",
-            "lib": "nanogl-post",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
-          }
+          "extends": [
+            {
+              "name": "BaseEffect",
+              "lib": "nanogl-post",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+            }
+          ]
         },
         {
           "id": 167,
@@ -12919,12 +13187,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseEffect",
-            "lib": "nanogl-post",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
-          }
+          "extends": [
+            {
+              "name": "BaseEffect",
+              "lib": "nanogl-post",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+            }
+          ]
         },
         {
           "id": 194,
@@ -13046,12 +13316,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseEffect",
-            "lib": "nanogl-post",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
-          }
+          "extends": [
+            {
+              "name": "BaseEffect",
+              "lib": "nanogl-post",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+            }
+          ]
         },
         {
           "id": 222,
@@ -13165,12 +13437,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseEffect",
-            "lib": "nanogl-post",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
-          }
+          "extends": [
+            {
+              "name": "BaseEffect",
+              "lib": "nanogl-post",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+            }
+          ]
         },
         {
           "id": 262,
@@ -13334,12 +13608,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseEffect",
-            "lib": "nanogl-post",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
-          }
+          "extends": [
+            {
+              "name": "BaseEffect",
+              "lib": "nanogl-post",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+            }
+          ]
         },
         {
           "id": 295,
@@ -13461,12 +13737,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseEffect",
-            "lib": "nanogl-post",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
-          }
+          "extends": [
+            {
+              "name": "BaseEffect",
+              "lib": "nanogl-post",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+            }
+          ]
         },
         {
           "id": 323,
@@ -13631,12 +13909,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseEffect",
-            "lib": "nanogl-post",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
-          }
+          "extends": [
+            {
+              "name": "BaseEffect",
+              "lib": "nanogl-post",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+            }
+          ]
         },
         {
           "id": 357,
@@ -13758,12 +14038,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseEffect",
-            "lib": "nanogl-post",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
-          }
+          "extends": [
+            {
+              "name": "BaseEffect",
+              "lib": "nanogl-post",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+            }
+          ]
         },
         {
           "id": 385,
@@ -13907,12 +14189,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseEffect",
-            "lib": "nanogl-post",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
-          }
+          "extends": [
+            {
+              "name": "BaseEffect",
+              "lib": "nanogl-post",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+            }
+          ]
         },
         {
           "id": 416,
@@ -14061,12 +14345,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseEffect",
-            "lib": "nanogl-post",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
-          }
+          "extends": [
+            {
+              "name": "BaseEffect",
+              "lib": "nanogl-post",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+            }
+          ]
         },
         {
           "id": 448,
@@ -14228,12 +14514,14 @@
               ]
             }
           ],
-          "extends": {
-            "name": "BaseEffect",
-            "lib": "nanogl-post",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
-          }
+          "extends": [
+            {
+              "name": "BaseEffect",
+              "lib": "nanogl-post",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+            }
+          ]
         },
         {
           "id": 482,
@@ -15867,12 +16155,14 @@
               }
             }
           ],
-          "extends": {
-            "name": "GLConfig",
-            "lib": "nanogl-state",
-            "kind": "Class",
-            "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
-          }
+          "extends": [
+            {
+              "name": "GLConfig",
+              "lib": "nanogl-state",
+              "kind": "Class",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+            }
+          ]
         }
       ],
       "functions": []

@@ -77,7 +77,7 @@ async function fetchLibs() {
     parseLibsData(libs);
 }
 
-// Setup the exported list for each lib
+// Setup the exported list for each lib (to use for type & extends resolution)
 function setupExportedList(libs) {
     libs.forEach(lib => {
         libChildrenAction(lib, (exported) => {
@@ -86,7 +86,8 @@ function setupExportedList(libs) {
                 name: exported.name,
                 lib: lib.name,
                 kind: exported.kindString,
-                source: exported.sources[0].url
+                source: exported.sources[0].url,
+                extends: exported.extendedTypes?.[0]
             })
         })
     })
@@ -118,7 +119,7 @@ function parseLibsData(libs) {
                     properties: [],
                     accessors: [],
                     methods: [],
-                    extends: exported.extendedTypes ? resolveTypes(exported.extendedTypes[0], lib.name) : null,
+                    extends: exported.extendedTypes ? resolveExtends(exported.extendedTypes[0], lib.name) : null,
                 }
 
                 // exported.children contains all objects coming from the class (constructor, properties, methods, ...)
@@ -250,6 +251,20 @@ function resolveMethod(obj, method, lib) {
     })
 }
 
+// Get exported data from a reference
+function getExportedFromReference(reference, currentLib) {
+    if (!reference.id && !reference.package) return;
+
+    const lib = reference.package || currentLib;
+
+    // Find the referenced object in the correct lib
+    const exported = reference.id
+    ? exportedList.find(exported => exported.id === reference.id && exported.lib === lib)
+    : exportedList.find(exported => exported.name === reference.qualifiedName && exported.lib === lib);
+
+    return exported;
+}
+
 // Resolve the type of something (property, method, param, ...)
 function resolveTypes(type, currentLib) {
     if (type.type === 'union') {
@@ -257,23 +272,15 @@ function resolveTypes(type, currentLib) {
     } else if (type.type === 'intrinsic') {
         return { name: type.name };
     } else if (type.type === 'reference') {
-        if (type.id || type.package) {
-            const lib = type.package || currentLib;
+        const exported = getExportedFromReference(type, currentLib);
 
-            // Find the referenced object in the correct lib
-            const exported = type.id
-            ? exportedList.find(exported => exported.id === type.id && exported.lib === lib)
-            : exportedList.find(exported => exported.name === type.qualifiedName && exported.lib === lib);
-
-            if (exported) {
-                return {
-                    name: exported.name,
-                    lib: exported.lib,
-                    kind: exported.kind,
-                    source: exported.source
-                };
-
-            }
+        if (exported) {
+            return {
+                name: exported.name,
+                lib: exported.lib,
+                kind: exported.kind,
+                source: exported.source,
+            };
         }
 
         return { name: type.name };
@@ -287,8 +294,27 @@ function resolveTypes(type, currentLib) {
     }
 }
 
-function resolveExtends() {
+// Resolve the full extends chain
+function resolveExtends(extendsData, currentLib, extendsChain = []) {
+    if (extendsData.type !== 'reference') return;
 
+    const exported = getExportedFromReference(extendsData, currentLib);
+
+    if (exported) {
+        extendsChain.push({
+            name: exported.name,
+            lib: exported.lib,
+            kind: exported.kind,
+            source: exported.source,
+        })
+
+        if (exported.extends) {
+            resolveExtends(exported.extends, exported.lib, extendsChain);
+        }
+    }
+
+
+    return extendsChain
 }
 
 fetchLibs();

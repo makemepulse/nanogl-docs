@@ -1,6 +1,14 @@
 <template>
   <div class="content-wrapper" :id="`class-${libClass.name}`">
-    <p v-if="libClass.extends"><Type :data="libClass.extends"/> →</p>
+    <div
+      v-if="libClass.extends && libClass.extends.length"
+      class="flex flex-row-reverse justify-end flex-wrap gap-x-8"
+    >
+      <p v-for="extendsNode in libClass.extends">
+        <SingleType :type="extendsNode"/>
+        <span> →</span>
+      </p>
+    </div>
     <h1 id="introduction" class="flex gap-8 items-baseline">
       <span>{{ libClass.name }}</span>
       <span v-if="libClass.source.length" class="text-16">
