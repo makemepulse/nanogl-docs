@@ -1,10 +1,22 @@
 <template>
   <p>
-    <SingleComment
-      v-for="commentData in comment"
-      :text="commentData.text"
-      :target="commentData.target"
-    />
+    <template v-for="commentData in comment">
+      <SingleComment
+        v-if="!commentData.list"
+        :text="commentData.text"
+        :target="commentData.target"
+        :is-code="commentData.isCode"
+      />
+      <ul v-else>
+        <li v-for="listItem in commentData.list">
+          <SingleComment
+            :text="listItem.text"
+            :target="listItem.target"
+            :is-code="listItem.isCode"
+          />
+        </li>
+      </ul>
+    </template>
   </p>
 </template>
 

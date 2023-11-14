@@ -239,23 +239,6 @@ function resolveDefaultValue(item) {
     return undefined;
 }
 
-// Resolve the commebt of an item
-function resolveComment(comment, currentLib) {
-    return comment?.map(content => {
-        if (content.kind === 'inline-tag' && content.tag === '@link') {
-            return {
-                text: content.text,
-                target: content.target,
-            }
-        }
-        if (!!content.text) {
-            return {
-                text: content.text
-            };
-        }
-    })
-}
-
 // Resolve the type, comment and params of a method
 function resolveMethod(obj, method, lib) {
     obj.comment = resolveComment(method.comment?.summary, lib);
@@ -336,6 +319,74 @@ function resolveExtends(extendsData, currentLib, extendsChain = []) {
 
 
     return extendsChain
+}
+
+// Resolve the comment of an item
+function resolveComment(comment, currentLib) {
+    const elems = [];
+
+    let listId = null;
+    let isInList = false;
+    let prevElemListTag = false;
+
+    const setupList = () => {
+        prevElemListTag = true;
+
+        if (isInList) return;
+
+        isInList = true;
+        listId = elems.length;
+        elems.push({
+            list: []
+        })
+    }
+
+    for (let i = 0; i < comment?.length; i++) {
+        const content = comment[i];
+
+        // Check if the current element is a list tag & setup list if first tag
+        if (content.text === '\n- ') {
+            setupList();
+            continue;
+        }
+
+        // If we are in a list and the previous element wasn't a list tag, we close the list
+        if (isInList && listId && prevElemListTag === false) {
+            isInList = false;
+            listId = null;
+        }
+
+        // Previous element isn't a list tag anymore
+        prevElemListTag = false;
+        // List to push to is either global list or current list
+        const list = isInList && listId ? elems[listId].list : elems;
+
+        // Get data from the current element and add to the list
+        if (content.kind === 'inline-tag' && content.tag === '@link') {
+            list.push({
+                text: content.text,
+                target: content.target,
+            })
+        } else if (content.kind === 'code') {
+            list.push({
+                text: content.text.replace(/`/g, ''),
+                isCode: true,
+            })
+        } else if (!!content.text) {
+            list.push({
+                text: content.text
+            });
+        }
+
+        // Check if end of current element is a list tag & setup list if so
+        if (content.text.endsWith('\n- ')) {
+            const currentElem = list[list.length - 1];
+            currentElem.text = currentElem.text.replace('\n- ', '');
+            setupList();
+        }
+    }
+
+    return elems;
 }
 
 fetchLibs();

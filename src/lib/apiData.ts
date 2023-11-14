@@ -8,7 +8,9 @@ export type APIType = {
 
 export type APICommentItem = {
   text: string;
+  list?: APICommentItem[];
   target?: number;
+  isCode?: boolean;
 }
 
 export type APIComment = APICommentItem[]
