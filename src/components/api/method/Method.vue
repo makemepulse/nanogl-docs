@@ -28,6 +28,7 @@
       </code>
     </pre>
     <Comment v-if="method.comment" :comment="method.comment" class="my-16" />
+    <Comment v-if="method.example" :comment="method.example" class="my-16" />
     <div v-if="method.params" class="my-16">
       <h2 v-if="isFullPage" :id="`${method.name}-params`">Parameters</h2>
       <h4 v-else>Parameters</h4>

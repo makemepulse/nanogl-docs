@@ -1,32 +1,33 @@
 <template>
-  <p>
-    <template v-for="commentData in comment">
-      <SingleComment
-        v-if="!commentData.list"
-        :text="commentData.text"
-        :target="commentData.target"
-        :is-code="commentData.isCode"
-      />
-      <ul v-else>
-        <li v-for="listItem in commentData.list">
-          <SingleComment
-            :text="listItem.text"
-            :target="listItem.target"
-            :is-code="listItem.isCode"
-          />
-        </li>
-      </ul>
-    </template>
-  </p>
+  <div v-if="htmlData" :class="{ inline }">
+    <div v-html="htmlData" :class="{ inline }"></div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { APICommentItem } from '@lib/apiData';
+import { computed } from 'vue';
 
-defineProps({
+import { useMarkdown } from '@lib/markdown';
+
+const props = defineProps({
   comment: {
-    type: Array<APICommentItem>,
+    type: String,
     required: true
   },
+  inline: {
+    type: Boolean,
+    required: false,
+    default: false
+  }
 })
+
+const { md } = useMarkdown();
+
+const htmlData = computed(() => {
+  if (props.inline) {
+    return md.value.renderInline(props.comment)
+  }
+
+  return md.value.render(props.comment);
+});
 </script>

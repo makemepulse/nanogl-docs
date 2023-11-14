@@ -33,39 +33,15 @@
 </template>
 
 <script setup lang="ts">
-import { useStore } from "@lib/store";
-import { computed, ref } from "vue";
+import { computed } from "vue";
 
-import MarkdownIt from 'markdown-it';
-import MdLinkAttrs from 'markdown-it-link-attributes'
-import MdReplaceLink from 'markdown-it-replace-link'
+import { useStore } from "@lib/store";
+import { useMarkdown } from '@lib/markdown';
 
 const SOURCE_PATH = "https://github.com/makemepulse/nanogl-docs/tree/main/src/gl-preview/examples/";
 
 const { currentExample } = useStore();
-
-const md = ref<MarkdownIt | null>(null);
-
-const setupMd = () => {
-  if (!!md.value) return;
-
-  md.value = new MarkdownIt();
-  md.value.use(MdReplaceLink, {
-    replaceLink: (link) => {
-      const baseURL = import.meta.env.VITE_APP_BASE_URL;
-      return link.startsWith('/') && !!baseURL
-        ? `${baseURL}${link}`
-        : link;
-    }
-  })
-  md.value.use(MdLinkAttrs, {
-    matcher: (link) => /^https?:\/\//.test(link),
-    attrs: {
-      target: '_blank',
-      rel: 'noopener',
-    },
-  });
-}
+const { md } = useMarkdown();
 
 const exampleName = computed(() => currentExample.value?.id);
 
@@ -73,8 +49,6 @@ const exampleDescription = computed(() => {
   const description = currentExample.value?.description;
 
   if (!description) return;
-
-  setupMd();
 
   return md.value.render(description)
 });

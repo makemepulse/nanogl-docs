@@ -16,6 +16,7 @@
       </span>
     </h1>
     <Comment v-if="libClass.comment" :comment="libClass.comment" />
+    <Comment v-if="libClass.example" :comment="libClass.example" />
     <div v-if="libClass.constructors.length" class="mb-48">
       <h2 id="constructor">Constructor</h2>
       <div class="space-y-16">

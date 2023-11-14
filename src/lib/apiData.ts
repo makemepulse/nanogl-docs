@@ -6,21 +6,12 @@ export type APIType = {
   isArray?: boolean;
 }
 
-export type APICommentItem = {
-  text: string;
-  list?: APICommentItem[];
-  target?: number;
-  isCode?: boolean;
-}
-
-export type APIComment = APICommentItem[]
-
 export type APIParam = {
   id: number;
   name: string;
   optional: boolean;
   type: APIType | APIType[];
-  comment: APIComment;
+  comment: string;
   defaultValue: string;
 }
 
@@ -30,14 +21,15 @@ export type APIMethod = {
   params: APIParam[];
   type: APIType | APIType[];
   source: string;
-  comment: APIComment;
+  comment: string;
+  example: string;
 }
 
 export type APIAccessor = {
   id: number;
   name: string;
   source: string;
-  comment: APIComment;
+  comment: string;
   setter: APIMethod;
   getter: APIMethod;
 }
@@ -46,7 +38,8 @@ export type APIClass = {
   name: string;
   extends: string;
   source: string;
-  comment: APIComment;
+  comment: string;
+  example: string;
   constructors: APIMethod[];
   properties: APIParam[];
   accessors: APIAccessor[];
@@ -58,7 +51,8 @@ export type APIFunction = {
   params: APIParam[];
   type: APIType | APIType[];
   source: string;
-  comment: APIComment;
+  comment: string;
+  example: string;
 }
 
 export type APILib = {

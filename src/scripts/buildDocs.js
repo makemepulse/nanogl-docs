@@ -114,7 +114,8 @@ function parseLibsData(libs) {
                     name: exported.name,
                     originalName: exported.originalName,
                     source: exported.sources[0].url,
-                    comment: resolveComment(exported.comment?.summary, lib.name),
+                    comment: resolveComment(exported.comment?.summary),
+                    example: resolveExample(exported),
                     constructors: [],
                     properties: [],
                     accessors: [],
@@ -138,7 +139,7 @@ function parseLibsData(libs) {
                         resolveMethod(childObj, child.signatures[0], lib.name);
                         exportedObj.constructors.push(childObj);
                     } else if (child.kindString === 'Property') {
-                        childObj.comment = resolveComment(child.comment?.summary, lib.name);
+                        childObj.comment = resolveComment(child.comment?.summary);
                         childObj.defaultValue = resolveDefaultValue(child);
                         childObj.type = resolveTypes(child.type, lib.name);
                         exportedObj.properties.push(childObj);
@@ -239,16 +240,41 @@ function resolveDefaultValue(item) {
     return undefined;
 }
 
+// Resolve the comment of an item to markdown
+function resolveComment(comment) {
+    if (!comment) return;
+
+    const commentData = comment.map(content => {
+        if (content.kind === 'inline-tag' && content.tag === '@link') {
+            return `[${content.text}](#item-${content.target})`
+        }
+
+        return content.text || ''
+    })
+
+    return commentData.join('');
+}
+
+// Resolve the example of an item to markdown
+function resolveExample(item) {
+    if (!item.comment?.blockTags) return;
+
+    const exampleTag = item.comment.blockTags.find(blockTag => blockTag.tag === '@example');
+
+    return resolveComment(exampleTag?.content);
+}
+
 // Resolve the type, comment and params of a method
 function resolveMethod(obj, method, lib) {
-    obj.comment = resolveComment(method.comment?.summary, lib);
+    obj.comment = resolveComment(method.comment?.summary);
+    obj.example = resolveExample(method)
     obj.type = resolveTypes(method.type, lib);
     obj.params = method.parameters?.map(param => {
         return {
             id: param.id,
             name: param.name,
             type: resolveTypes(param.type, lib),
-            comment: resolveComment(param.comment?.summary, lib),
+            comment: resolveComment(param.comment?.summary),
             optional: param.flags?.isOptional,
             defaultValue: resolveDefaultValue(param)
         }
@@ -319,74 +345,6 @@ function resolveExtends(extendsData, currentLib, extendsChain = []) {
 
 
     return extendsChain
-}
-
-// Resolve the comment of an item
-function resolveComment(comment, currentLib) {
-    const elems = [];
-
-    let listId = null;
-    let isInList = false;
-    let prevElemListTag = false;
-
-    const setupList = () => {
-        prevElemListTag = true;
-
-        if (isInList) return;
-
-        isInList = true;
-        listId = elems.length;
-        elems.push({
-            list: []
-        })
-    }
-
-    for (let i = 0; i < comment?.length; i++) {
-        const content = comment[i];
-
-        // Check if the current element is a list tag & setup list if first tag
-        if (content.text === '\n- ') {
-            setupList();
-            continue;
-        }
-
-        // If we are in a list and the previous element wasn't a list tag, we close the list
-        if (isInList && listId && prevElemListTag === false) {
-            isInList = false;
-            listId = null;
-        }
-
-        // Previous element isn't a list tag anymore
-        prevElemListTag = false;
-        // List to push to is either global list or current list
-        const list = isInList && listId ? elems[listId].list : elems;
-
-        // Get data from the current element and add to the list
-        if (content.kind === 'inline-tag' && content.tag === '@link') {
-            list.push({
-                text: content.text,
-                target: content.target,
-            })
-        } else if (content.kind === 'code') {
-            list.push({
-                text: content.text.replace(/`/g, ''),
-                isCode: true,
-            })
-        } else if (!!content.text) {
-            list.push({
-                text: content.text
-            });
-        }
-
-        // Check if end of current element is a list tag & setup list if so
-        if (content.text.endsWith('\n- ')) {
-            const currentElem = list[list.length - 1];
-            currentElem.text = currentElem.text.replace('\n- ', '');
-            setupList();
-        }
-    }
-
-    return elems;
 }
 
 fetchLibs();

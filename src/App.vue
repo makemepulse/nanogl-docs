@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { useStore } from '@lib/store';
+import { useMarkdown } from '@lib/markdown';
 
-const { init } = useStore();
-init();
+const { init: initStore } = useStore();
+const { init: initMarkdown } = useMarkdown();
+
+initStore();
+initMarkdown();
 </script>
 
 <template>

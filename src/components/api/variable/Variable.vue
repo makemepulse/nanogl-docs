@@ -11,7 +11,7 @@
     </div>
     <div>
       <span v-if="optional">(optional) </span>
-      <Comment v-if="comment" :comment="comment" class="inline" />
+      <Comment v-if="comment" :comment="comment" inline />
     </div>
     <div v-if="defaultValue">
       <span>Default : </span>
@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { APICommentItem, APIType } from '@lib/apiData';
+import { APIType } from '@lib/apiData';
 
 defineProps({
   id: {
@@ -41,7 +41,7 @@ defineProps({
     required: false
   },
   comment: {
-    type: Array<APICommentItem>,
+    type: String,
     required: false
   },
   defaultValue: {
