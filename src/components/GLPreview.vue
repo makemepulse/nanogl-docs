@@ -17,16 +17,12 @@ const { examplesNames } = useStore();
 const FOLDERS = ['guide', 'examples'];
 const NAMES = ['add-movement', 'creating-a-scene', ...examplesNames.value];
 
-const props = defineProps({
-  name: {
-    type: String,
-    required: true
-  },
-  folder: {
-    type: String,
-    required: true
-  }
-})
+type Props = {
+  name: typeof NAMES[number];
+  folder: typeof FOLDERS[number];
+};
+
+const props = defineProps<Props>();
 
 const canvasRef= ref<HTMLCanvasElement | null>();
 

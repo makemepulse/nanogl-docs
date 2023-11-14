@@ -11,16 +11,14 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-const props = defineProps({
-  data: {
-    type: Object || Array<Object>,
-    required: true
-  },
-  isCode: {
-    type: Boolean,
-    required: false,
-  }
-})
+import { APIType } from '@lib/apiData';
+
+type Props = {
+  data: APIType;
+  isCode?: boolean;
+};
+
+const props = defineProps<Props>();
 
 const types = computed(() => {
   return Array.isArray(props.data) ? props.data : [props.data];

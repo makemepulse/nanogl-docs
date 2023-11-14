@@ -57,31 +57,24 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 import { useStore } from '@lib/store';
+import { SECTIONS } from '@lib/constants';
 
 const { currentSection } = useStore();
 const { currentRoute } =useRouter();
+
+type Props = {
+  name: string;
+  section: SECTIONS;
+  subMenu?: SubMenuItem[];
+};
+
+defineProps<Props>();
 
 const isSubmenuSelected = (path) => {
   const currentPath = currentRoute.value.path
   return currentPath === path ||
     currentPath.startsWith(`${path}/`)
 }
-
-defineProps({
-  name: {
-    type: String,
-    required: true
-  },
-  section: {
-    type: String,
-    required: true
-  },
-  subMenu: {
-    type: Array<SubMenuItem>,
-    required: false,
-  }
-})
-
 
 const isHovered = ref(false);
 

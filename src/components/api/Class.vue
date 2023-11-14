@@ -101,10 +101,10 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  libClass: {
-    type: Object,
-    required: true
-  }
-})
+import { APIClass } from '@lib/apiData';
+
+type Props = {
+  libClass: APIClass;
+};
+defineProps<Props>();
 </script>

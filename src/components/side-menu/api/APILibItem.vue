@@ -10,20 +10,16 @@
 import { computed } from 'vue';
 
 import { useStore } from '@lib/store';
-import { SECTIONS } from '@lib/constants';
+import { LIB_ITEM_TYPE, SECTIONS } from '@lib/constants';
 
 const { currentLib, currentType, currentItem } = useStore();
 
-const props = defineProps({
-  type: {
-    type: String,
-    required: true
-  },
-  itemName: {
-    type: String,
-    required: true
-  },
-})
+type Props = {
+  type: LIB_ITEM_TYPE;
+  itemName: string;
+};
+
+const props = defineProps<Props>();
 
 const isSelected = computed(() => {
   return props.type === currentType.value && props.itemName === currentItem.value.name;

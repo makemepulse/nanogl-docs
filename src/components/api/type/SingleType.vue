@@ -24,18 +24,15 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
+import { APISingleType } from '@lib/apiData';
 import { LIB_ITEM_TYPE } from '@lib/constants';
 
-const props = defineProps({
-  type: {
-    type: Object,
-    required: true
-  },
-  isCode: {
-    type: Boolean,
-    required: false,
-  }
-})
+type Props = {
+  type: APISingleType;
+  isCode?: boolean;
+};
+
+const props = defineProps<Props>();
 
 const itemType = computed(() => {
   if (props.type.kind === 'Class') {

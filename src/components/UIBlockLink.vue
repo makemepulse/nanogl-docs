@@ -21,23 +21,13 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  url: {
-    type: String,
-    required: true
-  },
-  text: {
-    type: String,
-    required: true
-  },
-  description: {
-    type: String,
-    required: false
-  },
-  fullHeight: {
-    type: Boolean,
-    required: false,
-    default: false
-  }
-})
+type Props = {
+  url: string;
+  text: string;
+  description: string;
+  fullHeight?: boolean;
+};
+withDefaults(defineProps<Props>(), {
+  fullHeight: false
+});
 </script>

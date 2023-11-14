@@ -24,10 +24,10 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  libFunction: {
-    type: Object,
-    required: true
-  }
-})
+import { APIFunction } from '@lib/apiData';
+
+type Props = {
+  libFunction: APIFunction;
+};
+defineProps<Props>();
 </script>

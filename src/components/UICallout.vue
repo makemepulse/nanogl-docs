@@ -9,11 +9,10 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  type: {
-    type: String,
-    default: 'info',
-    validator: (value: string) => ['info', 'important'].includes(value)
-  }
-})
+type Props = {
+  type?: 'info' | 'important';
+};
+withDefaults(defineProps<Props>(), {
+  type: 'info'
+});
 </script>

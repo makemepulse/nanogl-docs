@@ -9,17 +9,13 @@ import { computed } from 'vue';
 
 import { useMarkdown } from '@lib/markdown';
 
-const props = defineProps({
-  comment: {
-    type: String,
-    required: true
-  },
-  inline: {
-    type: Boolean,
-    required: false,
-    default: false
-  }
-})
+type Props = {
+  comment: string;
+  inline?: boolean;
+};
+const props = withDefaults(defineProps<Props>(), {
+  inline: false
+});
 
 const { md } = useMarkdown();
 

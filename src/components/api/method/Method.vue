@@ -48,24 +48,17 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  method: {
-    type: Object,
-    required: true
-  },
-  isConstructor: {
-    type: Boolean,
-    required: false,
-    default: false
-  },
-  isFullPage: {
-    type: Boolean,
-    required: false,
-    default: false
-  },
-  hasTitle: {
-    type: Boolean,
-    required: false
-  }
-})
+import { APIMethod } from '@lib/apiData';
+
+type Props = {
+  method: APIMethod;
+  isConstructor?: boolean;
+  isFullPage?: boolean;
+  hasTitle?: boolean;
+};
+withDefaults(defineProps<Props>(), {
+  isConstructor: false,
+  isFullPage: false,
+  hasTitle: false,
+});
 </script>

@@ -23,30 +23,13 @@
 <script setup lang="ts">
 import { APIType } from '@lib/apiData';
 
-defineProps({
-  id: {
-    type: Number,
-    required: true
-  },
-  name: {
-    type: String,
-    required: true
-  },
-  type: {
-    type: Object || Array<APIType>,
-    required: false
-  },
-  optional: {
-    type: Boolean,
-    required: false
-  },
-  comment: {
-    type: String,
-    required: false
-  },
-  defaultValue: {
-    type: String,
-    required: false
-  }
-})
+type Props = {
+  id: number;
+  name: string;
+  type?: APIType;
+  optional?: boolean;
+  comment?: string;
+  defaultValue?: string;
+};
+defineProps<Props>();
 </script>
