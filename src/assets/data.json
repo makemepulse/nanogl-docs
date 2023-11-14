@@ -5,35 +5,44 @@
       "description": "WebGL micro framework",
       "classes": [
         {
-          "id": 2,
+          "id": 9,
           "name": "ArrayBuffer",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29",
-          "comment": [],
+          "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L25",
+          "comment": [
+            {
+              "text": "This class provides helpers for ARRAY_BUFFER type buffers."
+            }
+          ],
           "constructors": [
             {
-              "id": 3,
+              "id": 10,
               "name": "ArrayBuffer",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L41",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L48",
               "type": {
                 "name": "ArrayBuffer",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L25"
               },
               "params": [
                 {
-                  "id": 5,
+                  "id": 12,
                   "name": "gl",
                   "type": {
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
-                  }
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
+                  },
+                  "comment": [
+                    {
+                      "text": "The webgl context this ArrayBuffer belongs to"
+                    }
+                  ]
                 },
                 {
-                  "id": 6,
+                  "id": 13,
                   "name": "data",
                   "type": [
                     {
@@ -43,22 +52,50 @@
                       "name": "BufferSource"
                     }
                   ],
+                  "comment": [
+                    {
+                      "text": "The data to fill the buffer with, or the size (in bytes)"
+                    }
+                  ],
                   "optional": true
                 },
                 {
-                  "id": 7,
+                  "id": 14,
                   "name": "usage",
                   "type": {
                     "name": "number"
                   },
+                  "comment": [
+                    {
+                      "text": "The usage hint for this buffer ("
+                    },
+                    {
+                      "text": "`STATIC_DRAW`"
+                    },
+                    {
+                      "text": ", "
+                    },
+                    {
+                      "text": "`DYNAMIC_DRAW`"
+                    },
+                    {
+                      "text": ", etc.)"
+                    }
+                  ],
+                  "optional": true,
                   "defaultValue": "gl.STATIC_DRAW"
                 },
                 {
-                  "id": 8,
+                  "id": 15,
                   "name": "glbuffer",
                   "type": {
                     "name": "WebGLBuffer"
                   },
+                  "comment": [
+                    {
+                      "text": "A WebGLBuffer to use instead of creating a new one"
+                    }
+                  ],
                   "optional": true
                 }
               ]
@@ -66,61 +103,99 @@
           ],
           "properties": [
             {
-              "id": 15,
+              "id": 22,
               "name": "attribs",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L38",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L40",
+              "comment": [
+                {
+                  "text": "The attributes declared for this buffer"
+                }
+              ],
               "type": {
                 "name": "AttributeDef",
+                "lib": "nanogl",
+                "kind": "Interface",
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L11",
                 "isArray": true
               }
             },
             {
-              "id": 10,
+              "id": 17,
               "name": "buffer",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L32",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L29",
+              "comment": [
+                {
+                  "text": "The webgl buffer this ArrayBuffer writes to"
+                }
+              ],
               "type": {
                 "name": "WebGLBuffer"
               }
             },
             {
-              "id": 13,
+              "id": 20,
               "name": "byteLength",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L36",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L36",
+              "comment": [
+                {
+                  "text": "The length in bytes of the buffer"
+                }
+              ],
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 9,
+              "id": 16,
               "name": "gl",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L31",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L27",
+              "comment": [
+                {
+                  "text": "The webgl context this ArrayBuffer belongs to"
+                }
+              ],
               "type": {
                 "name": "GLContext",
                 "lib": "nanogl",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
               }
             },
             {
-              "id": 14,
+              "id": 21,
               "name": "length",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L37",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L38",
+              "comment": [
+                {
+                  "text": "The number of vertices in the buffer data"
+                }
+              ],
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 12,
+              "id": 19,
               "name": "stride",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L35",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L34",
+              "comment": [
+                {
+                  "text": "The offset in bytes between the beginning of consecutive vertex attributes"
+                }
+              ],
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 11,
+              "id": 18,
               "name": "usage",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L34",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L32",
+              "comment": [
+                {
+                  "text": "The usage hint for this buffer"
+                }
+              ],
               "type": {
                 "name": "number"
               }
@@ -129,78 +204,107 @@
           "accessors": [],
           "methods": [
             {
-              "id": 41,
+              "id": 48,
               "name": "_computeLength",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L152",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L146",
+              "comment": [
+                {
+                  "text": "Compute the number of vertices in the buffer data"
+                }
+              ],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 18,
+              "id": 25,
               "name": "attrib",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L74",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L78",
               "comment": [
                 {
-                  "text": "Add attribute declaration for this buffer. Once attributes declared, the buffer can be linked to\nprograms attributes using "
+                  "text": "Add attribute declaration for this buffer. Once the attributes declared, the buffer can be linked to\nthe programs attributes using "
                 },
                 {
                   "text": "attribPointer",
-                  "target": 31
+                  "target": 38
                 }
               ],
               "type": {
                 "name": "ArrayBuffer",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L25"
               },
               "params": [
                 {
-                  "id": 20,
+                  "id": 27,
                   "name": "name",
                   "type": {
                     "name": "string"
                   },
                   "comment": [
                     {
-                      "text": "the name of the program's attribute"
+                      "text": "The name of the program's attribute"
                     }
                   ]
                 },
                 {
-                  "id": 21,
+                  "id": 28,
                   "name": "size",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the size of the attribute (3 for a vec3)"
+                      "text": "The size of the attribute ("
+                    },
+                    {
+                      "text": "`1`"
+                    },
+                    {
+                      "text": " for a number, "
+                    },
+                    {
+                      "text": "`2`"
+                    },
+                    {
+                      "text": " for a vec2, etc.)"
                     }
                   ]
                 },
                 {
-                  "id": 22,
+                  "id": 29,
                   "name": "type",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the type of data (GL_FLOAT, GL_SHORT etc)"
+                      "text": "The type of data ("
+                    },
+                    {
+                      "text": "`GL_FLOAT`"
+                    },
+                    {
+                      "text": ", "
+                    },
+                    {
+                      "text": "`GL_SHORT`"
+                    },
+                    {
+                      "text": ", etc.)"
                     }
                   ]
                 },
                 {
-                  "id": 23,
+                  "id": 30,
                   "name": "normalize",
                   "type": {
                     "name": "boolean"
                   },
                   "comment": [
                     {
-                      "text": "indicate if the data must be normalized"
+                      "text": "Indicate if the data must be normalized"
                     }
                   ],
                   "optional": true,
@@ -209,16 +313,16 @@
               ]
             },
             {
-              "id": 31,
+              "id": 38,
               "name": "attribPointer",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L120",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L114",
               "comment": [
                 {
-                  "text": "Link given program attributes to this buffer. You should first declare attributes using "
+                  "text": "Link the given program attributes to this buffer. You should first declare attributes using "
                 },
                 {
                   "text": "attrib",
-                  "target": 18
+                  "target": 25
                 },
                 {
                   "text": "\nbefore calling this method."
@@ -229,26 +333,26 @@
               },
               "params": [
                 {
-                  "id": 33,
+                  "id": 40,
                   "name": "program",
                   "type": {
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   },
                   "comment": [
                     {
-                      "text": "the nanogl Program"
+                      "text": "The program to link"
                     }
                   ]
                 }
               ]
             },
             {
-              "id": 16,
+              "id": 23,
               "name": "bind",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L62",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L66",
               "comment": [
                 {
                   "text": "Bind the underlying webgl buffer."
@@ -259,12 +363,12 @@
               }
             },
             {
-              "id": 24,
+              "id": 31,
               "name": "data",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L93",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L92",
               "comment": [
                 {
-                  "text": "Fill webgl buffer with the given data. You can also pass a uint  to allocate the buffer to the given size."
+                  "text": "Fill the webgl buffer with the given data. You can also pass a number instead to allocate the buffer to a given size."
                 }
               ],
               "type": {
@@ -272,7 +376,7 @@
               },
               "params": [
                 {
-                  "id": 26,
+                  "id": 33,
                   "name": "array",
                   "type": [
                     {
@@ -284,16 +388,16 @@
                   ],
                   "comment": [
                     {
-                      "text": "the data to send to the buffer, or a size."
+                      "text": "The data to use, or a size"
                     }
                   ]
                 }
               ]
             },
             {
-              "id": 39,
+              "id": 46,
               "name": "dispose",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L148",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L139",
               "comment": [
                 {
                   "text": "Delete underlying webgl objects"
@@ -304,9 +408,9 @@
               }
             },
             {
-              "id": 34,
+              "id": 41,
               "name": "draw",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L141",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L135",
               "comment": [
                 {
                   "text": "Shortcut to gl.drawArrays"
@@ -317,39 +421,51 @@
               },
               "params": [
                 {
-                  "id": 36,
+                  "id": 43,
                   "name": "mode",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the type of primitive to draw (GL_TRIANGLE, GL_POINTS etc)"
+                      "text": "The type of primitive to draw ("
+                    },
+                    {
+                      "text": "`GL_TRIANGLE`"
+                    },
+                    {
+                      "text": ", "
+                    },
+                    {
+                      "text": "`GL_POINTS`"
+                    },
+                    {
+                      "text": " etc)"
                     }
                   ]
                 },
                 {
-                  "id": 37,
+                  "id": 44,
                   "name": "count",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the number of vertices to draw (full buffer is used if omited)"
+                      "text": "The number of vertices to draw (the full buffer is used if omited)"
                     }
                   ],
                   "optional": true
                 },
                 {
-                  "id": 38,
+                  "id": 45,
                   "name": "offset",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the position of the first vertex to draw"
+                      "text": "The position of the first vertex to draw"
                     }
                   ],
                   "optional": true,
@@ -358,12 +474,12 @@
               ]
             },
             {
-              "id": 27,
+              "id": 34,
               "name": "subData",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L108",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L102",
               "comment": [
                 {
-                  "text": "Set a part of the buffer with the given data, starting a offset (in bytes)"
+                  "text": "Set part of the buffer with the given data, starting at an offset."
                 }
               ],
               "type": {
@@ -371,26 +487,26 @@
               },
               "params": [
                 {
-                  "id": 29,
+                  "id": 36,
                   "name": "array",
                   "type": {
                     "name": "BufferSource"
                   },
                   "comment": [
                     {
-                      "text": "the data to send to buffer"
+                      "text": "The data to use"
                     }
                   ]
                 },
                 {
-                  "id": 30,
+                  "id": 37,
                   "name": "offset",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the offset in byte where the data will be written"
+                      "text": "The offset (in bytes) where the data should start to be written"
                     }
                   ]
                 }
@@ -402,25 +518,30 @@
               "name": "BaseBuffer",
               "lib": "nanogl",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2"
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L5"
             }
           ]
         },
         {
-          "id": 72,
+          "id": 79,
           "name": "BaseBuffer",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2",
+          "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L5",
+          "comment": [
+            {
+              "text": "This class is the base for all buffer classes."
+            }
+          ],
           "constructors": [
             {
-              "id": 73,
+              "id": 80,
               "name": "BaseBuffer",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L5",
               "type": {
                 "name": "BaseBuffer",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L5"
               }
             }
           ],
@@ -428,23 +549,33 @@
           "accessors": [],
           "methods": [
             {
-              "id": 75,
+              "id": 82,
               "name": "bind",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L4",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L9",
+              "comment": [
+                {
+                  "text": "Bind the underlying webgl buffer."
+                }
+              ],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 79,
+              "id": 86,
               "name": "data",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L8",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L20",
+              "comment": [
+                {
+                  "text": "Fill the webgl buffer with the given data. You can also pass a number instead to allocate the buffer to a given size."
+                }
+              ],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 81,
+                  "id": 88,
                   "name": "array",
                   "type": [
                     {
@@ -453,58 +584,35 @@
                     {
                       "name": "BufferSource"
                     }
+                  ],
+                  "comment": [
+                    {
+                      "text": "The data to use, or a size"
+                    }
                   ]
                 }
               ]
             },
             {
-              "id": 77,
+              "id": 84,
               "name": "dispose",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L6",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L14",
+              "comment": [
+                {
+                  "text": "Delete underlying webgl objects"
+                }
+              ],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 86,
+              "id": 93,
               "name": "draw",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L12",
-              "type": {
-                "name": "void"
-              },
-              "params": [
-                {
-                  "id": 88,
-                  "name": "mode",
-                  "type": {
-                    "name": "number"
-                  }
-                },
-                {
-                  "id": 89,
-                  "name": "count",
-                  "type": {
-                    "name": "number"
-                  },
-                  "optional": true
-                },
-                {
-                  "id": 90,
-                  "name": "offset",
-                  "type": {
-                    "name": "number"
-                  },
-                  "optional": true
-                }
-              ]
-            },
-            {
-              "id": 99,
-              "name": "drawLineLoop",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L44",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L35",
               "comment": [
                 {
-                  "text": "Shortcut to gl.drawArrays( gl.LINE_LOOP, offset, count )"
+                  "text": "Shortcut to gl.drawArrays"
                 }
               ],
               "type": {
@@ -512,27 +620,51 @@
               },
               "params": [
                 {
-                  "id": 101,
+                  "id": 95,
+                  "name": "mode",
+                  "type": {
+                    "name": "number"
+                  },
+                  "comment": [
+                    {
+                      "text": "The type of primitive to draw ("
+                    },
+                    {
+                      "text": "`GL_TRIANGLE`"
+                    },
+                    {
+                      "text": ", "
+                    },
+                    {
+                      "text": "`GL_POINTS`"
+                    },
+                    {
+                      "text": " etc)"
+                    }
+                  ]
+                },
+                {
+                  "id": 96,
                   "name": "count",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the number of vertices to draw (full buffer is used if omited)"
+                      "text": "The number of elements to draw (the full buffer is used if omited)"
                     }
                   ],
                   "optional": true
                 },
                 {
-                  "id": 102,
+                  "id": 97,
                   "name": "offset",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the position in buffer to start from."
+                      "text": "The position in the buffer to start from"
                     }
                   ],
                   "optional": true
@@ -540,9 +672,53 @@
               ]
             },
             {
-              "id": 103,
+              "id": 106,
+              "name": "drawLineLoop",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L61",
+              "comment": [
+                {
+                  "text": "Shortcut to "
+                },
+                {
+                  "text": "`gl.drawArrays(gl.LINE_LOOP, offset, count)`"
+                }
+              ],
+              "type": {
+                "name": "void"
+              },
+              "params": [
+                {
+                  "id": 108,
+                  "name": "count",
+                  "type": {
+                    "name": "number"
+                  },
+                  "comment": [
+                    {
+                      "text": "The number of elements to draw (the full buffer is used if omited)"
+                    }
+                  ],
+                  "optional": true
+                },
+                {
+                  "id": 109,
+                  "name": "offset",
+                  "type": {
+                    "name": "number"
+                  },
+                  "comment": [
+                    {
+                      "text": "The position in the buffer to start from"
+                    }
+                  ],
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "id": 110,
               "name": "drawLineStrip",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L55",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L70",
               "comment": [
                 {
                   "text": "Shortcut to gl.drawArrays( gl.LINE_STRIP, offset, count )"
@@ -553,27 +729,27 @@
               },
               "params": [
                 {
-                  "id": 105,
+                  "id": 112,
                   "name": "count",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the number of vertices to draw (full buffer is used if omited)"
+                      "text": "The number of elements to draw (the full buffer is used if omited)"
                     }
                   ],
                   "optional": true
                 },
                 {
-                  "id": 106,
+                  "id": 113,
                   "name": "offset",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the position in buffer to start from."
+                      "text": "The position in the buffer to start from"
                     }
                   ],
                   "optional": true
@@ -581,12 +757,15 @@
               ]
             },
             {
-              "id": 95,
+              "id": 102,
               "name": "drawLines",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L33",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L52",
               "comment": [
                 {
-                  "text": "Shortcut to gl.drawArrays( gl.LINES, offset, count )"
+                  "text": "Shortcut to "
+                },
+                {
+                  "text": "`gl.drawArrays(gl.LINES, offset, count)`"
                 }
               ],
               "type": {
@@ -594,27 +773,27 @@
               },
               "params": [
                 {
-                  "id": 97,
+                  "id": 104,
                   "name": "count",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the number of vertices to draw (full buffer is used if omited)"
+                      "text": "The number of elements to draw (the full buffer is used if omited)"
                     }
                   ],
                   "optional": true
                 },
                 {
-                  "id": 98,
+                  "id": 105,
                   "name": "offset",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the position in buffer to start from."
+                      "text": "The position in the buffer to start from"
                     }
                   ],
                   "optional": true
@@ -622,12 +801,15 @@
               ]
             },
             {
-              "id": 91,
+              "id": 98,
               "name": "drawPoints",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L21",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L42",
               "comment": [
                 {
-                  "text": "Shortcut to gl.drawArrays( gl.POINTS, offset, count )"
+                  "text": "Shortcut to "
+                },
+                {
+                  "text": "`gl.drawArrays(gl.POINTS, offset, count)`"
                 }
               ],
               "type": {
@@ -635,27 +817,27 @@
               },
               "params": [
                 {
-                  "id": 93,
+                  "id": 100,
                   "name": "count",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the number of vertices to draw (full buffer is used if omited)"
+                      "text": "The number of elements to draw (the full buffer is used if omited)"
                     }
                   ],
                   "optional": true
                 },
                 {
-                  "id": 94,
+                  "id": 101,
                   "name": "offset",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the position in buffer to start from."
+                      "text": "The position in the buffer to start from"
                     }
                   ],
                   "optional": true
@@ -663,9 +845,9 @@
               ]
             },
             {
-              "id": 115,
+              "id": 122,
               "name": "drawTriangleFan",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L88",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L97",
               "comment": [
                 {
                   "text": "Shortcut to gl.drawArrays( gl.TRIANGLE_FAN, offset, count )"
@@ -676,27 +858,27 @@
               },
               "params": [
                 {
-                  "id": 117,
+                  "id": 124,
                   "name": "count",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the number of vertices to draw (full buffer is used if omited)"
+                      "text": "The number of elements to draw (the full buffer is used if omited)"
                     }
                   ],
                   "optional": true
                 },
                 {
-                  "id": 118,
+                  "id": 125,
                   "name": "offset",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the position in buffer to start from."
+                      "text": "The position in the buffer to start from"
                     }
                   ],
                   "optional": true
@@ -704,9 +886,9 @@
               ]
             },
             {
-              "id": 111,
+              "id": 118,
               "name": "drawTriangleStrip",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L77",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L88",
               "comment": [
                 {
                   "text": "Shortcut to gl.drawArrays( gl.TRIANGLE_STRIP, offset, count )"
@@ -717,27 +899,27 @@
               },
               "params": [
                 {
-                  "id": 113,
+                  "id": 120,
                   "name": "count",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the number of vertices to draw (full buffer is used if omited)"
+                      "text": "The number of elements to draw (the full buffer is used if omited)"
                     }
                   ],
                   "optional": true
                 },
                 {
-                  "id": 114,
+                  "id": 121,
                   "name": "offset",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the position in buffer to start from."
+                      "text": "The position in the buffer to start from"
                     }
                   ],
                   "optional": true
@@ -745,9 +927,9 @@
               ]
             },
             {
-              "id": 107,
+              "id": 114,
               "name": "drawTriangles",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L66",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L79",
               "comment": [
                 {
                   "text": "Shortcut to gl.drawArrays( gl.TRIANGLES, offset, count )"
@@ -758,27 +940,27 @@
               },
               "params": [
                 {
-                  "id": 109,
+                  "id": 116,
                   "name": "count",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the number of vertices to draw (full buffer is used if omited)"
+                      "text": "The number of elements to draw (the full buffer is used if omited)"
                     }
                   ],
                   "optional": true
                 },
                 {
-                  "id": 110,
+                  "id": 117,
                   "name": "offset",
                   "type": {
                     "name": "number"
                   },
                   "comment": [
                     {
-                      "text": "the position in buffer to start from."
+                      "text": "The position in the buffer to start from"
                     }
                   ],
                   "optional": true
@@ -786,26 +968,41 @@
               ]
             },
             {
-              "id": 82,
+              "id": 89,
               "name": "subData",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L10",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L27",
+              "comment": [
+                {
+                  "text": "Set part of the buffer with the given data, starting at an offset."
+                }
+              ],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 84,
+                  "id": 91,
                   "name": "array",
                   "type": {
                     "name": "BufferSource"
-                  }
+                  },
+                  "comment": [
+                    {
+                      "text": "The data to use"
+                    }
+                  ]
                 },
                 {
-                  "id": 85,
+                  "id": 92,
                   "name": "offset",
                   "type": {
                     "name": "number"
-                  }
+                  },
+                  "comment": [
+                    {
+                      "text": "The offset (in bytes) where the data should start to be written"
+                    }
+                  ]
                 }
               ]
             }
@@ -813,29 +1010,29 @@
           "extends": null
         },
         {
-          "id": 121,
+          "id": 128,
           "name": "Attachment",
-          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L20",
+          "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L20",
           "constructors": [
             {
-              "id": 122,
+              "id": 129,
               "name": "Attachment",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L26",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L26",
               "type": {
                 "name": "Attachment",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L20"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L20"
               },
               "params": [
                 {
-                  "id": 124,
+                  "id": 131,
                   "name": "target",
                   "type": {
                     "name": "AttachmentTarget",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L18"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L18"
                   }
                 }
               ]
@@ -843,45 +1040,62 @@
           ],
           "properties": [
             {
-              "id": 127,
+              "id": 134,
               "name": "_isTexture",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L24",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L24",
               "type": {
                 "name": "boolean"
               }
             },
             {
-              "id": 125,
+              "id": 132,
               "name": "level",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L22",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L22",
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 126,
+              "id": 133,
               "name": "target",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L23",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L23",
               "type": {
                 "name": "AttachmentTarget",
                 "lib": "nanogl",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L18"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L18"
               }
             }
           ],
           "accessors": [],
           "methods": [
             {
-              "id": 134,
+              "id": 141,
               "name": "_attach",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L49",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L49",
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 136,
+                  "id": 143,
+                  "name": "bindingPoint",
+                  "type": {
+                    "name": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "id": 144,
+              "name": "_detach",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L58",
+              "type": {
+                "name": "void"
+              },
+              "params": [
+                {
+                  "id": 146,
                   "name": "bindingPoint",
                   "type": {
                     "name": "number"
@@ -891,38 +1105,21 @@
             },
             {
               "id": 137,
-              "name": "_detach",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L58",
+              "name": "_resize",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L37",
               "type": {
                 "name": "void"
               },
               "params": [
                 {
                   "id": 139,
-                  "name": "bindingPoint",
-                  "type": {
-                    "name": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "id": 130,
-              "name": "_resize",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L37",
-              "type": {
-                "name": "void"
-              },
-              "params": [
-                {
-                  "id": 132,
                   "name": "w",
                   "type": {
                     "name": "number"
                   }
                 },
                 {
-                  "id": 133,
+                  "id": 140,
                   "name": "h",
                   "type": {
                     "name": "number"
@@ -931,17 +1128,17 @@
               ]
             },
             {
-              "id": 140,
+              "id": 147,
               "name": "dispose",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L67",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L67",
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 128,
+              "id": 135,
               "name": "isTexture",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L33",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L33",
               "type": {
                 "name": "boolean"
               }
@@ -950,31 +1147,31 @@
           "extends": null
         },
         {
-          "id": 142,
+          "id": 149,
           "name": "Fbo",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L85",
+          "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L85",
           "comment": [],
           "constructors": [
             {
-              "id": 143,
+              "id": 150,
               "name": "Fbo",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L97",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L97",
               "type": {
                 "name": "Fbo",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L85"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L85"
               },
               "params": [
                 {
-                  "id": 145,
+                  "id": 152,
                   "name": "gl",
                   "type": {
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 }
               ]
@@ -982,56 +1179,56 @@
           ],
           "properties": [
             {
-              "id": 149,
+              "id": 156,
               "name": "attachments",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L91",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L91",
               "type": {
                 "name": "Record"
               }
             },
             {
-              "id": 148,
+              "id": 155,
               "name": "attachmentsList",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L90",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L90",
               "type": {
                 "name": "Attachment",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L20",
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L20",
                 "isArray": true
               }
             },
             {
-              "id": 147,
+              "id": 154,
               "name": "fbo",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L88",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L88",
               "type": {
                 "name": "WebGLFramebuffer"
               }
             },
             {
-              "id": 146,
+              "id": 153,
               "name": "gl",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L87",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L87",
               "type": {
                 "name": "GLContext",
                 "lib": "nanogl",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
               }
             },
             {
-              "id": 151,
+              "id": 158,
               "name": "height",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L94",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L94",
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 150,
+              "id": 157,
               "name": "width",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L93",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L93",
               "type": {
                 "name": "number"
               }
@@ -1040,47 +1237,47 @@
           "accessors": [],
           "methods": [
             {
-              "id": 194,
+              "id": 201,
               "name": "_allocate",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L252",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L252",
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 152,
+              "id": 159,
               "name": "attach",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L110",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L110",
               "type": {
                 "name": "Attachment",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L20"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L20"
               },
               "params": [
                 {
-                  "id": 154,
+                  "id": 161,
                   "name": "bindingPoint",
                   "type": {
                     "name": "number"
                   }
                 },
                 {
-                  "id": 155,
+                  "id": 162,
                   "name": "res",
                   "type": {
                     "name": "AttachmentTarget",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L18"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L18"
                   }
                 }
               ]
             },
             {
-              "id": 170,
+              "id": 177,
               "name": "attachColor",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L169",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L169",
               "comment": [
                 {
                   "text": "Shortcut to attach texture to color attachment 0"
@@ -1090,11 +1287,11 @@
                 "name": "Attachment",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L20"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L20"
               },
               "params": [
                 {
-                  "id": 172,
+                  "id": 179,
                   "name": "format",
                   "type": {
                     "name": "number"
@@ -1102,7 +1299,7 @@
                   "optional": true
                 },
                 {
-                  "id": 173,
+                  "id": 180,
                   "name": "type",
                   "type": {
                     "name": "number"
@@ -1110,7 +1307,7 @@
                   "optional": true
                 },
                 {
-                  "id": 174,
+                  "id": 181,
                   "name": "internal",
                   "type": {
                     "name": "number"
@@ -1120,9 +1317,9 @@
               ]
             },
             {
-              "id": 175,
+              "id": 182,
               "name": "attachDepth",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L180",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L180",
               "comment": [
                 {
                   "text": "shortcut to attach depth/stencil renderbuffer/texture to this FBO"
@@ -1132,11 +1329,11 @@
                 "name": "Attachment",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L20"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L20"
               },
               "params": [
                 {
-                  "id": 177,
+                  "id": 184,
                   "name": "depth",
                   "type": {
                     "name": "boolean"
@@ -1145,7 +1342,7 @@
                   "defaultValue": "true"
                 },
                 {
-                  "id": 178,
+                  "id": 185,
                   "name": "stencil",
                   "type": {
                     "name": "boolean"
@@ -1154,7 +1351,7 @@
                   "defaultValue": "false"
                 },
                 {
-                  "id": 179,
+                  "id": 186,
                   "name": "useTexture",
                   "type": {
                     "name": "boolean"
@@ -1165,9 +1362,9 @@
               ]
             },
             {
-              "id": 184,
+              "id": 191,
               "name": "bind",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L209",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L209",
               "comment": [
                 {
                   "text": "Bind the Fbo ( simple shortcut for gl.bindFramebuffer(...) )"
@@ -1178,31 +1375,31 @@
               }
             },
             {
-              "id": 186,
+              "id": 193,
               "name": "clear",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L217",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L217",
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 188,
+              "id": 195,
               "name": "defaultViewport",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L222",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L222",
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 156,
+              "id": 163,
               "name": "detach",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L125",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L125",
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 158,
+                  "id": 165,
                   "name": "bindingPoint",
                   "type": {
                     "name": "number"
@@ -1211,9 +1408,9 @@
               ]
             },
             {
-              "id": 192,
+              "id": 199,
               "name": "dispose",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L238",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L238",
               "comment": [
                 {
                   "text": "Delete all webgl objects related to this Fbo (fbo, and all attachments )"
@@ -1224,9 +1421,9 @@
               }
             },
             {
-              "id": 159,
+              "id": 166,
               "name": "getAttachment",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L136",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L136",
               "type": [
                 {
                   "name": "null"
@@ -1235,12 +1432,12 @@
                   "name": "Attachment",
                   "lib": "nanogl",
                   "kind": "Class",
-                  "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L20"
+                  "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L20"
                 }
               ],
               "params": [
                 {
-                  "id": 161,
+                  "id": 168,
                   "name": "bindingPoint",
                   "type": {
                     "name": "number"
@@ -1249,9 +1446,9 @@
               ]
             },
             {
-              "id": 162,
+              "id": 169,
               "name": "getColor",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L145",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L145",
               "type": [
                 {
                   "name": "null"
@@ -1260,12 +1457,12 @@
                   "name": "AttachmentTarget",
                   "lib": "nanogl",
                   "kind": "Type alias",
-                  "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L18"
+                  "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L18"
                 }
               ],
               "params": [
                 {
-                  "id": 164,
+                  "id": 171,
                   "name": "index",
                   "type": {
                     "name": "number"
@@ -1275,18 +1472,18 @@
               ]
             },
             {
-              "id": 165,
+              "id": 172,
               "name": "getColorTexture",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L151",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L151",
               "type": {
                 "name": "Texture2D",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L15"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-2d.ts#L15"
               },
               "params": [
                 {
-                  "id": 167,
+                  "id": 174,
                   "name": "index",
                   "type": {
                     "name": "number"
@@ -1296,9 +1493,9 @@
               ]
             },
             {
-              "id": 168,
+              "id": 175,
               "name": "getDepth",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L158",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L158",
               "type": [
                 {
                   "name": "null"
@@ -1307,14 +1504,14 @@
                   "name": "AttachmentTarget",
                   "lib": "nanogl",
                   "kind": "Type alias",
-                  "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L18"
+                  "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L18"
                 }
               ]
             },
             {
-              "id": 190,
+              "id": 197,
               "name": "isValid",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L230",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L230",
               "comment": [
                 {
                   "text": "Check if the Fbo is valid,\nThe Fbo must be explicitely bound before calling this method"
@@ -1325,9 +1522,9 @@
               }
             },
             {
-              "id": 180,
+              "id": 187,
               "name": "resize",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L198",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L198",
               "comment": [
                 {
                   "text": "Resize FBO attachments"
@@ -1338,7 +1535,7 @@
               },
               "params": [
                 {
-                  "id": 182,
+                  "id": 189,
                   "name": "w",
                   "type": {
                     "name": "number"
@@ -1350,7 +1547,7 @@
                   ]
                 },
                 {
-                  "id": 183,
+                  "id": 190,
                   "name": "h",
                   "type": {
                     "name": "number"
@@ -1367,35 +1564,35 @@
           "extends": null
         },
         {
-          "id": 197,
+          "id": 204,
           "name": "IndexBuffer",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L18",
+          "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/indexbuffer.ts#L18",
           "comment": [],
           "constructors": [
             {
-              "id": 198,
+              "id": 205,
               "name": "IndexBuffer",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L28",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/indexbuffer.ts#L28",
               "type": {
                 "name": "IndexBuffer",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L18"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/indexbuffer.ts#L18"
               },
               "params": [
                 {
-                  "id": 200,
+                  "id": 207,
                   "name": "gl",
                   "type": {
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
-                  "id": 201,
+                  "id": 208,
                   "name": "type",
                   "type": {
                     "name": "number"
@@ -1403,7 +1600,7 @@
                   "defaultValue": "gl.UNSIGNED_SHORT"
                 },
                 {
-                  "id": 202,
+                  "id": 209,
                   "name": "data",
                   "type": [
                     {
@@ -1416,7 +1613,7 @@
                   "optional": true
                 },
                 {
-                  "id": 203,
+                  "id": 210,
                   "name": "usage",
                   "type": {
                     "name": "number"
@@ -1424,7 +1621,7 @@
                   "defaultValue": "gl.STATIC_DRAW"
                 },
                 {
-                  "id": 204,
+                  "id": 211,
                   "name": "glbuffer",
                   "type": {
                     "name": "WebGLBuffer"
@@ -1436,52 +1633,52 @@
           ],
           "properties": [
             {
-              "id": 206,
+              "id": 213,
               "name": "buffer",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L21",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/indexbuffer.ts#L21",
               "type": {
                 "name": "WebGLBuffer"
               }
             },
             {
-              "id": 210,
+              "id": 217,
               "name": "byteLength",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L26",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/indexbuffer.ts#L26",
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 205,
+              "id": 212,
               "name": "gl",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L20",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/indexbuffer.ts#L20",
               "type": {
                 "name": "GLContext",
                 "lib": "nanogl",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
               }
             },
             {
-              "id": 208,
+              "id": 215,
               "name": "type",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L24",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/indexbuffer.ts#L24",
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 209,
+              "id": 216,
               "name": "typeSize",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L25",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/indexbuffer.ts#L25",
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 207,
+              "id": 214,
               "name": "usage",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L23",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/indexbuffer.ts#L23",
               "type": {
                 "name": "number"
               }
@@ -1490,9 +1687,9 @@
           "accessors": [],
           "methods": [
             {
-              "id": 211,
+              "id": 218,
               "name": "bind",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L49",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/indexbuffer.ts#L49",
               "comment": [
                 {
                   "text": "Bind the underlying webgl buffer."
@@ -1503,9 +1700,9 @@
               }
             },
             {
-              "id": 216,
+              "id": 223,
               "name": "data",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L66",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/indexbuffer.ts#L66",
               "comment": [
                 {
                   "text": "Fill webgl buffer with the given data. You can also pass a uint  to allocate the buffer to the given size."
@@ -1516,7 +1713,7 @@
               },
               "params": [
                 {
-                  "id": 218,
+                  "id": 225,
                   "name": "array",
                   "type": [
                     {
@@ -1535,9 +1732,9 @@
               ]
             },
             {
-              "id": 223,
+              "id": 230,
               "name": "dispose",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L89",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/indexbuffer.ts#L89",
               "comment": [
                 {
                   "text": "Delete underlying webgl objects"
@@ -1548,9 +1745,9 @@
               }
             },
             {
-              "id": 225,
+              "id": 232,
               "name": "draw",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L99",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/indexbuffer.ts#L99",
               "comment": [
                 {
                   "text": "Shortcut to gl.drawArrays"
@@ -1561,7 +1758,7 @@
               },
               "params": [
                 {
-                  "id": 227,
+                  "id": 234,
                   "name": "mode",
                   "type": {
                     "name": "number"
@@ -1573,7 +1770,7 @@
                   ]
                 },
                 {
-                  "id": 228,
+                  "id": 235,
                   "name": "count",
                   "type": {
                     "name": "number"
@@ -1586,7 +1783,7 @@
                   "optional": true
                 },
                 {
-                  "id": 229,
+                  "id": 236,
                   "name": "offset",
                   "type": {
                     "name": "number"
@@ -1602,9 +1799,9 @@
               ]
             },
             {
-              "id": 213,
+              "id": 220,
               "name": "setType",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L57",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/indexbuffer.ts#L57",
               "comment": [
                 {
                   "text": "Change the type of internal type of the IndexBuffer"
@@ -1615,7 +1812,7 @@
               },
               "params": [
                 {
-                  "id": 215,
+                  "id": 222,
                   "name": "type",
                   "type": {
                     "name": "number"
@@ -1629,9 +1826,9 @@
               ]
             },
             {
-              "id": 219,
+              "id": 226,
               "name": "subData",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L79",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/indexbuffer.ts#L79",
               "comment": [
                 {
                   "text": "Set a part of the buffer with the given data, starting a offset (in bytes)"
@@ -1642,7 +1839,7 @@
               },
               "params": [
                 {
-                  "id": 221,
+                  "id": 228,
                   "name": "array",
                   "type": {
                     "name": "BufferSource"
@@ -1654,7 +1851,7 @@
                   ]
                 },
                 {
-                  "id": 222,
+                  "id": 229,
                   "name": "offset",
                   "type": {
                     "name": "number"
@@ -1673,15 +1870,15 @@
               "name": "BaseBuffer",
               "lib": "nanogl",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2"
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L5"
             }
           ]
         },
         {
-          "id": 259,
+          "id": 266,
           "name": "Program",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31",
+          "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31",
           "comment": [
             {
               "text": "Program constructor. Create gl program and shaders. You can pass optional shader code to immediatly compile shaders"
@@ -1689,28 +1886,28 @@
           ],
           "constructors": [
             {
-              "id": 261,
+              "id": 268,
               "name": "Program",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L52",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L52",
               "type": {
                 "name": "Program",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
               },
               "params": [
                 {
-                  "id": 263,
+                  "id": 270,
                   "name": "gl",
                   "type": {
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
-                  "id": 264,
+                  "id": 271,
                   "name": "vert",
                   "type": {
                     "name": "string"
@@ -1718,7 +1915,7 @@
                   "optional": true
                 },
                 {
-                  "id": 265,
+                  "id": 272,
                   "name": "frag",
                   "type": {
                     "name": "string"
@@ -1726,7 +1923,7 @@
                   "optional": true
                 },
                 {
-                  "id": 266,
+                  "id": 273,
                   "name": "defs",
                   "type": {
                     "name": "string"
@@ -1738,77 +1935,77 @@
           ],
           "properties": [
             {
-              "id": 274,
+              "id": 281,
               "name": "_cuid",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L48",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L48",
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 273,
+              "id": 280,
               "name": "_uid",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L47",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L47",
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 271,
+              "id": 278,
               "name": "dyns",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L44",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L44",
               "type": {
                 "name": "string",
                 "isArray": true
               }
             },
             {
-              "id": 270,
+              "id": 277,
               "name": "fShader",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L42",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L42",
+              "type": {
+                "name": "WebGLShader"
+              }
+            },
+            {
+              "id": 274,
+              "name": "gl",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L38",
+              "type": {
+                "name": "GLContext",
+                "lib": "nanogl",
+                "kind": "Type alias",
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
+              }
+            },
+            {
+              "id": 275,
+              "name": "program",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L40",
+              "type": {
+                "name": "WebGLProgram"
+              }
+            },
+            {
+              "id": 279,
+              "name": "ready",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L46",
+              "type": {
+                "name": "boolean"
+              }
+            },
+            {
+              "id": 276,
+              "name": "vShader",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L41",
               "type": {
                 "name": "WebGLShader"
               }
             },
             {
               "id": 267,
-              "name": "gl",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L38",
-              "type": {
-                "name": "GLContext",
-                "lib": "nanogl",
-                "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
-              }
-            },
-            {
-              "id": 268,
-              "name": "program",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L40",
-              "type": {
-                "name": "WebGLProgram"
-              }
-            },
-            {
-              "id": 272,
-              "name": "ready",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L46",
-              "type": {
-                "name": "boolean"
-              }
-            },
-            {
-              "id": 269,
-              "name": "vShader",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L41",
-              "type": {
-                "name": "WebGLShader"
-              }
-            },
-            {
-              "id": 260,
               "name": "debug",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L36",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L36",
               "comment": [
                 {
                   "text": "Program.debug\n  can be set to true to check and log compilation and linking errors (default to false)"
@@ -1823,25 +2020,25 @@
           "accessors": [],
           "methods": [
             {
-              "id": 286,
+              "id": 293,
               "name": "_grabParameters",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L138",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L138",
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 277,
+              "id": 284,
               "name": "bind",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L81",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L81",
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 279,
+              "id": 286,
               "name": "compile",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L92",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L92",
               "comment": [
                 {
                   "text": "Compile vertex and fragment shader then link gl program\nThis method can be safely called several times."
@@ -1852,7 +2049,7 @@
               },
               "params": [
                 {
-                  "id": 281,
+                  "id": 288,
                   "name": "vert",
                   "type": {
                     "name": "string"
@@ -1864,7 +2061,7 @@
                   ]
                 },
                 {
-                  "id": 282,
+                  "id": 289,
                   "name": "frag",
                   "type": {
                     "name": "string"
@@ -1876,7 +2073,7 @@
                   ]
                 },
                 {
-                  "id": 283,
+                  "id": 290,
                   "name": "prefix",
                   "type": {
                     "name": "string"
@@ -1891,9 +2088,9 @@
               ]
             },
             {
-              "id": 284,
+              "id": 291,
               "name": "dispose",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L123",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L123",
               "comment": [
                 {
                   "text": "Delete program and shaders"
@@ -1904,9 +2101,9 @@
               }
             },
             {
-              "id": 275,
+              "id": 282,
               "name": "use",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L74",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L74",
               "comment": [
                 {
                   "text": "Shortcut for gl.useProgram()\nalias program.bind()"
@@ -1920,42 +2117,42 @@
           "extends": null
         },
         {
-          "id": 291,
+          "id": 298,
           "name": "RenderBuffer",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L14",
+          "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/renderbuffer.ts#L14",
           "comment": [],
           "constructors": [
             {
-              "id": 292,
+              "id": 299,
               "name": "RenderBuffer",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L27",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/renderbuffer.ts#L27",
               "type": {
                 "name": "RenderBuffer",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L14"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/renderbuffer.ts#L14"
               },
               "params": [
                 {
-                  "id": 294,
+                  "id": 301,
                   "name": "gl",
                   "type": {
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
-                  "id": 295,
+                  "id": 302,
                   "name": "format",
                   "type": {
                     "name": "number"
                   }
                 },
                 {
-                  "id": 296,
+                  "id": 303,
                   "name": "samples",
                   "type": {
                     "name": "number"
@@ -1967,69 +2164,69 @@
           ],
           "properties": [
             {
-              "id": 303,
+              "id": 310,
               "name": "_uid",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L24",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/renderbuffer.ts#L24",
+              "type": {
+                "name": "number"
+              }
+            },
+            {
+              "id": 311,
+              "name": "_valid",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/renderbuffer.ts#L25",
+              "type": {
+                "name": "boolean"
+              }
+            },
+            {
+              "id": 307,
+              "name": "format",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/renderbuffer.ts#L19",
               "type": {
                 "name": "number"
               }
             },
             {
               "id": 304,
-              "name": "_valid",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L25",
-              "type": {
-                "name": "boolean"
-              }
-            },
-            {
-              "id": 300,
-              "name": "format",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L19",
-              "type": {
-                "name": "number"
-              }
-            },
-            {
-              "id": 297,
               "name": "gl",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L16",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/renderbuffer.ts#L16",
               "type": {
                 "name": "GLContext",
                 "lib": "nanogl",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
               }
             },
             {
-              "id": 302,
+              "id": 309,
               "name": "height",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L22",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/renderbuffer.ts#L22",
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 298,
+              "id": 305,
               "name": "id",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L17",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/renderbuffer.ts#L17",
               "type": {
                 "name": "WebGLRenderbuffer"
               }
             },
             {
-              "id": 299,
+              "id": 306,
               "name": "samples",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L18",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/renderbuffer.ts#L18",
               "defaultValue": "0",
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 301,
+              "id": 308,
               "name": "width",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L21",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/renderbuffer.ts#L21",
               "type": {
                 "name": "number"
               }
@@ -2038,17 +2235,17 @@
           "accessors": [],
           "methods": [
             {
-              "id": 315,
+              "id": 322,
               "name": "_storage",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L90",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/renderbuffer.ts#L90",
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 309,
+              "id": 316,
               "name": "allocate",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L65",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/renderbuffer.ts#L65",
               "comment": [
                 {
                   "text": "check renderbuffer for  validity and allocate it if invalid.\nthis method may leave RENDERBUFFER binding point empty"
@@ -2059,9 +2256,9 @@
               }
             },
             {
-              "id": 311,
+              "id": 318,
               "name": "bind",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L75",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/renderbuffer.ts#L75",
               "comment": [
                 {
                   "text": "Bind the renderbuffer"
@@ -2072,9 +2269,9 @@
               }
             },
             {
-              "id": 313,
+              "id": 320,
               "name": "dispose",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L83",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/renderbuffer.ts#L83",
               "comment": [
                 {
                   "text": "delete the webgl renderbuffer"
@@ -2085,22 +2282,22 @@
               }
             },
             {
-              "id": 305,
+              "id": 312,
               "name": "resize",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/renderbuffer.ts#L53",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/renderbuffer.ts#L53",
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 307,
+                  "id": 314,
                   "name": "w",
                   "type": {
                     "name": "number"
                   }
                 },
                 {
-                  "id": 308,
+                  "id": 315,
                   "name": "h",
                   "type": {
                     "name": "number"
@@ -2112,25 +2309,25 @@
           "extends": null
         },
         {
-          "id": 318,
+          "id": 325,
           "name": "Sampler",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L11",
+          "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/sampler.ts#L11",
           "comment": [],
           "constructors": [
             {
-              "id": 319,
+              "id": 326,
               "name": "Sampler",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L17",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/sampler.ts#L17",
               "type": {
                 "name": "Sampler",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L11"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/sampler.ts#L11"
               },
               "params": [
                 {
-                  "id": 321,
+                  "id": 328,
                   "name": "gl",
                   "type": {
                     "name": "WebGL2RenderingContext"
@@ -2141,25 +2338,25 @@
           ],
           "properties": [
             {
-              "id": 322,
+              "id": 329,
               "name": "_uid",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L12",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/sampler.ts#L12",
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 323,
+              "id": 330,
               "name": "gl",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L14",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/sampler.ts#L14",
               "type": {
                 "name": "WebGL2RenderingContext"
               }
             },
             {
-              "id": 324,
+              "id": 331,
               "name": "id",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L15",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/sampler.ts#L15",
               "type": {
                 "name": "WebGLSampler"
               }
@@ -2168,9 +2365,9 @@
           "accessors": [],
           "methods": [
             {
-              "id": 325,
+              "id": 332,
               "name": "bind",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L28",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/sampler.ts#L28",
               "comment": [
                 {
                   "text": "Bind the sampler"
@@ -2181,7 +2378,7 @@
               },
               "params": [
                 {
-                  "id": 327,
+                  "id": 334,
                   "name": "unit",
                   "type": {
                     "name": "number"
@@ -2196,9 +2393,9 @@
               ]
             },
             {
-              "id": 337,
+              "id": 344,
               "name": "clamp",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L62",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/sampler.ts#L62",
               "comment": [
                 {
                   "text": "Set both WRAP_S and WRAP_T property to gl.CLAMP_TO_EDGE"
@@ -2209,9 +2406,9 @@
               }
             },
             {
-              "id": 328,
+              "id": 335,
               "name": "dispose",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L36",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/sampler.ts#L36",
               "comment": [
                 {
                   "text": "delete the webgl sampler"
@@ -2222,9 +2419,9 @@
               }
             },
             {
-              "id": 339,
+              "id": 346,
               "name": "mirror",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L69",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/sampler.ts#L69",
               "comment": [
                 {
                   "text": "Set both WRAP_S and WRAP_T property to gl.MIRRORED_REPEAT"
@@ -2235,9 +2432,9 @@
               }
             },
             {
-              "id": 335,
+              "id": 342,
               "name": "repeat",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L55",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/sampler.ts#L55",
               "comment": [
                 {
                   "text": "Set both WRAP_S and WRAP_T property to gl.REPEAT"
@@ -2248,9 +2445,9 @@
               }
             },
             {
-              "id": 330,
+              "id": 337,
               "name": "setFilter",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L46",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/sampler.ts#L46",
               "comment": [
                 {
                   "text": "Change the filtering parameters"
@@ -2261,7 +2458,7 @@
               },
               "params": [
                 {
-                  "id": 332,
+                  "id": 339,
                   "name": "smooth",
                   "type": {
                     "name": "boolean"
@@ -2275,7 +2472,7 @@
                   "defaultValue": "false"
                 },
                 {
-                  "id": 333,
+                  "id": 340,
                   "name": "mipmap",
                   "type": {
                     "name": "boolean"
@@ -2289,7 +2486,7 @@
                   "defaultValue": "false"
                 },
                 {
-                  "id": 334,
+                  "id": 341,
                   "name": "miplinear",
                   "type": {
                     "name": "boolean"
@@ -2305,9 +2502,9 @@
               ]
             },
             {
-              "id": 341,
+              "id": 348,
               "name": "wrap",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L77",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/sampler.ts#L77",
               "comment": [
                 {
                   "text": "Set both WRAP_S and WRAP_T property to the given value"
@@ -2318,7 +2515,7 @@
               },
               "params": [
                 {
-                  "id": 343,
+                  "id": 350,
                   "name": "wrap",
                   "type": {
                     "name": "number"
@@ -2335,35 +2532,35 @@
           "extends": null
         },
         {
-          "id": 345,
+          "id": 352,
           "name": "Texture2D",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L15",
+          "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-2d.ts#L15",
           "comment": [],
           "constructors": [
             {
-              "id": 346,
+              "id": 353,
               "name": "Texture2D",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L22",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-2d.ts#L22",
               "type": {
                 "name": "Texture2D",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L15"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-2d.ts#L15"
               },
               "params": [
                 {
-                  "id": 348,
+                  "id": 355,
                   "name": "gl",
                   "type": {
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
-                  "id": 349,
+                  "id": 356,
                   "name": "format",
                   "type": {
                     "name": "number"
@@ -2371,7 +2568,7 @@
                   "optional": true
                 },
                 {
-                  "id": 350,
+                  "id": 357,
                   "name": "type",
                   "type": {
                     "name": "number"
@@ -2379,7 +2576,7 @@
                   "optional": true
                 },
                 {
-                  "id": 351,
+                  "id": 358,
                   "name": "internal",
                   "type": {
                     "name": "number"
@@ -2391,18 +2588,18 @@
           ],
           "properties": [
             {
-              "id": 353,
+              "id": 360,
               "name": "_target",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L19",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-2d.ts#L19",
               "defaultValue": "GL_TEXTURE_2D",
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 352,
+              "id": 359,
               "name": "textureType",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L17",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-2d.ts#L17",
               "defaultValue": "TextureType.TEXTURE_2D",
               "type": {
                 "name": "TEXTURE_2D"
@@ -2412,9 +2609,9 @@
           "accessors": [],
           "methods": [
             {
-              "id": 357,
+              "id": 364,
               "name": "fromData",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L50",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-2d.ts#L50",
               "comment": [
                 {
                   "text": "Allocate texture to the given size, with optional data (TypedArray) and data type"
@@ -2425,7 +2622,7 @@
               },
               "params": [
                 {
-                  "id": 359,
+                  "id": 366,
                   "name": "width",
                   "type": {
                     "name": "number"
@@ -2437,7 +2634,7 @@
                   ]
                 },
                 {
-                  "id": 360,
+                  "id": 367,
                   "name": "height",
                   "type": {
                     "name": "number"
@@ -2449,7 +2646,7 @@
                   ]
                 },
                 {
-                  "id": 361,
+                  "id": 368,
                   "name": "data",
                   "type": [
                     {
@@ -2470,9 +2667,9 @@
               ]
             },
             {
-              "id": 354,
+              "id": 361,
               "name": "fromImage",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L33",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-2d.ts#L33",
               "comment": [
                 {
                   "text": "set texture data from html source"
@@ -2483,7 +2680,7 @@
               },
               "params": [
                 {
-                  "id": 356,
+                  "id": 363,
                   "name": "img",
                   "type": {
                     "name": "TexImageSource"
@@ -2497,40 +2694,40 @@
               "name": "AbstractTexture",
               "lib": "nanogl",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L30"
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L30"
             }
           ]
         },
         {
-          "id": 402,
+          "id": 409,
           "name": "AbstractTexture",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L30",
+          "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L30",
           "comment": [],
           "constructors": [
             {
-              "id": 403,
+              "id": 410,
               "name": "AbstractTexture",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L49",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L49",
               "type": {
                 "name": "AbstractTexture",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L30"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L30"
               },
               "params": [
                 {
-                  "id": 405,
+                  "id": 412,
                   "name": "gl",
                   "type": {
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
-                  "id": 406,
+                  "id": 413,
                   "name": "format",
                   "type": {
                     "name": "number"
@@ -2538,7 +2735,7 @@
                   "optional": true
                 },
                 {
-                  "id": 407,
+                  "id": 414,
                   "name": "type",
                   "type": {
                     "name": "number"
@@ -2546,7 +2743,7 @@
                   "optional": true
                 },
                 {
-                  "id": 408,
+                  "id": 415,
                   "name": "internal",
                   "type": {
                     "name": "number"
@@ -2558,91 +2755,91 @@
           ],
           "properties": [
             {
-              "id": 418,
+              "id": 425,
               "name": "_target",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L47",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L47",
+              "type": {
+                "name": "number"
+              }
+            },
+            {
+              "id": 424,
+              "name": "_uid",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L45",
+              "type": {
+                "name": "number"
+              }
+            },
+            {
+              "id": 421,
+              "name": "format",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L41",
+              "defaultValue": "0",
               "type": {
                 "name": "number"
               }
             },
             {
               "id": 417,
-              "name": "_uid",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L45",
-              "type": {
-                "name": "number"
-              }
-            },
-            {
-              "id": 414,
-              "name": "format",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L41",
-              "defaultValue": "0",
-              "type": {
-                "name": "number"
-              }
-            },
-            {
-              "id": 410,
               "name": "gl",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L34",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L34",
               "type": {
                 "name": "GLContext",
                 "lib": "nanogl",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
               }
             },
             {
-              "id": 413,
+              "id": 420,
               "name": "height",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L39",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L39",
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 411,
+              "id": 418,
               "name": "id",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L35",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L35",
               "type": {
                 "name": "WebGLTexture"
               }
             },
             {
-              "id": 415,
+              "id": 422,
               "name": "internal",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L42",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L42",
               "defaultValue": "0",
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 409,
+              "id": 416,
               "name": "textureType",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L32",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L32",
               "defaultValue": "TextureType.NONE",
               "type": {
                 "name": "TextureType",
                 "lib": "nanogl",
                 "kind": "Enumeration",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L9"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L9"
               }
             },
             {
-              "id": 416,
+              "id": 423,
               "name": "type",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L43",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L43",
               "defaultValue": "0",
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 412,
+              "id": 419,
               "name": "width",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L38",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L38",
               "type": {
                 "name": "number"
               }
@@ -2651,9 +2848,9 @@
           "accessors": [],
           "methods": [
             {
-              "id": 424,
+              "id": 431,
               "name": "bind",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L77",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L77",
               "comment": [
                 {
                   "text": "Bind the texture"
@@ -2664,7 +2861,7 @@
               },
               "params": [
                 {
-                  "id": 426,
+                  "id": 433,
                   "name": "unit",
                   "type": {
                     "name": "number"
@@ -2679,9 +2876,9 @@
               ]
             },
             {
-              "id": 436,
+              "id": 443,
               "name": "clamp",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L117",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L117",
               "comment": [
                 {
                   "text": "Set both WRAP_S and WRAP_T property to gl.CLAMP_TO_EDGE"
@@ -2691,13 +2888,13 @@
                 "name": "AbstractTexture",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L30"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L30"
               }
             },
             {
-              "id": 427,
+              "id": 434,
               "name": "dispose",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L89",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L89",
               "comment": [
                 {
                   "text": "delete the webgl texture"
@@ -2708,9 +2905,9 @@
               }
             },
             {
-              "id": 438,
+              "id": 445,
               "name": "mirror",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L125",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L125",
               "comment": [
                 {
                   "text": "Set both WRAP_S and WRAP_T property to gl.MIRRORED_REPEAT"
@@ -2720,13 +2917,13 @@
                 "name": "AbstractTexture",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L30"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L30"
               }
             },
             {
-              "id": 434,
+              "id": 441,
               "name": "repeat",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L109",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L109",
               "comment": [
                 {
                   "text": "Set both WRAP_S and WRAP_T property to gl.REPEAT"
@@ -2736,13 +2933,13 @@
                 "name": "AbstractTexture",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L30"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L30"
               }
             },
             {
-              "id": 429,
+              "id": 436,
               "name": "setFilter",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L99",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L99",
               "comment": [
                 {
                   "text": "Change the filtering parameters"
@@ -2752,11 +2949,11 @@
                 "name": "AbstractTexture",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L30"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L30"
               },
               "params": [
                 {
-                  "id": 431,
+                  "id": 438,
                   "name": "smooth",
                   "type": {
                     "name": "boolean"
@@ -2770,7 +2967,7 @@
                   "defaultValue": "false"
                 },
                 {
-                  "id": 432,
+                  "id": 439,
                   "name": "mipmap",
                   "type": {
                     "name": "boolean"
@@ -2784,7 +2981,7 @@
                   "defaultValue": "false"
                 },
                 {
-                  "id": 433,
+                  "id": 440,
                   "name": "miplinear",
                   "type": {
                     "name": "boolean"
@@ -2800,9 +2997,9 @@
               ]
             },
             {
-              "id": 419,
+              "id": 426,
               "name": "setFormat",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L65",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L65",
               "comment": [
                 {
                   "text": "define underlying format, internal format and data type of texture"
@@ -2813,7 +3010,7 @@
               },
               "params": [
                 {
-                  "id": 421,
+                  "id": 428,
                   "name": "format",
                   "type": {
                     "name": "number"
@@ -2821,7 +3018,7 @@
                   "optional": true
                 },
                 {
-                  "id": 422,
+                  "id": 429,
                   "name": "type",
                   "type": {
                     "name": "number"
@@ -2829,7 +3026,7 @@
                   "optional": true
                 },
                 {
-                  "id": 423,
+                  "id": 430,
                   "name": "internal",
                   "type": {
                     "name": "number"
@@ -2844,9 +3041,9 @@
               ]
             },
             {
-              "id": 440,
+              "id": 447,
               "name": "wrap",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L134",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L134",
               "comment": [
                 {
                   "text": "Set both WRAP_S and WRAP_T property to the given value"
@@ -2856,11 +3053,11 @@
                 "name": "AbstractTexture",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L30"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L30"
               },
               "params": [
                 {
-                  "id": 442,
+                  "id": 449,
                   "name": "wrap",
                   "type": {
                     "name": "number"
@@ -2877,35 +3074,35 @@
           "extends": null
         },
         {
-          "id": 444,
+          "id": 451,
           "name": "TextureCube",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-cube.ts#L15",
+          "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-cube.ts#L15",
           "comment": [],
           "constructors": [
             {
-              "id": 445,
+              "id": 452,
               "name": "TextureCube",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-cube.ts#L22",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-cube.ts#L22",
               "type": {
                 "name": "TextureCube",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-cube.ts#L15"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-cube.ts#L15"
               },
               "params": [
                 {
-                  "id": 447,
+                  "id": 454,
                   "name": "gl",
                   "type": {
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
-                  "id": 448,
+                  "id": 455,
                   "name": "format",
                   "type": {
                     "name": "number"
@@ -2913,7 +3110,7 @@
                   "optional": true
                 },
                 {
-                  "id": 449,
+                  "id": 456,
                   "name": "type",
                   "type": {
                     "name": "number"
@@ -2921,7 +3118,7 @@
                   "optional": true
                 },
                 {
-                  "id": 450,
+                  "id": 457,
                   "name": "internal",
                   "type": {
                     "name": "number"
@@ -2933,18 +3130,18 @@
           ],
           "properties": [
             {
-              "id": 452,
+              "id": 459,
               "name": "_target",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-cube.ts#L19",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-cube.ts#L19",
               "defaultValue": "GL_TEXTURE_CUBE",
               "type": {
                 "name": "number"
               }
             },
             {
-              "id": 451,
+              "id": 458,
               "name": "textureType",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-cube.ts#L17",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-cube.ts#L17",
               "defaultValue": "TextureType.TEXTURE_CUBE",
               "type": {
                 "name": "TEXTURE_CUBE"
@@ -2954,15 +3151,15 @@
           "accessors": [],
           "methods": [
             {
-              "id": 453,
+              "id": 460,
               "name": "fromImages",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-cube.ts#L31",
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-cube.ts#L31",
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 455,
+                  "id": 462,
                   "name": "imgs",
                   "type": {
                     "name": "TexImageSource",
@@ -2977,39 +3174,39 @@
               "name": "AbstractTexture",
               "lib": "nanogl",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L30"
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L30"
             }
           ]
         }
       ],
       "functions": [
         {
-          "id": 489,
+          "id": 496,
           "name": "isWebgl2",
-          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L3",
+          "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L3",
           "params": [
             {
-              "id": 491,
+              "id": 498,
               "name": "context",
               "type": {
                 "name": "GLContext",
                 "lib": "nanogl",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
               }
             }
           ]
         },
         {
-          "id": 502,
+          "id": 509,
           "name": "getComponentSize",
-          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/utils.ts#L21",
+          "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/utils.ts#L21",
           "type": {
             "name": "ComponentSize"
           },
           "params": [
             {
-              "id": 504,
+              "id": 511,
               "name": "type",
               "type": {
                 "name": "number"
@@ -3018,29 +3215,29 @@
           ]
         },
         {
-          "id": 497,
+          "id": 504,
           "name": "getTextureFiltering",
-          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/utils.ts#L15",
+          "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/utils.ts#L15",
           "type": {
             "name": "GLenum"
           },
           "params": [
             {
-              "id": 499,
+              "id": 506,
               "name": "smooth",
               "type": {
                 "name": "boolean"
               }
             },
             {
-              "id": 500,
+              "id": 507,
               "name": "mipmap",
               "type": {
                 "name": "boolean"
               }
             },
             {
-              "id": 501,
+              "id": 508,
               "name": "miplinear",
               "type": {
                 "name": "boolean"
@@ -3049,12 +3246,12 @@
           ]
         },
         {
-          "id": 494,
+          "id": 501,
           "name": "isBufferSource",
-          "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/utils.ts#L2",
+          "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/utils.ts#L2",
           "params": [
             {
-              "id": 496,
+              "id": 503,
               "name": "val",
               "type": [
                 {
@@ -4461,7 +4658,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
@@ -4505,13 +4702,13 @@
               "name": "ArrayBuffer",
               "lib": "nanogl",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29"
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L25"
             },
             {
               "name": "BaseBuffer",
               "lib": "nanogl",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2"
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L5"
             }
           ]
         },
@@ -4544,7 +4741,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
@@ -4596,13 +4793,13 @@
               "name": "ArrayBuffer",
               "lib": "nanogl",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29"
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L25"
             },
             {
               "name": "BaseBuffer",
               "lib": "nanogl",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2"
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L5"
             }
           ]
         },
@@ -4635,7 +4832,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
@@ -4695,13 +4892,13 @@
               "name": "ArrayBuffer",
               "lib": "nanogl",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29"
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L25"
             },
             {
               "name": "BaseBuffer",
               "lib": "nanogl",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2"
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L5"
             }
           ]
         },
@@ -4734,7 +4931,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
@@ -4802,13 +4999,13 @@
               "name": "ArrayBuffer",
               "lib": "nanogl",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29"
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L25"
             },
             {
               "name": "BaseBuffer",
               "lib": "nanogl",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/basebuffer.ts#L2"
+              "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/basebuffer.ts#L5"
             }
           ]
         }
@@ -5442,7 +5639,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -5716,7 +5913,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -5888,7 +6085,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 }
               ]
@@ -5935,7 +6132,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 },
                 {
@@ -7304,7 +7501,7 @@
                   "name": "Texture2D",
                   "lib": "nanogl",
                   "kind": "Class",
-                  "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L15"
+                  "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-2d.ts#L15"
                 }
               ]
             },
@@ -7433,7 +7630,7 @@
                     "name": "Texture2D",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L15"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-2d.ts#L15"
                   }
                 }
               ]
@@ -7453,7 +7650,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -7788,7 +7985,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -7877,7 +8074,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
@@ -7921,7 +8118,7 @@
                 "name": "GLContext",
                 "lib": "nanogl",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
               }
             },
             {
@@ -8048,7 +8245,7 @@
                   "name": "Program",
                   "lib": "nanogl",
                   "kind": "Class",
-                  "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                  "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                 }
               ],
               "params": [
@@ -8151,7 +8348,7 @@
                   "name": "Program",
                   "lib": "nanogl",
                   "kind": "Class",
-                  "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                  "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                 }
               ]
             },
@@ -8199,7 +8396,7 @@
                 "name": "Program",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
               }
             },
             {
@@ -8210,7 +8407,7 @@
                 "name": "Program",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
               },
               "params": [
                 {
@@ -8338,7 +8535,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 },
                 {
@@ -8518,7 +8715,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -8895,7 +9092,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 }
               ]
@@ -8918,7 +9115,7 @@
                 "name": "GLContext",
                 "lib": "nanogl",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
               }
             }
           ],
@@ -8932,7 +9129,7 @@
                 "name": "Program",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
               },
               "params": [
                 {
@@ -8962,7 +9159,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -8985,7 +9182,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 }
               ]
@@ -9017,7 +9214,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
@@ -9071,7 +9268,7 @@
                   "name": "Program",
                   "lib": "nanogl",
                   "kind": "Class",
-                  "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                  "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                 }
               ]
             },
@@ -9134,7 +9331,7 @@
                 "name": "Program",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
               }
             },
             {
@@ -9153,7 +9350,7 @@
                 "name": "Program",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
               }
             }
           ],
@@ -9343,7 +9540,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 }
               ]
@@ -9513,7 +9710,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -9860,7 +10057,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 },
                 {
@@ -10686,7 +10883,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 },
                 {
@@ -10919,7 +11116,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
@@ -10984,7 +11181,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -11272,7 +11469,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
@@ -11302,7 +11499,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -11353,7 +11550,7 @@
                     "name": "Texture",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L18"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L18"
                   },
                   "optional": true
                 },
@@ -11454,7 +11651,7 @@
                 "name": "Texture",
                 "lib": "nanogl",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L18"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L18"
               }
             },
             {
@@ -11800,7 +11997,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
@@ -11830,7 +12027,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -12063,7 +12260,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 }
               ]
@@ -12383,7 +12580,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
@@ -12413,7 +12610,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -12499,7 +12696,7 @@
                   "name": "Fbo",
                   "lib": "nanogl",
                   "kind": "Class",
-                  "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L85"
+                  "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L85"
                 }
               ]
             },
@@ -12584,7 +12781,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 }
               ]
@@ -12673,7 +12870,7 @@
                   "name": "Texture2D",
                   "lib": "nanogl",
                   "kind": "Class",
-                  "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-2d.ts#L15"
+                  "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-2d.ts#L15"
                 }
               ]
             },
@@ -12713,7 +12910,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 }
               ]
@@ -13187,7 +13384,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
@@ -13217,7 +13414,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -13430,7 +13627,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 }
               ]
@@ -14271,7 +14468,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -14359,7 +14556,7 @@
                 "name": "Fbo",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L85",
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L85",
                 "isArray": true
               }
             },
@@ -14371,7 +14568,7 @@
                 "name": "Texture",
                 "lib": "nanogl",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L18",
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L18",
                 "isArray": true
               }
             },
@@ -14395,7 +14592,7 @@
                   "name": "Program",
                   "lib": "nanogl",
                   "kind": "Class",
-                  "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                  "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                 }
               ]
             },
@@ -14507,7 +14704,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -14731,7 +14928,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -14856,7 +15053,7 @@
                   "name": "Sampler",
                   "lib": "nanogl",
                   "kind": "Class",
-                  "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/sampler.ts#L11"
+                  "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/sampler.ts#L11"
                 }
               ]
             },
@@ -14884,7 +15081,7 @@
                 "name": "Fbo",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L85"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L85"
               }
             },
             {
@@ -14895,7 +15092,7 @@
                 "name": "Fbo",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L85"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L85"
               }
             },
             {
@@ -14906,7 +15103,7 @@
                 "name": "Fbo",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L85"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L85"
               }
             },
             {
@@ -14917,7 +15114,7 @@
                 "name": "Fbo",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L85"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L85"
               }
             },
             {
@@ -14928,7 +15125,7 @@
                 "name": "Fbo",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L85"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L85"
               }
             },
             {
@@ -14963,7 +15160,7 @@
                 "name": "Program",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
               }
             },
             {
@@ -14974,7 +15171,7 @@
                 "name": "Program",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
               }
             },
             {
@@ -14985,7 +15182,7 @@
                 "name": "Program",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
               }
             },
             {
@@ -14996,7 +15193,7 @@
                 "name": "Program",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
               }
             }
           ],
@@ -15053,7 +15250,7 @@
                 "name": "Fbo",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L85"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L85"
               }
             },
             {
@@ -15119,7 +15316,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -15253,7 +15450,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -15396,7 +15593,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -15530,7 +15727,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -15600,7 +15797,7 @@
                   "name": "Texture",
                   "lib": "nanogl",
                   "kind": "Type alias",
-                  "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L18"
+                  "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L18"
                 }
               ]
             },
@@ -15720,7 +15917,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -15863,7 +16060,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -15942,7 +16139,7 @@
                   "name": "Texture",
                   "lib": "nanogl",
                   "kind": "Type alias",
-                  "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L18"
+                  "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L18"
                 }
               ]
             },
@@ -16054,7 +16251,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -16197,7 +16394,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -16365,7 +16562,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -16539,7 +16736,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -16728,7 +16925,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 }
               ]
@@ -16767,7 +16964,7 @@
                     "name": "GLContext",
                     "lib": "nanogl",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
                   }
                 },
                 {
@@ -16879,7 +17076,7 @@
                 "name": "ArrayBuffer",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L25"
               }
             },
             {
@@ -16890,7 +17087,7 @@
                 "name": "GLContext",
                 "lib": "nanogl",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/types.ts#L1"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/types.ts#L1"
               }
             },
             {
@@ -16935,7 +17132,7 @@
                 "name": "Texture",
                 "lib": "nanogl",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/texture-base.ts#L18"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/texture-base.ts#L18"
               }
             },
             {
@@ -16946,7 +17143,7 @@
                 "name": "Fbo",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L85"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L85"
               }
             },
             {
@@ -16965,7 +17162,7 @@
                 "name": "Program",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
               }
             },
             {
@@ -17062,7 +17259,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   }
                 },
                 {
@@ -17083,7 +17280,7 @@
                 "name": "Fbo",
                 "lib": "nanogl",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L85"
+                "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L85"
               }
             },
             {
@@ -17153,7 +17350,7 @@
                     "name": "Fbo",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/fbo.ts#L85"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/fbo.ts#L85"
                   },
                   "optional": true
                 }
@@ -18986,7 +19183,7 @@
                     "name": "Program",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/program.ts#L31"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/program.ts#L31"
                   },
                   "comment": [
                     {
@@ -19001,7 +19198,7 @@
                     "name": "ArrayBuffer",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/arraybuffer.ts#L29",
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/arraybuffer.ts#L25",
                     "isArray": true
                   },
                   "comment": [
@@ -19017,7 +19214,7 @@
                     "name": "IndexBuffer",
                     "lib": "nanogl",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl/blob/5ca31a2/src/indexbuffer.ts#L18"
+                    "source": "https://github.com/evanmartiin/nanogl/blob/f296d7e/src/indexbuffer.ts#L18"
                   }
                 }
               ]
