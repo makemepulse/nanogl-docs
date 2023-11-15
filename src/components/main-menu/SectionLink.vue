@@ -7,18 +7,19 @@
     <RouterLink
       :to="`/${section}`"
       :class="[
-        'flex justify-start items-center font-bold hover:text-primary transition-colors',
+        'flex gap-8 justify-start items-baseline font-bold hover:text-primary transition-colors',
         currentSection === section ? 'selected text-primary' : ''
       ]"
     >
       <span class="text-18">{{ name }}</span>
-      <span v-if="subMenu" class="relative ml-8">
+      <span v-if="subMenu" class="relative">
         <UIIcon
           name="arrow-down"
           :class="[
-            'h-10 w-auto transition-transform',
-            isHovered ? 'rotate-180 translate-y-1/4' : ''
+            'w-12 h-auto transition-transform',
+            isHovered ? 'rotate-180' : ''
           ]"
+          stroke
         />
       </span>
     </RouterLink>

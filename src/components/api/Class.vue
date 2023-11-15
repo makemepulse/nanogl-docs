@@ -9,12 +9,20 @@
         <span> →</span>
       </p>
     </div>
-    <h1 id="introduction" class="flex gap-8 items-baseline">
-      <span>{{ libClass.name }}</span>
-      <span v-if="libClass.source.length" class="text-16">
-        <a :href="libClass.source" target="_blank">source</a>
-      </span>
-    </h1>
+    <div id="introduction" class="h1-container flex items-center justify-between">
+      <div class="flex gap-8 items-baseline">
+        <h1 class="no-margin">{{ libClass.name }}</h1>
+        <Tags :tags="libClass.tags"/>
+      </div>
+      <UIButton
+        v-if="libClass.source.length"
+        :href="libClass.source"
+        text="Source"
+        icon="code"
+        icon-stroke
+        small
+      />
+    </div>
     <Comment v-if="libClass.comment" :comment="libClass.comment" />
     <Comment v-if="libClass.example" :comment="libClass.example" />
     <div v-if="libClass.constructors.length" class="mb-48">
@@ -33,6 +41,7 @@
           :type="property.type"
           :optional="property.optional"
           :comment="property.comment"
+          :tags="property.tags"
           :default-value="property.defaultValue"
         />
       </div>

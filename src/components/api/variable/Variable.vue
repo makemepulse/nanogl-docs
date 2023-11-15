@@ -4,14 +4,16 @@
       <code class="language-ts inline-block">
         {{ name }}
       </code>
-      <span v-if="type || optional || comment || defaultValue"> : </span>
+      <span v-if="type || comment || defaultValue"> : </span>
       <code v-if="type" class="language-ts inline-block">
         <Type :data="type" is-code />
       </code>
+      <div v-if="tags?.length" class="inline-block my-4 ml-8">
+        <Tags :tags="tags" />
+      </div>
     </div>
-    <div>
-      <span v-if="optional">(optional) </span>
-      <Comment v-if="comment" :comment="comment" inline />
+    <div v-if="comment">
+      <Comment :comment="comment" inline />
     </div>
     <div v-if="defaultValue">
       <span>Default : </span>
@@ -21,13 +23,13 @@
 </template>
 
 <script setup lang="ts">
-import { APIType } from '@lib/apiData';
+import { APITag, APIType } from '@lib/apiData';
 
 type Props = {
   id: number;
   name: string;
   type?: APIType;
-  optional?: boolean;
+  tags?: APITag[];
   comment?: string;
   defaultValue?: string;
 };

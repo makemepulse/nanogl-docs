@@ -11,4 +11,11 @@
   html, body {
     @apply text-white bg-black;
   }
+
+  svg.stroke-current {
+    path {
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  }
 }

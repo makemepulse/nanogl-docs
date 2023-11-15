@@ -1,3 +1,7 @@
+import { LIB_ITEM_TAGS } from "./constants";
+
+export type APITag = LIB_ITEM_TAGS;
+
 export type APISingleType = {
   name: string;
   lib?: string;
@@ -14,6 +18,7 @@ export type APIParam = {
   optional: boolean;
   type: APIType;
   comment: string;
+  tags: APITag[];
   defaultValue: string;
 }
 
@@ -25,6 +30,7 @@ export type APIMethod = {
   source: string;
   comment: string;
   example: string;
+  tags: APITag[];
 }
 
 export type APIAccessor = {
@@ -40,6 +46,7 @@ export type APIClass = {
   name: string;
   extends: string;
   source: string;
+  tags: APITag[];
   comment: string;
   example: string;
   constructors: APIMethod[];
@@ -53,6 +60,7 @@ export type APIFunction = {
   params: APIParam[];
   type: APIType;
   source: string;
+  tags: APITag[];
   comment: string;
   example: string;
 }

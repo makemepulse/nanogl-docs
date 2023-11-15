@@ -1,15 +1,17 @@
 <template>
   <component
     :is="icon"
-    :class="{ 'fill-current': !stroke, 'stroke-current': stroke }"
+    :class="{ 'fill-current': !stroke, 'fill-none stroke-current stroke-[4px]': stroke }"
   />
 </template>
 
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue';
 
+export type Icon = 'arrow-down' | 'arrow-right' | 'github';
+
 type Props = {
-  name: 'arrow-down' | 'arrow-right' | 'github';
+  name: Icon;
   stroke?: boolean;
 };
 

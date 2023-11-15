@@ -4,6 +4,13 @@
   .page-body-toc .content-wrapper {
     h1 {
       @apply text-40 mb-20 scroll-mt-80;
+
+      &.no-margin {
+        @apply mb-0;
+      }
+    }
+    .h1-container {
+      @apply mb-20 scroll-mt-80;
     }
     h2 {
       @apply text-30 my-16 scroll-mt-80;

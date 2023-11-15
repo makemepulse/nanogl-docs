@@ -1,11 +1,19 @@
 <template>
   <div class="content-wrapper" :id="`function-${libFunction.name}`">
-    <h1 id="introduction" class="flex gap-8 items-baseline">
-      <span>{{ libFunction.name }}</span>
-      <span v-if="libFunction.source.length" class="text-16">
-        <a :href="libFunction.source" target="_blank">source</a>
-      </span>
-    </h1>
+    <div id="introduction" class="h1-container flex items-center justify-between">
+      <div class="flex gap-8 items-baseline">
+        <h1 class="no-margin">{{ libFunction.name }}</h1>
+        <Tags :tags="libFunction.tags"/>
+      </div>
+      <UIButton
+        v-if="libFunction.source.length"
+        :href="libFunction.source"
+        text="Source"
+        icon="code"
+        icon-stroke
+        small
+      />
+    </div>
     <Method :method="libFunction" is-full-page />
   </div>
   <div class="toc-wrapper">

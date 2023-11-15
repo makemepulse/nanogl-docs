@@ -12,19 +12,13 @@
           v-html="exampleDescription" />
       </div>
       <div class="h-full flex flex-col-reverse justify-between">
-        <a
+        <UIButton
+          class="self-end"
           :href="SOURCE_PATH + currentExample.id + '.js'"
-          target="_blank"
-          class="custom-link self-end bg-light-grey rounded-md overflow-hidden pointer-events-auto"
-        >
-          <div class="hover:bg-white-5 flex items-center justify-center gap-10 px-12 py-8 transition-colors">
-            <p class="text-16 font-bold">View code</p>
-            <UIIcon
-              name="github"
-              class="h-20 w-auto"
-            />
-          </div>
-        </a>
+          text="View code"
+          icon="code"
+          icon-stroke
+        />
         <div id="debug" class="pointer-events-auto"></div>
       </div>
     </div>

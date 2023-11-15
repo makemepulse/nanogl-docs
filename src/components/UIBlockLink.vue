@@ -15,7 +15,7 @@
           {{ description }}
         </span>
       </div>
-      <UIIcon name="arrow-right" class="text-primary stroke-[4px] w-16 h-auto flex-shrink-0" stroke />
+      <UIIcon name="arrow-right" class="text-primary w-16 h-auto flex-shrink-0" stroke />
     </div>
   </RouterLink>
 </template>

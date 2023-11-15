@@ -3,6 +3,7 @@
     :id="!hasTitle ? `item-${method.id}` : ''"
     :class="{ 'scroll-mt-72 ': !hasTitle }"
   >
+    <Tags :tags="method.tags"/>
     <pre class="language-ts flex">
       <code class="language-ts flex flex-wrap">
         <span class="token function">{{ method.name }}</span>
@@ -40,6 +41,7 @@
           :type="param.type"
           :optional="param.optional"
           :comment="param.comment"
+          :tags="param.tags"
           :default-value="param.defaultValue"
         />
       </div>
@@ -55,10 +57,12 @@ type Props = {
   isConstructor?: boolean;
   isFullPage?: boolean;
   hasTitle?: boolean;
+  showSource?: boolean;
 };
 withDefaults(defineProps<Props>(), {
   isConstructor: false,
   isFullPage: false,
   hasTitle: false,
+  showSource: false,
 });
 </script>

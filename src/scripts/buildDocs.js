@@ -1,5 +1,7 @@
 import fs from 'fs';
 
+import { LIB_ITEM_FLAGS_TAGS } from '../lib/constants.js';
+
 const LIBS_URLS = [
     {
         name: 'nanogl',
@@ -116,6 +118,7 @@ function parseLibsData(libs) {
                     source: exported.sources[0].url,
                     comment: resolveComment(exported.comment?.summary),
                     example: resolveExample(exported),
+                    tags: resolveTags(exported.flags),
                     constructors: [],
                     properties: [],
                     accessors: [],
@@ -142,6 +145,7 @@ function parseLibsData(libs) {
                         childObj.comment = resolveComment(child.comment?.summary);
                         childObj.defaultValue = resolveDefaultValue(child);
                         childObj.type = resolveTypes(child.type, lib.name);
+                        childObj.tags = resolveTags(child.flags);
                         exportedObj.properties.push(childObj);
                     } else if (child.kindString === 'Accessor') {
                         if (child.setSignature) {
@@ -240,6 +244,21 @@ function resolveDefaultValue(item) {
     return undefined;
 }
 
+// Resolve the tags of an item
+function resolveTags(flags) {
+    if (!flags) return [];
+
+    const tags = [];
+    const flagKeys = Object.keys(flags);
+
+    for (let i = 0; i < flagKeys.length; i++) {
+        const tag = LIB_ITEM_FLAGS_TAGS[flagKeys[i]];
+        if (tag) tags.push(tag);
+    }
+
+    return tags;
+}
+
 // Resolve the comment of an item to markdown
 function resolveComment(comment) {
     if (!comment) return;
@@ -269,14 +288,16 @@ function resolveMethod(obj, method, lib) {
     obj.comment = resolveComment(method.comment?.summary);
     obj.example = resolveExample(method)
     obj.type = resolveTypes(method.type, lib);
+    obj.tags = resolveTags(obj.flags);
     obj.params = method.parameters?.map(param => {
         return {
             id: param.id,
             name: param.name,
             type: resolveTypes(param.type, lib),
+            tags: resolveTags(param.flags),
             comment: resolveComment(param.comment?.summary),
             optional: param.flags?.isOptional,
-            defaultValue: resolveDefaultValue(param)
+            defaultValue: resolveDefaultValue(param),
         }
     })
 }
