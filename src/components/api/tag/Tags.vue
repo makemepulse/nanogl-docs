@@ -3,6 +3,7 @@
     <Tag
       v-for="tag in tags"
       :tag="tag"
+      :big="big"
     />
   </div>
 </template>
@@ -12,6 +13,7 @@ import { APITag } from '@lib/apiData';
 
 type Props = {
   tags: APITag[];
+  big?: boolean;
 };
 defineProps<Props>();
 </script>

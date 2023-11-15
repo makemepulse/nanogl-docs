@@ -1,6 +1,8 @@
 <template>
   <div :class="{
-    'text-12 px-8 py-2 rounded-full ': true,
+    'px-8 py-2 rounded-full ': true,
+    'text-14': big,
+    'text-12': !big,
     'bg-purple-25': tag === LIB_ITEM_TAGS.ABSTRACT,
     'bg-green-25': tag === LIB_ITEM_TAGS.READONLY,
     'bg-yellow-25': tag === LIB_ITEM_TAGS.OPTIONAL,
@@ -17,6 +19,7 @@ import { LIB_ITEM_TAGS } from '@lib/constants';
 
 type Props = {
   tag: APITag;
+  big?: boolean;
 };
 defineProps<Props>();
 </script>

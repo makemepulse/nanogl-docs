@@ -3,7 +3,7 @@
     <div id="introduction" class="h1-container flex items-center justify-between">
       <div class="flex gap-8 items-baseline">
         <h1 class="no-margin">{{ libFunction.name }}</h1>
-        <Tags :tags="libFunction.tags"/>
+        <Tags :tags="libFunction.tags" big />
       </div>
       <UIButton
         v-if="libFunction.source.length"
