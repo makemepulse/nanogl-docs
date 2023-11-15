@@ -5,6 +5,11 @@ import MdPrism from 'markdown-it-prism'
 import MdLinkAttrs from 'markdown-it-link-attributes'
 import MdReplaceLink from 'markdown-it-replace-link'
 
+import "prismjs/components/prism-clike";
+import "prismjs/components/prism-javascript";
+import "prismjs/components/prism-c";
+import "prismjs/components/prism-glsl";
+
 const md = ref<MarkdownIt | null>(null);
 
 export function useMarkdown() {
