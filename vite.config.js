@@ -66,6 +66,7 @@ export default defineConfig(({ mode }) => {
       Components({
         extensions: ['vue', 'md'],
         include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+        dts: false,
       }),
       SvgLoader()
     ],
