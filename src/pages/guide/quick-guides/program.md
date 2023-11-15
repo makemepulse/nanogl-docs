@@ -48,7 +48,7 @@ prg.use();
 ## Uniforms
 Once compiled, the Program object lists **all used uniforms** and provides a **setter function** for each one.
 
-<UICallout>
+<UICallout type="example">
 
 **Example :** if we write `uniform vec3 uDirection;`{language=glsl} in our shader, once compiled, we can use `program.uDirection(1, 0, 0);`{language=js}
 
@@ -114,7 +114,7 @@ gl.uniform1i(prg.uTexture(), 1);
 
 Once compiled, the Program object also provides a **getter function** for each attribute, which returns the attribute location.
 
-<UICallout>
+<UICallout type="example">
 
 **Example :** if we write `attribute vec3 aPosition;`{language=glsl} in our shader, once compiled, we can use `program.aPosition();`{language=js}
 

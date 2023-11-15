@@ -235,7 +235,7 @@ Let's also call the render function when the canvas is resized, to adapt the ren
 
 <UICallout type="info">
 
-**Node :** We will only call a render on resize here because the render is static. When the render is updated on each frame, it is not useful.
+**Note :** We will only call a render on resize here because the render is static. When the render is updated on each frame, it is not useful.
 
 </UICallout>
 
