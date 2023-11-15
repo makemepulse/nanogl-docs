@@ -124,6 +124,7 @@ function parseLibsData(libs) {
                     accessors: [],
                     methods: [],
                     extends: exported.extendedTypes ? resolveExtends(exported.extendedTypes[0], lib.name) : null,
+                    implements: exported.implementedTypes ? resolveImplements(exported.implementedTypes[0], lib.name) : null,
                 }
 
                 // exported.children contains all objects coming from the class (constructor, properties, methods, ...)
@@ -366,6 +367,24 @@ function resolveExtends(extendsData, currentLib, extendsChain = []) {
 
 
     return extendsChain
+}
+
+// Resolve the implements type
+function resolveImplements(implementsData, currentLib) {
+    if (implementsData.type !== 'reference') return;
+
+    const exported = getExportedFromReference(implementsData, currentLib);
+
+    if (exported) {
+        return {
+            name: exported.name,
+            lib: exported.lib,
+            kind: exported.kind,
+            source: exported.source,
+        }
+    }
+
+    return null;
 }
 
 fetchLibs();

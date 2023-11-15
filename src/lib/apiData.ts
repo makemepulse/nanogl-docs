@@ -44,7 +44,8 @@ export type APIAccessor = {
 
 export type APIClass = {
   name: string;
-  extends: string;
+  extends: APISingleType[];
+  implements: APISingleType;
   source: string;
   tags: APITag[];
   comment: string;

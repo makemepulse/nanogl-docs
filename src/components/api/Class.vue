@@ -9,19 +9,28 @@
         <span> →</span>
       </p>
     </div>
-    <div id="introduction" class="h1-container flex items-center justify-between">
-      <div class="flex gap-8 items-baseline">
-        <h1 class="no-margin">{{ libClass.name }}</h1>
-        <Tags :tags="libClass.tags" big />
+    <div id="introduction" class="h1-container flex flex-col">
+      <div class="flex items-center justify-between">
+        <div class="flex gap-8 items-baseline">
+          <h1 class="no-margin">{{ libClass.name }}</h1>
+          <Tags :tags="libClass.tags" big />
+        </div>
+        <UIButton
+          v-if="libClass.source.length"
+          :href="libClass.source"
+          text="Source"
+          icon="code"
+          icon-stroke
+          small
+        />
       </div>
-      <UIButton
-        v-if="libClass.source.length"
-        :href="libClass.source"
-        text="Source"
-        icon="code"
-        icon-stroke
-        small
-      />
+      <UIPill
+        v-if="libClass.implements"
+        class="self-start bg-grey"
+        big
+      >
+        <span>implements <SingleType :type="libClass.implements"/></span>
+      </UIPill>
     </div>
     <Comment v-if="libClass.comment" :comment="libClass.comment" />
     <Comment v-if="libClass.example" :comment="libClass.example" />
