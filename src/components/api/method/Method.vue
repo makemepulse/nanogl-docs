@@ -32,6 +32,7 @@
     <Comment v-if="method.example" :comment="method.example" class="my-16" />
     <div v-if="method.params" class="my-16">
       <h2 v-if="isFullPage" :id="`${method.name}-params`">Parameters</h2>
+      <h3 v-else-if="isConstructor">Parameters</h3>
       <h4 v-else>Parameters</h4>
       <div class="space-y-16">
         <Variable
