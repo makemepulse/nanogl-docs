@@ -17,7 +17,9 @@
     </div>
     <div v-if="defaultValue">
       <span>Default : </span>
-      <span>{{ defaultValue }}</span>
+      <code  class="language-js inline-block">
+        {{ defaultValue }}
+      </code>
     </div>
   </div>
 </template>
