@@ -1,9 +1,18 @@
 <template>
   <div
-    :id="!hasTitle ? `item-${method.id}` : ''"
-    :class="{ 'scroll-mt-72 ': !hasTitle }"
+    v-if="!isConstructor && !isFullPage"
+    :class="`${headingComponent}-container flex gap-8 items-baseline`"
   >
-    <Tags :tags="method.tags"/>
+    <component
+      :is="headingComponent"
+      :id="method.id ? `item-${method.id}` : ''"
+      class="no-margin"
+    >
+      {{ name }}
+    </component>
+    <Tags v-if="method.tags.length" :tags="method.tags" />
+  </div>
+  <div :class="{ 'pl-24': !isConstructor && !isFullPage }">
     <pre class="language-ts flex">
       <code class="language-ts flex flex-wrap">
         <span class="token function">{{ method.name }}</span>
@@ -31,9 +40,12 @@
     <Comment v-if="method.comment" :comment="method.comment" class="my-16" />
     <Comment v-if="method.example" :comment="method.example" class="my-16" />
     <div v-if="method.params" class="my-16">
-      <h2 v-if="isFullPage" :id="`${method.name}-params`">Parameters</h2>
-      <h3 v-else-if="isConstructor">Parameters</h3>
-      <h4 v-else>Parameters</h4>
+      <component
+        :is="paramsHeadingComponent"
+        :id="isFullPage ? `${method.name}-params` : ''"
+      >
+        Parameters
+      </component>
       <div class="space-y-16">
         <Variable
           v-for="param in method.params"
@@ -51,19 +63,32 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+
 import { APIMethod } from '@lib/apiData';
 
 type Props = {
   method: APIMethod;
   isConstructor?: boolean;
   isFullPage?: boolean;
-  hasTitle?: boolean;
   showSource?: boolean;
+  customName?: string;
+  headingComponent?: 'h1' | 'h2' | 'h3' | 'h4';
 };
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   isConstructor: false,
   isFullPage: false,
-  hasTitle: false,
   showSource: false,
+  headingComponent: 'h4',
+});
+
+const name = computed(() => {
+  return props.customName || props.method.name;
+})
+
+const paramsHeadingComponent = computed(() => {
+  if (props.isFullPage) return 'h2';
+  if (props.isConstructor) return 'h3';
+  return 'h4';
 });
 </script>

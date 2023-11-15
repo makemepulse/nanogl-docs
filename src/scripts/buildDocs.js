@@ -140,7 +140,7 @@ function parseLibsData(libs) {
                     }
 
                     if (child.kindString === 'Constructor') {
-                        resolveMethod(childObj, child.signatures[0], lib.name);
+                        resolveMethod(childObj, child.signatures[0], child.flags, lib.name);
                         exportedObj.constructors.push(childObj);
                     } else if (child.kindString === 'Property') {
                         childObj.comment = resolveComment(child.comment?.summary);
@@ -153,17 +153,17 @@ function parseLibsData(libs) {
                             childObj.setter = {
                                 name: `set ${child.name}`,
                             };
-                            resolveMethod(childObj.setter, child.setSignature, lib.name);
+                            resolveMethod(childObj.setter, child.setSignature, child.flags, lib.name);
                         }
                         if (child.getSignature) {
                             childObj.getter = {
                                 name: `get ${child.name}`,
                             };
-                            resolveMethod(childObj.getter, child.getSignature, lib.name);
+                            resolveMethod(childObj.getter, child.getSignature, child.flags, lib.name);
                         }
                         exportedObj.accessors.push(childObj);
                     } else if (child.kindString === 'Method') {
-                        resolveMethod(childObj, child.signatures[0], lib.name);
+                        resolveMethod(childObj, child.signatures[0], child.flags, lib.name);
                         exportedObj.methods.push(childObj);
                     }
                 })
@@ -171,7 +171,7 @@ function parseLibsData(libs) {
                 libObj.classes.push(exportedObj);
             } else if (exported.kindString === 'Function') {
                 const functionObj = {};
-                resolveMethod(functionObj, exported.signatures[0], lib.name);
+                resolveMethod(functionObj, exported.signatures[0], exported.flags, lib.name);
 
                 const exportedObj = {
                     id: exported.id,
@@ -285,11 +285,11 @@ function resolveExample(item) {
 }
 
 // Resolve the type, comment and params of a method
-function resolveMethod(obj, method, lib) {
+function resolveMethod(obj, method, flags = [], lib) {
     obj.comment = resolveComment(method.comment?.summary);
     obj.example = resolveExample(method)
     obj.type = resolveTypes(method.type, lib);
-    obj.tags = resolveTags(obj.flags);
+    obj.tags = resolveTags(method.flags ? { ...flags, ...method.flags } : flags);
     obj.params = method.parameters?.map(param => {
         return {
             id: param.id,

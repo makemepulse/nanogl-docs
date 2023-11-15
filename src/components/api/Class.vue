@@ -13,7 +13,7 @@
       <div class="flex items-center justify-between">
         <div class="flex gap-8 items-baseline">
           <h1 class="no-margin">{{ libClass.name }}</h1>
-          <Tags :tags="libClass.tags" big />
+          <Tags v-if="libClass.tags.length" :tags="libClass.tags" big />
         </div>
         <UIButton
           v-if="libClass.source.length"
@@ -37,7 +37,11 @@
     <div v-if="libClass.constructors.length" class="mb-48">
       <h2 id="constructor">Constructor</h2>
       <div class="space-y-16">
-        <Method v-for="constructor in libClass.constructors" :method="constructor" :isConstructor="true" />
+        <Method
+          v-for="constructor in libClass.constructors"
+          :method="constructor"
+          :isConstructor="true"
+        />
       </div>
     </div>
     <div v-if="libClass.properties.length" class="mb-48">
@@ -68,16 +72,18 @@
             <Comment v-if="accessor.comment" :comment="accessor.comment" />
             <div class="space-y-16">
               <div v-if="accessor.getter">
-                <h4>Getter</h4>
-                <div class="pl-24">
-                  <Method :method="accessor.getter" />
-                </div>
+                <Method
+                  :method="accessor.getter"
+                  custom-name="Getter"
+                  heading-component="h4"
+                />
               </div>
               <div v-if="accessor.setter">
-                <h4>Setter</h4>
-                <div class="pl-24">
-                  <Method :method="accessor.setter" />
-                </div>
+                <Method
+                  :method="accessor.setter"
+                  custom-name="Setter"
+                  heading-component="h4"
+                />
               </div>
             </div>
           </div>
@@ -88,8 +94,10 @@
       <h2 id="methods">Methods</h2>
       <div class="space-y-32">
         <div v-for="method in libClass.methods">
-          <h3 :id="`item-${method.id}`">{{ method.name }}</h3>
-          <Method :method="method" class="pl-24" has-title />
+          <Method
+            :method="method"
+            heading-component="h3"
+          />
         </div>
       </div>
     </div>

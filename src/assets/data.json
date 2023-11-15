@@ -422,7 +422,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": []
+              "tags": [
+                "abstract"
+              ]
             },
             {
               "id": 86,
@@ -432,7 +434,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "abstract"
+              ],
               "params": [
                 {
                   "id": 88,
@@ -458,7 +462,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": []
+              "tags": [
+                "abstract"
+              ]
             },
             {
               "id": 93,
@@ -468,7 +474,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "abstract"
+              ],
               "params": [
                 {
                   "id": 95,
@@ -765,7 +773,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "abstract"
+              ],
               "params": [
                 {
                   "id": 91,
@@ -3521,7 +3531,9 @@
                 "kind": "Class",
                 "source": "https://github.com/evanmartiin/nanogl-camera/blob/59b700e/src/index.ts#L14"
               },
-              "tags": []
+              "tags": [
+                "static"
+              ]
             },
             {
               "id": 10,
@@ -3533,7 +3545,9 @@
                 "kind": "Class",
                 "source": "https://github.com/evanmartiin/nanogl-camera/blob/59b700e/src/index.ts#L14"
               },
-              "tags": []
+              "tags": [
+                "static"
+              ]
             }
           ],
           "extends": [
@@ -5177,7 +5191,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "static"
+              ],
               "params": [
                 {
                   "id": 8,
@@ -5341,7 +5357,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "static"
+              ],
               "params": [
                 {
                   "id": 22,
@@ -5382,7 +5400,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "static"
+              ],
               "params": [
                 {
                   "id": 17,
@@ -5591,7 +5611,10 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "protected",
+                "abstract"
+              ],
               "params": [
                 {
                   "id": 76,
@@ -6949,7 +6972,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "protected"
+              ],
               "params": [
                 {
                   "id": 622,
@@ -7237,7 +7262,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "protected"
+              ],
               "params": [
                 {
                   "id": 693,
@@ -8009,7 +8036,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "protected"
+              ],
               "params": [
                 {
                   "id": 460,
@@ -8108,7 +8137,10 @@
               "type": {
                 "name": "string"
               },
-              "tags": [],
+              "tags": [
+                "private",
+                "static"
+              ],
               "params": [
                 {
                   "id": 440,
@@ -8395,7 +8427,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "protected"
+              ],
               "params": [
                 {
                   "id": 555,
@@ -8492,7 +8526,9 @@
               "type": {
                 "name": "string"
               },
-              "tags": [],
+              "tags": [
+                "static"
+              ],
               "params": [
                 {
                   "id": 519,
@@ -9094,7 +9130,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "abstract"
+              ],
               "params": [
                 {
                   "id": 908,
@@ -9265,7 +9303,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "protected"
+              ],
               "params": [
                 {
                   "id": 951,
@@ -9287,7 +9327,9 @@
               "type": {
                 "name": "string"
               },
-              "tags": []
+              "tags": [
+                "protected"
+              ]
             },
             {
               "id": 946,
@@ -9383,7 +9425,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "protected"
+              ],
               "params": [
                 {
                   "id": 1010,
@@ -9535,7 +9579,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "protected"
+              ],
               "params": [
                 {
                   "id": 1069,
@@ -9693,7 +9739,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "protected"
+              ],
               "params": [
                 {
                   "id": 1129,
@@ -9842,7 +9890,9 @@
                 "kind": "Class",
                 "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/ProgramCache.ts#L29"
               },
-              "tags": [],
+              "tags": [
+                "static"
+              ],
               "params": [
                 {
                   "id": 1181,
@@ -10410,7 +10460,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "protected"
+              ],
               "params": [
                 {
                   "id": 1372,
@@ -11466,7 +11518,9 @@
               "type": {
                 "name": "string"
               },
-              "tags": []
+              "tags": [
+                "abstract"
+              ]
             },
             {
               "id": 1741,
@@ -11475,7 +11529,9 @@
               "type": {
                 "name": "string"
               },
-              "tags": []
+              "tags": [
+                "abstract"
+              ]
             },
             {
               "id": 1720,
@@ -11487,7 +11543,9 @@
                 "kind": "Class",
                 "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/TexCoord.ts#L245"
               },
-              "tags": [],
+              "tags": [
+                "static"
+              ],
               "params": [
                 {
                   "id": 1722,
@@ -11512,7 +11570,9 @@
                 "kind": "Class",
                 "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/TexCoord.ts#L245"
               },
-              "tags": [],
+              "tags": [
+                "static"
+              ],
               "params": [
                 {
                   "id": 1729,
@@ -11546,7 +11606,9 @@
                 "kind": "Class",
                 "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/TexCoord.ts#L245"
               },
-              "tags": [],
+              "tags": [
+                "static"
+              ],
               "params": [
                 {
                   "id": 1725,
@@ -11580,7 +11642,9 @@
                 "kind": "Class",
                 "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/TexCoord.ts#L176"
               },
-              "tags": [],
+              "tags": [
+                "static"
+              ],
               "params": [
                 {
                   "id": 1733,
@@ -11995,7 +12059,9 @@
               "type": {
                 "name": "string"
               },
-              "tags": [],
+              "tags": [
+                "abstract"
+              ],
               "params": [
                 {
                   "id": 2022,
@@ -12030,7 +12096,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "abstract"
+              ],
               "params": [
                 {
                   "id": 2027,
@@ -13865,7 +13933,10 @@
                 "kind": "Class",
                 "source": "https://github.com/evanmartiin/nanogl-camera/blob/59b700e/src/index.ts#L14"
               },
-              "tags": []
+              "tags": [
+                "protected",
+                "abstract"
+              ]
             },
             {
               "id": 2820,
@@ -13874,7 +13945,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "protected"
+              ],
               "params": [
                 {
                   "id": 2822,
@@ -13896,7 +13969,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": []
+              "tags": [
+                "protected"
+              ]
             },
             {
               "id": 2815,
@@ -13988,7 +14063,9 @@
               "type": {
                 "name": "Float32Array"
               },
-              "tags": []
+              "tags": [
+                "abstract"
+              ]
             },
             {
               "id": 2808,
@@ -14029,7 +14106,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "abstract"
+              ],
               "params": [
                 {
                   "id": 2829,
@@ -15336,7 +15415,9 @@
               "type": {
                 "name": "boolean"
               },
-              "tags": [],
+              "tags": [
+                "private"
+              ],
               "params": [
                 {
                   "id": 49,
@@ -15371,7 +15452,9 @@
               "type": {
                 "name": "boolean"
               },
-              "tags": [],
+              "tags": [
+                "private"
+              ],
               "params": [
                 {
                   "id": 54,
@@ -15539,7 +15622,9 @@
                 "kind": "Class",
                 "source": "https://github.com/evanmartiin/nanogl-pf/blob/5f92d17/src/index.ts#L18"
               },
-              "tags": [],
+              "tags": [
+                "static"
+              ],
               "params": [
                 {
                   "id": 9,
@@ -15651,7 +15736,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "abstract"
+              ],
               "params": [
                 {
                   "id": 22,
@@ -15680,7 +15767,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": []
+              "tags": [
+                "abstract"
+              ]
             },
             {
               "id": 18,
@@ -15689,7 +15778,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": []
+              "tags": [
+                "abstract"
+              ]
             },
             {
               "id": 16,
@@ -15698,7 +15789,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": []
+              "tags": [
+                "abstract"
+              ]
             },
             {
               "id": 27,
@@ -15707,7 +15800,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "abstract"
+              ],
               "params": [
                 {
                   "id": 29,
@@ -15734,7 +15829,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": [],
+              "tags": [
+                "abstract"
+              ],
               "params": [
                 {
                   "id": 26,
@@ -19120,7 +19217,9 @@
               "type": {
                 "name": "void"
               },
-              "tags": []
+              "tags": [
+                "private"
+              ]
             },
             {
               "id": 21,
@@ -20283,7 +20382,9 @@
               "type": {
                 "name": "number"
               },
-              "tags": [],
+              "tags": [
+                "static"
+              ],
               "params": [
                 {
                   "id": 41,
@@ -20302,7 +20403,9 @@
               "type": {
                 "name": "number"
               },
-              "tags": [],
+              "tags": [
+                "static"
+              ],
               "params": [
                 {
                   "id": 38,
@@ -20499,7 +20602,9 @@
                 "kind": "Class",
                 "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L10"
               },
-              "tags": [],
+              "tags": [
+                "static"
+              ],
               "params": [
                 {
                   "id": 330,
