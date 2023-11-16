@@ -57,7 +57,7 @@ const preview = (canvasEl) => {
     thickness: 0.2,
   };
 
-  // Outlined circle made with an ArrayBuffer
+  // Circle outline made with an ArrayBuffer
   let circle = new CircleOutline(gl, PARAMS.radius, PARAMS.segments, PARAMS.thickness);
 
   // --PROGRAM--
