@@ -21,6 +21,10 @@ pre[class*="language-"] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+
+  &.collapse-space {
+    white-space: normal;
+  }
 }
 
 /* Code blocks */

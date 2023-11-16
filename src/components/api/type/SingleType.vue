@@ -1,5 +1,9 @@
 <template>
-  <TypeFunction v-if="type.function" :func="type.function" :class="class" />
+  <TypeFunction
+    v-if="type.function"
+    :func="type.function"
+    :class="class"
+  />
   <RouterLink
     v-else-if="!!url && url.isInternal"
     :class="{ 'code-link': isCode, [className]: !!className }"
@@ -17,7 +21,9 @@
     {{ type.name }}
   </a>
   <span v-else :class="className">{{ type.name }}</span>
-  <span v-if="type.isArray" :class="className">[]</span>
+  <span v-if="type.isArray" :class="className">
+    {{ '[]' }}
+  </span>
 </template>
 
 <script setup lang="ts">

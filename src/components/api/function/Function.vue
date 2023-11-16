@@ -14,29 +14,43 @@
   </div>
   <div :class="{ 'pl-24': !isConstructor && !isFullPage }">
     <pre class="language-ts flex">
-      <code class="language-ts flex flex-wrap">
+      <code class="language-ts flex flex-wrap collapse-space">
         <span class="token function">{{ func.name }}</span>
         <template v-if="func.typeParams?.length">
-          <span class="token punctuation">&lt;</span>
+          <span class="token punctuation">
+            {{ '<' }}
+          </span>
           <template v-for="(typeParam, i) in func.typeParams">
             <Type :data="typeParam" class-name="token type" is-code />
-            <span v-if="i < func.typeParams.length - 1" class="token punctuation">, </span>
+            <span
+              v-if="i < func.typeParams.length - 1"
+              class="token punctuation mr-8">
+              {{ ',' }}
+            </span>
           </template>
           <span class="token punctuation">></span>
         </template>
         <span class="token punctuation">(</span>
         <template v-for="param, index in func.params">
           <span class="token param">{{ param.name }}</span>
-          <span v-if="param.optional" class="token boolean">?</span>
+          <span
+            v-if="param.optional"
+            class="token boolean">
+            {{ '?' }}
+          </span>
           <template v-if="param.type">
-            <span class="token punctuation">: </span>
+            <span class="token punctuation mr-8">:</span>
             <Type :data="param.type" class-name="token type" is-code/>
           </template>
-          <span v-if="index + 1 < func.params.length" class="token punctuation">, </span>
+          <span
+            v-if="index + 1 < func.params.length"
+            class="token punctuation mr-8">
+            {{ ',' }}
+          </span>
         </template>
         <span class="token punctuation">)</span>
         <template v-if="func.type && !isConstructor">
-          <span class="token punctuation"> : </span>
+          <span class="token punctuation mx-8">:</span>
           <Type :data="func.type" class-name="token type" is-code />
         </template>
       </code>

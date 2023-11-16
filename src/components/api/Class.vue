@@ -64,7 +64,7 @@
       <div class="space-y-32">
         <div v-for="accessor in libClass.accessors">
           <h3 :id="`item-${accessor.id}`">
-            <code class="language-ts inline-block">
+            <code class="language-ts inline-flex flex-wrap collapse-space">
               {{ accessor.name }}
             </code>
           </h3>

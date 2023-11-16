@@ -5,7 +5,9 @@
       :className="className"
       :isCode="isCode"
     />
-    <span v-if="index < types.length - 1" :class="className"> | </span>
+    <span v-if="index < types.length - 1" :class="[className,  'mx-8']">
+      {{ '|' }}
+    </span>
   </template>
 </template>
 
