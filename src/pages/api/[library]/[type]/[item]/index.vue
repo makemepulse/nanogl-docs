@@ -4,7 +4,7 @@
     <Class
       v-if="currentType === 'classes'"
       :lib-class="currentItem" />
-    <Function
+    <LibFunction
       v-else-if="currentType === 'functions'"
       :lib-function="currentItem" />
   </div>

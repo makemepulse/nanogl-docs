@@ -2,9 +2,10 @@
   <template v-for="(typeData, index) in types">
     <SingleType
       :type="typeData"
+      :className="className"
       :isCode="isCode"
     />
-    <span v-if="index < types.length - 1"> | </span>
+    <span v-if="index < types.length - 1" :class="className"> | </span>
   </template>
 </template>
 
@@ -16,6 +17,7 @@ import { APIType } from '@lib/apiData';
 type Props = {
   data: APIType;
   isCode?: boolean;
+  className?: string;
 };
 
 const props = defineProps<Props>();

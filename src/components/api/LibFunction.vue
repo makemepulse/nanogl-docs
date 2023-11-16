@@ -14,7 +14,7 @@
         small
       />
     </div>
-    <Method :method="libFunction" is-full-page />
+    <Function :func="libFunction" is-full-page />
   </div>
   <div class="toc-wrapper">
     <div class="toc">

@@ -5,9 +5,11 @@
         {{ name }}
       </code>
       <span v-if="type || comment || defaultValue"> : </span>
-      <code v-if="type" class="language-ts inline-block">
-        <Type :data="type" is-code />
-      </code>
+      <div class="inline-block">
+        <code v-if="type" class="language-ts">
+          <Type :data="type" is-code />
+        </code>
+      </div>
       <div v-if="tags?.length" class="inline-block my-4 ml-8">
         <Tags :tags="tags" />
       </div>

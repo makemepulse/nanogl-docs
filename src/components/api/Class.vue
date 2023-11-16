@@ -37,9 +37,9 @@
     <div v-if="libClass.constructors.length" class="mb-48">
       <h2 id="constructor">Constructor</h2>
       <div class="space-y-16">
-        <Method
+        <Function
           v-for="constructor in libClass.constructors"
-          :method="constructor"
+          :func="constructor"
           :isConstructor="true"
         />
       </div>
@@ -72,15 +72,15 @@
             <Comment v-if="accessor.comment" :comment="accessor.comment" />
             <div class="space-y-16">
               <div v-if="accessor.getter">
-                <Method
-                  :method="accessor.getter"
+                <Function
+                  :func="accessor.getter"
                   custom-name="Getter"
                   heading-component="h4"
                 />
               </div>
               <div v-if="accessor.setter">
-                <Method
-                  :method="accessor.setter"
+                <Function
+                  :func="accessor.setter"
                   custom-name="Setter"
                   heading-component="h4"
                 />
@@ -94,8 +94,8 @@
       <h2 id="methods">Methods</h2>
       <div class="space-y-32">
         <div v-for="method in libClass.methods">
-          <Method
-            :method="method"
+          <Function
+            :func="method"
             heading-component="h3"
           />
         </div>

@@ -5,57 +5,54 @@
   >
     <component
       :is="headingComponent"
-      :id="method.id ? `item-${method.id}` : ''"
+      :id="func.id ? `item-${func.id}` : ''"
       class="no-margin"
     >
       {{ name }}
     </component>
-    <Tags v-if="method.tags.length" :tags="method.tags" />
+    <Tags v-if="func.tags.length" :tags="func.tags" />
   </div>
   <div :class="{ 'pl-24': !isConstructor && !isFullPage }">
     <pre class="language-ts flex">
       <code class="language-ts flex flex-wrap">
-        <span class="token function">{{ method.name }}</span>
-        <template v-if="method.typeParams?.length">
+        <span class="token function">{{ func.name }}</span>
+        <template v-if="func.typeParams?.length">
           <span class="token punctuation">&lt;</span>
-          <span v-for="(typeParam, i) in method.typeParams" class="token type inline-flex">
-            <span>{{ typeParam.name + (i < method.typeParams.length - 1 ? ', ' : '') }}</span>
-          </span>
+          <template v-for="(typeParam, i) in func.typeParams">
+            <Type :data="typeParam" class-name="token type" is-code />
+            <span v-if="i < func.typeParams.length - 1" class="token punctuation">, </span>
+          </template>
           <span class="token punctuation">></span>
         </template>
         <span class="token punctuation">(</span>
-        <template v-for="param, index in method.params">
+        <template v-for="param, index in func.params">
           <span class="token param">{{ param.name }}</span>
           <span v-if="param.optional" class="token boolean">?</span>
-          <span v-if="param.type" class="flex w-fit">
+          <template v-if="param.type">
             <span class="token punctuation">: </span>
-            <span class="token type inline-flex">
-              <Type :data="param.type" is-code/>
-            </span>
-          </span>
-          <span v-if="index + 1 < method.params.length" class="token punctuation">, </span>
+            <Type :data="param.type" class-name="token type" is-code/>
+          </template>
+          <span v-if="index + 1 < func.params.length" class="token punctuation">, </span>
         </template>
         <span class="token punctuation">)</span>
-        <span v-if="method.type && !isConstructor" class="flex">
+        <template v-if="func.type && !isConstructor">
           <span class="token punctuation"> : </span>
-          <span class="token type inline-flex">
-            <Type :data="method.type" is-code />
-          </span>
-        </span>
+          <Type :data="func.type" class-name="token type" is-code />
+        </template>
       </code>
     </pre>
-    <Comment v-if="method.comment" :comment="method.comment" class="my-16" />
-    <Comment v-if="method.example" :comment="method.example" class="my-16" />
-    <div v-if="method.typeParams" class="my-16">
+    <Comment v-if="func.comment" :comment="func.comment" class="my-16" />
+    <Comment v-if="func.example" :comment="func.example" class="my-16" />
+    <div v-if="func.typeParams" class="my-16">
       <component
         :is="paramsHeadingComponent"
-        :id="isFullPage ? `${method.name}-type-params` : ''"
+        :id="isFullPage ? `${func.name}-type-params` : ''"
       >
         Type parameters
       </component>
       <div class="space-y-16">
         <Variable
-          v-for="typeParam in method.typeParams"
+          v-for="typeParam in func.typeParams"
           :id="typeParam.id"
           :name="typeParam.name"
           :type="typeParam.type"
@@ -65,16 +62,16 @@
         />
       </div>
     </div>
-    <div v-if="method.params" class="my-16">
+    <div v-if="func.params" class="my-16">
       <component
         :is="paramsHeadingComponent"
-        :id="isFullPage ? `${method.name}-params` : ''"
+        :id="isFullPage ? `${func.name}-params` : ''"
       >
         Parameters
       </component>
       <div class="space-y-16">
         <Variable
-          v-for="param in method.params"
+          v-for="param in func.params"
           :id="param.id"
           :name="param.name"
           :type="param.type"
@@ -91,10 +88,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { APIMethod } from '@lib/apiData';
+import { APIFunction } from '@lib/apiData';
 
 type Props = {
-  method: APIMethod;
+  func: APIFunction;
   isConstructor?: boolean;
   isFullPage?: boolean;
   showSource?: boolean;
@@ -109,7 +106,7 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const name = computed(() => {
-  return props.customName || props.method.name;
+  return props.customName || props.func.name;
 })
 
 const paramsHeadingComponent = computed(() => {

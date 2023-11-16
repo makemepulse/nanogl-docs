@@ -8,6 +8,7 @@ export type APISingleType = {
   kind?: string;
   source?: string;
   isArray?: boolean;
+  function?: APIFunction;
 }
 
 export type APIType = APISingleType | APISingleType[];
@@ -31,7 +32,7 @@ export type APIVariable = {
   defaultValue: string;
 }
 
-export type APIMethod = {
+export type APIFunction = {
   id: number;
   name: string;
   params: APIVariable[];
@@ -48,8 +49,8 @@ export type APIAccessor = {
   name: string;
   source: string;
   comment: string;
-  setter: APIMethod;
-  getter: APIMethod;
+  setter: APIFunction;
+  getter: APIFunction;
 }
 
 export type APIClass = {
@@ -60,20 +61,10 @@ export type APIClass = {
   tags: APITag[];
   comment: string;
   example: string;
-  constructors: APIMethod[];
+  constructors: APIFunction[];
   properties: APIVariable[];
   accessors: APIAccessor[];
-  methods: APIMethod[];
-}
-
-export type APIFunction = {
-  name: string;
-  params: APIVariable[];
-  type: APIType;
-  source: string;
-  tags: APITag[];
-  comment: string;
-  example: string;
+  methods: APIFunction[];
 }
 
 export type APILib = {

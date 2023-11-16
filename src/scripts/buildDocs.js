@@ -140,8 +140,14 @@ function parseLibsData(libs) {
                     }
 
                     if (child.kindString === 'Constructor') {
-                        resolveMethod(childObj, child.signatures[0], child.flags, lib.name);
+                        resolveFunction(childObj, child.signatures[0], child.flags, lib.name);
                         exportedObj.constructors.push(childObj);
+                    } else if (
+                        child.kindString === 'Property' && child.type?.type === 'reflection'
+                        && child.type?.declaration?.signatures?.[0]?.kindString === 'Call signature'
+                    ) {
+                        resolveFunction(childObj, child.type?.declaration?.signatures?.[0], child.flags, lib.name);
+                        exportedObj.methods.push(childObj);
                     } else if (child.kindString === 'Property') {
                         childObj.comment = resolveComment(child.comment?.summary);
                         childObj.defaultValue = resolveDefaultValue(child);
@@ -153,17 +159,17 @@ function parseLibsData(libs) {
                             childObj.setter = {
                                 name: `set ${child.name}`,
                             };
-                            resolveMethod(childObj.setter, child.setSignature, child.flags, lib.name);
+                            resolveFunction(childObj.setter, child.setSignature, child.flags, lib.name);
                         }
                         if (child.getSignature) {
                             childObj.getter = {
                                 name: `get ${child.name}`,
                             };
-                            resolveMethod(childObj.getter, child.getSignature, child.flags, lib.name);
+                            resolveFunction(childObj.getter, child.getSignature, child.flags, lib.name);
                         }
                         exportedObj.accessors.push(childObj);
                     } else if (child.kindString === 'Method') {
-                        resolveMethod(childObj, child.signatures[0], child.flags, lib.name);
+                        resolveFunction(childObj, child.signatures[0], child.flags, lib.name);
                         exportedObj.methods.push(childObj);
                     }
                 })
@@ -171,7 +177,7 @@ function parseLibsData(libs) {
                 libObj.classes.push(exportedObj);
             } else if (exported.kindString === 'Function') {
                 const functionObj = {};
-                resolveMethod(functionObj, exported.signatures[0], exported.flags, lib.name);
+                resolveFunction(functionObj, exported.signatures[0], exported.flags, lib.name);
 
                 const exportedObj = {
                     id: exported.id,
@@ -284,13 +290,16 @@ function resolveExample(item) {
     return resolveComment(exampleTag?.content);
 }
 
-// Resolve the type, comment and params of a method
-function resolveMethod(obj, method, flags = [], lib) {
-    obj.comment = resolveComment(method.comment?.summary);
-    obj.example = resolveExample(method)
-    obj.type = resolveTypes(method.type, lib);
-    obj.tags = resolveTags(method.flags ? { ...flags, ...method.flags } : flags);
-    obj.params = method.parameters?.map(param => {
+// Resolve the type, comment and params of a function
+function resolveFunction(obj, func, flags = [], lib, isType = false) {
+    if (!isType) {
+        obj.comment = resolveComment(func.comment?.summary);
+        obj.example = resolveExample(func);
+        obj.tags = resolveTags(func.flags ? { ...flags, ...func.flags } : flags);
+    }
+
+    obj.type = resolveTypes(func.type, lib);
+    obj.params = func.parameters?.map(param => {
         return {
             id: param.id,
             name: param.name,
@@ -301,16 +310,18 @@ function resolveMethod(obj, method, flags = [], lib) {
             defaultValue: resolveDefaultValue(param),
         }
     })
-    obj.typeParams = method.typeParameter?.map(typeParam => {
-        return {
-            id: typeParam.id,
-            name: typeParam.name,
-            type: resolveTypes(typeParam.type, lib),
-            tags: resolveTags(typeParam.flags),
-            comment: resolveComment(typeParam.comment?.summary),
-            default: resolveTypes(typeParam.default, lib),
-        }
-    })
+    if (!isType) {
+        obj.typeParams = func.typeParameter?.map(typeParam => {
+            return {
+                id: typeParam.id,
+                name: typeParam.name,
+                type: resolveTypes(typeParam.type, lib),
+                tags: resolveTags(typeParam.flags),
+                comment: resolveComment(typeParam.comment?.summary),
+                default: resolveTypes(typeParam.default, lib),
+            }
+        })
+    }
 }
 
 // Get exported data from a reference
@@ -332,9 +343,11 @@ function resolveTypes(type, currentLib) {
     if (!type) return;
     if (type.type === 'union') {
         return type.types.map(type => resolveTypes(type, currentLib));
-    } else if (type.type === 'intrinsic') {
+    }
+    if (type.type === 'intrinsic') {
         return { name: type.name };
-    } else if (type.type === 'reference') {
+    }
+    if (type.type === 'reference') {
         const exported = getExportedFromReference(type, currentLib);
 
         if (exported) {
@@ -347,13 +360,28 @@ function resolveTypes(type, currentLib) {
         }
 
         return { name: type.name };
-    } else if (type.type === 'array') {
+    }
+    if (type.type === 'array') {
         return {
             ...resolveTypes(type.elementType, currentLib),
             isArray: true
         };
-    } else if (type.type === 'literal') {
+    }
+    if (type.type === 'literal') {
         return { name: `${type.value}` };
+    }
+    if (type.type === 'reflection') {
+        const signature = type.declaration?.signatures?.[0];
+
+        if (!signature || signature.kindString !== 'Call signature') return;
+
+        const funcData = {};
+        resolveFunction(funcData, signature, [], currentLib, true);
+
+        return {
+            name: 'function',
+            function: funcData,
+        }
     }
 }
 
