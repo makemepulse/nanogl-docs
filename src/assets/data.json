@@ -4877,19 +4877,19 @@
           "id": 74,
           "name": "Circle",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/circle.ts#L8",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/a728e56/src/circle.ts#L8",
           "comment": "This class manages a basic circle geometry.",
           "tags": [],
           "constructors": [
             {
               "id": 75,
               "name": "Circle",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/circle.ts#L14",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/a728e56/src/circle.ts#L14",
               "type": {
                 "name": "Circle",
                 "lib": "nanogl-primitives-2d",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/circle.ts#L8"
+                "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/a728e56/src/circle.ts#L8"
               },
               "tags": [],
               "params": [
@@ -4934,8 +4934,8 @@
             {
               "id": 80,
               "name": "render",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/circle.ts#L44",
-              "comment": "Draw the circle.",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/a728e56/src/circle.ts#L45",
+              "comment": "Draw the circle.\nYou need to link a program before calling this method.",
               "type": {
                 "name": "void"
               },
@@ -4962,19 +4962,19 @@
           "id": 2,
           "name": "CircleOutline",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/circle-outline.ts#L8",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/a728e56/src/circle-outline.ts#L8",
           "comment": "This class manages a basic circle outline geometry.",
           "tags": [],
           "constructors": [
             {
               "id": 3,
               "name": "CircleOutline",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/circle-outline.ts#L15",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/a728e56/src/circle-outline.ts#L15",
               "type": {
                 "name": "CircleOutline",
                 "lib": "nanogl-primitives-2d",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/circle-outline.ts#L8"
+                "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/a728e56/src/circle-outline.ts#L8"
               },
               "tags": [],
               "params": [
@@ -5029,8 +5029,8 @@
             {
               "id": 9,
               "name": "render",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/circle-outline.ts#L54",
-              "comment": "Draw the circle outline.",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/a728e56/src/circle-outline.ts#L55",
+              "comment": "Draw the circle outline.\nYou need to link a program before calling this method.",
               "type": {
                 "name": "void"
               },
@@ -5057,19 +5057,19 @@
           "id": 219,
           "name": "Rect",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/rect.ts#L15",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/a728e56/src/rect.ts#L15",
           "comment": "This class manages a basic rectangle geometry.",
           "tags": [],
           "constructors": [
             {
               "id": 220,
               "name": "Rect",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/rect.ts#L23",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/a728e56/src/rect.ts#L23",
               "type": {
                 "name": "Rect",
                 "lib": "nanogl-primitives-2d",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/rect.ts#L15"
+                "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/a728e56/src/rect.ts#L15"
               },
               "tags": [],
               "params": [
@@ -5134,8 +5134,8 @@
             {
               "id": 227,
               "name": "render",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/rect.ts#L44",
-              "comment": "Draw the rectangle.",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/a728e56/src/rect.ts#L45",
+              "comment": "Draw the rectangle.\nYou need to link a program before calling this method.",
               "type": {
                 "name": "void"
               },
@@ -5162,19 +5162,19 @@
           "id": 145,
           "name": "RectOutline",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/rect-outline.ts#L14",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/a728e56/src/rect-outline.ts#L14",
           "comment": "This class manages a basic rectangle outline geometry.",
           "tags": [],
           "constructors": [
             {
               "id": 146,
               "name": "RectOutline",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/rect-outline.ts#L23",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/a728e56/src/rect-outline.ts#L23",
               "type": {
                 "name": "RectOutline",
                 "lib": "nanogl-primitives-2d",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/rect-outline.ts#L14"
+                "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/a728e56/src/rect-outline.ts#L14"
               },
               "tags": [],
               "params": [
@@ -5249,8 +5249,8 @@
             {
               "id": 154,
               "name": "render",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/rect-outline.ts#L62",
-              "comment": "Draw the rectangle outline.",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/a728e56/src/rect-outline.ts#L63",
+              "comment": "Draw the rectangle outline.\nYou need to link a program before calling this method.",
               "type": {
                 "name": "void"
               },
