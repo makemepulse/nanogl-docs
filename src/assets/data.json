@@ -4877,19 +4877,19 @@
           "id": 74,
           "name": "Circle",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle.ts#L9",
-          "comment": "Creates a circle geometry",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/circle.ts#L8",
+          "comment": "This class manages a basic circle geometry.",
           "tags": [],
           "constructors": [
             {
               "id": 75,
               "name": "Circle",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle.ts#L11",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/circle.ts#L14",
               "type": {
                 "name": "Circle",
                 "lib": "nanogl-primitives-2d",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle.ts#L9"
+                "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/circle.ts#L8"
               },
               "tags": [],
               "params": [
@@ -4902,7 +4902,8 @@
                     "kind": "Type alias",
                     "source": "https://github.com/evanmartiin/nanogl/blob/fa68ce5/src/types.ts#L1"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The webgl context this Circle belongs to"
                 },
                 {
                   "id": 78,
@@ -4911,6 +4912,7 @@
                     "name": "number"
                   },
                   "tags": [],
+                  "comment": "The radius of the circle",
                   "defaultValue": "1.0"
                 },
                 {
@@ -4920,6 +4922,7 @@
                     "name": "number"
                   },
                   "tags": [],
+                  "comment": "The number of segments of the circle",
                   "defaultValue": "32"
                 }
               ]
@@ -4931,8 +4934,8 @@
             {
               "id": 80,
               "name": "render",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle.ts#L41",
-              "comment": "Render the circle",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/circle.ts#L44",
+              "comment": "Draw the circle.",
               "type": {
                 "name": "void"
               },
@@ -4959,19 +4962,19 @@
           "id": 2,
           "name": "CircleOutline",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle-outline.ts#L9",
-          "comment": "Create an outlined circle geometry",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/circle-outline.ts#L8",
+          "comment": "This class manages a basic circle outline geometry.",
           "tags": [],
           "constructors": [
             {
               "id": 3,
               "name": "CircleOutline",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle-outline.ts#L12",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/circle-outline.ts#L15",
               "type": {
                 "name": "CircleOutline",
                 "lib": "nanogl-primitives-2d",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle-outline.ts#L9"
+                "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/circle-outline.ts#L8"
               },
               "tags": [],
               "params": [
@@ -4984,7 +4987,8 @@
                     "kind": "Type alias",
                     "source": "https://github.com/evanmartiin/nanogl/blob/fa68ce5/src/types.ts#L1"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The webgl context this CircleOutline belongs to"
                 },
                 {
                   "id": 6,
@@ -4993,6 +4997,7 @@
                     "name": "number"
                   },
                   "tags": [],
+                  "comment": "The radius of the circle outline",
                   "defaultValue": "1.0"
                 },
                 {
@@ -5002,6 +5007,7 @@
                     "name": "number"
                   },
                   "tags": [],
+                  "comment": "The number of segments of the circle outline",
                   "defaultValue": "32"
                 },
                 {
@@ -5011,6 +5017,7 @@
                     "name": "number"
                   },
                   "tags": [],
+                  "comment": "The thickness of the outline",
                   "defaultValue": "0.1"
                 }
               ]
@@ -5022,8 +5029,8 @@
             {
               "id": 9,
               "name": "render",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/circle-outline.ts#L51",
-              "comment": "Render the outlined circle",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/circle-outline.ts#L54",
+              "comment": "Draw the circle outline.",
               "type": {
                 "name": "void"
               },
@@ -5050,19 +5057,19 @@
           "id": 219,
           "name": "Rect",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect.ts#L16",
-          "comment": "Create a rectangle geometry",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/rect.ts#L15",
+          "comment": "This class manages a basic rectangle geometry.",
           "tags": [],
           "constructors": [
             {
               "id": 220,
               "name": "Rect",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect.ts#L18",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/rect.ts#L23",
               "type": {
                 "name": "Rect",
                 "lib": "nanogl-primitives-2d",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect.ts#L16"
+                "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/rect.ts#L15"
               },
               "tags": [],
               "params": [
@@ -5075,7 +5082,8 @@
                     "kind": "Type alias",
                     "source": "https://github.com/evanmartiin/nanogl/blob/fa68ce5/src/types.ts#L1"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The webgl context this Rect belongs to"
                 },
                 {
                   "id": 223,
@@ -5084,6 +5092,7 @@
                     "name": "number"
                   },
                   "tags": [],
+                  "comment": "The x position of the rectangle",
                   "defaultValue": "-1"
                 },
                 {
@@ -5093,6 +5102,7 @@
                     "name": "number"
                   },
                   "tags": [],
+                  "comment": "The y position of the rectangle",
                   "defaultValue": "-1"
                 },
                 {
@@ -5102,6 +5112,7 @@
                     "name": "number"
                   },
                   "tags": [],
+                  "comment": "The width of the rectangle",
                   "defaultValue": "2"
                 },
                 {
@@ -5111,6 +5122,7 @@
                     "name": "number"
                   },
                   "tags": [],
+                  "comment": "The height of the rectangle",
                   "defaultValue": "2"
                 }
               ]
@@ -5122,8 +5134,8 @@
             {
               "id": 227,
               "name": "render",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect.ts#L39",
-              "comment": "Render the rectangle",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/rect.ts#L44",
+              "comment": "Draw the rectangle.",
               "type": {
                 "name": "void"
               },
@@ -5150,19 +5162,19 @@
           "id": 145,
           "name": "RectOutline",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect-outline.ts#L15",
-          "comment": "Create an outlined rectangle geometry",
+          "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/rect-outline.ts#L14",
+          "comment": "This class manages a basic rectangle outline geometry.",
           "tags": [],
           "constructors": [
             {
               "id": 146,
               "name": "RectOutline",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect-outline.ts#L17",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/rect-outline.ts#L23",
               "type": {
                 "name": "RectOutline",
                 "lib": "nanogl-primitives-2d",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect-outline.ts#L15"
+                "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/rect-outline.ts#L14"
               },
               "tags": [],
               "params": [
@@ -5175,7 +5187,8 @@
                     "kind": "Type alias",
                     "source": "https://github.com/evanmartiin/nanogl/blob/fa68ce5/src/types.ts#L1"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The webgl context this RectOutline belongs to"
                 },
                 {
                   "id": 149,
@@ -5184,6 +5197,7 @@
                     "name": "number"
                   },
                   "tags": [],
+                  "comment": "The x position of the rectangle outline",
                   "defaultValue": "-1"
                 },
                 {
@@ -5193,6 +5207,7 @@
                     "name": "number"
                   },
                   "tags": [],
+                  "comment": "The y position of the rectangle outline",
                   "defaultValue": "-1"
                 },
                 {
@@ -5202,6 +5217,7 @@
                     "name": "number"
                   },
                   "tags": [],
+                  "comment": "The width of the rectangle outline",
                   "defaultValue": "2"
                 },
                 {
@@ -5211,6 +5227,7 @@
                     "name": "number"
                   },
                   "tags": [],
+                  "comment": "The height of the rectangle outline",
                   "defaultValue": "2"
                 },
                 {
@@ -5220,6 +5237,7 @@
                     "name": "number"
                   },
                   "tags": [],
+                  "comment": "The thickness of the outline",
                   "defaultValue": ".1"
                 }
               ]
@@ -5231,8 +5249,8 @@
             {
               "id": 154,
               "name": "render",
-              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/530c867/src/rect-outline.ts#L56",
-              "comment": "Render the outlined rectangle",
+              "source": "https://github.com/evanmartiin/nanogl-primitives-2d/blob/4e5b078/src/rect-outline.ts#L62",
+              "comment": "Draw the rectangle outline.",
               "type": {
                 "name": "void"
               },
