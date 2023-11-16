@@ -12,7 +12,16 @@ export type APISingleType = {
 
 export type APIType = APISingleType | APISingleType[];
 
-export type APIParam = {
+export type APITypeParam = {
+  id: number;
+  name: string;
+  type: APIType;
+  comment: string;
+  tags: APITag[];
+  default: APIType;
+}
+
+export type APIVariable = {
   id: number;
   name: string;
   optional: boolean;
@@ -25,7 +34,8 @@ export type APIParam = {
 export type APIMethod = {
   id: number;
   name: string;
-  params: APIParam[];
+  params: APIVariable[];
+  typeParams: APITypeParam[];
   type: APIType;
   source: string;
   comment: string;
@@ -51,14 +61,14 @@ export type APIClass = {
   comment: string;
   example: string;
   constructors: APIMethod[];
-  properties: APIParam[];
+  properties: APIVariable[];
   accessors: APIAccessor[];
   methods: APIMethod[];
 }
 
 export type APIFunction = {
   name: string;
-  params: APIParam[];
+  params: APIVariable[];
   type: APIType;
   source: string;
   tags: APITag[];

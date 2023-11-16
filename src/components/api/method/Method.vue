@@ -16,6 +16,13 @@
     <pre class="language-ts flex">
       <code class="language-ts flex flex-wrap">
         <span class="token function">{{ method.name }}</span>
+        <template v-if="method.typeParams?.length">
+          <span class="token punctuation">&lt;</span>
+          <span v-for="(typeParam, i) in method.typeParams" class="token type inline-flex">
+            <span>{{ typeParam.name + (i < method.typeParams.length - 1 ? ', ' : '') }}</span>
+          </span>
+          <span class="token punctuation">></span>
+        </template>
         <span class="token punctuation">(</span>
         <template v-for="param, index in method.params">
           <span class="token param">{{ param.name }}</span>
@@ -39,6 +46,25 @@
     </pre>
     <Comment v-if="method.comment" :comment="method.comment" class="my-16" />
     <Comment v-if="method.example" :comment="method.example" class="my-16" />
+    <div v-if="method.typeParams" class="my-16">
+      <component
+        :is="paramsHeadingComponent"
+        :id="isFullPage ? `${method.name}-type-params` : ''"
+      >
+        Type parameters
+      </component>
+      <div class="space-y-16">
+        <Variable
+          v-for="typeParam in method.typeParams"
+          :id="typeParam.id"
+          :name="typeParam.name"
+          :type="typeParam.type"
+          :comment="typeParam.comment"
+          :tags="typeParam.tags"
+          :default-type="typeParam.default"
+        />
+      </div>
+    </div>
     <div v-if="method.params" class="my-16">
       <component
         :is="paramsHeadingComponent"

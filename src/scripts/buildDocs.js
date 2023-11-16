@@ -301,6 +301,16 @@ function resolveMethod(obj, method, flags = [], lib) {
             defaultValue: resolveDefaultValue(param),
         }
     })
+    obj.typeParams = method.typeParameter?.map(typeParam => {
+        return {
+            id: typeParam.id,
+            name: typeParam.name,
+            type: resolveTypes(typeParam.type, lib),
+            tags: resolveTags(typeParam.flags),
+            comment: resolveComment(typeParam.comment?.summary),
+            default: resolveTypes(typeParam.default, lib),
+        }
+    })
 }
 
 // Get exported data from a reference
@@ -319,6 +329,7 @@ function getExportedFromReference(reference, currentLib) {
 
 // Resolve the type of something (property, method, param, ...)
 function resolveTypes(type, currentLib) {
+    if (!type) return;
     if (type.type === 'union') {
         return type.types.map(type => resolveTypes(type, currentLib));
     } else if (type.type === 'intrinsic') {

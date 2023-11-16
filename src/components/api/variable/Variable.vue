@@ -15,10 +15,11 @@
     <div v-if="comment">
       <Comment :comment="comment" inline />
     </div>
-    <div v-if="defaultValue">
+    <div v-if="defaultValue || defaultType">
       <span>Default : </span>
       <code  class="language-js inline-block">
-        {{ defaultValue }}
+        <span v-if="!!defaultValue">{{ defaultValue }}</span>
+        <Type v-else :data="defaultType" is-code />
       </code>
     </div>
   </div>
@@ -34,6 +35,7 @@ type Props = {
   tags?: APITag[];
   comment?: string;
   defaultValue?: string;
+  defaultType?: APIType;
 };
 defineProps<Props>();
 </script>

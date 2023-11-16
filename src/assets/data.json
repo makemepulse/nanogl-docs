@@ -3339,6 +3339,26 @@
                   "tags": [],
                   "comment": "The lens to use for this camera"
                 }
+              ],
+              "typeParams": [
+                {
+                  "id": 16,
+                  "name": "TLens",
+                  "type": {
+                    "name": "ICameraLens",
+                    "lib": "nanogl-camera",
+                    "kind": "Interface",
+                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/d0a631a/src/ICameraLens.ts#L4"
+                  },
+                  "tags": [],
+                  "comment": "The type of lens this camera uses",
+                  "default": {
+                    "name": "ICameraLens",
+                    "lib": "nanogl-camera",
+                    "kind": "Interface",
+                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/d0a631a/src/ICameraLens.ts#L4"
+                  }
+                }
               ]
             }
           ],
@@ -5669,6 +5689,19 @@
                   },
                   "tags": []
                 }
+              ],
+              "typeParams": [
+                {
+                  "id": 60,
+                  "name": "T",
+                  "type": {
+                    "name": "Chunk",
+                    "lib": "nanogl-pbr",
+                    "kind": "Class",
+                    "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
+                  },
+                  "tags": []
+                }
               ]
             },
             {
@@ -6053,6 +6086,19 @@
                   "name": "chunk",
                   "type": {
                     "name": "T"
+                  },
+                  "tags": []
+                }
+              ],
+              "typeParams": [
+                {
+                  "id": 110,
+                  "name": "T",
+                  "type": {
+                    "name": "Chunk",
+                    "lib": "nanogl-pbr",
+                    "kind": "Class",
+                    "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/Chunk.ts#L7"
                   },
                   "tags": []
                 }
@@ -6513,6 +6559,13 @@
                   },
                   "tags": []
                 }
+              ],
+              "typeParams": [
+                {
+                  "id": 190,
+                  "name": "T",
+                  "tags": []
+                }
               ]
             }
           ],
@@ -6670,6 +6723,19 @@
                   },
                   "tags": [],
                   "defaultValue": "false"
+                }
+              ],
+              "typeParams": [
+                {
+                  "id": 258,
+                  "name": "T",
+                  "type": {
+                    "name": "string"
+                  },
+                  "tags": [],
+                  "default": {
+                    "name": "string"
+                  }
                 }
               ]
             }
@@ -10624,6 +10690,25 @@
                   "tags": [],
                   "defaultValue": "'gltf-std-pass'"
                 }
+              ],
+              "typeParams": [
+                {
+                  "id": 1420,
+                  "name": "TSurface",
+                  "type": {
+                    "name": "PbrSurface",
+                    "lib": "nanogl-pbr",
+                    "kind": "Type alias",
+                    "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/PbrSurface.ts#L14"
+                  },
+                  "tags": [],
+                  "default": {
+                    "name": "PbrSurface",
+                    "lib": "nanogl-pbr",
+                    "kind": "Type alias",
+                    "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/PbrSurface.ts#L14"
+                  }
+                }
               ]
             }
           ],
@@ -11967,6 +12052,25 @@
                     "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/interfaces/GlslCode.ts#L2"
                   },
                   "tags": []
+                }
+              ],
+              "typeParams": [
+                {
+                  "id": 2003,
+                  "name": "TLight",
+                  "type": {
+                    "name": "Light",
+                    "lib": "nanogl-pbr",
+                    "kind": "Class",
+                    "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Light.ts#L13"
+                  },
+                  "tags": [],
+                  "default": {
+                    "name": "Light",
+                    "lib": "nanogl-pbr",
+                    "kind": "Class",
+                    "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/Light.ts#L13"
+                  }
                 }
               ]
             }
