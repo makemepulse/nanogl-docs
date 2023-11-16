@@ -1,7 +1,7 @@
 <template>
-  <div v-if="htmlData" :class="{ inline }">
+  <template v-if="htmlData">
     <div v-html="htmlData" :class="{ inline }"></div>
-  </div>
+  </template>
 </template>
 
 <script setup lang="ts">

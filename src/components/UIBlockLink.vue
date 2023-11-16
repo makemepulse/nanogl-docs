@@ -24,7 +24,7 @@
 type Props = {
   url: string;
   text: string;
-  description: string;
+  description?: string;
   fullHeight?: boolean;
 };
 withDefaults(defineProps<Props>(), {

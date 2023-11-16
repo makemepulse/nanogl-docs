@@ -121,3 +121,9 @@ pre[class*=language-] {
 .callout code[class*=language-], :not(pre)>code[class*=language-], pre[class*=language-] {
   @apply bg-grey-50;
 }
+
+h1, h2, h3, h4 {
+  code[class*=language-] {
+    @apply text-[0.85em];
+  }
+}
