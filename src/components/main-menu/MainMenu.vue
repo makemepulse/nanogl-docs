@@ -31,7 +31,7 @@ const sections = [
     slug: SECTIONS.GUIDE,
     subMenu: guideList.value.map(guide => ({
       name: guide.name,
-      path: guide.articles[0].route.path
+      path: `/${SECTIONS.GUIDE}/${guide.slug}`
     }))
   },
   {
