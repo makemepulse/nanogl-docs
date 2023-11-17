@@ -8867,7 +8867,7 @@
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "tags": [
                 "readonly"
@@ -9269,7 +9269,7 @@
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "tags": [
                 "readonly"
@@ -19408,19 +19408,20 @@
           "id": 2,
           "name": "ConfigStack",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/ConfigStack.ts#L24",
+          "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/ConfigStack.ts#L26",
+          "comment": "This class manages the GLConfig stack.",
           "tags": [],
           "constructors": [
             {
               "id": 3,
               "name": "ConfigStack",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/ConfigStack.ts#L56",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/ConfigStack.ts#L62",
               "tags": [],
               "type": {
                 "name": "ConfigStack",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/ConfigStack.ts#L24"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/ConfigStack.ts#L26"
               }
             }
           ],
@@ -19428,8 +19429,8 @@
             {
               "id": 9,
               "name": "_headPos",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/ConfigStack.ts#L52",
-              "comment": "position in teh stack of the last \"commit\"",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/ConfigStack.ts#L55",
+              "comment": "The position in the stack of the last \"commit\"",
               "type": {
                 "name": "number"
               },
@@ -19440,8 +19441,8 @@
             {
               "id": 8,
               "name": "_ptr",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/ConfigStack.ts#L47",
-              "comment": "current positionin the stack",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/ConfigStack.ts#L50",
+              "comment": "The current position in the stack",
               "type": {
                 "name": "number"
               },
@@ -19452,8 +19453,8 @@
             {
               "id": 6,
               "name": "_sets",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/ConfigStack.ts#L36",
-              "comment": "bitmask set of all the configs in the stack",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/ConfigStack.ts#L39",
+              "comment": "The list of the bitmask set of all the configs in the stack",
               "type": {
                 "name": "Uint32Array"
               },
@@ -19464,8 +19465,8 @@
             {
               "id": 7,
               "name": "_size",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/ConfigStack.ts#L42",
-              "comment": "allocated size of the stack",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/ConfigStack.ts#L45",
+              "comment": "The allocated size of the stack",
               "type": {
                 "name": "number"
               },
@@ -19476,8 +19477,8 @@
             {
               "id": 5,
               "name": "_stack",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/ConfigStack.ts#L30",
-              "comment": "values of the states at each position in the stack",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/ConfigStack.ts#L33",
+              "comment": "The values of the configs at each position in the stack.\nThe stack is a 2d array where each row is a config.",
               "type": {
                 "name": "Uint16Array"
               },
@@ -19488,12 +19489,13 @@
             {
               "id": 10,
               "name": "_wcfg",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/ConfigStack.ts#L54",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/ConfigStack.ts#L60",
+              "comment": "The position in the stack of the last \"commit\"",
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "tags": [
                 "private",
@@ -19506,7 +19508,8 @@
             {
               "id": 28,
               "name": "_grow",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/ConfigStack.ts#L189",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/ConfigStack.ts#L225",
+              "comment": "Grow the allocated size of stack.",
               "tags": [
                 "private"
               ],
@@ -19517,8 +19520,8 @@
             {
               "id": 21,
               "name": "commit",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/ConfigStack.ts#L151",
-              "comment": "copy current stack state to the given patch config and mark HEAD as the current position",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/ConfigStack.ts#L181",
+              "comment": "Copy the current stack state to the given patch config and mark HEAD as the current position.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -19531,17 +19534,18 @@
                     "name": "GLConfig",
                     "lib": "nanogl-state",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                    "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The config to copy to"
                 }
               ]
             },
             {
               "id": 24,
               "name": "copyConfig",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/ConfigStack.ts#L175",
-              "comment": "Copy a row in the stack and sets to the given config",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/ConfigStack.ts#L209",
+              "comment": "Copy a row in the stack to the given config.\n\nThis will copy the row from `_stack` to the config `_dat`\nand the row from `_set` to the config `_set`.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -19554,7 +19558,7 @@
                     "name": "number"
                   },
                   "tags": [],
-                  "comment": "position in the stack to copy from"
+                  "comment": "The position in the stack to copy from"
                 },
                 {
                   "id": 27,
@@ -19563,17 +19567,18 @@
                     "name": "GLConfig",
                     "lib": "nanogl-state",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                    "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
                   },
                   "tags": [],
-                  "comment": "config to copy to"
+                  "comment": "The config to copy to"
                 }
               ]
             },
             {
               "id": 19,
               "name": "flush",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/ConfigStack.ts#L141",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/ConfigStack.ts#L171",
+              "comment": "Remove all configs from the stack.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -19582,8 +19587,8 @@
             {
               "id": 11,
               "name": "initFromGL",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/ConfigStack.ts#L72",
-              "comment": "Fetch state from gl context and set initial set and dat",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/ConfigStack.ts#L81",
+              "comment": "Setup initial config from to match the config the\ngiven webgl context is currently in, and set the\nfirst config of the stack to this config.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -19595,15 +19600,16 @@
                   "type": {
                     "name": "WebGLRenderingContext"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The webgl context to match"
                 }
               ]
             },
             {
               "id": 17,
               "name": "pop",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/ConfigStack.ts#L130",
-              "comment": "remove the last config from the stack\nif the HEAD position is ahead the new position, the new position set is unioned with the previous set",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/ConfigStack.ts#L158",
+              "comment": "Remove the last config from the stack.\n\nIf the HEAD position is ahead of the current position in the stack,\nthe current position config set is unioned with the removed config set.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -19612,8 +19618,9 @@
             {
               "id": 14,
               "name": "push",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/ConfigStack.ts#L94",
-              "comment": "Add a config to the stack",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/ConfigStack.ts#L120",
+              "comment": "Add a config to the stack.\n\nThe input config is applied to the previous config in the stack,\nand the resulting config is added to the stack.",
+              "example": "If the previous config in the stack is:\n\n```js\n[A, B, C, D, E, F, G] // previous row in _stack\n[1, 0, 0, 1, 1, 1, 0] // previous row in _sets\n```\n\nAnd the input config is :\n\n```js\n[?, ?, X, D, E, ?, ?] // cfg _dat\n[0, 0, 1, 1, 1, 0, 0] // cfg _set\n```\n\nThen the new config in the stack is:\n\n```js\n[A, B, X, D, E, F, G] // new row in _stack\n[1, 0, 1, 1, 1, 1, 0] // new row in _sets\n```",
               "tags": [],
               "type": {
                 "name": "void"
@@ -19626,10 +19633,10 @@
                     "name": "GLConfig",
                     "lib": "nanogl-state",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                    "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
                   },
                   "tags": [],
-                  "comment": "A, B, C, D, E, F, G   -- previous row in _stack\n1, 0, 0, 1, 1, 1, 0   -- previous row in _sets\n\n?, ?, X, D, E, ?, ?   -- cfg _dat\n0, 0, 1, 1, 1, 0, 0   -- cfg _set\n\nA, B, X, D, E, F, G   -- new row in _stack\n1, 0, 1, 1, 1, 1, 0   -- new row in _sets"
+                  "comment": "The config to add to the stack"
                 }
               ]
             }
@@ -19638,30 +19645,32 @@
           "implements": null
         },
         {
-          "id": 35,
+          "id": 117,
           "name": "GLConfig",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374",
+          "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376",
+          "comment": "This class manages configs for the webgl context.",
           "tags": [],
           "constructors": [
             {
-              "id": 42,
+              "id": 124,
               "name": "GLConfig",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L388",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L400",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               }
             }
           ],
           "properties": [
             {
-              "id": 44,
+              "id": 126,
               "name": "_dat",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L385",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L394",
+              "comment": "The values of the config. Each value is stored in a specific slot of the array.",
               "type": {
                 "name": "Uint16Array"
               },
@@ -19670,9 +19679,10 @@
               ]
             },
             {
-              "id": 45,
+              "id": 127,
               "name": "_set",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L386",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L398",
+              "comment": "The bitmask set of the config. It indicates which values are set.",
               "type": {
                 "name": "number"
               },
@@ -19682,481 +19692,380 @@
           "accessors": [],
           "methods": [
             {
-              "id": 80,
+              "id": 162,
               "name": "blendColor",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L908",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L976",
+              "comment": "Set blending color for this config.\n\nThe params values should be floats between `0` and `1`.",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
-                  "id": 82,
+                  "id": 164,
                   "name": "r",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The value for the red component"
                 },
                 {
-                  "id": 83,
+                  "id": 165,
                   "name": "g",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The value for the green component"
                 },
                 {
-                  "id": 84,
+                  "id": 166,
                   "name": "b",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The value for the blue component"
                 },
                 {
-                  "id": 85,
+                  "id": 167,
                   "name": "a",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The value for the alpha component"
                 }
               ]
             },
             {
-              "id": 73,
+              "id": 155,
               "name": "blendEquation",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L885",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L942",
+              "comment": "Set the blending equation for this config.\n\nThe possible params values are :\n- `GL_FUNC_ADD`\n- `GL_FUNC_SUBTRACT`\n- `GL_FUNC_REVERSE_SUBTRACT`",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
-                  "id": 75,
+                  "id": 157,
                   "name": "eq",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The equation to use"
                 }
               ]
             },
             {
-              "id": 76,
+              "id": 158,
               "name": "blendEquationSeparate",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L897",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L959",
+              "comment": "Set the blending equation for RGB and alpha components separately for this config.\n\nThe possible params values are :\n- `GL_FUNC_ADD`\n- `GL_FUNC_SUBTRACT`\n- `GL_FUNC_REVERSE_SUBTRACT`",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
-                  "id": 78,
+                  "id": 160,
                   "name": "rgbEq",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The equation to use for the RGB components"
                 },
                 {
-                  "id": 79,
+                  "id": 161,
                   "name": "alphaEq",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The equation to use for the alpha component"
                 }
               ]
             },
             {
-              "id": 63,
+              "id": 145,
               "name": "blendFunc",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L855",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L895",
+              "comment": "Set the blending function for this config.\n\nThe possible params values are :\n- `GL_ZERO`\n- `GL_ONE`\n- `GL_SRC_COLOR`\n- `GL_ONE_MINUS_SRC_COLOR`\n- `GL_SRC_ALPHA`\n- `GL_ONE_MINUS_SRC_ALPHA`\n- `GL_DST_ALPHA`\n- `GL_ONE_MINUS_DST_ALPHA`\n- `GL_DST_COLOR`\n- `GL_ONE_MINUS_DST_COLOR`\n- `GL_SRC_ALPHA_SATURATE`",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
-                  "id": 65,
+                  "id": 147,
                   "name": "src",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The multiplier for the source blending factors"
                 },
                 {
-                  "id": 66,
+                  "id": 148,
                   "name": "dst",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The multiplier for the destination blending factors"
                 }
               ]
             },
             {
-              "id": 67,
+              "id": 149,
               "name": "blendFuncSeparate",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L876",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L923",
+              "comment": "Set the blending function for RGB and alpha components separately for this config.\n\nThe possible params values are :\n- `GL_ZERO`\n- `GL_ONE`\n- `GL_SRC_COLOR`\n- `GL_ONE_MINUS_SRC_COLOR`\n- `GL_SRC_ALPHA`\n- `GL_ONE_MINUS_SRC_ALPHA`\n- `GL_DST_ALPHA`\n- `GL_ONE_MINUS_DST_ALPHA`\n- `GL_DST_COLOR`\n- `GL_ONE_MINUS_DST_COLOR`\n- `GL_SRC_ALPHA_SATURATE`",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
-                  "id": 69,
+                  "id": 151,
                   "name": "srcRgb",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The multiplier for the RGB source blending factors"
                 },
                 {
-                  "id": 70,
+                  "id": 152,
                   "name": "dstRgb",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The multiplier for the RGB destination blending factors"
                 },
                 {
-                  "id": 71,
+                  "id": 153,
                   "name": "srcAlpha",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The multiplier for the alpha source blending factor"
                 },
                 {
-                  "id": 72,
+                  "id": 154,
                   "name": "dstAlpha",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
-                }
-              ]
-            },
-            {
-              "id": 48,
-              "name": "clone",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L402",
-              "tags": [],
-              "type": {
-                "name": "GLConfig",
-                "lib": "nanogl-state",
-                "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
-              }
-            },
-            {
-              "id": 133,
-              "name": "colorMask",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L1039",
-              "tags": [],
-              "type": {
-                "name": "GLConfig",
-                "lib": "nanogl-state",
-                "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
-              },
-              "params": [
-                {
-                  "id": 135,
-                  "name": "r",
-                  "type": {
-                    "name": "boolean"
-                  },
-                  "tags": []
-                },
-                {
-                  "id": 136,
-                  "name": "g",
-                  "type": {
-                    "name": "boolean"
-                  },
-                  "tags": []
-                },
-                {
-                  "id": 137,
-                  "name": "b",
-                  "type": {
-                    "name": "boolean"
-                  },
-                  "tags": []
-                },
-                {
-                  "id": 138,
-                  "name": "a",
-                  "type": {
-                    "name": "boolean"
-                  },
-                  "tags": []
-                }
-              ]
-            },
-            {
-              "id": 99,
-              "name": "cullFace",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L965",
-              "tags": [],
-              "type": {
-                "name": "GLConfig",
-                "lib": "nanogl-state",
-                "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
-              },
-              "params": [
-                {
-                  "id": 101,
-                  "name": "mode",
-                  "type": {
-                    "name": "number"
-                  },
-                  "tags": []
-                }
-              ]
-            },
-            {
-              "id": 86,
-              "name": "depthFunc",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L931",
-              "tags": [],
-              "type": {
-                "name": "GLConfig",
-                "lib": "nanogl-state",
-                "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
-              },
-              "params": [
-                {
-                  "id": 88,
-                  "name": "func",
-                  "type": {
-                    "name": "number"
-                  },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The multiplier for the alpha destination blending factor"
                 }
               ]
             },
             {
               "id": 130,
-              "name": "depthMask",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L1033",
+              "name": "clone",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L418",
+              "comment": "Returns a clone of this config.",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
+              }
+            },
+            {
+              "id": 215,
+              "name": "colorMask",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1177",
+              "comment": "Set which color components to enable or to disable for this config.",
+              "tags": [],
+              "type": {
+                "name": "GLConfig",
+                "lib": "nanogl-state",
+                "kind": "Class",
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
-                  "id": 132,
-                  "name": "flag",
+                  "id": 217,
+                  "name": "r",
                   "type": {
                     "name": "boolean"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "Whether to enable the red component or not"
+                },
+                {
+                  "id": 218,
+                  "name": "g",
+                  "type": {
+                    "name": "boolean"
+                  },
+                  "tags": [],
+                  "comment": "Whether to enable the green component or not"
+                },
+                {
+                  "id": 219,
+                  "name": "b",
+                  "type": {
+                    "name": "boolean"
+                  },
+                  "tags": [],
+                  "comment": "Whether to enable the blue component or not"
+                },
+                {
+                  "id": 220,
+                  "name": "a",
+                  "type": {
+                    "name": "boolean"
+                  },
+                  "tags": [],
+                  "comment": "Whether to enable the alpha component or not"
                 }
               ]
             },
             {
-              "id": 92,
-              "name": "depthRange",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L944",
+              "id": 181,
+              "name": "cullFace",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1057",
+              "comment": "Set the cull face mode for this config.\n\nThe possible params values are :\n- `GL_FRONT`\n- `GL_BACK`\n- `GL_FRONT_AND_BACK`",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
-                  "id": 94,
+                  "id": 183,
+                  "name": "mode",
+                  "type": {
+                    "name": "number"
+                  },
+                  "tags": [],
+                  "comment": "The mode to use"
+                }
+              ]
+            },
+            {
+              "id": 168,
+              "name": "depthFunc",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1002",
+              "comment": "Set the depth function for this config.\n\nThe possible params values are :\n- `GL_NEVER`\n- `GL_LESS`\n- `GL_EQUAL`\n- `GL_LEQUAL`\n- `GL_GREATER`\n- `GL_NOTEQUAL`\n- `GL_GEQUAL`\n- `GL_ALWAYS`",
+              "tags": [],
+              "type": {
+                "name": "GLConfig",
+                "lib": "nanogl-state",
+                "kind": "Class",
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
+              },
+              "params": [
+                {
+                  "id": 170,
+                  "name": "func",
+                  "type": {
+                    "name": "number"
+                  },
+                  "tags": [],
+                  "comment": "The depth function to use"
+                }
+              ]
+            },
+            {
+              "id": 212,
+              "name": "depthMask",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1163",
+              "comment": "Enable or disable writing into the depth buffer for this config.",
+              "tags": [],
+              "type": {
+                "name": "GLConfig",
+                "lib": "nanogl-state",
+                "kind": "Class",
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
+              },
+              "params": [
+                {
+                  "id": 214,
+                  "name": "flag",
+                  "type": {
+                    "name": "boolean"
+                  },
+                  "tags": [
+                    "optional"
+                  ],
+                  "comment": "Whether to enable the depth mask or not",
+                  "optional": true
+                }
+              ]
+            },
+            {
+              "id": 174,
+              "name": "depthRange",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1027",
+              "comment": "Set the depth range for this config.\n\nThe params values should be floats between `0` and `1`.",
+              "tags": [],
+              "type": {
+                "name": "GLConfig",
+                "lib": "nanogl-state",
+                "kind": "Class",
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
+              },
+              "params": [
+                {
+                  "id": 176,
                   "name": "near",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The near value to use"
                 },
                 {
-                  "id": 95,
+                  "id": 177,
                   "name": "far",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
-                }
-              ]
-            },
-            {
-              "id": 60,
-              "name": "enableBlend",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L835",
-              "tags": [],
-              "type": {
-                "name": "GLConfig",
-                "lib": "nanogl-state",
-                "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
-              },
-              "params": [
-                {
-                  "id": 62,
-                  "name": "flag",
-                  "type": {
-                    "name": "boolean"
-                  },
                   "tags": [],
-                  "defaultValue": "true"
-                }
-              ]
-            },
-            {
-              "id": 102,
-              "name": "enableCullface",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L971",
-              "tags": [],
-              "type": {
-                "name": "GLConfig",
-                "lib": "nanogl-state",
-                "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
-              },
-              "params": [
-                {
-                  "id": 104,
-                  "name": "flag",
-                  "type": {
-                    "name": "boolean"
-                  },
-                  "tags": [],
-                  "defaultValue": "true"
-                }
-              ]
-            },
-            {
-              "id": 89,
-              "name": "enableDepthTest",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L938",
-              "tags": [],
-              "type": {
-                "name": "GLConfig",
-                "lib": "nanogl-state",
-                "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
-              },
-              "params": [
-                {
-                  "id": 91,
-                  "name": "flag",
-                  "type": {
-                    "name": "boolean"
-                  },
-                  "tags": [],
-                  "defaultValue": "true"
-                }
-              ]
-            },
-            {
-              "id": 127,
-              "name": "enableDither",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L1027",
-              "tags": [],
-              "type": {
-                "name": "GLConfig",
-                "lib": "nanogl-state",
-                "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
-              },
-              "params": [
-                {
-                  "id": 129,
-                  "name": "flag",
-                  "type": {
-                    "name": "boolean"
-                  },
-                  "tags": [],
-                  "defaultValue": "true"
-                }
-              ]
-            },
-            {
-              "id": 109,
-              "name": "enablePolygonOffset",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L988",
-              "tags": [],
-              "type": {
-                "name": "GLConfig",
-                "lib": "nanogl-state",
-                "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
-              },
-              "params": [
-                {
-                  "id": 111,
-                  "name": "flag",
-                  "type": {
-                    "name": "boolean"
-                  },
-                  "tags": [],
-                  "defaultValue": "true"
-                }
-              ]
-            },
-            {
-              "id": 112,
-              "name": "enableScissor",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L999",
-              "tags": [],
-              "type": {
-                "name": "GLConfig",
-                "lib": "nanogl-state",
-                "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
-              },
-              "params": [
-                {
-                  "id": 114,
-                  "name": "flag",
-                  "type": {
-                    "name": "boolean"
-                  },
-                  "tags": [],
-                  "defaultValue": "true"
+                  "comment": "The far value to use"
                 }
               ]
             },
             {
               "id": 142,
-              "name": "enableStencil",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L1082",
+              "name": "enableBlend",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L870",
+              "comment": "Enable or disable blending for this config.",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
@@ -20165,513 +20074,738 @@
                   "type": {
                     "name": "boolean"
                   },
-                  "tags": [],
+                  "tags": [
+                    "optional"
+                  ],
+                  "comment": "Whether to enable blending or not",
+                  "optional": true,
                   "defaultValue": "true"
                 }
               ]
             },
             {
-              "id": 57,
-              "name": "fromGL",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L640",
+              "id": 184,
+              "name": "enableCullface",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1068",
+              "comment": "Enable or disable culling for this config.",
               "tags": [],
               "type": {
-                "name": "void"
+                "name": "GLConfig",
+                "lib": "nanogl-state",
+                "kind": "Class",
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
-                  "id": 59,
-                  "name": "gl",
+                  "id": 186,
+                  "name": "flag",
                   "type": {
-                    "name": "WebGLRenderingContext"
+                    "name": "boolean"
                   },
-                  "tags": []
+                  "tags": [
+                    "optional"
+                  ],
+                  "comment": "Whether to enable culling or not",
+                  "optional": true,
+                  "defaultValue": "true"
+                }
+              ]
+            },
+            {
+              "id": 171,
+              "name": "enableDepthTest",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1013",
+              "comment": "Enable or disable depth testing for this config.",
+              "tags": [],
+              "type": {
+                "name": "GLConfig",
+                "lib": "nanogl-state",
+                "kind": "Class",
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
+              },
+              "params": [
+                {
+                  "id": 173,
+                  "name": "flag",
+                  "type": {
+                    "name": "boolean"
+                  },
+                  "tags": [
+                    "optional"
+                  ],
+                  "comment": "Whether to enable depth testing or not",
+                  "optional": true,
+                  "defaultValue": "true"
+                }
+              ]
+            },
+            {
+              "id": 209,
+              "name": "enableDither",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1152",
+              "comment": "Enable or disable dithering for this config.",
+              "tags": [],
+              "type": {
+                "name": "GLConfig",
+                "lib": "nanogl-state",
+                "kind": "Class",
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
+              },
+              "params": [
+                {
+                  "id": 211,
+                  "name": "flag",
+                  "type": {
+                    "name": "boolean"
+                  },
+                  "tags": [
+                    "optional"
+                  ],
+                  "comment": "Whether to enable dithering or not",
+                  "optional": true,
+                  "defaultValue": "true"
+                }
+              ]
+            },
+            {
+              "id": 191,
+              "name": "enablePolygonOffset",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1094",
+              "comment": "Enable or disable polygon offset for this config.",
+              "tags": [],
+              "type": {
+                "name": "GLConfig",
+                "lib": "nanogl-state",
+                "kind": "Class",
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
+              },
+              "params": [
+                {
+                  "id": 193,
+                  "name": "flag",
+                  "type": {
+                    "name": "boolean"
+                  },
+                  "tags": [
+                    "optional"
+                  ],
+                  "comment": "Whether to enable polygon offset or not",
+                  "optional": true,
+                  "defaultValue": "true"
+                }
+              ]
+            },
+            {
+              "id": 194,
+              "name": "enableScissor",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1107",
+              "comment": "Enable or disable the scissor test for this config.",
+              "tags": [],
+              "type": {
+                "name": "GLConfig",
+                "lib": "nanogl-state",
+                "kind": "Class",
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
+              },
+              "params": [
+                {
+                  "id": 196,
+                  "name": "flag",
+                  "type": {
+                    "name": "boolean"
+                  },
+                  "tags": [
+                    "optional"
+                  ],
+                  "comment": "Whether to enable the scissor test or not",
+                  "optional": true,
+                  "defaultValue": "true"
+                }
+              ]
+            },
+            {
+              "id": 224,
+              "name": "enableStencil",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1225",
+              "comment": "Enable or disable stencil testing for this config.",
+              "tags": [],
+              "type": {
+                "name": "GLConfig",
+                "lib": "nanogl-state",
+                "kind": "Class",
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
+              },
+              "params": [
+                {
+                  "id": 226,
+                  "name": "flag",
+                  "type": {
+                    "name": "boolean"
+                  },
+                  "tags": [
+                    "optional"
+                  ],
+                  "comment": "Whether to enable stencil testing or not",
+                  "optional": true,
+                  "defaultValue": "true"
                 }
               ]
             },
             {
               "id": 139,
-              "name": "frontFace",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L1072",
-              "tags": [],
-              "type": {
-                "name": "GLConfig",
-                "lib": "nanogl-state",
-                "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
-              },
-              "params": [
-                {
-                  "id": 141,
-                  "name": "dir",
-                  "type": {
-                    "name": "number"
-                  },
-                  "tags": []
-                }
-              ]
-            },
-            {
-              "id": 96,
-              "name": "lineWidth",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L951",
-              "tags": [],
-              "type": {
-                "name": "GLConfig",
-                "lib": "nanogl-state",
-                "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
-              },
-              "params": [
-                {
-                  "id": 98,
-                  "name": "w",
-                  "type": {
-                    "name": "number"
-                  },
-                  "tags": []
-                }
-              ]
-            },
-            {
-              "id": 50,
-              "name": "patch",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L415",
+              "name": "fromGL",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L671",
+              "comment": "Setup this config to match the config the\ngiven webgl context is currently in.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 52,
+                  "id": 141,
+                  "name": "gl",
+                  "type": {
+                    "name": "WebGLRenderingContext"
+                  },
+                  "tags": [],
+                  "comment": "The webgl context to match"
+                }
+              ]
+            },
+            {
+              "id": 221,
+              "name": "frontFace",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1214",
+              "comment": "Set facing direction for this config.\n\nThe possible params values are :\n- `GL_CW`\n- `GL_CCW`",
+              "tags": [],
+              "type": {
+                "name": "GLConfig",
+                "lib": "nanogl-state",
+                "kind": "Class",
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
+              },
+              "params": [
+                {
+                  "id": 223,
+                  "name": "dir",
+                  "type": {
+                    "name": "number"
+                  },
+                  "tags": [],
+                  "comment": "The winding orientation to use"
+                }
+              ]
+            },
+            {
+              "id": 178,
+              "name": "lineWidth",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1039",
+              "comment": "Set the line width of rasterized lines for this config.",
+              "tags": [],
+              "type": {
+                "name": "GLConfig",
+                "lib": "nanogl-state",
+                "kind": "Class",
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
+              },
+              "params": [
+                {
+                  "id": 180,
+                  "name": "w",
+                  "type": {
+                    "name": "number"
+                  },
+                  "tags": [],
+                  "comment": "The width to use"
+                }
+              ]
+            },
+            {
+              "id": 132,
+              "name": "patch",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L436",
+              "comment": "Apply this config to the input config.\n\nIt creates a new config that represents the difference\nbetween the input config and this config.\nIf applied to a webgl context matching the input config,\nthe webgl context will now match this config.",
+              "tags": [],
+              "type": {
+                "name": "void"
+              },
+              "params": [
+                {
+                  "id": 134,
                   "name": "cfg",
                   "type": {
                     "name": "GLConfig",
                     "lib": "nanogl-state",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                    "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The input config to apply this config to"
                 },
                 {
-                  "id": 53,
+                  "id": 135,
                   "name": "out",
                   "type": {
                     "name": "GLConfig",
                     "lib": "nanogl-state",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                    "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The config to store the difference config in"
                 }
               ]
             },
             {
-              "id": 105,
+              "id": 187,
               "name": "polygonOffset",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L981",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1082",
+              "comment": "Set the polygon offset factor & units for this config.",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
-                  "id": 107,
+                  "id": 189,
                   "name": "polyOffsetFactor",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The scale factor for the variable depth offset for each polygon"
                 },
                 {
-                  "id": 108,
+                  "id": 190,
                   "name": "polyOffsetUnits",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The multiplier by which an implementation-specific value is multiplied with to create a constant depth offset"
                 }
               ]
             },
             {
-              "id": 115,
+              "id": 197,
               "name": "scissor",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L1005",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1121",
+              "comment": "Set the scissor box for this config.",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
-                  "id": 117,
+                  "id": 199,
                   "name": "x",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The x coordinate of the lower left corner of the scissor box"
                 },
                 {
-                  "id": 118,
+                  "id": 200,
                   "name": "y",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The y coordinate of the lower left corner of the scissor box"
                 },
                 {
-                  "id": 119,
+                  "id": 201,
                   "name": "w",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The width of the scissor box"
                 },
                 {
-                  "id": 120,
+                  "id": 202,
                   "name": "h",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The height of the scissor box"
                 }
               ]
             },
             {
-              "id": 54,
+              "id": 136,
               "name": "setupGL",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L449",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L474",
+              "comment": "Apply this config to a given webgl context.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 56,
+                  "id": 138,
                   "name": "gl",
                   "type": {
                     "name": "WebGLRenderingContext"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The webgl context to apply this config to"
                 }
               ]
             },
             {
-              "id": 145,
+              "id": 227,
               "name": "stencilFunc",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L1088",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1248",
+              "comment": "Set the stencil function for this config.\n\nThe possible func values are :\n- `GL_NEVER`\n- `GL_LESS`\n- `GL_EQUAL`\n- `GL_LEQUAL`\n- `GL_GREATER`\n- `GL_NOTEQUAL`\n- `GL_GEQUAL`\n- `GL_ALWAYS`",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
-                  "id": 147,
+                  "id": 229,
                   "name": "func",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The stencil test function to use"
                 },
                 {
-                  "id": 148,
+                  "id": 230,
                   "name": "ref",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The reference value for the stencil test"
                 },
                 {
-                  "id": 149,
+                  "id": 231,
                   "name": "mask",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The mask to use to `AND` the reference value and the stored stencil value when the test is done"
                 }
               ]
             },
             {
-              "id": 158,
+              "id": 240,
               "name": "stencilFuncSeparate",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L1112",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1313",
+              "comment": "Set the stencil function separatly for the front and back stencil for this config.\n\nThe possible func values are :\n- `GL_NEVER`\n- `GL_LESS`\n- `GL_EQUAL`\n- `GL_LEQUAL`\n- `GL_GREATER`\n- `GL_NOTEQUAL`\n- `GL_GEQUAL`\n- `GL_ALWAYS`",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
-                  "id": 160,
+                  "id": 242,
                   "name": "func",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The stencil test function to use for the front stencil"
                 },
                 {
-                  "id": 161,
+                  "id": 243,
                   "name": "ref",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The reference value for the front stencil test"
                 },
                 {
-                  "id": 162,
+                  "id": 244,
                   "name": "mask",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The mask to use to `AND` the reference value and the stored stencil value when the test is done for the front stencil"
                 },
                 {
-                  "id": 163,
+                  "id": 245,
                   "name": "funcback",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The stencil test function to use for the back stencil"
                 },
                 {
-                  "id": 164,
+                  "id": 246,
                   "name": "refback",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The reference value for the back stencil test"
                 },
                 {
-                  "id": 165,
+                  "id": 247,
                   "name": "maskback",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The mask to use to `AND` the reference value and the stored stencil value when the test is done for the back stencil"
                 }
               ]
             },
             {
-              "id": 155,
+              "id": 237,
               "name": "stencilMask",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L1104",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1286",
+              "comment": "Set the stencil mask for this config.",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
-                  "id": 157,
+                  "id": 239,
                   "name": "mask",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The bit mask to enable or disable writing in the stencil planes"
                 }
               ]
             },
             {
-              "id": 174,
+              "id": 256,
               "name": "stencilMaskSeparate",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L1136",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1363",
+              "comment": "Set the stencil mask separatly for the front and back stencil for this config.",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
-                  "id": 176,
+                  "id": 258,
                   "name": "mask",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The bit mask to enable or disable writing in the stencil planes for the front stencil"
                 },
                 {
-                  "id": 177,
+                  "id": 259,
                   "name": "maskback",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The bit mask to enable or disable writing in the stencil planes for the back stencil"
                 }
               ]
             },
             {
-              "id": 150,
+              "id": 232,
               "name": "stencilOp",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L1096",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1273",
+              "comment": "Set the stencil test actions for this config.\n\nThe possible params values are :\n- `GL_KEEP`\n- `GL_ZERO`\n- `GL_REPLACE`\n- `GL_INCR`\n- `GL_INCR_WRAP`\n- `GL_DECR`\n- `GL_DECR_WRAP`\n- `GL_INVERT`",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
-                  "id": 152,
+                  "id": 234,
                   "name": "sfail",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The function to use when the stencil test fails"
                 },
                 {
-                  "id": 153,
+                  "id": 235,
                   "name": "dpfail",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The function to use when the stencil test passes, but the depth test fails"
                 },
                 {
-                  "id": 154,
+                  "id": 236,
                   "name": "dppass",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The function to use when both the stencil test and the depth test pass"
                 }
               ]
             },
             {
-              "id": 166,
+              "id": 248,
               "name": "stencilOpSeparate",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L1124",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1345",
+              "comment": "Set the stencil test actions separatly for the front and back stencil for this config.\n\nThe possible params values are :\n- `GL_KEEP`\n- `GL_ZERO`\n- `GL_REPLACE`\n- `GL_INCR`\n- `GL_INCR_WRAP`\n- `GL_DECR`\n- `GL_DECR_WRAP`\n- `GL_INVERT`",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
-                  "id": 168,
+                  "id": 250,
                   "name": "sfail",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The function to use when the front stencil test fails"
                 },
                 {
-                  "id": 169,
+                  "id": 251,
                   "name": "dpfail",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The function to use when the front stencil test passes, but the depth test fails"
                 },
                 {
-                  "id": 170,
+                  "id": 252,
                   "name": "dppass",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The function to use when both the front stencil test and the depth test pass"
                 },
                 {
-                  "id": 171,
+                  "id": 253,
                   "name": "sfailback",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The function to use when the back stencil test fails"
                 },
                 {
-                  "id": 172,
+                  "id": 254,
                   "name": "dpfailback",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The function to use when the back stencil test passes, but the depth test fails"
                 },
                 {
-                  "id": 173,
+                  "id": 255,
                   "name": "dppassback",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The function to use when both the back stencil test and the depth test pass"
                 }
               ]
             },
             {
-              "id": 46,
+              "id": 128,
               "name": "toDefault",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L396",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L410",
+              "comment": "Set this config to the default config.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 121,
+              "id": 203,
               "name": "viewport",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L1017",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L1138",
+              "comment": "Set the viewport for this config.",
               "tags": [],
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "params": [
                 {
-                  "id": 123,
+                  "id": 205,
                   "name": "x",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The x coordinate of the lower left corner of the viewport origin"
                 },
                 {
-                  "id": 124,
+                  "id": 206,
                   "name": "y",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The y coordinate of the lower left corner of the viewport origin"
                 },
                 {
-                  "id": 125,
+                  "id": 207,
                   "name": "w",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The width of the viewport"
                 },
                 {
-                  "id": 126,
+                  "id": 208,
                   "name": "h",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The height of the viewport"
                 }
               ]
             },
             {
-              "id": 39,
+              "id": 121,
               "name": "decodeHalf",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L380",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L387",
+              "comment": "Decode Uint16 to float32",
               "tags": [
                 "static"
               ],
@@ -20680,7 +20814,7 @@
               },
               "params": [
                 {
-                  "id": 41,
+                  "id": 123,
                   "name": "u16",
                   "type": {
                     "name": "number"
@@ -20690,9 +20824,10 @@
               ]
             },
             {
-              "id": 36,
+              "id": 118,
               "name": "encodeHalf",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L376",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L380",
+              "comment": "Encode float32 to Uint16",
               "tags": [
                 "static"
               ],
@@ -20701,7 +20836,7 @@
               },
               "params": [
                 {
-                  "id": 38,
+                  "id": 120,
                   "name": "f32",
                   "type": {
                     "name": "number"
@@ -20715,45 +20850,48 @@
           "implements": null
         },
         {
-          "id": 326,
+          "id": 408,
           "name": "GLState",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L10",
+          "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L14",
+          "comment": "This class manages the webgl state.\n\nIt is used to manage a stack of GLConfigs and apply the current state to the webgl context.",
           "tags": [],
           "constructors": [
             {
-              "id": 331,
+              "id": 413,
               "name": "GLState",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L29",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L43",
               "tags": [],
               "type": {
                 "name": "GLState",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L10"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L14"
               },
               "params": [
                 {
-                  "id": 333,
+                  "id": 415,
                   "name": "gl",
                   "type": {
                     "name": "WebGLRenderingContext"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The webgl context this GLState belongs to"
                 }
               ]
             }
           ],
           "properties": [
             {
-              "id": 337,
+              "id": 419,
               "name": "_state",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L15",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L22",
+              "comment": "The current config",
               "type": {
                 "name": "GLConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
               },
               "tags": [
                 "private",
@@ -20761,9 +20899,10 @@
               ]
             },
             {
-              "id": 336,
+              "id": 418,
               "name": "_validCfg",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L14",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L20",
+              "comment": "Whether the config stack has been changed or not",
               "type": {
                 "name": "boolean"
               },
@@ -20772,23 +20911,25 @@
               ]
             },
             {
-              "id": 335,
+              "id": 417,
               "name": "cfgStack",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L13",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L18",
+              "comment": "The config stack managing all GLConfigs",
               "type": {
                 "name": "ConfigStack",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/ConfigStack.ts#L24"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/ConfigStack.ts#L26"
               },
               "tags": [
                 "readonly"
               ]
             },
             {
-              "id": 334,
+              "id": 416,
               "name": "gl",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L12",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L16",
+              "comment": "The webgl context this GLState belongs to",
               "type": {
                 "name": "WebGLRenderingContext"
               },
@@ -20797,9 +20938,10 @@
               ]
             },
             {
-              "id": 327,
+              "id": 409,
               "name": "_instances",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L17",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L25",
+              "comment": "The list of every GLState instance created, indexed by the corresponding webgl context",
               "type": {
                 "name": "WeakMap"
               },
@@ -20812,83 +20954,91 @@
           "accessors": [],
           "methods": [
             {
-              "id": 343,
+              "id": 425,
               "name": "apply",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L54",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L75",
+              "comment": "Apply the current stack state to the webgl context.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 348,
+              "id": 430,
               "name": "config",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L71",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L97",
+              "comment": "Create a LocalConfig from this GLState.",
               "tags": [],
               "type": {
                 "name": "LocalConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L83"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L111"
               }
             },
             {
-              "id": 345,
+              "id": 427,
               "name": "now",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L64",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L88",
+              "comment": "Apply a config to the webgl context immediatly.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 347,
+                  "id": 429,
                   "name": "cfg",
                   "type": {
                     "name": "GLConfig",
                     "lib": "nanogl-state",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                    "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The config to apply"
                 }
               ]
             },
             {
-              "id": 341,
+              "id": 423,
               "name": "pop",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L48",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L67",
+              "comment": "Remove the last config from the stack.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 338,
+              "id": 420,
               "name": "push",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L42",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L59",
+              "comment": "Push a config to the stack.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 340,
+                  "id": 422,
                   "name": "cfg",
                   "type": {
                     "name": "GLConfig",
                     "lib": "nanogl-state",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+                    "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The config to push"
                 }
               ]
             },
             {
-              "id": 328,
+              "id": 410,
               "name": "get",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L19",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L31",
+              "comment": "Create a GLState instance or return the existing one for given webgl context.",
               "tags": [
                 "static"
               ],
@@ -20896,16 +21046,17 @@
                 "name": "GLState",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L10"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L14"
               },
               "params": [
                 {
-                  "id": 330,
+                  "id": 412,
                   "name": "gl",
                   "type": {
                     "name": "WebGLRenderingContext"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The webgl context"
                 }
               ]
             }
@@ -20914,48 +21065,50 @@
           "implements": null
         },
         {
-          "id": 179,
+          "id": 261,
           "name": "LocalConfig",
-          "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L83",
-          "comment": "LocalConfig",
+          "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L111",
+          "comment": "This class manages local configs.\n\nIt can be used for configs that will be applied directly,\nand not pushed to the stack.",
           "tags": [],
           "constructors": [
             {
-              "id": 186,
+              "id": 268,
               "name": "LocalConfig",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L87",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L118",
               "tags": [],
               "type": {
                 "name": "LocalConfig",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L83"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L111"
               },
               "params": [
                 {
-                  "id": 188,
+                  "id": 270,
                   "name": "state",
                   "type": {
                     "name": "GLState",
                     "lib": "nanogl-state",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L10"
+                    "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L14"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The GLState for the webgl context this config belongs to"
                 }
               ]
             }
           ],
           "properties": [
             {
-              "id": 189,
+              "id": 271,
               "name": "state",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L85",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L113",
+              "comment": "The GLState for the webgl context this config belongs to",
               "type": {
                 "name": "GLState",
                 "lib": "nanogl-state",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L10"
+                "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L14"
               },
               "tags": [
                 "private",
@@ -20966,9 +21119,9 @@
           "accessors": [],
           "methods": [
             {
-              "id": 190,
+              "id": 272,
               "name": "apply",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLState.ts#L92",
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLState.ts#L123",
               "tags": [],
               "type": {
                 "name": "void"
@@ -20980,7 +21133,7 @@
               "name": "GLConfig",
               "lib": "nanogl-state",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl-state/blob/b9bb786/src/GLConfig.ts#L374"
+              "source": "https://github.com/evanmartiin/nanogl-state/blob/ae1fa68/src/GLConfig.ts#L376"
             }
           ],
           "implements": null
