@@ -20996,20 +20996,20 @@
           "id": 9,
           "name": "Sync",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L14",
-          "comment": "This class can be used as a wrapper around a WebGLSync object, and provides a promise based completion.\n\nIt is used to synchronize activities between the GPU and the application, and is only available for WebGL2.",
+          "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L14",
+          "comment": "This class can be used as a wrapper around a WebGLSync object, and provides a promise based completion.\n\nIt is used to synchronize activities between the GPU and the application, and is only available for WebGL2. As a fallback, the Sync will be immediately signaled if the WebGLSync object isn't available.",
           "tags": [],
           "constructors": [
             {
               "id": 20,
               "name": "Sync",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L33",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L33",
               "tags": [],
               "type": {
                 "name": "Sync",
                 "lib": "nanogl-sync",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L14"
+                "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L14"
               },
               "params": [
                 {
@@ -21033,7 +21033,7 @@
             {
               "id": 28,
               "name": "_defer",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L27",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L27",
               "comment": "The object providing the promise's resolve & reject functions",
               "type": {
                 "name": "any"
@@ -21045,7 +21045,7 @@
             {
               "id": 26,
               "name": "_invalidated",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L23",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L23",
               "comment": "Whether the Sync is invalidated or not. The Sync is invalidated on release.",
               "type": {
                 "name": "boolean"
@@ -21057,7 +21057,7 @@
             {
               "id": 27,
               "name": "_pooled",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L25",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L25",
               "comment": "Whether the Sync is pooled or not.",
               "type": {
                 "name": "boolean"
@@ -21069,7 +21069,7 @@
             {
               "id": 25,
               "name": "_sync",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L21",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L21",
               "comment": "The implementation of the WebGLSync object",
               "type": [
                 {
@@ -21079,7 +21079,7 @@
                   "name": "ISyncImplementation",
                   "lib": "nanogl-sync",
                   "kind": "Interface",
-                  "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L166"
+                  "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L166"
                 }
               ],
               "tags": [
@@ -21089,7 +21089,7 @@
             {
               "id": 23,
               "name": "gl",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L16",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L16",
               "comment": "The webgl context this Sync belongs to",
               "type": [
                 {
@@ -21104,7 +21104,7 @@
             {
               "id": 24,
               "name": "promise",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L18",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L18",
               "comment": "The underlying promise",
               "type": {
                 "name": "Promise"
@@ -21119,7 +21119,7 @@
             {
               "id": 13,
               "name": "auto",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L53",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L53",
               "comment": "Start the pool auto resolve loop.",
               "tags": [
                 "static"
@@ -21141,7 +21141,7 @@
             {
               "id": 10,
               "name": "resolve",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L49",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L49",
               "comment": "Call [_complete](#item-50) for every signaled Sync in the pool.",
               "tags": [
                 "static"
@@ -21153,7 +21153,7 @@
             {
               "id": 17,
               "name": "stop",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L57",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L57",
               "comment": "Stop the pool auto resolve loop.",
               "tags": [
                 "static"
@@ -21165,7 +21165,7 @@
             {
               "id": 50,
               "name": "_complete",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L135",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L135",
               "comment": "Resolve the promise and release everything related to this Sync.",
               "tags": [],
               "type": {
@@ -21175,7 +21175,7 @@
             {
               "id": 52,
               "name": "_pool",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L143",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L143",
               "comment": "Pool this Sync.",
               "tags": [],
               "type": {
@@ -21185,7 +21185,7 @@
             {
               "id": 48,
               "name": "_release",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L122",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L122",
               "comment": "Release everything related to this Sync.\n\nUsed by [dispose](#item-31) and [_complete](#item-50).",
               "tags": [],
               "type": {
@@ -21195,7 +21195,7 @@
             {
               "id": 54,
               "name": "_unpool",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L153",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L153",
               "comment": "Remove this Sync from the pool.",
               "tags": [],
               "type": {
@@ -21205,7 +21205,7 @@
             {
               "id": 45,
               "name": "clientWaitSync",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L109",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L109",
               "comment": "Shortcut to `gl.clientWaitSync`.\n\n**Important :** The [insert](#item-29) method must have been called before calling this method.",
               "tags": [],
               "type": {
@@ -21230,7 +21230,7 @@
             {
               "id": 31,
               "name": "dispose",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L79",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L79",
               "comment": "Dispose of everything related related to this Sync.",
               "tags": [],
               "type": {
@@ -21240,7 +21240,7 @@
             {
               "id": 29,
               "name": "insert",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L69",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L69",
               "comment": "Create a WebGLSync object and insert it in the GL command stream. Then pool this Sync.\n\nThe promise will be resolved when the Sync is signaled.",
               "tags": [],
               "type": {
@@ -21250,7 +21250,7 @@
             {
               "id": 33,
               "name": "isSignaled",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L86",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L86",
               "comment": "Know whether the `GL_SYNC_STATUS` is `GL_SIGNALED` or not.",
               "tags": [],
               "type": {
@@ -21260,7 +21260,7 @@
             {
               "id": 35,
               "name": "then",
-              "source": "https://github.com/evanmartiin/nanogl-sync/blob/fbc80d0/src/index.ts#L98",
+              "source": "https://github.com/evanmartiin/nanogl-sync/blob/6336fa0/src/index.ts#L98",
               "comment": "Shortcut to `this.promise.then`.",
               "tags": [],
               "type": {
