@@ -13,54 +13,56 @@
     <Tags v-if="func.tags.length" :tags="func.tags" />
   </div>
   <div :class="{ 'pl-24': !isConstructor && !isFullPage }">
-    <pre class="language-ts flex">
-      <code class="language-ts flex flex-wrap collapse-space">
-        <span class="token function">{{ func.name }}</span>
-        <template v-if="func.typeParams?.length">
-          <span class="token punctuation">
-            {{ '<' }}
-          </span>
-          <template v-for="(typeParam, i) in func.typeParams">
-            <span class="token type inline-flex flex-wrap">
-              <Type :data="typeParam" is-code />
-            </span>
-            <span
-              v-if="i < func.typeParams.length - 1"
-              class="token punctuation mr-8">
-              {{ ',' }}
-            </span>
-          </template>
-          <span class="token punctuation">></span>
-        </template>
-        <span class="token punctuation">(</span>
-        <template v-for="param, index in func.params">
-          <span class="token param">{{ param.name }}</span>
-          <span
-            v-if="param.optional"
-            class="token boolean">
-            {{ '?' }}
-          </span>
-          <template v-if="param.type">
-            <span class="token punctuation mr-8">:</span>
-            <span class="token type inline-flex flex-wrap">
-              <Type :data="param.type" is-code/>
-            </span>
-          </template>
-          <span
-            v-if="index + 1 < func.params.length"
-            class="token punctuation mr-8">
-            {{ ',' }}
-          </span>
-        </template>
-        <span class="token punctuation">)</span>
-        <template v-if="func.type && !isConstructor">
-          <span class="token punctuation mx-8">:</span>
+    <CodeWrapper>
+      <span class="token function">{{ func.name }}</span>
+      <template v-if="func.typeParams?.length">
+        <span class="token punctuation">
+          {{ '<' }}
+        </span>
+        <template v-for="(typeParam, i) in func.typeParams">
           <span class="token type inline-flex flex-wrap">
-            <Type :data="func.type" is-code />
+            <Type :data="typeParam" is-code />
+          </span>
+          <span
+            v-if="i < func.typeParams.length - 1"
+            class="token punctuation mr-8">
+            {{ ', ' }}
           </span>
         </template>
-      </code>
-    </pre>
+        <span class="token punctuation">></span>
+      </template>
+      <span class="token punctuation">(</span>
+      <template v-for="param, index in func.params">
+        <span class="token param">{{ param.name }}</span>
+        <span
+          v-if="param.optional"
+          class="token boolean">
+          {{ '?' }}
+        </span>
+        <template v-if="param.type">
+          <span class="token punctuation mr-8">
+            {{ ': ' }}
+          </span>
+          <span class="token type inline-flex flex-wrap">
+            <Type :data="param.type" is-code/>
+          </span>
+        </template>
+        <span
+          v-if="index + 1 < func.params.length"
+          class="token punctuation mr-8">
+          {{ ', ' }}
+        </span>
+      </template>
+      <span class="token punctuation">)</span>
+      <template v-if="func.type && !isConstructor">
+        <span class="token punctuation mx-8">
+          {{ ' : ' }}
+        </span>
+        <span class="token type inline-flex flex-wrap">
+          <Type :data="func.type" is-code />
+        </span>
+      </template>
+    </CodeWrapper>
     <Comment v-if="func.comment" :comment="func.comment" class="my-16" />
     <Comment v-if="func.example" :comment="func.example" class="my-16" />
     <div v-if="func.typeParams" class="my-16">

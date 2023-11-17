@@ -35,6 +35,7 @@ export default {
         },
         primary: {
           DEFAULT: "#63B0CD",
+          dark: "#1a4353"
         },
         purple: {
           DEFAULT: "#c084fc",

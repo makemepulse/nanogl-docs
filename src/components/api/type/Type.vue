@@ -5,7 +5,7 @@
       :isCode="isCode"
     />
     <span v-if="index < types.length - 1" class="mx-8">
-      {{ '|' }}
+      {{ ' | ' }}
     </span>
   </template>
 </template>

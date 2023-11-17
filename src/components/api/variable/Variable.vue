@@ -1,13 +1,13 @@
 <template>
   <div :id="`item-${id}`" class="flex flex-col gap-4 scroll-mt-72">
     <div class="inline-block">
-      <code class="language-ts inline-flex flex-wrap collapse-space">
+      <CodeWrapper is-inline>
         {{ name }}
-      </code>
+      </CodeWrapper>
       <span v-if="type || comment || defaultValue"> : </span>
-      <code v-if="type" class="language-ts inline-flex flex-wrap collapse-space">
+      <CodeWrapper v-if="type" is-inline>
         <Type :data="type" is-code />
-      </code>
+      </CodeWrapper>
       <div v-if="tags?.length" class="inline-block my-4 ml-8">
         <Tags :tags="tags" />
       </div>
@@ -17,10 +17,10 @@
     </div>
     <div v-if="defaultValue || defaultType">
       <span>Default : </span>
-      <code  class="language-js inline-flex flex-wrap collapse-space">
+      <CodeWrapper lang="js" is-inline>
         <span v-if="!!defaultValue">{{ defaultValue }}</span>
         <Type v-else :data="defaultType" is-code />
-      </code>
+      </CodeWrapper>
     </div>
   </div>
 </template>

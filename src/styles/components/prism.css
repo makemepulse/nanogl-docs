@@ -25,6 +25,10 @@ pre[class*="language-"] {
   &.collapse-space {
     white-space: normal;
   }
+
+  &::selection, ::selection {
+    @apply bg-primary-dark;
+  }
 }
 
 /* Code blocks */
