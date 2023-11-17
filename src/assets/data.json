@@ -21329,27 +21329,27 @@
       "description": "OES_vertex_array_object extension support for nanogl",
       "classes": [
         {
-          "id": 1,
+          "id": 13,
           "name": "Vao",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-vao/blob/6a0552f/src/vao.ts#L39",
-          "comment": "",
+          "source": "https://github.com/evanmartiin/nanogl-vao/blob/1c5418f/src/vao.ts#L48",
+          "comment": "This class manages VAOs (Vertex Array Objects).\n\nIt is used to manage attribute pointers setup for given program and buffers, and provides a transparent fallback if VAO extension isn't available.",
           "tags": [],
           "constructors": [
             {
-              "id": 2,
+              "id": 14,
               "name": "Vao",
-              "source": "https://github.com/evanmartiin/nanogl-vao/blob/6a0552f/src/vao.ts#L44",
+              "source": "https://github.com/evanmartiin/nanogl-vao/blob/1c5418f/src/vao.ts#L57",
               "tags": [],
               "type": {
                 "name": "Vao",
                 "lib": "nanogl-vao",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-vao/blob/6a0552f/src/vao.ts#L39"
+                "source": "https://github.com/evanmartiin/nanogl-vao/blob/1c5418f/src/vao.ts#L48"
               },
               "params": [
                 {
-                  "id": 4,
+                  "id": 16,
                   "name": "gl",
                   "type": [
                     {
@@ -21359,25 +21359,31 @@
                       "name": "WebGL2RenderingContext"
                     }
                   ],
-                  "tags": []
+                  "tags": [],
+                  "comment": "The webgl context this VAO belongs to"
                 }
               ]
             }
           ],
           "properties": [
             {
-              "id": 6,
+              "id": 18,
               "name": "_impl",
-              "source": "https://github.com/evanmartiin/nanogl-vao/blob/6a0552f/src/vao.ts#L42",
+              "source": "https://github.com/evanmartiin/nanogl-vao/blob/1c5418f/src/vao.ts#L52",
+              "comment": "The implementation of the VAO",
               "type": {
-                "name": "IVaoImplementation"
+                "name": "IVaoImplementation",
+                "lib": "nanogl-vao",
+                "kind": "Interface",
+                "source": "https://github.com/evanmartiin/nanogl-vao/blob/1c5418f/src/vao.ts#L18"
               },
               "tags": []
             },
             {
-              "id": 5,
+              "id": 17,
               "name": "gl",
-              "source": "https://github.com/evanmartiin/nanogl-vao/blob/6a0552f/src/vao.ts#L41",
+              "source": "https://github.com/evanmartiin/nanogl-vao/blob/1c5418f/src/vao.ts#L50",
+              "comment": "The webgl context this VAO belongs to",
               "type": [
                 {
                   "name": "WebGLRenderingContext"
@@ -21392,37 +21398,37 @@
           "accessors": [],
           "methods": [
             {
-              "id": 14,
+              "id": 26,
               "name": "bind",
-              "source": "https://github.com/evanmartiin/nanogl-vao/blob/6a0552f/src/vao.ts#L85",
-              "comment": "Bind the VAO. Call this method before each draw call",
+              "source": "https://github.com/evanmartiin/nanogl-vao/blob/1c5418f/src/vao.ts#L100",
+              "comment": "Bind the VAO.\nYou need to call this method *before* each draw call.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 7,
+              "id": 19,
               "name": "dispose",
-              "source": "https://github.com/evanmartiin/nanogl-vao/blob/6a0552f/src/vao.ts#L66",
-              "comment": "release the internal webgl vao",
+              "source": "https://github.com/evanmartiin/nanogl-vao/blob/1c5418f/src/vao.ts#L79",
+              "comment": "Delete all webgl objects related to this VAO.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 9,
+              "id": 21,
               "name": "setup",
-              "source": "https://github.com/evanmartiin/nanogl-vao/blob/6a0552f/src/vao.ts#L75",
-              "comment": "Initialize attrib pointer setup for given program and arraybuffers",
+              "source": "https://github.com/evanmartiin/nanogl-vao/blob/1c5418f/src/vao.ts#L89",
+              "comment": "Initialize attrib pointer setup for given program and buffers.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 11,
+                  "id": 23,
                   "name": "prg",
                   "type": {
                     "name": "Program",
@@ -21431,10 +21437,10 @@
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/program.ts#L15"
                   },
                   "tags": [],
-                  "comment": "the nanogl Program"
+                  "comment": "The program to use"
                 },
                 {
-                  "id": 12,
+                  "id": 24,
                   "name": "buffers",
                   "type": {
                     "name": "ArrayBuffer",
@@ -21444,10 +21450,10 @@
                     "isArray": true
                   },
                   "tags": [],
-                  "comment": "an array of ArrayBuffers containing the attributes"
+                  "comment": "The list of buffers containing the vertex data"
                 },
                 {
-                  "id": 13,
+                  "id": 25,
                   "name": "indices",
                   "type": {
                     "name": "IndexBuffer",
@@ -21455,15 +21461,16 @@
                     "kind": "Class",
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/indexbuffer.ts#L13"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The buffer containing the index data"
                 }
               ]
             },
             {
-              "id": 16,
+              "id": 28,
               "name": "unbind",
-              "source": "https://github.com/evanmartiin/nanogl-vao/blob/6a0552f/src/vao.ts#L93",
-              "comment": "Unbind the VAO. Call this method after each draw call",
+              "source": "https://github.com/evanmartiin/nanogl-vao/blob/1c5418f/src/vao.ts#L109",
+              "comment": "Unbind the VAO.\nYou need to call this method *after* each draw call.",
               "tags": [],
               "type": {
                 "name": "void"
