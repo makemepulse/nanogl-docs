@@ -4,7 +4,7 @@
       :type="typeData"
       :isCode="isCode"
     />
-    <span v-if="index < types.length - 1" class="mx-8">
+    <span v-if="index < types.length - 1">
       {{ ' | ' }}
     </span>
   </template>

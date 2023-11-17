@@ -20,12 +20,12 @@
           {{ '<' }}
         </span>
         <template v-for="(typeParam, i) in func.typeParams">
-          <span class="token type inline-flex flex-wrap">
+          <span class="token type">
             <Type :data="typeParam" is-code />
           </span>
           <span
             v-if="i < func.typeParams.length - 1"
-            class="token punctuation mr-8">
+            class="token punctuation">
             {{ ', ' }}
           </span>
         </template>
@@ -40,25 +40,25 @@
           {{ '?' }}
         </span>
         <template v-if="param.type">
-          <span class="token punctuation mr-8">
+          <span class="token punctuation">
             {{ ': ' }}
           </span>
-          <span class="token type inline-flex flex-wrap">
+          <span class="token type">
             <Type :data="param.type" is-code/>
           </span>
         </template>
         <span
           v-if="index + 1 < func.params.length"
-          class="token punctuation mr-8">
+          class="token punctuation">
           {{ ', ' }}
         </span>
       </template>
       <span class="token punctuation">)</span>
       <template v-if="func.type && !isConstructor">
-        <span class="token punctuation mx-8">
+        <span class="token punctuation">
           {{ ' : ' }}
         </span>
-        <span class="token type inline-flex flex-wrap">
+        <span class="token type">
           <Type :data="func.type" is-code />
         </span>
       </template>

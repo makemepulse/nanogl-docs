@@ -3,9 +3,7 @@
     :is="wrapperComponent"
     :class="!isInline && `language-${lang} flex`">
     <code
-      :class="['flex-wrap collapse-space', isInline ? 'inline-flex' : 'flex', `language-${lang}`]"
-      @copy="handleCopy"
-      @cut="handleCopy">
+      :class="`language-${lang} collapse-space`">
       <slot />
     </code>
   </component>
@@ -25,13 +23,4 @@ const props = withDefaults(defineProps<Props>(), {
 const wrapperComponent = computed(() => {
   return props.isInline ? 'v-fragment' : 'pre';
 })
-
-const handleCopy = (evt: ClipboardEvent) => {
-  const selection = document.getSelection();
-
-  if (!selection) return;
-
-  evt.preventDefault();
-  evt.clipboardData?.setData("text/plain", selection.getRangeAt(0).toString());
-}
 </script>
