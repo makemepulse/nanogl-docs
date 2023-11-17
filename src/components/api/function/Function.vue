@@ -72,7 +72,6 @@
       </template>
     </CodeWrapper>
     <Comment v-if="func.comment" :comment="func.comment" class="my-16" />
-    <Comment v-if="func.example" :comment="func.example" class="my-16" />
     <div v-if="func.typeParams" class="my-16">
       <component
         :is="paramsHeadingComponent"
@@ -111,6 +110,15 @@
           :default-value="param.defaultValue"
         />
       </div>
+    </div>
+    <div  v-if="func.example" class="my-16">x"
+      <component
+        :is="paramsHeadingComponent"
+        :id="isFullPage ? `${func.name}-params` : ''"
+      >
+        Example
+      </component>
+      <Comment :comment="func.example" />
     </div>
   </div>
 </template>
