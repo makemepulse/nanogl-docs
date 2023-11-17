@@ -1,5 +1,5 @@
 <template>
-  <span class="inline-flex">
+  <span class="inline-flex flex-wrap">
     <span class="token punctuation">(</span>
     <template v-for="param, index in func.params">
       <span class="token param">{{ param.name }}</span>

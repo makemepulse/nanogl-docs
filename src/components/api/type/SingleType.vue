@@ -2,11 +2,10 @@
   <TypeFunction
     v-if="type.function"
     :func="type.function"
-    :class="class"
   />
   <RouterLink
     v-else-if="!!url && url.isInternal"
-    :class="{ 'code-link': isCode, [className]: !!className }"
+    :class="{ 'code-link': isCode }"
     :to="url.path"
     target="_blank"
   >
@@ -14,14 +13,14 @@
   </RouterLink>
   <a
     v-else-if="!!url && !url.isInternal"
-    :class="{ 'code-link': isCode, [className]: !!className }"
+    :class="{ 'code-link': isCode }"
     :href="url.path"
     target="_blank"
   >
     {{ type.name }}
   </a>
-  <span v-else :class="className">{{ type.name }}</span>
-  <span v-if="type.isArray" :class="className">
+  <span v-else>{{ type.name }}</span>
+  <span v-if="type.isArray">
     {{ '[]' }}
   </span>
 </template>
@@ -35,7 +34,6 @@ import { LIB_ITEM_TYPE } from '@lib/constants';
 type Props = {
   type: APISingleType;
   isCode?: boolean;
-  className?: string;
 };
 
 const props = defineProps<Props>();
