@@ -25,13 +25,18 @@
           </span>
           <span
             v-if="i < func.typeParams.length - 1"
-            class="token punctuation">
+            class="token punctuation"
+          >
             {{ ', ' }}
           </span>
         </template>
-        <span class="token punctuation">></span>
+        <span class="token punctuation">
+          {{ '>' }}
+        </span>
       </template>
-      <span class="token punctuation">(</span>
+      <span class="token punctuation">
+        {{  '(' }}
+      </span>
       <template v-for="param, index in func.params">
         <span class="token param">{{ param.name }}</span>
         <span
@@ -49,11 +54,14 @@
         </template>
         <span
           v-if="index + 1 < func.params.length"
-          class="token punctuation">
+          class="token punctuation"
+        >
           {{ ', ' }}
         </span>
       </template>
-      <span class="token punctuation">)</span>
+      <span class="token punctuation">
+        {{  ')' }}
+      </span>
       <template v-if="func.type && !isConstructor">
         <span class="token punctuation">
           {{ ' : ' }}
