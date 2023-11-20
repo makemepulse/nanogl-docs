@@ -15949,7 +15949,8 @@
           "id": 6,
           "name": "BaseEffect",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16",
+          "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18",
+          "comment": "This class is the base for all post-processing effects.",
           "tags": [
             "abstract"
           ],
@@ -15957,13 +15958,13 @@
             {
               "id": 7,
               "name": "BaseEffect",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L23",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L29",
               "tags": [],
               "type": {
                 "name": "BaseEffect",
                 "lib": "nanogl-post",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18"
               }
             }
           ],
@@ -15971,19 +15972,21 @@
             {
               "id": 9,
               "name": "_flags",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L18",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L23",
+              "comment": "The dependencies this effect needs :\ndepth pass, linear filtering",
               "type": {
                 "name": "EffectDependency",
                 "lib": "nanogl-post",
                 "kind": "Enumeration",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L5"
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L5"
               },
               "tags": []
             },
             {
               "id": 10,
               "name": "post",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L19",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L25",
+              "comment": "The post this effect belongs to",
               "type": [
                 {
                   "name": "null"
@@ -15992,7 +15995,7 @@
                   "name": "Post",
                   "lib": "nanogl-post",
                   "kind": "Class",
-                  "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L16"
+                  "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L18"
                 }
               ],
               "tags": []
@@ -16003,7 +16006,8 @@
             {
               "id": 11,
               "name": "_init",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L31",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L40",
+              "comment": "Setup the effect with the given post.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -16016,16 +16020,18 @@
                     "name": "Post",
                     "lib": "nanogl-post",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L16"
+                    "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L18"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The Post this effect belongs to"
                 }
               ]
             },
             {
               "id": 20,
               "name": "genCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L42",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L65",
+              "comment": "Add the shader pre-code (uniforms, attributes, functions, etc.)\n& code for this effect to the given lists.",
               "tags": [
                 "abstract"
               ],
@@ -16040,7 +16046,8 @@
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader pre-code to add to"
                 },
                 {
                   "id": 23,
@@ -16049,14 +16056,16 @@
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader code to add to"
                 }
               ]
             },
             {
               "id": 14,
               "name": "init",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L39",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L50",
+              "comment": "Initialize the effect.",
               "tags": [
                 "abstract"
               ],
@@ -16067,7 +16076,8 @@
             {
               "id": 18,
               "name": "preRender",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L41",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L58",
+              "comment": "Prepare this effect for render.",
               "tags": [
                 "abstract"
               ],
@@ -16078,7 +16088,8 @@
             {
               "id": 16,
               "name": "release",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L40",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L54",
+              "comment": "Delete all webgl objects related to this effect.",
               "tags": [
                 "abstract"
               ],
@@ -16089,7 +16100,8 @@
             {
               "id": 27,
               "name": "resize",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L44",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L76",
+              "comment": "Resize this effect.",
               "tags": [
                 "abstract"
               ],
@@ -16103,7 +16115,8 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The width to use"
                 },
                 {
                   "id": 30,
@@ -16111,14 +16124,16 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The height to use"
                 }
               ]
             },
             {
               "id": 24,
               "name": "setupProgram",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L43",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L70",
+              "comment": "Setup the given program for this effect.",
               "tags": [
                 "abstract"
               ],
@@ -16135,7 +16150,8 @@
                     "kind": "Class",
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/program.ts#L15"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The program to setup"
                 }
               ]
             }
@@ -16147,19 +16163,20 @@
           "id": 32,
           "name": "Bloom",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L20",
+          "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L23",
+          "comment": "This class implements a bloom effect.",
           "tags": [],
           "constructors": [
             {
               "id": 33,
               "name": "Bloom",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L36",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L52",
               "tags": [],
               "type": {
                 "name": "Bloom",
                 "lib": "nanogl-post",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L20"
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L23"
               },
               "params": [
                 {
@@ -16185,7 +16202,8 @@
             {
               "id": 44,
               "name": "_code",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L33",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L45",
+              "comment": "The shader code for this effect",
               "type": {
                 "name": "string"
               },
@@ -16194,7 +16212,8 @@
             {
               "id": 43,
               "name": "_preCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L32",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L43",
+              "comment": "The shader pre-code (uniforms, attributes, functions, etc.)\nfor this effect",
               "type": {
                 "name": "string"
               },
@@ -16203,7 +16222,8 @@
             {
               "id": 42,
               "name": "bloomKernel",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L30",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L37",
+              "comment": "The kernel used to create the bloom effect",
               "type": [
                 {
                   "name": "null"
@@ -16217,7 +16237,8 @@
             {
               "id": 41,
               "name": "bloomSamples",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L29",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L35",
+              "comment": "The number of samples used to create the bloom effect",
               "type": {
                 "name": "number"
               },
@@ -16226,7 +16247,8 @@
             {
               "id": 40,
               "name": "bloomTargets",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L27",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L32",
+              "comment": "The FBOs used to create the bloom effect",
               "type": {
                 "name": "Fbo",
                 "lib": "nanogl",
@@ -16239,7 +16261,7 @@
             {
               "id": 39,
               "name": "bloomTextures",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L26",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L30",
               "type": {
                 "name": "Texture",
                 "lib": "nanogl",
@@ -16252,7 +16274,8 @@
             {
               "id": 37,
               "name": "color",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L24",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L27",
+              "comment": "The color of the bloom effect",
               "type": {
                 "name": "ArrayLike"
               },
@@ -16261,7 +16284,8 @@
             {
               "id": 45,
               "name": "prcPrg",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L34",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L50",
+              "comment": "The program used for the intermediate steps\nto create the bloom effect",
               "type": [
                 {
                   "name": "null"
@@ -16278,7 +16302,8 @@
             {
               "id": 38,
               "name": "size",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L25",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L29",
+              "comment": "The size of the bloom effect",
               "type": {
                 "name": "number"
               },
@@ -16290,7 +16315,8 @@
             {
               "id": 63,
               "name": "computeKernel",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L178",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L198",
+              "comment": "Compute the kernel used to offset the\ntexture coordinates for the bloom effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -16299,7 +16325,8 @@
             {
               "id": 54,
               "name": "genCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L127",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L143",
+              "comment": "Add the shader pre-code (uniforms, attributes, functions, etc.)\n& code for this effect to the given lists.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -16312,7 +16339,8 @@
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader pre-code to add to"
                 },
                 {
                   "id": 57,
@@ -16321,14 +16349,16 @@
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader code to add to"
                 }
               ]
             },
             {
               "id": 46,
               "name": "init",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L58",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L74",
+              "comment": "Initialize the effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -16337,7 +16367,8 @@
             {
               "id": 58,
               "name": "preRender",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L134",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L150",
+              "comment": "Prepare this effect for render.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -16346,7 +16377,8 @@
             {
               "id": 52,
               "name": "release",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L112",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L128",
+              "comment": "Delete all webgl objects related to this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -16355,7 +16387,8 @@
             {
               "id": 48,
               "name": "resize",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L106",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L122",
+              "comment": "Resize this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -16367,7 +16400,8 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The width to use"
                 },
                 {
                   "id": 51,
@@ -16375,14 +16409,16 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The height to use"
                 }
               ]
             },
             {
               "id": 60,
               "name": "setupProgram",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L160",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L176",
+              "comment": "Setup the given program for this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -16397,14 +16433,16 @@
                     "kind": "Class",
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/program.ts#L15"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The program to setup"
                 }
               ]
             },
             {
               "id": 65,
               "name": "transposeKernel",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/bloom.ts#L206",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/bloom.ts#L229",
+              "comment": "Transpose the bloom kernel based on the render aspect ratio.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -16416,7 +16454,7 @@
               "name": "BaseEffect",
               "lib": "nanogl-post",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18"
             }
           ],
           "implements": null
@@ -16425,19 +16463,20 @@
           "id": 73,
           "name": "Contrast",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/contrast.ts#L10",
+          "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/contrast.ts#L12",
+          "comment": "This class implements a contrast effect.",
           "tags": [],
           "constructors": [
             {
               "id": 74,
               "name": "Contrast",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/contrast.ts#L23",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/contrast.ts#L49",
               "tags": [],
               "type": {
                 "name": "Contrast",
                 "lib": "nanogl-post",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/contrast.ts#L10"
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/contrast.ts#L12"
               },
               "params": [
                 {
@@ -16446,7 +16485,8 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The contrast value"
                 },
                 {
                   "id": 77,
@@ -16454,7 +16494,8 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The brightness value"
                 },
                 {
                   "id": 78,
@@ -16462,7 +16503,8 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The bias value"
                 }
               ]
             }
@@ -16471,7 +16513,8 @@
             {
               "id": 86,
               "name": "_code",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/contrast.ts#L21",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/contrast.ts#L42",
+              "comment": "The shader code for this effect",
               "type": {
                 "name": "string"
               },
@@ -16480,7 +16523,8 @@
             {
               "id": 85,
               "name": "_preCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/contrast.ts#L20",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/contrast.ts#L40",
+              "comment": "The shader pre-code (uniforms, attributes, functions, etc.)\nfor this effect",
               "type": {
                 "name": "string"
               },
@@ -16489,7 +16533,8 @@
             {
               "id": 81,
               "name": "bias",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/contrast.ts#L14",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/contrast.ts#L18",
+              "comment": "The bias amount",
               "type": {
                 "name": "number"
               },
@@ -16498,7 +16543,9 @@
             {
               "id": 84,
               "name": "biasTint",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/contrast.ts#L18",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/contrast.ts#L34",
+              "comment": "The tint color for the bias",
+              "defaultValue": "[1, 1, 1]",
               "type": {
                 "name": "number",
                 "isArray": true
@@ -16508,7 +16555,8 @@
             {
               "id": 80,
               "name": "brightness",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/contrast.ts#L13",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/contrast.ts#L16",
+              "comment": "The brightness amount",
               "type": {
                 "name": "number"
               },
@@ -16517,7 +16565,9 @@
             {
               "id": 83,
               "name": "brightnessTint",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/contrast.ts#L17",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/contrast.ts#L29",
+              "comment": "The tint color for the brightness",
+              "defaultValue": "[1, 1, 1]",
               "type": {
                 "name": "number",
                 "isArray": true
@@ -16527,7 +16577,8 @@
             {
               "id": 79,
               "name": "contrast",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/contrast.ts#L12",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/contrast.ts#L14",
+              "comment": "The contrast amount",
               "type": {
                 "name": "number"
               },
@@ -16536,7 +16587,9 @@
             {
               "id": 82,
               "name": "contrastTint",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/contrast.ts#L16",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/contrast.ts#L24",
+              "comment": "The tint color for the contrast",
+              "defaultValue": "[1, 1, 1]",
               "type": {
                 "name": "number",
                 "isArray": true
@@ -16549,7 +16602,8 @@
             {
               "id": 87,
               "name": "genCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/contrast.ts#L43",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/contrast.ts#L69",
+              "comment": "Add the shader pre-code (uniforms, attributes, functions, etc.)\n& code for this effect to the given lists.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -16562,7 +16616,8 @@
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader pre-code to add to"
                 },
                 {
                   "id": 90,
@@ -16571,14 +16626,16 @@
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader code to add to"
                 }
               ]
             },
             {
               "id": 94,
               "name": "init",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/contrast.ts#L73",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/contrast.ts#L99",
+              "comment": "Initialize the effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -16587,7 +16644,8 @@
             {
               "id": 98,
               "name": "preRender",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/contrast.ts#L75",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/contrast.ts#L101",
+              "comment": "Prepare this effect for render.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -16596,7 +16654,8 @@
             {
               "id": 96,
               "name": "release",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/contrast.ts#L74",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/contrast.ts#L100",
+              "comment": "Delete all webgl objects related to this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -16605,7 +16664,8 @@
             {
               "id": 100,
               "name": "resize",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/contrast.ts#L76",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/contrast.ts#L102",
+              "comment": "Resize this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -16617,7 +16677,8 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The width to use"
                 },
                 {
                   "id": 103,
@@ -16625,14 +16686,16 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The height to use"
                 }
               ]
             },
             {
               "id": 91,
               "name": "setupProgram",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/contrast.ts#L49",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/contrast.ts#L75",
+              "comment": "Setup the given program for this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -16647,7 +16710,8 @@
                     "kind": "Class",
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/program.ts#L15"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The program to setup"
                 }
               ]
             }
@@ -16657,7 +16721,7 @@
               "name": "BaseEffect",
               "lib": "nanogl-post",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18"
             }
           ],
           "implements": null
@@ -16666,19 +16730,20 @@
           "id": 110,
           "name": "Dof",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L42",
+          "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L44",
+          "comment": "This class implements a depth of field effect.",
           "tags": [],
           "constructors": [
             {
               "id": 111,
               "name": "Dof",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L72",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L134",
               "tags": [],
               "type": {
                 "name": "Dof",
                 "lib": "nanogl-post",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L42"
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L44"
               },
               "params": [
                 {
@@ -16690,7 +16755,8 @@
                     "kind": "Class",
                     "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The camera used to render the scene"
                 }
               ]
             }
@@ -16699,7 +16765,8 @@
             {
               "id": 115,
               "name": "_available",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L45",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L48",
+              "comment": "Whether this effect is available or not",
               "type": {
                 "name": "boolean"
               },
@@ -16708,7 +16775,8 @@
             {
               "id": 130,
               "name": "_code",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L62",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L115",
+              "comment": "The shader code for this effect",
               "type": {
                 "name": "string"
               },
@@ -16717,7 +16785,8 @@
             {
               "id": 129,
               "name": "_preCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L61",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L113",
+              "comment": "The shader pre-code (uniforms, attributes, functions, etc.)\nfor this effect",
               "type": {
                 "name": "string"
               },
@@ -16726,7 +16795,8 @@
             {
               "id": 124,
               "name": "blurKernel",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L54",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L98",
+              "comment": "The kernel used to create the blur effect",
               "type": {
                 "name": "Float32Array"
               },
@@ -16735,7 +16805,9 @@
             {
               "id": 123,
               "name": "blurSamples",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L53",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L96",
+              "comment": "The number of samples used to create the blur effect",
+              "defaultValue": "2",
               "type": {
                 "name": "number"
               },
@@ -16744,7 +16816,8 @@
             {
               "id": 114,
               "name": "camera",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L44",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L46",
+              "comment": "The camera used to render the scene",
               "type": {
                 "name": "Camera",
                 "lib": "nanogl-camera",
@@ -16756,7 +16829,9 @@
             {
               "id": 121,
               "name": "d0",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L51",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L82",
+              "comment": "The distance where the fade from\nthe unblurred sample to the small blur happens\n\n(`this.d0 + this.d1` must be less than `1`)",
+              "defaultValue": "0.2",
               "type": {
                 "name": "number"
               },
@@ -16765,7 +16840,9 @@
             {
               "id": 122,
               "name": "d1",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L52",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L91",
+              "comment": "The distance where the fade from\nthe the small blur to the medium blur happens\n\n(`this.d0 + this.d1` must be less than `1`)",
+              "defaultValue": "0.2",
               "type": {
                 "name": "number"
               },
@@ -16774,7 +16851,8 @@
             {
               "id": 136,
               "name": "depthSampler",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L70",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L129",
+              "comment": "The depth sampler",
               "type": [
                 {
                   "name": "null"
@@ -16791,7 +16869,9 @@
             {
               "id": 118,
               "name": "far",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L48",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L63",
+              "comment": "The far depth for this effect",
+              "defaultValue": "4",
               "type": {
                 "name": "number"
               },
@@ -16800,7 +16880,9 @@
             {
               "id": 120,
               "name": "farBlur",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L50",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L73",
+              "comment": "The ratio of the far to the near blur radius",
+              "defaultValue": "0.5",
               "type": {
                 "name": "number"
               },
@@ -16809,7 +16891,8 @@
             {
               "id": 133,
               "name": "fboBlurH",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L66",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L122",
+              "comment": "The FBO used for the horizontal blur",
               "type": {
                 "name": "Fbo",
                 "lib": "nanogl",
@@ -16821,7 +16904,8 @@
             {
               "id": 132,
               "name": "fboBlurV",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L65",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L120",
+              "comment": "The FBO used for the vertical blur",
               "type": {
                 "name": "Fbo",
                 "lib": "nanogl",
@@ -16833,7 +16917,8 @@
             {
               "id": 134,
               "name": "fboCoc",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L67",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L124",
+              "comment": "The FBO used for the near Coc",
               "type": {
                 "name": "Fbo",
                 "lib": "nanogl",
@@ -16845,7 +16930,8 @@
             {
               "id": 131,
               "name": "fboDS",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L64",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L118",
+              "comment": "The FBO used for the down sampling",
               "type": {
                 "name": "Fbo",
                 "lib": "nanogl",
@@ -16857,7 +16943,8 @@
             {
               "id": 135,
               "name": "fboMed",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L68",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L126",
+              "comment": "The FBO used for the med blur 3x3",
               "type": {
                 "name": "Fbo",
                 "lib": "nanogl",
@@ -16869,7 +16956,9 @@
             {
               "id": 116,
               "name": "focus",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L46",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L53",
+              "comment": "The focus depth for this effect",
+              "defaultValue": "1.3",
               "type": {
                 "name": "number"
               },
@@ -16878,7 +16967,9 @@
             {
               "id": 117,
               "name": "focusRange",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L47",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L58",
+              "comment": "The range of focus for this effect",
+              "defaultValue": "0",
               "type": {
                 "name": "number"
               },
@@ -16887,7 +16978,9 @@
             {
               "id": 119,
               "name": "near",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L49",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L68",
+              "comment": "The near depth for this effect",
+              "defaultValue": "1",
               "type": {
                 "name": "number"
               },
@@ -16896,7 +16989,8 @@
             {
               "id": 126,
               "name": "prgBlur",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L57",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L103",
+              "comment": "The program used for the blur",
               "type": {
                 "name": "Program",
                 "lib": "nanogl",
@@ -16908,7 +17002,8 @@
             {
               "id": 127,
               "name": "prgCoc",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L58",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L105",
+              "comment": "The program used for the near CoC",
               "type": {
                 "name": "Program",
                 "lib": "nanogl",
@@ -16920,7 +17015,8 @@
             {
               "id": 125,
               "name": "prgDS",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L56",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L101",
+              "comment": "The program used for the downsampling",
               "type": {
                 "name": "Program",
                 "lib": "nanogl",
@@ -16932,7 +17028,8 @@
             {
               "id": 128,
               "name": "prgMed",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L59",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L107",
+              "comment": "The program used for the med blur 3x3",
               "type": {
                 "name": "Program",
                 "lib": "nanogl",
@@ -16947,7 +17044,8 @@
             {
               "id": 158,
               "name": "computeKernel",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L376",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L449",
+              "comment": "Compute the kernel used to offset the\ntexture coordinates for the blur effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -16959,14 +17057,16 @@
                   "type": {
                     "name": "boolean"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "Whether the kernel is horizontal or not"
                 }
               ]
             },
             {
               "id": 145,
               "name": "genCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L204",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L268",
+              "comment": "Add the shader pre-code (uniforms, attributes, functions, etc.)\n& code for this effect to the given lists.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -16979,7 +17079,8 @@
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader pre-code to add to"
                 },
                 {
                   "id": 148,
@@ -16988,14 +17089,16 @@
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader code to add to"
                 }
               ]
             },
             {
               "id": 137,
               "name": "genFbo",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L115",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L179",
+              "comment": "Generate a framebuffer that can be used for this effect.",
               "tags": [],
               "type": {
                 "name": "Fbo",
@@ -17007,7 +17110,8 @@
             {
               "id": 151,
               "name": "getFarEq",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L229",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L298",
+              "comment": "Get the far equation used to compute the depth of field effect.\nThe z value is the ratio of the far to the near blur radius.",
               "tags": [],
               "type": {
                 "name": "vec3"
@@ -17016,7 +17120,8 @@
             {
               "id": 149,
               "name": "getNearEq",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L210",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L276",
+              "comment": "Get the near equation used to compute the depth of field effect.",
               "tags": [],
               "type": {
                 "name": "Float32Array"
@@ -17025,7 +17130,8 @@
             {
               "id": 139,
               "name": "init",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L127",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L191",
+              "comment": "Initialize the effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17034,7 +17140,8 @@
             {
               "id": 153,
               "name": "preRender",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L250",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L319",
+              "comment": "Prepare this effect for render.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17043,7 +17150,8 @@
             {
               "id": 143,
               "name": "release",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L186",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L250",
+              "comment": "Delete all webgl objects related to this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17052,7 +17160,8 @@
             {
               "id": 141,
               "name": "resize",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L168",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L232",
+              "comment": "Resize this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17061,7 +17170,8 @@
             {
               "id": 155,
               "name": "setupProgram",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/dof.ts#L345",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/dof.ts#L414",
+              "comment": "Setup the given program for this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17076,7 +17186,8 @@
                     "kind": "Class",
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/program.ts#L15"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The program to setup"
                 }
               ]
             }
@@ -17086,7 +17197,7 @@
               "name": "BaseEffect",
               "lib": "nanogl-post",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18"
             }
           ],
           "implements": null
@@ -17095,19 +17206,20 @@
           "id": 167,
           "name": "Fetch",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/fetch.ts#L7",
+          "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/fetch.ts#L14",
+          "comment": "This class implements a fetch effect.\n\nIt is used to set the current color as the rendered scene texture.\nYou can use this before applying effects that modify the current color\nsuch as `Sharpen` or `Saturation`.",
           "tags": [],
           "constructors": [
             {
               "id": 168,
               "name": "Fetch",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/fetch.ts#L12",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/fetch.ts#L19",
               "tags": [],
               "type": {
                 "name": "Fetch",
                 "lib": "nanogl-post",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/fetch.ts#L7"
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/fetch.ts#L14"
               }
             }
           ],
@@ -17115,7 +17227,8 @@
             {
               "id": 170,
               "name": "_code",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/fetch.ts#L10",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/fetch.ts#L17",
+              "comment": "The shader code for this effect",
               "type": {
                 "name": "string"
               },
@@ -17127,7 +17240,8 @@
             {
               "id": 171,
               "name": "genCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/fetch.ts#L21",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/fetch.ts#L28",
+              "comment": "Add the shader pre-code (uniforms, attributes, functions, etc.)\n& code for this effect to the given lists.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17140,7 +17254,8 @@
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader pre-code to add to"
                 },
                 {
                   "id": 174,
@@ -17149,14 +17264,16 @@
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader code to add to"
                 }
               ]
             },
             {
               "id": 175,
               "name": "init",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/fetch.ts#L26",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/fetch.ts#L33",
+              "comment": "Initialize the effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17165,7 +17282,8 @@
             {
               "id": 179,
               "name": "preRender",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/fetch.ts#L28",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/fetch.ts#L35",
+              "comment": "Prepare this effect for render.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17174,7 +17292,8 @@
             {
               "id": 177,
               "name": "release",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/fetch.ts#L27",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/fetch.ts#L34",
+              "comment": "Delete all webgl objects related to this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17183,7 +17302,8 @@
             {
               "id": 184,
               "name": "resize",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/fetch.ts#L30",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/fetch.ts#L37",
+              "comment": "Resize this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17195,7 +17315,8 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The width to use"
                 },
                 {
                   "id": 187,
@@ -17203,14 +17324,16 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The height to use"
                 }
               ]
             },
             {
               "id": 181,
               "name": "setupProgram",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/fetch.ts#L29",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/fetch.ts#L36",
+              "comment": "Setup the given program for this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17225,7 +17348,8 @@
                     "kind": "Class",
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/program.ts#L15"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The program to setup"
                 }
               ]
             }
@@ -17235,7 +17359,7 @@
               "name": "BaseEffect",
               "lib": "nanogl-post",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18"
             }
           ],
           "implements": null
@@ -17244,19 +17368,20 @@
           "id": 194,
           "name": "GammaCorrection",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_correction.ts#L7",
+          "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_correction.ts#L11",
+          "comment": "This class implements gamma correction.\n\n**Note :** Gamma correction may be applied directly within *nanogl-pbr*'s shader",
           "tags": [],
           "constructors": [
             {
               "id": 195,
               "name": "GammaCorrection",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_correction.ts#L11",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_correction.ts#L15",
               "tags": [],
               "type": {
                 "name": "GammaCorrection",
                 "lib": "nanogl-post",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_correction.ts#L7"
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_correction.ts#L11"
               },
               "params": [
                 {
@@ -17274,7 +17399,8 @@
             {
               "id": 198,
               "name": "_code",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_correction.ts#L9",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_correction.ts#L13",
+              "comment": "The shader code for this effect",
               "type": {
                 "name": "string"
               },
@@ -17286,7 +17412,8 @@
             {
               "id": 199,
               "name": "genCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_correction.ts#L17",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_correction.ts#L21",
+              "comment": "Add the shader pre-code (uniforms, attributes, functions, etc.)\n& code for this effect to the given lists.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17299,7 +17426,8 @@
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader pre-code to add to"
                 },
                 {
                   "id": 202,
@@ -17308,14 +17436,16 @@
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader code to add to"
                 }
               ]
             },
             {
               "id": 203,
               "name": "init",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_correction.ts#L22",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_correction.ts#L26",
+              "comment": "Initialize the effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17324,7 +17454,8 @@
             {
               "id": 207,
               "name": "preRender",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_correction.ts#L24",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_correction.ts#L28",
+              "comment": "Prepare this effect for render.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17333,7 +17464,8 @@
             {
               "id": 205,
               "name": "release",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_correction.ts#L23",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_correction.ts#L27",
+              "comment": "Delete all webgl objects related to this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17342,7 +17474,8 @@
             {
               "id": 212,
               "name": "resize",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_correction.ts#L26",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_correction.ts#L30",
+              "comment": "Resize this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17354,7 +17487,8 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The width to use"
                 },
                 {
                   "id": 215,
@@ -17362,14 +17496,16 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The height to use"
                 }
               ]
             },
             {
               "id": 209,
               "name": "setupProgram",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_correction.ts#L25",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_correction.ts#L29",
+              "comment": "Setup the given program for this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17384,7 +17520,8 @@
                     "kind": "Class",
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/program.ts#L15"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The program to setup"
                 }
               ]
             }
@@ -17394,7 +17531,7 @@
               "name": "BaseEffect",
               "lib": "nanogl-post",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18"
             }
           ],
           "implements": null
@@ -17403,19 +17540,20 @@
           "id": 222,
           "name": "GammaTB",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_tb.ts#L6",
+          "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_tb.ts#L11",
+          "comment": "This class implements an alternative gamma correction.\n\n**Note :** Gamma correction may be applied directly within *nanogl-pbr*'s shader",
           "tags": [],
           "constructors": [
             {
               "id": 223,
               "name": "GammaTB",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_tb.ts#L10",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_tb.ts#L15",
               "tags": [],
               "type": {
                 "name": "GammaTB",
                 "lib": "nanogl-post",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_tb.ts#L6"
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_tb.ts#L11"
               }
             }
           ],
@@ -17423,7 +17561,8 @@
             {
               "id": 225,
               "name": "_code",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_tb.ts#L8",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_tb.ts#L13",
+              "comment": "The shader code for this effect",
               "type": {
                 "name": "string"
               },
@@ -17435,7 +17574,8 @@
             {
               "id": 226,
               "name": "genCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_tb.ts#L16",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_tb.ts#L21",
+              "comment": "Add the shader pre-code (uniforms, attributes, functions, etc.)\n& code for this effect to the given lists.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17448,7 +17588,8 @@
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader pre-code to add to"
                 },
                 {
                   "id": 229,
@@ -17457,14 +17598,16 @@
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader code to add to"
                 }
               ]
             },
             {
               "id": 230,
               "name": "init",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_tb.ts#L21",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_tb.ts#L26",
+              "comment": "Initialize the effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17473,7 +17616,8 @@
             {
               "id": 234,
               "name": "preRender",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_tb.ts#L23",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_tb.ts#L28",
+              "comment": "Prepare this effect for render.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17482,7 +17626,8 @@
             {
               "id": 232,
               "name": "release",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_tb.ts#L22",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_tb.ts#L27",
+              "comment": "Delete all webgl objects related to this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17491,7 +17636,8 @@
             {
               "id": 239,
               "name": "resize",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_tb.ts#L25",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_tb.ts#L30",
+              "comment": "Resize this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17503,7 +17649,8 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The width to use"
                 },
                 {
                   "id": 242,
@@ -17511,14 +17658,16 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The height to use"
                 }
               ]
             },
             {
               "id": 236,
               "name": "setupProgram",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/gamma_tb.ts#L24",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/gamma_tb.ts#L29",
+              "comment": "Setup the given program for this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17533,7 +17682,8 @@
                     "kind": "Class",
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/program.ts#L15"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The program to setup"
                 }
               ]
             }
@@ -17543,7 +17693,7 @@
               "name": "BaseEffect",
               "lib": "nanogl-post",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18"
             }
           ],
           "implements": null
@@ -17552,19 +17702,20 @@
           "id": 262,
           "name": "Grain",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/grain.ts#L27",
+          "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/grain.ts#L29",
+          "comment": "This class implements a grain effect.",
           "tags": [],
           "constructors": [
             {
               "id": 263,
               "name": "Grain",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/grain.ts#L37",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/grain.ts#L51",
               "tags": [],
               "type": {
                 "name": "Grain",
                 "lib": "nanogl-post",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/grain.ts#L27"
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/grain.ts#L29"
               },
               "params": [
                 {
@@ -17573,7 +17724,8 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The amount value"
                 },
                 {
                   "id": 266,
@@ -17581,7 +17733,8 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The sharpness value"
                 }
               ]
             }
@@ -17590,7 +17743,8 @@
             {
               "id": 271,
               "name": "_code",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/grain.ts#L35",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/grain.ts#L45",
+              "comment": "The shader code for this effect",
               "type": {
                 "name": "string"
               },
@@ -17601,7 +17755,8 @@
             {
               "id": 269,
               "name": "_noiseTex",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/grain.ts#L33",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/grain.ts#L38",
+              "comment": "The noise texture used for the grain",
               "type": [
                 {
                   "name": "null"
@@ -17620,7 +17775,8 @@
             {
               "id": 270,
               "name": "_preCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/grain.ts#L34",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/grain.ts#L43",
+              "comment": "The shader pre-code (uniforms, attributes, functions, etc.)\nfor this effect",
               "type": {
                 "name": "string"
               },
@@ -17631,7 +17787,8 @@
             {
               "id": 267,
               "name": "amount",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/grain.ts#L30",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/grain.ts#L32",
+              "comment": "The amount of grain",
               "type": {
                 "name": "number"
               },
@@ -17640,7 +17797,8 @@
             {
               "id": 268,
               "name": "sharpness",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/grain.ts#L31",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/grain.ts#L34",
+              "comment": "The sharpness of the grain",
               "type": {
                 "name": "number"
               },
@@ -17652,7 +17810,8 @@
             {
               "id": 272,
               "name": "genCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/grain.ts#L53",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/grain.ts#L67",
+              "comment": "Add the shader pre-code (uniforms, attributes, functions, etc.)\n& code for this effect to the given lists.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17665,7 +17824,8 @@
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader pre-code to add to"
                 },
                 {
                   "id": 275,
@@ -17674,14 +17834,16 @@
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader code to add to"
                 }
               ]
             },
             {
               "id": 276,
               "name": "init",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/grain.ts#L59",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/grain.ts#L73",
+              "comment": "Initialize the effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17690,7 +17852,8 @@
             {
               "id": 283,
               "name": "preRender",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/grain.ts#L98",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/grain.ts#L112",
+              "comment": "Prepare this effect for render.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17699,7 +17862,8 @@
             {
               "id": 278,
               "name": "release",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/grain.ts#L66",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/grain.ts#L80",
+              "comment": "Delete all webgl objects related to this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17708,7 +17872,8 @@
             {
               "id": 285,
               "name": "resize",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/grain.ts#L99",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/grain.ts#L113",
+              "comment": "Resize this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17720,7 +17885,8 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The width to use"
                 },
                 {
                   "id": 288,
@@ -17728,14 +17894,16 @@
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The height to use"
                 }
               ]
             },
             {
               "id": 280,
               "name": "setupProgram",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/grain.ts#L73",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/grain.ts#L87",
+              "comment": "Setup the given program for this effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -17750,7 +17918,8 @@
                     "kind": "Class",
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/program.ts#L15"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The program to setup"
                 }
               ]
             }
@@ -17760,7 +17929,7 @@
               "name": "BaseEffect",
               "lib": "nanogl-post",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18"
             }
           ],
           "implements": null
@@ -17769,37 +17938,29 @@
           "id": 295,
           "name": "Hejl",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/hejl.ts#L6",
+          "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/hejl.ts#L9",
+          "comment": "This class implements Hejl tone mapping.",
           "tags": [],
           "constructors": [
             {
               "id": 296,
               "name": "Hejl",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/hejl.ts#L10",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/hejl.ts#L13",
               "tags": [],
               "type": {
                 "name": "Hejl",
                 "lib": "nanogl-post",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/hejl.ts#L6"
-              },
-              "params": [
-                {
-                  "id": 298,
-                  "name": "amount",
-                  "type": {
-                    "name": "number"
-                  },
-                  "tags": []
-                }
-              ]
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/hejl.ts#L9"
+              }
             }
           ],
           "properties": [
             {
-              "id": 299,
+              "id": 298,
               "name": "_code",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/hejl.ts#L8",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/hejl.ts#L11",
+              "comment": "The shader code for this effect",
               "type": {
                 "name": "string"
               },
@@ -17809,99 +17970,109 @@
           "accessors": [],
           "methods": [
             {
-              "id": 300,
+              "id": 299,
               "name": "genCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/hejl.ts#L15",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/hejl.ts#L18",
+              "comment": "Add the shader pre-code (uniforms, attributes, functions, etc.)\n& code for this effect to the given lists.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 302,
+                  "id": 301,
                   "name": "precode",
                   "type": {
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader pre-code to add to"
                 },
                 {
-                  "id": 303,
+                  "id": 302,
                   "name": "code",
                   "type": {
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader code to add to"
                 }
               ]
             },
             {
-              "id": 304,
+              "id": 303,
               "name": "init",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/hejl.ts#L19",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/hejl.ts#L22",
+              "comment": "Initialize the effect.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 308,
+              "id": 307,
               "name": "preRender",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/hejl.ts#L21",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/hejl.ts#L24",
+              "comment": "Prepare this effect for render.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 306,
+              "id": 305,
               "name": "release",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/hejl.ts#L20",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/hejl.ts#L23",
+              "comment": "Delete all webgl objects related to this effect.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 313,
+              "id": 312,
               "name": "resize",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/hejl.ts#L23",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/hejl.ts#L26",
+              "comment": "Resize this effect.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 315,
+                  "id": 314,
                   "name": "w",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The width to use"
                 },
                 {
-                  "id": 316,
+                  "id": 315,
                   "name": "h",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The height to use"
                 }
               ]
             },
             {
-              "id": 310,
+              "id": 309,
               "name": "setupProgram",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/hejl.ts#L22",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/hejl.ts#L25",
+              "comment": "Setup the given program for this effect.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 312,
+                  "id": 311,
                   "name": "prg",
                   "type": {
                     "name": "Program",
@@ -17909,7 +18080,8 @@
                     "kind": "Class",
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/program.ts#L15"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The program to setup"
                 }
               ]
             }
@@ -17919,46 +18091,49 @@
               "name": "BaseEffect",
               "lib": "nanogl-post",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18"
             }
           ],
           "implements": null
         },
         {
-          "id": 323,
+          "id": 322,
           "name": "LUT",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/lut.ts#L9",
+          "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/lut.ts#L11",
+          "comment": "This class implements color grading with a lookup table (LUT).",
           "tags": [],
           "constructors": [
             {
-              "id": 324,
+              "id": 323,
               "name": "LUT",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/lut.ts#L20",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/lut.ts#L32",
               "tags": [],
               "type": {
                 "name": "LUT",
                 "lib": "nanogl-post",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/lut.ts#L9"
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/lut.ts#L11"
               },
               "params": [
                 {
-                  "id": 326,
+                  "id": 325,
                   "name": "lut",
                   "type": {
                     "name": "ArrayLike"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The lookup table to use"
                 }
               ]
             }
           ],
           "properties": [
             {
-              "id": 331,
+              "id": 330,
               "name": "_code",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/lut.ts#L18",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/lut.ts#L27",
+              "comment": "The shader code for this effect",
               "type": {
                 "name": "string"
               },
@@ -17967,9 +18142,10 @@
               ]
             },
             {
-              "id": 329,
+              "id": 328,
               "name": "_invalidTex",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/lut.ts#L15",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/lut.ts#L19",
+              "comment": "Whether the LUT texture is invalid or not",
               "type": {
                 "name": "boolean"
               },
@@ -17978,9 +18154,10 @@
               ]
             },
             {
-              "id": 327,
+              "id": 326,
               "name": "_lut",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/lut.ts#L12",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/lut.ts#L14",
+              "comment": "The lookup table to use",
               "type": {
                 "name": "ArrayLike"
               },
@@ -17989,9 +18166,10 @@
               ]
             },
             {
-              "id": 328,
+              "id": 327,
               "name": "_lutTex",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/lut.ts#L13",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/lut.ts#L16",
+              "comment": "The texture created from the LUT data",
               "type": [
                 {
                   "name": "null"
@@ -18008,9 +18186,10 @@
               ]
             },
             {
-              "id": 330,
+              "id": 329,
               "name": "_preCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/lut.ts#L17",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/lut.ts#L25",
+              "comment": "The shader pre-code (uniforms, attributes, functions, etc.)\nfor this effect",
               "type": {
                 "name": "string"
               },
@@ -18022,108 +18201,119 @@
           "accessors": [],
           "methods": [
             {
-              "id": 340,
+              "id": 339,
               "name": "_updateTex",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/lut.ts#L54",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/lut.ts#L68",
+              "comment": "Update the LUT texture from the LUT data.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 336,
+              "id": 335,
               "name": "genCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/lut.ts#L48",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/lut.ts#L60",
+              "comment": "Add the shader pre-code (uniforms, attributes, functions, etc.)\n& code for this effect to the given lists.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 338,
+                  "id": 337,
                   "name": "precode",
                   "type": {
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader pre-code to add to"
                 },
                 {
-                  "id": 339,
+                  "id": 338,
                   "name": "code",
                   "type": {
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader code to add to"
                 }
               ]
             },
             {
-              "id": 332,
+              "id": 331,
               "name": "init",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/lut.ts#L35",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/lut.ts#L47",
+              "comment": "Initialize the effect.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 345,
+              "id": 344,
               "name": "preRender",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/lut.ts#L76",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/lut.ts#L90",
+              "comment": "Prepare this effect for render.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 334,
+              "id": 333,
               "name": "release",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/lut.ts#L41",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/lut.ts#L53",
+              "comment": "Delete all webgl objects related to this effect.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 347,
+              "id": 346,
               "name": "resize",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/lut.ts#L77",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/lut.ts#L91",
+              "comment": "Resize this effect.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 349,
+                  "id": 348,
                   "name": "w",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The width to use"
                 },
                 {
-                  "id": 350,
+                  "id": 349,
                   "name": "h",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The height to use"
                 }
               ]
             },
             {
-              "id": 342,
+              "id": 341,
               "name": "setupProgram",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/lut.ts#L66",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/lut.ts#L80",
+              "comment": "Setup the given program for this effect.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 344,
+                  "id": 343,
                   "name": "prg",
                   "type": {
                     "name": "Program",
@@ -18131,7 +18321,8 @@
                     "kind": "Class",
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/program.ts#L15"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The program to setup"
                 }
               ]
             }
@@ -18141,46 +18332,38 @@
               "name": "BaseEffect",
               "lib": "nanogl-post",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18"
             }
           ],
           "implements": null
         },
         {
-          "id": 357,
+          "id": 356,
           "name": "Reinhard",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/reinhard.ts#L7",
+          "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/reinhard.ts#L10",
+          "comment": "This class implements Reinhard tone mapping.",
           "tags": [],
           "constructors": [
             {
-              "id": 358,
+              "id": 357,
               "name": "Reinhard",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/reinhard.ts#L11",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/reinhard.ts#L14",
               "tags": [],
               "type": {
                 "name": "Reinhard",
                 "lib": "nanogl-post",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/reinhard.ts#L7"
-              },
-              "params": [
-                {
-                  "id": 360,
-                  "name": "amount",
-                  "type": {
-                    "name": "number"
-                  },
-                  "tags": []
-                }
-              ]
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/reinhard.ts#L10"
+              }
             }
           ],
           "properties": [
             {
-              "id": 361,
+              "id": 359,
               "name": "_code",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/reinhard.ts#L9",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/reinhard.ts#L12",
+              "comment": "The shader code for this effect",
               "type": {
                 "name": "string"
               },
@@ -18190,47 +18373,42 @@
           "accessors": [],
           "methods": [
             {
-              "id": 362,
+              "id": 360,
               "name": "genCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/reinhard.ts#L16",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/reinhard.ts#L19",
+              "comment": "Add the shader pre-code (uniforms, attributes, functions, etc.)\n& code for this effect to the given lists.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 364,
+                  "id": 362,
                   "name": "precode",
                   "type": {
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader pre-code to add to"
                 },
                 {
-                  "id": 365,
+                  "id": 363,
                   "name": "code",
                   "type": {
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader code to add to"
                 }
               ]
             },
             {
-              "id": 366,
+              "id": 364,
               "name": "init",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/reinhard.ts#L20",
-              "tags": [],
-              "type": {
-                "name": "void"
-              }
-            },
-            {
-              "id": 370,
-              "name": "preRender",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/reinhard.ts#L22",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/reinhard.ts#L23",
+              "comment": "Initialize the effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -18238,51 +18416,66 @@
             },
             {
               "id": 368,
-              "name": "release",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/reinhard.ts#L21",
+              "name": "preRender",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/reinhard.ts#L25",
+              "comment": "Prepare this effect for render.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 375,
+              "id": 366,
+              "name": "release",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/reinhard.ts#L24",
+              "comment": "Delete all webgl objects related to this effect.",
+              "tags": [],
+              "type": {
+                "name": "void"
+              }
+            },
+            {
+              "id": 373,
               "name": "resize",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/reinhard.ts#L24",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/reinhard.ts#L27",
+              "comment": "Resize this effect.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 377,
+                  "id": 375,
                   "name": "w",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The width to use"
                 },
                 {
-                  "id": 378,
+                  "id": 376,
                   "name": "h",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The height to use"
                 }
               ]
             },
             {
-              "id": 372,
+              "id": 370,
               "name": "setupProgram",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/reinhard.ts#L23",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/reinhard.ts#L26",
+              "comment": "Setup the given program for this effect.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 374,
+                  "id": 372,
                   "name": "prg",
                   "type": {
                     "name": "Program",
@@ -18290,7 +18483,8 @@
                     "kind": "Class",
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/program.ts#L15"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The program to setup"
                 }
               ]
             }
@@ -18300,77 +18494,84 @@
               "name": "BaseEffect",
               "lib": "nanogl-post",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18"
             }
           ],
           "implements": null
         },
         {
-          "id": 385,
+          "id": 383,
           "name": "Saturation",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/saturation.ts#L8",
+          "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/saturation.ts#L10",
+          "comment": "This class implements a saturation effect.",
           "tags": [],
           "constructors": [
             {
-              "id": 386,
+              "id": 384,
               "name": "Saturation",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/saturation.ts#L16",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/saturation.ts#L30",
               "tags": [],
               "type": {
                 "name": "Saturation",
                 "lib": "nanogl-post",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/saturation.ts#L8"
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/saturation.ts#L10"
               },
               "params": [
                 {
-                  "id": 388,
+                  "id": 386,
                   "name": "amount",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The saturation amount"
                 }
               ]
             }
           ],
           "properties": [
             {
-              "id": 392,
-              "name": "_code",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/saturation.ts#L14",
-              "type": {
-                "name": "string"
-              },
-              "tags": [
-                "private"
-              ]
-            },
-            {
-              "id": 391,
-              "name": "_preCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/saturation.ts#L13",
-              "type": {
-                "name": "string"
-              },
-              "tags": [
-                "private"
-              ]
-            },
-            {
               "id": 390,
+              "name": "_code",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/saturation.ts#L25",
+              "comment": "The shader code for this effect",
+              "type": {
+                "name": "string"
+              },
+              "tags": [
+                "private"
+              ]
+            },
+            {
+              "id": 389,
+              "name": "_preCode",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/saturation.ts#L23",
+              "comment": "The shader pre-code (uniforms, attributes, functions, etc.)\nfor this effect",
+              "type": {
+                "name": "string"
+              },
+              "tags": [
+                "private"
+              ]
+            },
+            {
+              "id": 388,
               "name": "amount",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/saturation.ts#L11",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/saturation.ts#L17",
+              "comment": "The saturation amount",
               "type": {
                 "name": "number"
               },
               "tags": []
             },
             {
-              "id": 389,
+              "id": 387,
               "name": "tint",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/saturation.ts#L10",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/saturation.ts#L15",
+              "comment": "The tint color for the saturation",
+              "defaultValue": "[1, 1, 1]",
               "type": {
                 "name": "number",
                 "isArray": true
@@ -18381,47 +18582,42 @@
           "accessors": [],
           "methods": [
             {
-              "id": 393,
+              "id": 391,
               "name": "genCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/saturation.ts#L27",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/saturation.ts#L41",
+              "comment": "Add the shader pre-code (uniforms, attributes, functions, etc.)\n& code for this effect to the given lists.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 395,
+                  "id": 393,
                   "name": "precode",
                   "type": {
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader pre-code to add to"
                 },
                 {
-                  "id": 396,
+                  "id": 394,
                   "name": "code",
                   "type": {
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader code to add to"
                 }
               ]
             },
             {
-              "id": 400,
+              "id": 398,
               "name": "init",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/saturation.ts#L45",
-              "tags": [],
-              "type": {
-                "name": "void"
-              }
-            },
-            {
-              "id": 404,
-              "name": "preRender",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/saturation.ts#L47",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/saturation.ts#L59",
+              "comment": "Initialize the effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -18429,51 +18625,66 @@
             },
             {
               "id": 402,
-              "name": "release",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/saturation.ts#L46",
+              "name": "preRender",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/saturation.ts#L61",
+              "comment": "Prepare this effect for render.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 406,
+              "id": 400,
+              "name": "release",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/saturation.ts#L60",
+              "comment": "Delete all webgl objects related to this effect.",
+              "tags": [],
+              "type": {
+                "name": "void"
+              }
+            },
+            {
+              "id": 404,
               "name": "resize",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/saturation.ts#L48",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/saturation.ts#L62",
+              "comment": "Resize this effect.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 408,
+                  "id": 406,
                   "name": "w",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The width to use"
                 },
                 {
-                  "id": 409,
+                  "id": 407,
                   "name": "h",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The height to use"
                 }
               ]
             },
             {
-              "id": 397,
+              "id": 395,
               "name": "setupProgram",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/saturation.ts#L33",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/saturation.ts#L47",
+              "comment": "Setup the given program for this effect.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 399,
+                  "id": 397,
                   "name": "prg",
                   "type": {
                     "name": "Program",
@@ -18481,7 +18692,8 @@
                     "kind": "Class",
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/program.ts#L15"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The program to setup"
                 }
               ]
             }
@@ -18491,63 +18703,58 @@
               "name": "BaseEffect",
               "lib": "nanogl-post",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18"
             }
           ],
           "implements": null
         },
         {
-          "id": 416,
+          "id": 414,
           "name": "Sharpen",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/sharpen.ts#L7",
+          "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/sharpen.ts#L10",
+          "comment": "This class implements a sharpness effect.",
           "tags": [],
           "constructors": [
             {
-              "id": 417,
+              "id": 415,
               "name": "Sharpen",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/sharpen.ts#L15",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/sharpen.ts#L28",
               "tags": [],
               "type": {
                 "name": "Sharpen",
                 "lib": "nanogl-post",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/sharpen.ts#L7"
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/sharpen.ts#L10"
               },
               "params": [
                 {
-                  "id": 419,
+                  "id": 417,
                   "name": "amount",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The sharpness amount"
                 },
                 {
-                  "id": 420,
+                  "id": 418,
                   "name": "limit",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The sharpness limit"
                 }
               ]
             }
           ],
           "properties": [
             {
-              "id": 424,
+              "id": 422,
               "name": "_code",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/sharpen.ts#L13",
-              "type": {
-                "name": "string"
-              },
-              "tags": []
-            },
-            {
-              "id": 423,
-              "name": "_preCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/sharpen.ts#L12",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/sharpen.ts#L22",
+              "comment": "The shader code for this effect",
               "type": {
                 "name": "string"
               },
@@ -18555,17 +18762,29 @@
             },
             {
               "id": 421,
+              "name": "_preCode",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/sharpen.ts#L20",
+              "comment": "The shader pre-code (uniforms, attributes, functions, etc.)\nfor this effect",
+              "type": {
+                "name": "string"
+              },
+              "tags": []
+            },
+            {
+              "id": 419,
               "name": "amount",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/sharpen.ts#L10",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/sharpen.ts#L13",
+              "comment": "The sharpness amount",
               "type": {
                 "name": "number"
               },
               "tags": []
             },
             {
-              "id": 422,
+              "id": 420,
               "name": "limit",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/sharpen.ts#L11",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/sharpen.ts#L15",
+              "comment": "The sharpness limit",
               "type": {
                 "name": "number"
               },
@@ -18575,47 +18794,42 @@
           "accessors": [],
           "methods": [
             {
-              "id": 425,
+              "id": 423,
               "name": "genCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/sharpen.ts#L26",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/sharpen.ts#L39",
+              "comment": "Add the shader pre-code (uniforms, attributes, functions, etc.)\n& code for this effect to the given lists.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 427,
+                  "id": 425,
                   "name": "precode",
                   "type": {
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader pre-code to add to"
                 },
                 {
-                  "id": 428,
+                  "id": 426,
                   "name": "code",
                   "type": {
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader code to add to"
                 }
               ]
             },
             {
-              "id": 432,
+              "id": 430,
               "name": "init",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/sharpen.ts#L51",
-              "tags": [],
-              "type": {
-                "name": "void"
-              }
-            },
-            {
-              "id": 436,
-              "name": "preRender",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/sharpen.ts#L53",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/sharpen.ts#L64",
+              "comment": "Initialize the effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -18623,51 +18837,66 @@
             },
             {
               "id": 434,
-              "name": "release",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/sharpen.ts#L52",
+              "name": "preRender",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/sharpen.ts#L66",
+              "comment": "Prepare this effect for render.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 438,
+              "id": 432,
+              "name": "release",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/sharpen.ts#L65",
+              "comment": "Delete all webgl objects related to this effect.",
+              "tags": [],
+              "type": {
+                "name": "void"
+              }
+            },
+            {
+              "id": 436,
               "name": "resize",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/sharpen.ts#L54",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/sharpen.ts#L67",
+              "comment": "Resize this effect.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 440,
+                  "id": 438,
                   "name": "w",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The width to use"
                 },
                 {
-                  "id": 441,
+                  "id": 439,
                   "name": "h",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The height to use"
                 }
               ]
             },
             {
-              "id": 429,
+              "id": 427,
               "name": "setupProgram",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/sharpen.ts#L32",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/sharpen.ts#L45",
+              "comment": "Setup the given program for this effect.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 431,
+                  "id": 429,
                   "name": "prg",
                   "type": {
                     "name": "Program",
@@ -18675,7 +18904,8 @@
                     "kind": "Class",
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/program.ts#L15"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The program to setup"
                 }
               ]
             }
@@ -18685,62 +18915,67 @@
               "name": "BaseEffect",
               "lib": "nanogl-post",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18"
             }
           ],
           "implements": null
         },
         {
-          "id": 448,
+          "id": 446,
           "name": "Vignette",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/vignette.ts#L8",
+          "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/vignette.ts#L10",
+          "comment": "This class implements a vignette effect.",
           "tags": [],
           "constructors": [
             {
-              "id": 449,
+              "id": 447,
               "name": "Vignette",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/vignette.ts#L19",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/vignette.ts#L33",
               "tags": [],
               "type": {
                 "name": "Vignette",
                 "lib": "nanogl-post",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/vignette.ts#L8"
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/vignette.ts#L10"
               },
               "params": [
                 {
-                  "id": 451,
+                  "id": 449,
                   "name": "color",
                   "type": {
                     "name": "ArrayLike"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The vignette color"
                 },
                 {
-                  "id": 452,
+                  "id": 450,
                   "name": "strength",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The vignette strength"
                 },
                 {
-                  "id": 453,
+                  "id": 451,
                   "name": "curve",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "How rounded the vignette is (between `0` & `1`)"
                 }
               ]
             }
           ],
           "properties": [
             {
-              "id": 458,
+              "id": 456,
               "name": "_code",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/vignette.ts#L17",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/vignette.ts#L26",
+              "comment": "The shader code for this effect",
               "type": {
                 "name": "string"
               },
@@ -18749,9 +18984,10 @@
               ]
             },
             {
-              "id": 457,
+              "id": 455,
               "name": "_preCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/vignette.ts#L16",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/vignette.ts#L24",
+              "comment": "The shader pre-code (uniforms, attributes, functions, etc.)\nfor this effect",
               "type": {
                 "name": "string"
               },
@@ -18760,27 +18996,30 @@
               ]
             },
             {
-              "id": 454,
+              "id": 452,
               "name": "color",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/vignette.ts#L11",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/vignette.ts#L13",
+              "comment": "The vignette color",
               "type": {
                 "name": "ArrayLike"
               },
               "tags": []
             },
             {
-              "id": 455,
+              "id": 453,
               "name": "curve",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/vignette.ts#L13",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/vignette.ts#L16",
+              "comment": "How rounded the vignette is",
               "type": {
                 "name": "number"
               },
               "tags": []
             },
             {
-              "id": 456,
+              "id": 454,
               "name": "strength",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/vignette.ts#L14",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/vignette.ts#L18",
+              "comment": "The vignette strength",
               "type": {
                 "name": "number"
               },
@@ -18790,47 +19029,42 @@
           "accessors": [],
           "methods": [
             {
-              "id": 459,
+              "id": 457,
               "name": "genCode",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/vignette.ts#L31",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/vignette.ts#L45",
+              "comment": "Add the shader pre-code (uniforms, attributes, functions, etc.)\n& code for this effect to the given lists.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 461,
+                  "id": 459,
                   "name": "precode",
                   "type": {
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader pre-code to add to"
                 },
                 {
-                  "id": 462,
+                  "id": 460,
                   "name": "code",
                   "type": {
                     "name": "string",
                     "isArray": true
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The list of shader code to add to"
                 }
               ]
             },
             {
-              "id": 466,
+              "id": 464,
               "name": "init",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/vignette.ts#L64",
-              "tags": [],
-              "type": {
-                "name": "void"
-              }
-            },
-            {
-              "id": 470,
-              "name": "preRender",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/vignette.ts#L66",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/vignette.ts#L78",
+              "comment": "Initialize the effect.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -18838,51 +19072,66 @@
             },
             {
               "id": 468,
-              "name": "release",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/vignette.ts#L65",
+              "name": "preRender",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/vignette.ts#L80",
+              "comment": "Prepare this effect for render.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 472,
+              "id": 466,
+              "name": "release",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/vignette.ts#L79",
+              "comment": "Delete all webgl objects related to this effect.",
+              "tags": [],
+              "type": {
+                "name": "void"
+              }
+            },
+            {
+              "id": 470,
               "name": "resize",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/vignette.ts#L67",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/vignette.ts#L81",
+              "comment": "Resize this effect.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 474,
+                  "id": 472,
                   "name": "w",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The width to use"
                 },
                 {
-                  "id": 475,
+                  "id": 473,
                   "name": "h",
                   "type": {
                     "name": "number"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The height to use"
                 }
               ]
             },
             {
-              "id": 463,
+              "id": 461,
               "name": "setupProgram",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/vignette.ts#L37",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/vignette.ts#L51",
+              "comment": "Setup the given program for this effect.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 465,
+                  "id": 463,
                   "name": "prg",
                   "type": {
                     "name": "Program",
@@ -18890,7 +19139,8 @@
                     "kind": "Class",
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/program.ts#L15"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The program to setup"
                 }
               ]
             }
@@ -18900,32 +19150,33 @@
               "name": "BaseEffect",
               "lib": "nanogl-post",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18"
             }
           ],
           "implements": null
         },
         {
-          "id": 482,
+          "id": 480,
           "name": "Post",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L16",
+          "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L18",
+          "comment": "This class manages post-processing effects.",
           "tags": [],
           "constructors": [
             {
-              "id": 483,
+              "id": 481,
               "name": "Post",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L45",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L87",
               "tags": [],
               "type": {
                 "name": "Post",
                 "lib": "nanogl-post",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L16"
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L18"
               },
               "params": [
                 {
-                  "id": 485,
+                  "id": 483,
                   "name": "gl",
                   "type": {
                     "name": "GLContext",
@@ -18933,15 +19184,20 @@
                     "kind": "Type alias",
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/types.ts#L1"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The webgl context this Post belongs to"
                 },
                 {
-                  "id": 486,
+                  "id": 484,
                   "name": "mipmap",
                   "type": {
                     "name": "boolean"
                   },
-                  "tags": [],
+                  "tags": [
+                    "optional"
+                  ],
+                  "comment": "Whether to generate mipmaps or not",
+                  "optional": true,
                   "defaultValue": "false"
                 }
               ]
@@ -18949,79 +19205,87 @@
           ],
           "properties": [
             {
-              "id": 488,
+              "id": 486,
               "name": "_effects",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L20",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L23",
+              "comment": "The list of post-processing effects",
               "type": {
                 "name": "BaseEffect",
                 "lib": "nanogl-post",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16",
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18",
                 "isArray": true
               },
               "tags": []
             },
             {
-              "id": 489,
+              "id": 487,
               "name": "_flags",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L21",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L28",
+              "comment": "The dependencies the effects need :\ndepth pass, linear filtering",
               "type": {
                 "name": "EffectDependency",
                 "lib": "nanogl-post",
                 "kind": "Enumeration",
-                "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L5"
+                "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L5"
               },
               "tags": []
             },
             {
-              "id": 490,
+              "id": 488,
               "name": "_shaderInvalid",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L22",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L30",
+              "comment": "Whether the program is invalid or not",
               "type": {
                 "name": "boolean"
               },
               "tags": []
             },
             {
-              "id": 494,
+              "id": 492,
               "name": "bufferHeight",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L27",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L39",
+              "comment": "The height of the buffer",
               "type": {
                 "name": "number"
               },
               "tags": []
             },
             {
-              "id": 493,
+              "id": 491,
               "name": "bufferWidth",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L26",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L37",
+              "comment": "The width of the buffer",
               "type": {
                 "name": "number"
               },
               "tags": []
             },
             {
-              "id": 501,
+              "id": 499,
               "name": "color_buffer_float",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L37",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L70",
+              "comment": "The EXT_color_buffer_float webgl extension :\nadds the ability to render a variety of floating point formats",
               "type": {
                 "name": "any"
               },
               "tags": []
             },
             {
-              "id": 495,
+              "id": 493,
               "name": "enabled",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L29",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L42",
+              "comment": "Whether the post-processing is enabled or not",
               "type": {
                 "name": "boolean"
               },
               "tags": []
             },
             {
-              "id": 497,
+              "id": 495,
               "name": "float_texture_ext",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L33",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L50",
+              "comment": "The OES_texture_float webgl extension :\nexposes floating-point pixel types for textures",
               "type": [
                 {
                   "name": "null"
@@ -19033,9 +19297,10 @@
               "tags": []
             },
             {
-              "id": 499,
+              "id": 497,
               "name": "float_texture_ext_l",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L35",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L60",
+              "comment": "The OES_texture_half_float_linear webgl extension :\nallows linear filtering with half floating-point pixel types for textures",
               "type": [
                 {
                   "name": "null"
@@ -19047,9 +19312,10 @@
               "tags": []
             },
             {
-              "id": 506,
+              "id": 504,
               "name": "fsPlane",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L43",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L81",
+              "comment": "The full-screen quad used to render all effects",
               "type": {
                 "name": "ArrayBuffer",
                 "lib": "nanogl",
@@ -19059,9 +19325,10 @@
               "tags": []
             },
             {
-              "id": 487,
+              "id": 485,
               "name": "gl",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L18",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L20",
+              "comment": "The webgl context this Post belongs to",
               "type": {
                 "name": "GLContext",
                 "lib": "nanogl",
@@ -19071,9 +19338,10 @@
               "tags": []
             },
             {
-              "id": 498,
+              "id": 496,
               "name": "halfFloat",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L34",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L55",
+              "comment": "The OES_texture_half_float webgl extension :\nadds texture formats with 16- and 32-bit floating-point components",
               "type": [
                 {
                   "name": "null"
@@ -19085,9 +19353,10 @@
               "tags": []
             },
             {
-              "id": 500,
+              "id": 498,
               "name": "halfFloat_l",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L36",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L65",
+              "comment": "The OES_texture_float_linear webgl extension :\nallows linear filtering with floating-point pixel types for textures",
               "type": [
                 {
                   "name": "null"
@@ -19099,18 +19368,20 @@
               "tags": []
             },
             {
-              "id": 502,
+              "id": 500,
               "name": "hasDepthTexture",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L38",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L72",
+              "comment": "Whether a texture with depth pixel format can be created or not",
               "type": {
                 "name": "boolean"
               },
               "tags": []
             },
             {
-              "id": 504,
+              "id": 502,
               "name": "mainColor",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L41",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L77",
+              "comment": "The color texture of the main FBO",
               "type": {
                 "name": "Texture",
                 "lib": "nanogl",
@@ -19120,9 +19391,10 @@
               "tags": []
             },
             {
-              "id": 503,
+              "id": 501,
               "name": "mainFbo",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L40",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L75",
+              "comment": "The main framebuffer",
               "type": {
                 "name": "Fbo",
                 "lib": "nanogl",
@@ -19132,18 +19404,20 @@
               "tags": []
             },
             {
-              "id": 496,
+              "id": 494,
               "name": "mipmap",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L30",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L44",
+              "comment": "Whether to generate mipmaps or not",
               "type": {
                 "name": "boolean"
               },
               "tags": []
             },
             {
-              "id": 505,
+              "id": 503,
               "name": "prg",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L42",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L79",
+              "comment": "The program used to render all effects",
               "type": {
                 "name": "Program",
                 "lib": "nanogl",
@@ -19153,18 +19427,20 @@
               "tags": []
             },
             {
-              "id": 492,
+              "id": 490,
               "name": "renderHeight",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L25",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L35",
+              "comment": "The height to render",
               "type": {
                 "name": "number"
               },
               "tags": []
             },
             {
-              "id": 491,
+              "id": 489,
               "name": "renderWidth",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L24",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L33",
+              "comment": "The width to render",
               "type": {
                 "name": "number"
               },
@@ -19174,83 +19450,90 @@
           "accessors": [],
           "methods": [
             {
-              "id": 509,
+              "id": 507,
               "name": "_needDepth",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L114",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L160",
+              "comment": "Know whether the effects need a depth pass or not.",
               "tags": [],
               "type": {
                 "name": "boolean"
               }
             },
             {
-              "id": 511,
+              "id": 509,
               "name": "_needLinear",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L118",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L167",
+              "comment": "Know whether the effects need linear filtering or not.",
               "tags": [],
               "type": {
                 "name": "boolean"
               }
             },
             {
-              "id": 515,
+              "id": 513,
               "name": "add",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L182",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L235",
+              "comment": "Add a post-processing effect to the list.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 517,
+                  "id": 515,
                   "name": "effect",
                   "type": {
                     "name": "BaseEffect",
                     "lib": "nanogl-post",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+                    "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18"
                   },
                   "tags": []
                 }
               ]
             },
             {
-              "id": 531,
+              "id": 529,
               "name": "bindColor",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L267",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L333",
+              "comment": "Bind the main framebuffer (or the default FBO if\npost-processing is not enabled) and prepare the viewport.\n\nCall this method before rendering the scene.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 540,
+              "id": 538,
               "name": "buildProgram",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L370",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L449",
+              "comment": "Build the program used to render all the effects.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 507,
+              "id": 505,
               "name": "dispose",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L107",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L151",
+              "comment": "Delete all webgl objects related to this Post.",
               "tags": [],
               "type": {
                 "name": "void"
               }
             },
             {
-              "id": 536,
+              "id": 534,
               "name": "fillScreen",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L355",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L432",
+              "comment": "Draw the full-screen quad with the given program.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 538,
+                  "id": 536,
                   "name": "prg",
                   "type": {
                     "name": "Program",
@@ -19258,23 +19541,29 @@
                     "kind": "Class",
                     "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/program.ts#L15"
                   },
-                  "tags": []
+                  "tags": [],
+                  "comment": "The program to use"
                 },
                 {
-                  "id": 539,
+                  "id": 537,
                   "name": "fullframe",
                   "type": {
                     "name": "boolean"
                   },
-                  "tags": [],
+                  "tags": [
+                    "optional"
+                  ],
+                  "comment": "Whether to render the full frame or not",
+                  "optional": true,
                   "defaultValue": "false"
                 }
               ]
             },
             {
-              "id": 513,
+              "id": 511,
               "name": "genFbo",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L123",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L174",
+              "comment": "Generate a framebuffer that can be used to render the effects.",
               "tags": [],
               "type": {
                 "name": "Fbo",
@@ -19284,25 +19573,27 @@
               }
             },
             {
-              "id": 529,
+              "id": 527,
               "name": "needDepthPass",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L247",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L308",
+              "comment": "Know whether this Post needs a depth pass or not.",
               "tags": [],
               "type": {
                 "name": "boolean"
               }
             },
             {
-              "id": 525,
+              "id": 523,
               "name": "preRender",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L228",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L287",
+              "comment": "Prepare this post for render.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 527,
+                  "id": 525,
                   "name": "w",
                   "type": {
                     "name": "number"
@@ -19310,7 +19601,7 @@
                   "tags": []
                 },
                 {
-                  "id": 528,
+                  "id": 526,
                   "name": "h",
                   "type": {
                     "name": "number"
@@ -19320,38 +19611,40 @@
               ]
             },
             {
-              "id": 518,
+              "id": 516,
               "name": "remove",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L193",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L248",
+              "comment": "Remove a post-processing effect from the list.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 520,
+                  "id": 518,
                   "name": "effect",
                   "type": {
                     "name": "BaseEffect",
                     "lib": "nanogl-post",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/effects/base-effect.ts#L16"
+                    "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/effects/base-effect.ts#L18"
                   },
                   "tags": []
                 }
               ]
             },
             {
-              "id": 533,
+              "id": 531,
               "name": "render",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L288",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L361",
+              "comment": "Render the effects.\n\n**Important :** The scene should be rendered to the main FBO before calling this method.\nYou can use [bindColor](#item-529) before rendering the scene to do so.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 535,
+                  "id": 533,
                   "name": "toFbo",
                   "type": {
                     "name": "Fbo",
@@ -19362,21 +19655,23 @@
                   "tags": [
                     "optional"
                   ],
+                  "comment": "The framebuffer to render to. If not specified, render to the screen.",
                   "optional": true
                 }
               ]
             },
             {
-              "id": 521,
+              "id": 519,
               "name": "resize",
-              "source": "https://github.com/evanmartiin/nanogl-post/blob/042163a/src/post.ts#L214",
+              "source": "https://github.com/evanmartiin/nanogl-post/blob/1a4a6b6/src/post.ts#L271",
+              "comment": "Resize the buffers and effects.",
               "tags": [],
               "type": {
                 "name": "void"
               },
               "params": [
                 {
-                  "id": 523,
+                  "id": 521,
                   "name": "w",
                   "type": {
                     "name": "number"
@@ -19384,7 +19679,7 @@
                   "tags": []
                 },
                 {
-                  "id": 524,
+                  "id": 522,
                   "name": "h",
                   "type": {
                     "name": "number"
