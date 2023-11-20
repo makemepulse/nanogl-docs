@@ -1014,7 +1014,18 @@
               "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/fbo.ts#L114",
               "comment": "The list of the bindingPoint/attachment pairs setup for this FBO",
               "type": {
-                "name": "Record"
+                "name": "Record",
+                "types": [
+                  {
+                    "name": "string"
+                  },
+                  {
+                    "name": "Attachment",
+                    "lib": "nanogl",
+                    "kind": "Class",
+                    "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/fbo.ts#L23"
+                  }
+                ]
               },
               "tags": []
             },
@@ -6392,7 +6403,15 @@
               "name": "slotsMap",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/ChunksSlots.ts#L58",
               "type": {
-                "name": "Record"
+                "name": "Record",
+                "types": [
+                  {
+                    "name": "string"
+                  },
+                  {
+                    "name": "ChunkSlot"
+                  }
+                ]
               },
               "tags": []
             }
@@ -9999,7 +10018,18 @@
               "name": "_cache",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/ProgramCache.ts#L33",
               "type": {
-                "name": "Record"
+                "name": "Record",
+                "types": [
+                  {
+                    "name": "string"
+                  },
+                  {
+                    "name": "Program",
+                    "lib": "nanogl",
+                    "kind": "Class",
+                    "source": "https://github.com/evanmartiin/nanogl/blob/7469663/src/program.ts#L15"
+                  }
+                ]
               },
               "tags": [
                 "private"
@@ -13460,7 +13490,18 @@
               "name": "_modelsMap",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/LightSetup.ts#L19",
               "type": {
-                "name": "Record"
+                "name": "Record",
+                "types": [
+                  {
+                    "name": "string"
+                  },
+                  {
+                    "name": "ILightModel",
+                    "lib": "nanogl-pbr",
+                    "kind": "Interface",
+                    "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/interfaces/ILightModel.ts#L7"
+                  }
+                ]
               },
               "tags": []
             },
@@ -14970,7 +15011,18 @@
               "name": "_datas",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/StandardModel.ts#L70",
               "type": {
-                "name": "Record"
+                "name": "Record",
+                "types": [
+                  {
+                    "name": "string"
+                  },
+                  {
+                    "name": "AbstractLightModel",
+                    "lib": "nanogl-pbr",
+                    "kind": "Class",
+                    "source": "https://github.com/evanmartiin/nanogl-pbr/blob/3cf6802/src/lighting/AbstractLightModel.ts#L10"
+                  }
+                ]
               },
               "tags": [
                 "private"
@@ -15612,7 +15664,15 @@
               "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L59",
               "comment": "List of pixel formats that have already been tested for texture allocation\nto be possible or not, and the corresponding result",
               "type": {
-                "name": "Record"
+                "name": "Record",
+                "types": [
+                  {
+                    "name": "string"
+                  },
+                  {
+                    "name": "boolean"
+                  }
+                ]
               },
               "tags": [
                 "private",
@@ -15625,7 +15685,15 @@
               "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L64",
               "comment": "List of pixel formats that have already been tested\nto be color renderable or not, and the corresponding result",
               "type": {
-                "name": "Record"
+                "name": "Record",
+                "types": [
+                  {
+                    "name": "string"
+                  },
+                  {
+                    "name": "boolean"
+                  }
+                ]
               },
               "tags": [
                 "private",

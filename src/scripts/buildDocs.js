@@ -348,6 +348,16 @@ function resolveTypes(type, currentLib) {
         return { name: type.name };
     }
     if (type.type === 'reference') {
+        if (type.name === 'Record') {
+            return {
+                name: 'Record',
+                types: [
+                    resolveTypes(type.typeArguments[0], currentLib),
+                    resolveTypes(type.typeArguments[1], currentLib),
+                ],
+            };
+        }
+
         const exported = getExportedFromReference(type, currentLib);
 
         if (exported) {

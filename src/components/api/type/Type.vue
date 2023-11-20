@@ -1,5 +1,18 @@
 <template>
-  <template v-for="(typeData, index) in types">
+  <template v-if="types[0].name === 'Record'">
+    <span>{{ 'Record<' }}</span>
+    <SingleType
+      :type="types[0].types[0]"
+      :isCode="isCode"
+    />
+    <span>{{ ', ' }}</span>
+    <SingleType
+      :type="types[0].types[1]"
+      :isCode="isCode"
+    />
+    <span>{{ '>' }}</span>
+  </template>
+  <template v-else v-for="(typeData, index) in types">
     <SingleType
       :type="typeData"
       :isCode="isCode"
@@ -25,4 +38,5 @@ const props = defineProps<Props>();
 const types = computed(() => {
   return Array.isArray(props.data) ? props.data : [props.data];
 })
+
 </script>
