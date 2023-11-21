@@ -31,6 +31,7 @@ export default defineConfig(({ mode }) => {
         { find: '@assets', replacement: fileURLToPath(new URL('./src/assets', import.meta.url)) },
         { find: '@examples', replacement: fileURLToPath(new URL('./src/examples', import.meta.url)) },
         { find: '@gl-preview', replacement: fileURLToPath(new URL('./src/gl-preview', import.meta.url)) },
+        { find: '@components', replacement: fileURLToPath(new URL('./src/components', import.meta.url)) },
       ]
     },
     plugins: [

@@ -11,6 +11,7 @@
       "@lib/*": ["lib/*"],
       "@assets/*": ["assets/*"],
       "@examples/*": ["examples/*"],
+      "@components/*": ["components/*"],
       "@gl-preview/*": ["gl-preview/*"],
     },
     "allowSyntheticDefaultImports": true,
