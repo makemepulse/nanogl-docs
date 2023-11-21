@@ -17,8 +17,9 @@
     </div>
     <div v-if="defaultValue || defaultType">
       <span>Default : </span>
-      <CodeWrapper lang="js" is-inline>
-        <span v-if="!!defaultValue">{{ defaultValue }}</span>
+      <span v-if="!!defaultValueHtml" v-html="defaultValueHtml" />
+      <CodeWrapper v-else lang="ts" is-inline>
+        <span v-if="defaultValue === 'null'" class="token null">null</span>
         <Type v-else :data="defaultType" is-code />
       </CodeWrapper>
     </div>
@@ -26,6 +27,9 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+
+import { useMarkdown } from '@lib/markdown';
 import { APITag, APIType } from '@lib/apiData';
 
 type Props = {
@@ -37,5 +41,12 @@ type Props = {
   defaultValue?: string;
   defaultType?: APIType;
 };
-defineProps<Props>();
+const props = defineProps<Props>();
+
+const { md } = useMarkdown();
+
+const defaultValueHtml = computed(() => {
+  if (!props.defaultValue || props.defaultValue === 'null') return;
+  return md.value.renderInline(`\`${props.defaultValue}\``);
+});
 </script>

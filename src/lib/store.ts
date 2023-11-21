@@ -3,7 +3,8 @@ import { computed, ref } from "vue";
 
 import { APILib } from "@lib/apiData";
 import { GuideSection } from "@lib/guideData";
-import { examplesData } from "./exampleData";
+import { examplesData } from "@lib/exampleData";
+import { LIB_ITEM_TYPE } from "@lib/constants";
 
 const libsData = ref<APILib[]>([]);
 const guideList = ref<GuideSection[]>([]);
@@ -61,7 +62,7 @@ export function useStore() {
   })
 
   const currentType = computed(() => {
-    return router.currentRoute.value.params.type as string || null;
+    return router.currentRoute.value.params.type as LIB_ITEM_TYPE || null;
   })
 
   const currentItem = computed(() => {

@@ -1,29 +1,12 @@
 <template>
   <div class="content-wrapper" :id="`class-${libClass.name}`">
-    <div
-      v-if="libClass.extends && libClass.extends.length"
-      class="flex flex-row-reverse justify-end flex-wrap gap-x-8"
-    >
-      <p v-for="extendsNode in libClass.extends">
-        <SingleType :type="extendsNode"/>
-        <span> →</span>
-      </p>
-    </div>
+    <Extends :extendsList="libClass.extends" />
     <div id="introduction" class="h1-container flex flex-col">
-      <div class="flex items-center justify-between">
-        <div class="flex gap-8 items-baseline">
-          <h1 class="no-margin">{{ libClass.name }}</h1>
-          <Tags v-if="libClass.tags.length" :tags="libClass.tags" big />
-        </div>
-        <UIButton
-          v-if="libClass.source.length"
-          :href="libClass.source"
-          text="Source"
-          icon="code"
-          icon-stroke
-          small
-        />
-      </div>
+      <Title
+        :name="libClass.name"
+        :tags="libClass.tags"
+        :source="libClass.source"
+      />
       <UIPill
         v-if="libClass.implements"
         class="self-start bg-grey"
@@ -52,7 +35,6 @@
           :id="property.id"
           :name="property.name"
           :type="property.type"
-          :optional="property.optional"
           :comment="property.comment"
           :tags="property.tags"
           :default-value="property.defaultValue"
@@ -62,32 +44,10 @@
     <div v-if="libClass.accessors.length" class="mb-48">
       <h2 id="accessors">Accessors</h2>
       <div class="space-y-32">
-        <div v-for="accessor in libClass.accessors">
-          <h3 :id="`item-${accessor.id}`">
-            <CodeWrapper is-inline>
-              {{ accessor.name }}
-            </CodeWrapper>
-          </h3>
-          <div class="pl-24">
-            <Comment v-if="accessor.comment" :comment="accessor.comment" />
-            <div class="space-y-24">
-              <div v-if="accessor.getter">
-                <Function
-                  :func="accessor.getter"
-                  custom-name="Getter"
-                  heading-component="h4"
-                />
-              </div>
-              <div v-if="accessor.setter">
-                <Function
-                  :func="accessor.setter"
-                  custom-name="Setter"
-                  heading-component="h4"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <Accessor
+          v-for="accessor in libClass.accessors"
+          :accessor="accessor"
+        />
       </div>
     </div>
     <div v-if="libClass.methods.length" class="mb-48">

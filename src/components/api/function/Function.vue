@@ -20,9 +20,7 @@
           {{ '<' }}
         </span>
         <template v-for="(typeParam, i) in func.typeParams">
-          <span class="token type">
-            <Type :data="typeParam" is-code />
-          </span>
+          <Type :data="typeParam" is-code />
           <span
             v-if="i < func.typeParams.length - 1"
             class="token punctuation"
@@ -48,9 +46,7 @@
           <span class="token punctuation">
             {{ ': ' }}
           </span>
-          <span class="token type">
-            <Type :data="param.type" is-code/>
-          </span>
+          <Type :data="param.type" is-code/>
         </template>
         <span
           v-if="index + 1 < func.params.length"
@@ -66,9 +62,7 @@
         <span class="token punctuation">
           {{ ' : ' }}
         </span>
-        <span class="token type">
-          <Type :data="func.type" is-code />
-        </span>
+        <Type :data="func.type" is-code />
       </template>
     </CodeWrapper>
     <Comment v-if="func.comment" :comment="func.comment" class="my-16" />
@@ -104,7 +98,6 @@
           :id="param.id"
           :name="param.name"
           :type="param.type"
-          :optional="param.optional"
           :comment="param.comment"
           :tags="param.tags"
           :default-value="param.defaultValue"

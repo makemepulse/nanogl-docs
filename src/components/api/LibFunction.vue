@@ -1,17 +1,10 @@
 <template>
   <div class="content-wrapper" :id="`function-${libFunction.name}`">
-    <div id="introduction" class="h1-container flex items-center justify-between">
-      <div class="flex gap-8 items-baseline">
-        <h1 class="no-margin">{{ libFunction.name }}</h1>
-        <Tags :tags="libFunction.tags" big />
-      </div>
-      <UIButton
-        v-if="libFunction.source.length"
-        :href="libFunction.source"
-        text="Source"
-        icon="code"
-        icon-stroke
-        small
+    <div id="introduction" class="h1-container">
+      <Title
+        :name="libFunction.name"
+        :tags="libFunction.tags"
+        :source="libFunction.source"
       />
     </div>
     <Function :func="libFunction" is-full-page />
@@ -32,10 +25,10 @@
 </template>
 
 <script setup lang="ts">
-import { APIFunction } from '@lib/apiData';
+import { APILibFunction } from '@lib/apiData';
 
 type Props = {
-  libFunction: APIFunction;
+  libFunction: APILibFunction;
 };
 defineProps<Props>();
 </script>

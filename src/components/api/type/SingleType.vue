@@ -3,26 +3,53 @@
     v-if="type.function"
     :func="type.function"
   />
-  <RouterLink
-    v-else-if="!!url && url.isInternal"
-    :class="{ 'code-link': isCode }"
-    :to="url.path"
-    target="_blank"
-  >
-    {{ type.name }}
-  </RouterLink>
-  <a
-    v-else-if="!!url && !url.isInternal"
-    :class="{ 'code-link': isCode }"
-    :href="url.path"
-    target="_blank"
-  >
-    {{ type.name }}
-  </a>
-  <span v-else>{{ type.name }}</span>
-  <span v-if="type.isArray">
-    {{ '[]' }}
-  </span>
+  <template v-else>
+    <span v-if="type.isQuery" class="token keyword">
+      {{ 'typeof ' }}
+    </span>
+    <RouterLink
+      v-if="!!url && url.isInternal"
+      :class="{ 'code-link': isCode }"
+      :to="url.path"
+      target="_blank"
+    >
+      <TypeName
+        :name="type.name"
+        :literal-type="type.literalType"
+      />
+    </RouterLink>
+    <a
+      v-else-if="!!url && !url.isInternal"
+      :class="{ 'code-link': isCode }"
+      :href="url.path"
+      target="_blank"
+    >
+      <TypeName
+        :name="type.name"
+        :literal-type="type.literalType"
+      />
+    </a>
+    <TypeName
+      v-else
+      :name="type.name"
+      :literal-type="type.literalType"
+    />
+    <TypeArguments
+      v-if="type.arguments"
+      :args="type.arguments"
+    />
+    <template v-if="type.isArray || type.isIndexed">
+      <span class="token punctuation">
+        {{ '[' }}
+      </span>
+      <span v-if="type.indexType">
+        <Type :data="type.indexType" is-code />
+      </span>
+      <span class="token punctuation">
+        {{ ']' }}
+      </span>
+    </template>
+  </template>
 </template>
 
 <script setup lang="ts">
@@ -45,6 +72,18 @@ const itemType = computed(() => {
 
   if (props.type.kind === 'Function') {
     return LIB_ITEM_TYPE.FUNCTION;
+  }
+
+  if (props.type.kind === 'Interface') {
+    return LIB_ITEM_TYPE.INTERFACE;
+  }
+
+  if (props.type.kind === 'Type alias') {
+    return LIB_ITEM_TYPE.TYPE;
+  }
+
+  if (props.type.kind === 'Enumeration') {
+    return LIB_ITEM_TYPE.ENUM;
   }
 
   return null
