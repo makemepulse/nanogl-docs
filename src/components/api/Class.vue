@@ -36,7 +36,7 @@
     <Comment v-if="libClass.example" :comment="libClass.example" />
     <div v-if="libClass.constructors.length" class="mb-48">
       <h2 id="constructor">Constructor</h2>
-      <div class="space-y-16">
+      <div class="space-y-24">
         <Function
           v-for="constructor in libClass.constructors"
           :func="constructor"
@@ -46,7 +46,7 @@
     </div>
     <div v-if="libClass.properties.length" class="mb-48">
       <h2 id="properties">Properties</h2>
-      <div class="space-y-16">
+      <div class="space-y-24">
         <Variable
           v-for="property in libClass.properties"
           :id="property.id"
@@ -70,7 +70,7 @@
           </h3>
           <div class="pl-24">
             <Comment v-if="accessor.comment" :comment="accessor.comment" />
-            <div class="space-y-16">
+            <div class="space-y-24">
               <div v-if="accessor.getter">
                 <Function
                   :func="accessor.getter"

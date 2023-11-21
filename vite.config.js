@@ -13,12 +13,16 @@ import MdAttrs from 'markdown-it-attrs'
 import MdAnchor from 'markdown-it-anchor'
 import MdLinkAttrs from 'markdown-it-link-attributes'
 import MdReplaceLink from 'markdown-it-replace-link'
+// import ViteGlslPlugin from 'vite-plugin-glsl';
+
+// import { ShaderPlugin } from "./build/vite-plugin-nanogl"
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
 
   return {
+    // optimizeDeps: ['*.glsl', 'node_modules/**/*'],
     base: env.VITE_APP_BASE_URL || '/',
     resolve: {
       alias: [
@@ -68,7 +72,9 @@ export default defineConfig(({ mode }) => {
         include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
         dts: false,
       }),
-      SvgLoader()
+      SvgLoader(),
+      // ViteGlslPlugin()
+      // ShaderPlugin()
     ],
   }
 })

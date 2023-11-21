@@ -20,7 +20,9 @@
     "markdown-it-table-of-contents": "^0.6.0",
     "nanogl": "^2.3.2",
     "nanogl-camera": "^1.1.2",
+    "nanogl-gltf": "^0.2.0",
     "nanogl-node": "^1.2.1",
+    "nanogl-pbr": "^3.0.0-beta.15",
     "nanogl-primitives-2d": "^1.1.0",
     "nanogl-state": "^2.1.0",
     "tweakpane": "^4.0.1",
@@ -39,6 +41,7 @@
     "typescript": "^5.2.2",
     "unplugin-vue-components": "^0.25.2",
     "vite": "^4.0.0",
+    "vite-plugin-glsl": "^1.1.2",
     "vite-plugin-pages": "^0.31.0"
   }
 }

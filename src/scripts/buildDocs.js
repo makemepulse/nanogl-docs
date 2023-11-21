@@ -14,6 +14,11 @@ const LIBS_URLS = [
         description: 'Cameras for nanogl'
     },
     {
+        name: 'nanogl-gltf',
+        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-gltf/develop/docs/data.json',
+        description: 'Handle .gltf files'
+    },
+    {
         name: 'nanogl-node',
         url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-node/develop/docs/data.json',
         description: 'Handle nested objects transform in 3D space'
@@ -196,6 +201,7 @@ function parseLibsData(libs) {
             lib.children.forEach(resolveExported);
         } else {
             lib.children.forEach(file => {
+                if (!file.children?.length) return;
                 // file.children contains all exported objects from the file
                 file.children.forEach(resolveExported);
             })
@@ -216,6 +222,7 @@ function libChildrenAction(lib, action) {
         lib.children.forEach(action);
     } else {
         lib.children.forEach(file => {
+            if (!file.children?.length) return;
             // file.children contains all exported objects from the file
             file.children.forEach(action);
         })
@@ -348,6 +355,15 @@ function resolveTypes(type, currentLib) {
         return { name: type.name };
     }
     if (type.type === 'reference') {
+        if (['ArrayLike', 'Set', 'Record', 'Map', 'WeakMap', 'Promise'].includes(type.name)) {
+            return {
+                name: type.name,
+                types: [
+                    ...type.typeArguments.map(type => resolveTypes(type, currentLib)),
+                ],
+            };
+        }
+
         const exported = getExportedFromReference(type, currentLib);
 
         if (exported) {
@@ -382,6 +398,9 @@ function resolveTypes(type, currentLib) {
             name: 'function',
             function: funcData,
         }
+    }
+    if (type.type === 'typeOperator') {
+        return resolveTypes(type.target, currentLib);
     }
 }
 
