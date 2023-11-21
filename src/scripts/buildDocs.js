@@ -425,15 +425,6 @@ function resolveTypes(type, currentLib, isArgument = false) {
         return { name: type.name };
     }
     if (type.type === 'reference') {
-        if (['ArrayLike', 'Set', 'Record', 'Map', 'WeakMap', 'Promise'].includes(type.name)) {
-            return {
-                name: type.name,
-                types: [
-                    ...type.typeArguments.map(type => resolveTypes(type, currentLib)),
-                ],
-            };
-        }
-
         const exported = getExportedFromReference(type, currentLib);
 
         if (exported) {
@@ -450,7 +441,14 @@ function resolveTypes(type, currentLib, isArgument = false) {
             };
         }
 
-        return { name: type.name };
+        return {
+            name: type.name,
+            arguments: isArgument || !type.typeArguments?.length
+                ? null
+                : type.typeArguments?.map(arg => {
+                    return resolveTypes(arg, currentLib, true)
+                }),
+        };
     }
     if (type.type === 'array') {
         return {
