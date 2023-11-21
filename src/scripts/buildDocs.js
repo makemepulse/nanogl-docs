@@ -210,7 +210,23 @@ function parseLibsData(libs) {
                     name: exported.name,
                     source: exported.sources[0].url,
                     tags: resolveTags(exported.flags),
+                    members: []
                 }
+
+                exported.children.forEach(member => {
+                    if (member.kindString === 'Enumeration Member') {
+                        const memberObj = {
+                            id: member.id,
+                            name: member.name,
+                            comment: resolveComment(member.comment?.summary),
+                            tags: resolveTags(member.flags),
+                            type: resolveTypes(member.type, lib.name)
+                        }
+                        exportedObj.members.push(memberObj)
+                    }
+                })
+                exportedObj.members.sort((a, b) => a.id - b.id)
+
                 libObj.enumerations.push(exportedObj)
             }
         }
@@ -465,15 +481,15 @@ function resolveTypes(type, currentLib, isArgument = false) {
     if (type.type === 'indexedAccess') {
         return {
             ...resolveTypes(type.objectType, currentLib),
-            indexType: resolveTypes(type.indexType, currentLib),
             isIndexed: true,
+            indexType: resolveTypes(type.indexType, currentLib),
         };
     }
     if (type.type === 'literal') {
+        const literalType = type.value === null ? 'null' : typeof type.value;
         return {
-            name: typeof type.value === 'string'
-                ? `'${type.value}'`
-                : `${type.value}`
+            name: literalType === 'string' ? `'${type.value}'` : `${type.value}`,
+            literalType: literalType,
         };
     }
     if (type.type === 'reflection') {

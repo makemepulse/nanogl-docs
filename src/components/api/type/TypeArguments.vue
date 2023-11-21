@@ -3,9 +3,7 @@
     {{ '<' }}
   </span>
   <template v-for="(arg, i) in args">
-    <span class="token type">
-      <Type :data="arg" is-code />
-    </span>
+    <Type :data="arg" is-code />
     <span
       v-if="i < (args.length - 1)"
       class="token punctuation"
@@ -25,6 +23,5 @@ type Props = {
   args: APISingleType[];
 };
 
-const props = defineProps<Props>();
-console.log(props.args)
+defineProps<Props>();
 </script>

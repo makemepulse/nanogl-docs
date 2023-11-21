@@ -6,7 +6,7 @@
         :data="typeData"
         :isCode="isCode"
       />
-      <span v-if="index < types.length - 1">
+      <span v-if="index < types.length - 1" class="token operator">
         {{ ' | ' }}
       </span>
     </template>

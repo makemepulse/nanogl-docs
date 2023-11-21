@@ -36,7 +36,6 @@
           :id="property.id"
           :name="property.name"
           :type="property.type"
-          :optional="property.optional"
           :comment="property.comment"
           :tags="property.tags"
           :default-value="property.defaultValue"

@@ -11,9 +11,7 @@
       <span class="token keyword">{{ 'type ' }}</span>
       <span class="">{{ libType.name }}</span>
       <span class="token punctuation">{{ ' = ' }}</span>
-      <span class="token type">
-        <Type :data="libType.type" is-code />
-      </span>
+      <Type :data="libType.type" is-code />
     </CodeWrapper>
   </div>
   <div class="toc-wrapper">

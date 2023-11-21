@@ -7,6 +7,23 @@
         :source="libEnum.source"
       />
     </div>
+    <CodeWrapper>
+      <span class="token keyword">{{ 'enum ' }}</span>
+      <span class="">{{ libEnum.name }}</span>
+    </CodeWrapper>
+    <div v-if="libEnum.members.length" class="mb-48">
+      <h2 id="members">Members</h2>
+      <div class="space-y-24">
+        <Variable
+          v-for="member in libEnum.members"
+          :id="member.id"
+          :name="member.name"
+          :type="member.type"
+          :comment="member.comment"
+          :tags="member.tags"
+        />
+      </div>
+    </div>
   </div>
   <div class="toc-wrapper">
     <div class="toc">

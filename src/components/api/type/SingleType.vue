@@ -13,7 +13,10 @@
       :to="url.path"
       target="_blank"
     >
-      {{ type.name }}
+      <TypeName
+        :name="type.name"
+        :literal-type="type.literalType"
+      />
     </RouterLink>
     <a
       v-else-if="!!url && !url.isInternal"
@@ -21,23 +24,28 @@
       :href="url.path"
       target="_blank"
     >
-    {{ type.name }}
+      <TypeName
+        :name="type.name"
+        :literal-type="type.literalType"
+      />
     </a>
-    <span v-else>
-      {{ type.name }}
-    </span>
+    <TypeName
+      v-else
+      :name="type.name"
+      :literal-type="type.literalType"
+    />
     <TypeArguments
       v-if="type.arguments"
       :args="type.arguments"
     />
     <template v-if="type.isArray || type.isIndexed">
-      <span>
+      <span class="token punctuation">
         {{ '[' }}
       </span>
       <span v-if="type.indexType">
         <Type :data="type.indexType" is-code />
       </span>
-      <span>
+      <span class="token punctuation">
         {{ ']' }}
       </span>
     </template>
