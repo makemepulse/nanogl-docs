@@ -53,7 +53,7 @@ You can also install some nanogl libraries for useful features :
   - [nanogl-camera](https://github.com/plepers/nanogl-camera) : Cameras for nanogl
   - [nanogl-node](https://github.com/plepers/nanogl-node) : Handle nested objects transform in 3D space
   - [nanogl-primitives-2d](https://github.com/plepers/nanogl-primitives-2d) : Basic 2D primitives for nanogl
-  - [nanogl-glft](https://github.com/plepers/nanogl-gltf) : Handle .gltf files
+  - [nanogl-gltf](https://github.com/plepers/nanogl-gltf) : Handle .gltf files
   - [nanogl-pbr](https://github.com/plepers/nanogl-pbr) : Physically based rendering materials for nanogl
   - [nanogl-pf](https://github.com/plepers/nanogl-pf) : Provide pixel format related capabilities
   - [nanogl-post](https://github.com/plepers/nanogl-post) : Post-processing for nanogl

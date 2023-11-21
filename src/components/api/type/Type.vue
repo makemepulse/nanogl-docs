@@ -1,25 +1,34 @@
 <template>
-  <template v-if="types[0].name === 'Record'">
-    <span>{{ 'Record<' }}</span>
-    <SingleType
-      :type="types[0].types[0]"
-      :isCode="isCode"
-    />
-    <span>{{ ', ' }}</span>
-    <SingleType
-      :type="types[0].types[1]"
-      :isCode="isCode"
-    />
+  <!-- If it's an 'Name<Type>' or 'Name<Type, Type>' shape -->
+  <template v-if="['ArrayLike', 'Set', 'Record', 'Map', 'WeakMap', 'Promise'].includes(types[0].name)">
+    <span>{{ `${types[0].name}<` }}</span>
+    <template v-for="(typeData, index) in types[0].types">
+      <Type
+        :data="typeData"
+        :isCode="isCode"
+      />
+      <span v-if="index < types[0].types.length - 1">{{ ', ' }}</span>
+    </template>
     <span>{{ '>' }}</span>
   </template>
-  <template v-else v-for="(typeData, index) in types">
-    <SingleType
-      :type="typeData"
+
+  <!-- If multiple different types are accepted -->
+  <template v-else-if="types.length > 1" v-for="(typeData, index) in types">
+    <Type
+      :data="typeData"
       :isCode="isCode"
     />
     <span v-if="index < types.length - 1">
       {{ ' | ' }}
     </span>
+  </template>
+
+  <!-- If it's a simple single type -->
+  <template v-else>
+    <SingleType
+      :type="types[0]"
+      :isCode="isCode"
+    />
   </template>
 </template>
 
@@ -36,7 +45,10 @@ type Props = {
 const props = defineProps<Props>();
 
 const types = computed(() => {
-  return Array.isArray(props.data) ? props.data : [props.data];
+  if (Array.isArray(props.data)) {
+    return props.data.filter((v,i,a)=>a.findIndex(v2=>(v2.name===v.name&&v2.lib===v.lib))===i);
+  } 
+  return [props.data];
 })
 
 </script>
