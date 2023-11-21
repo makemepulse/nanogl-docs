@@ -30,7 +30,7 @@
     </CodeWrapper>
     <div v-if="libInterface.properties.length" class="mb-48">
       <h2 id="properties">Properties</h2>
-      <div class="space-y-16">
+      <div class="space-y-24">
         <Variable
           v-for="property in libInterface.properties"
           :id="property.id"
