@@ -17,6 +17,30 @@
         :item-name="libFunc.name"
       />
     </div>
+    <div v-if="currentLib.interfaces.length">
+      <h3 class="mt-8 mb-4">Interfaces</h3>
+      <APILibItem
+        v-for="libInterface in currentLib.interfaces"
+        :type="LIB_ITEM_TYPE.INTERFACE"
+        :item-name="libInterface.name"
+      />
+    </div>
+    <div v-if="currentLib.types.length">
+      <h3 class="mt-8 mb-4">Types</h3>
+      <APILibItem
+      v-for="libType in currentLib.types"
+      :type="LIB_ITEM_TYPE.TYPE"
+      :item-name="libType.name"
+      />
+    </div>
+    <div v-if="currentLib.enumerations.length">
+      <h3 class="mt-8 mb-4">Enumerations</h3>
+      <APILibItem
+        v-for="libEnum in currentLib.enumerations"
+        :type="LIB_ITEM_TYPE.ENUM"
+        :item-name="libEnum.name"
+      />
+    </div>
   </div>
 </template>
 

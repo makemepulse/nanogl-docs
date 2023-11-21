@@ -23,6 +23,7 @@ type Props = {
 const props = defineProps<Props>();
 
 const types = computed(() => {
+  if (!props.data) return [];
   return Array.isArray(props.data) ? props.data : [props.data];
 })
 </script>

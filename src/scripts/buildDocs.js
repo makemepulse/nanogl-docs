@@ -107,6 +107,9 @@ function parseLibsData(libs) {
             description: lib.description,
             classes: [],
             functions: [],
+            interfaces: [],
+            enumerations: [],
+            types: [],
         };
 
         const resolveExported = (exported) => {
@@ -124,55 +127,11 @@ function parseLibsData(libs) {
                     accessors: [],
                     methods: [],
                     extends: exported.extendedTypes ? resolveExtends(exported.extendedTypes[0], lib.name) : null,
-                    implements: exported.implementedTypes ? resolveImplements(exported.implementedTypes[0], lib.name) : null,
+                    implements: exported.implementedTypes ? resolveImplementation(exported.implementedTypes[0], lib.name) : null,
                 }
 
                 // exported.children contains all objects coming from the class (constructor, properties, methods, ...)
-                exported.children?.forEach(child => {
-                    if (child.inheritedFrom) {
-                        return;
-                    }
-
-                    const childObj = {
-                        id: child.id,
-                        name: child.kindString === 'Constructor' ? exported.name : child.name,
-                        source: child.sources ? child.sources[0].url : exportedObj.source, // Some classes don't have a constructor, so we use the class source instead of the constructor one
-                    }
-
-                    if (child.kindString === 'Constructor') {
-                        resolveFunction(childObj, child.signatures[0], child.flags, lib.name);
-                        exportedObj.constructors.push(childObj);
-                    } else if (
-                        child.kindString === 'Property' && child.type?.type === 'reflection'
-                        && child.type?.declaration?.signatures?.[0]?.kindString === 'Call signature'
-                    ) {
-                        resolveFunction(childObj, child.type?.declaration?.signatures?.[0], child.flags, lib.name);
-                        exportedObj.methods.push(childObj);
-                    } else if (child.kindString === 'Property') {
-                        childObj.comment = resolveComment(child.comment?.summary);
-                        childObj.defaultValue = resolveDefaultValue(child);
-                        childObj.type = resolveTypes(child.type, lib.name);
-                        childObj.tags = resolveTags(child.flags);
-                        exportedObj.properties.push(childObj);
-                    } else if (child.kindString === 'Accessor') {
-                        if (child.setSignature) {
-                            childObj.setter = {
-                                name: `set ${child.name}`,
-                            };
-                            resolveFunction(childObj.setter, child.setSignature, child.flags, lib.name);
-                        }
-                        if (child.getSignature) {
-                            childObj.getter = {
-                                name: `get ${child.name}`,
-                            };
-                            resolveFunction(childObj.getter, child.getSignature, child.flags, lib.name);
-                        }
-                        exportedObj.accessors.push(childObj);
-                    } else if (child.kindString === 'Method') {
-                        resolveFunction(childObj, child.signatures[0], child.flags, lib.name);
-                        exportedObj.methods.push(childObj);
-                    }
-                })
+                resolveChildren(exported, exportedObj, lib);
 
                 libObj.classes.push(exportedObj);
             } else if (exported.kindString === 'Function') {
@@ -186,6 +145,68 @@ function parseLibsData(libs) {
                     ...functionObj,
                 }
                 libObj.functions.push(exportedObj);
+            } else if (exported.kindString === 'Interface') {
+                const exportedObj = {
+                    id: exported.id,
+                    name: exported.name,
+                    originalName: exported.originalName,
+                    source: exported.sources[0].url,
+                    comment: resolveComment(exported.comment?.summary),
+                    example: resolveExample(exported),
+                    tags: resolveTags(exported.flags),
+                    properties: [],
+                    accessors: [],
+                    methods: [],
+                    extends: exported.extendedTypes ? resolveExtends(exported.extendedTypes[0], lib.name) : null,
+                    implemented: exported.implementedBy
+                        ? exported.implementedBy.map(implementation => resolveImplementation(implementation, lib.name))
+                        : null,
+                }
+
+                // exported.children contains all objects coming from the interface (properties, methods, ...)
+                resolveChildren(exported, exportedObj, lib);
+
+                libObj.interfaces.push(exportedObj);
+            } else if (exported.kindString === 'Type alias' && exported.type.declaration?.children) {
+                const item = exported.type.declaration;
+
+                const exportedObj = {
+                    useInterface: true,
+                    id: exported.id,
+                    name: exported.name,
+                    originalName: exported.originalName,
+                    source: exported.sources[0].url,
+                    comment: resolveComment(exported.comment?.summary),
+                    example: resolveExample(exported),
+                    tags: resolveTags(exported.flags),
+                    properties: [],
+                    accessors: [],
+                    methods: [],
+                    extends: null,
+                    implemented: null,
+                }
+
+                // exported.children contains all objects coming from the type (properties, methods, ...)
+                resolveChildren(item, exportedObj, lib);
+
+                libObj.types.push(exportedObj);
+            } else if (exported.kindString === 'Type alias') {
+                const exportedObj = {
+                    id: exported.id,
+                    name: exported.name,
+                    source: exported.sources[0].url,
+                    tags: resolveTags(exported.flags),
+                    type: resolveTypes(exported.type, lib.name)
+                }
+                libObj.types.push(exportedObj)
+            } else if (exported.kindString === 'Enumeration') {
+                const exportedObj = {
+                    id: exported.id,
+                    name: exported.name,
+                    source: exported.sources[0].url,
+                    tags: resolveTags(exported.flags),
+                }
+                libObj.enumerations.push(exportedObj)
             }
         }
 
@@ -232,6 +253,55 @@ function createJson(data) {
 
         console.log("JSON file has been saved.");
     });
+}
+
+// Resolve the children of an item
+function resolveChildren(item, itemObj, lib) {
+    item.children?.forEach(child => {
+        if (child.inheritedFrom) {
+            return;
+        }
+
+        const childObj = {
+            id: child.id,
+            name: child.kindString === 'Constructor' ? item.name : child.name,
+            source: child.sources ? child.sources[0].url : itemObj.source, // Some classes don't have a constructor, so we use the class source instead of the constructor one
+        }
+
+        if (child.kindString === 'Constructor' && itemObj.constructors) {
+            resolveFunction(childObj, child.signatures[0], child.flags, lib.name);
+            itemObj.constructors.push(childObj);
+        } else if (
+            child.kindString === 'Property' && child.type?.type === 'reflection'
+            && child.type?.declaration?.signatures?.[0]?.kindString === 'Call signature'
+        ) {
+            resolveFunction(childObj, child.type?.declaration?.signatures?.[0], child.flags, lib.name);
+            itemObj.methods.push(childObj);
+        } else if (child.kindString === 'Property') {
+            childObj.comment = resolveComment(child.comment?.summary);
+            childObj.defaultValue = resolveDefaultValue(child);
+            childObj.type = resolveTypes(child.type, lib.name);
+            childObj.tags = resolveTags(child.flags);
+            itemObj.properties.push(childObj);
+        } else if (child.kindString === 'Accessor') {
+            if (child.setSignature) {
+                childObj.setter = {
+                    name: `set ${child.name}`,
+                };
+                resolveFunction(childObj.setter, child.setSignature, child.flags, lib.name);
+            }
+            if (child.getSignature) {
+                childObj.getter = {
+                    name: `get ${child.name}`,
+                };
+                resolveFunction(childObj.getter, child.getSignature, child.flags, lib.name);
+            }
+            itemObj.accessors.push(childObj);
+        } else if (child.kindString === 'Method') {
+            resolveFunction(childObj, child.signatures[0], child.flags, lib.name);
+            itemObj.methods.push(childObj);
+        }
+    })
 }
 
 // Resolve the default value of an item
@@ -339,7 +409,7 @@ function getExportedFromReference(reference, currentLib) {
 }
 
 // Resolve the type of something (property, method, param, ...)
-function resolveTypes(type, currentLib) {
+function resolveTypes(type, currentLib, isArgument = false) {
     if (!type) return;
     if (type.type === 'union') {
         return type.types.map(type => resolveTypes(type, currentLib));
@@ -356,6 +426,11 @@ function resolveTypes(type, currentLib) {
                 lib: exported.lib,
                 kind: exported.kind,
                 source: exported.source,
+                arguments: isArgument || !type.typeArguments?.length
+                    ? null
+                    : type.typeArguments?.map(arg => {
+                        return resolveTypes(arg, currentLib, true)
+                    }),
             };
         }
 
@@ -367,8 +442,25 @@ function resolveTypes(type, currentLib) {
             isArray: true
         };
     }
+    if (type.type === 'query') {
+        return {
+            ...resolveTypes(type.queryType, currentLib),
+            isQuery: true
+        };
+    }
+    if (type.type === 'indexedAccess') {
+        return {
+            ...resolveTypes(type.objectType, currentLib),
+            indexType: resolveTypes(type.indexType, currentLib),
+            isIndexed: true,
+        };
+    }
     if (type.type === 'literal') {
-        return { name: `${type.value}` };
+        return {
+            name: typeof type.value === 'string'
+                ? `'${type.value}'`
+                : `${type.value}`
+        };
     }
     if (type.type === 'reflection') {
         const signature = type.declaration?.signatures?.[0];
@@ -408,11 +500,11 @@ function resolveExtends(extendsData, currentLib, extendsChain = []) {
     return extendsChain
 }
 
-// Resolve the implements type
-function resolveImplements(implementsData, currentLib) {
-    if (implementsData.type !== 'reference') return;
+// Resolve the implementation type (implements or implemented by)
+function resolveImplementation(implementationData, currentLib) {
+    if (implementationData.type !== 'reference') return;
 
-    const exported = getExportedFromReference(implementsData, currentLib);
+    const exported = getExportedFromReference(implementationData, currentLib);
 
     if (exported) {
         return {
