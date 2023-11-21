@@ -19,6 +19,6 @@ export const examplesData: Record<ExampleCategory, ExampleEntry[]> = {
   ],
   [ExampleCategory.MATERIAL]: [
     // { id: "clearcoat", name: "Clearcoat", module: Clearcoat },
-    // { id: "unlit", name: "Unlit", module: Unlit },
+    // { id: "unlit", name: "Unlit" },
   ],
 }

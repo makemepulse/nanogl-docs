@@ -79,7 +79,7 @@
       >
         Type parameters
       </component>
-      <div class="space-y-16">
+      <div class="space-y-24">
         <Variable
           v-for="typeParam in func.typeParams"
           :id="typeParam.id"
@@ -98,7 +98,7 @@
       >
         Parameters
       </component>
-      <div class="space-y-16">
+      <div class="space-y-24">
         <Variable
           v-for="param in func.params"
           :id="param.id"
