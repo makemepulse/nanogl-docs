@@ -15,23 +15,10 @@
   <div :class="{ 'pl-24': !isConstructor && !isFullPage }">
     <CodeWrapper>
       <span class="token function">{{ func.name }}</span>
-      <template v-if="func.typeParams?.length">
-        <span class="token punctuation">
-          {{ '<' }}
-        </span>
-        <template v-for="(typeParam, i) in func.typeParams">
-          <Type :data="typeParam" is-code />
-          <span
-            v-if="i < func.typeParams.length - 1"
-            class="token punctuation"
-          >
-            {{ ', ' }}
-          </span>
-        </template>
-        <span class="token punctuation">
-          {{ '>' }}
-        </span>
-      </template>
+      <TypeParams
+        v-if="func.typeParams?.length"
+        :params="func.typeParams"
+      />
       <span class="token punctuation">
         {{  '(' }}
       </span>
@@ -66,7 +53,7 @@
       </template>
     </CodeWrapper>
     <Comment v-if="func.comment" :comment="func.comment" class="my-16" />
-    <div v-if="func.typeParams" class="my-16">
+    <div v-if="func.typeParams?.length" class="my-16">
       <component
         :is="paramsHeadingComponent"
         :id="isFullPage ? `${func.name}-type-params` : ''"

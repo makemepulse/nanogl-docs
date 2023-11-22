@@ -4,21 +4,44 @@ export type APITag = LIB_ITEM_TAGS;
 
 export type APILiteralType = null | string | number | boolean;
 
+export type APITypeListType = 'union' | 'intersection' | 'tuple';
+
+export type APITypeOperator = 'keyof' | 'unique' | 'readonly';
+
+export type APITypeData = {
+  useAsserts?: boolean;
+  operator?: APITypeOperator;
+  function?: APIFunction;
+  properties?: APISimpleVariable[];
+  arguments?: APIType[];
+  indexType?: APIType;
+  literalType?: APILiteralType;
+  targetType?: APIType;
+  extendsType?: APIType;
+  conditionalTypes?: APIType[];
+}
+
 export type APISingleType = {
   name: string;
   lib?: string;
   kind?: string;
   source?: string;
-  function?: APIFunction;
-  arguments?: APIType[];
-  indexType?: APIType;
-  literalType?: APILiteralType;
+  data?: APITypeData;
   isArray?: boolean;
   isQuery?: boolean;
   isIndexed?: boolean;
+  isInferred?: boolean;
 }
 
-export type APIType = APISingleType | APISingleType[];
+export type APIListType = {
+  listType: APITypeListType;
+  list: APIType[];
+  data?: {
+    operator?: APITypeOperator;
+  };
+}
+
+export type APIType = APIListType | APISingleType;
 
 export type APITypeParam = {
   id: number;
@@ -27,6 +50,11 @@ export type APITypeParam = {
   comment: string;
   tags: APITag[];
   default: APIType;
+}
+
+export type APISimpleVariable = {
+  name: string;
+  type: APIType;
 }
 
 export type APIVariable = {
@@ -102,6 +130,8 @@ export type APIEnum = {
   name: string;
   source: string;
   tags: APITag[];
+  comment: string;
+  example: string;
   members: APIEnumMember[];
 }
 
@@ -111,6 +141,9 @@ export type APILibTypeSimple = {
   source: string;
   tags: APITag[];
   type: APIType;
+  comment: string;
+  example: string;
+  params?: APITypeParam[];
   useInterface?: false;
 }
 
