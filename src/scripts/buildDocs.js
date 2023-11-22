@@ -2,6 +2,10 @@ import fs from 'fs';
 
 import { LIB_ITEM_FLAGS_TAGS } from '../lib/constants.js';
 
+const sortByName = (list) => {
+    list.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
+}
+
 const LIBS_URLS = [
     {
         name: 'nanogl',
@@ -248,6 +252,12 @@ function parseLibsData(libs) {
                 file.children.forEach(resolveExported);
             })
         }
+
+        sortByName(libObj.classes);
+        sortByName(libObj.functions);
+        sortByName(libObj.types);
+        sortByName(libObj.enumerations);
+        sortByName(libObj.interfaces);
 
         data.libs.push(libObj);
     });
