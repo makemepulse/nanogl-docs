@@ -3714,20 +3714,20 @@
           "id": 9,
           "name": "Camera",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+          "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
           "comment": "This class provides functionalities for cameras.\nYou can choose which type of projection to use with the lens.",
           "tags": [],
           "constructors": [
             {
               "id": 14,
               "name": "Camera",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L37",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L37",
               "tags": [],
               "type": {
                 "name": "Camera",
                 "lib": "nanogl-camera",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                 "data": {
                   "arguments": [
                     {
@@ -3755,7 +3755,7 @@
                     "name": "ICameraLens",
                     "lib": "nanogl-camera",
                     "kind": "Interface",
-                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
                   },
                   "tags": [],
                   "comment": "The type of lens this camera uses",
@@ -3763,7 +3763,7 @@
                     "name": "ICameraLens",
                     "lib": "nanogl-camera",
                     "kind": "Interface",
-                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
                   }
                 }
               ]
@@ -3773,7 +3773,7 @@
             {
               "id": 19,
               "name": "_view",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L26",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L26",
               "comment": "The view matrix for this camera",
               "defaultValue": "Identity 4*4 matrix",
               "type": {
@@ -3786,7 +3786,7 @@
             {
               "id": 20,
               "name": "_viewProj",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L31",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L31",
               "comment": "The view projection matrix for this camera",
               "defaultValue": "Identity 4*4 matrix",
               "type": {
@@ -3799,7 +3799,7 @@
             {
               "id": 18,
               "name": "lens",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L20",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L20",
               "comment": "The lens this camera uses",
               "type": {
                 "name": "TLens"
@@ -3812,7 +3812,7 @@
             {
               "id": 40,
               "name": "_computeWorldMatrix",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L115",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L115",
               "comment": "Compute camera world matrix and update camera view matrix.",
               "tags": [],
               "type": {
@@ -3834,7 +3834,7 @@
             {
               "id": 29,
               "name": "getMVP",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L82",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L82",
               "comment": "Compute a model view projection matrix from a transform matrix using the camera view projection matrix, and return the result.\n\nYou can use this to convert a matrix from world space to clip space.\n\n**Note :** This method returns a local matrix variable, so you should not store it for later use.",
               "tags": [],
               "type": {
@@ -3856,7 +3856,7 @@
             {
               "id": 21,
               "name": "modelViewMatrix",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L57",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L57",
               "comment": "Compute a model view matrix from a transform matrix using the camera view matrix.\n\nYou can use this to convert a matrix from world space to camera space.",
               "tags": [],
               "type": {
@@ -3887,7 +3887,7 @@
             {
               "id": 25,
               "name": "modelViewProjectionMatrix",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L69",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L69",
               "comment": "Compute a model view projection matrix from a transform matrix using the camera view projection matrix.\n\nYou can use this to convert a matrix from world space to clip space.",
               "tags": [],
               "type": {
@@ -3918,7 +3918,7 @@
             {
               "id": 32,
               "name": "unproject",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L95",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L95",
               "comment": "Reverse project a point using the camera view projection matrix.\n\nYou can use this to transform a point from screen space to world space.",
               "tags": [],
               "type": {
@@ -3949,7 +3949,7 @@
             {
               "id": 36,
               "name": "updateViewProjectionMatrix",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L106",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L106",
               "comment": "Update camera view projection matrix.",
               "tags": [],
               "type": {
@@ -3980,7 +3980,7 @@
             {
               "id": 12,
               "name": "makeOrthoCamera",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L130",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L130",
               "comment": "Create a camera with an orthographic lens.",
               "tags": [
                 "static"
@@ -3989,14 +3989,14 @@
                 "name": "Camera",
                 "lib": "nanogl-camera",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                 "data": {
                   "arguments": [
                     {
                       "name": "OrthographicLens",
                       "lib": "nanogl-camera",
                       "kind": "Class",
-                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L7"
+                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L7"
                     }
                   ]
                 }
@@ -4006,7 +4006,7 @@
             {
               "id": 10,
               "name": "makePerspectiveCamera",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L123",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L123",
               "comment": "Create a camera with a perspective lens.",
               "tags": [
                 "static"
@@ -4015,14 +4015,14 @@
                 "name": "Camera",
                 "lib": "nanogl-camera",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                 "data": {
                   "arguments": [
                     {
                       "name": "PerspectiveLens",
                       "lib": "nanogl-camera",
                       "kind": "Class",
-                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L15"
+                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L15"
                     }
                   ]
                 }
@@ -4044,20 +4044,20 @@
           "id": 99,
           "name": "OrthographicLens",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L7",
+          "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L7",
           "comment": "This class provides functionalities for orthographic projection.",
           "tags": [],
           "constructors": [
             {
               "id": 100,
               "name": "OrthographicLens",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L59",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L59",
               "tags": [],
               "type": {
                 "name": "OrthographicLens",
                 "lib": "nanogl-camera",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L7"
+                "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L7"
               },
               "typeParams": []
             }
@@ -4066,7 +4066,7 @@
             {
               "id": 108,
               "name": "_aspect",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L43",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L43",
               "comment": "The aspect ratio",
               "defaultValue": "1",
               "type": {
@@ -4077,7 +4077,7 @@
             {
               "id": 103,
               "name": "_far",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L18",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L18",
               "comment": "The far plane distance",
               "defaultValue": "10",
               "type": {
@@ -4088,7 +4088,7 @@
             {
               "id": 102,
               "name": "_near",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L13",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L13",
               "comment": "The near plane distance",
               "defaultValue": "0.01",
               "type": {
@@ -4099,7 +4099,7 @@
             {
               "id": 109,
               "name": "_proj",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L49",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L49",
               "comment": "The projection matrix for this lens",
               "defaultValue": "Identity 4*4 matrix",
               "type": {
@@ -4110,7 +4110,7 @@
             {
               "id": 110,
               "name": "_valid",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L55",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L55",
               "comment": "Whether the projection matrix is valid or not",
               "defaultValue": "false",
               "type": {
@@ -4121,7 +4121,7 @@
             {
               "id": 105,
               "name": "_xMax",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L28",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L28",
               "comment": "The right bound",
               "defaultValue": "1",
               "type": {
@@ -4132,7 +4132,7 @@
             {
               "id": 104,
               "name": "_xMin",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L23",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L23",
               "comment": "The left bound",
               "defaultValue": "-1",
               "type": {
@@ -4143,7 +4143,7 @@
             {
               "id": 107,
               "name": "_yMax",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L38",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L38",
               "comment": "The top bound",
               "defaultValue": "1",
               "type": {
@@ -4154,7 +4154,7 @@
             {
               "id": 106,
               "name": "_yMin",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L33",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L33",
               "comment": "The bottom bound",
               "defaultValue": "-1",
               "type": {
@@ -4167,7 +4167,7 @@
             {
               "id": 127,
               "name": "aspect",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L140",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L140",
               "setter": {
                 "name": "set aspect",
                 "comment": "Set the aspect ratio of this lens.",
@@ -4201,7 +4201,7 @@
             {
               "id": 123,
               "name": "far",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L124",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L124",
               "setter": {
                 "name": "set far",
                 "comment": "Set the far plane distance of this lens.",
@@ -4235,7 +4235,7 @@
             {
               "id": 119,
               "name": "near",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L108",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L108",
               "setter": {
                 "name": "set near",
                 "comment": "Set the near plane distance of this lens.",
@@ -4271,7 +4271,7 @@
             {
               "id": 133,
               "name": "_invalidate",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L174",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L174",
               "comment": "Invalidate lens projection matrix.",
               "tags": [],
               "type": {
@@ -4282,7 +4282,7 @@
             {
               "id": 131,
               "name": "_updateProjection",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L156",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L156",
               "comment": "Update lens projection matrix.",
               "tags": [],
               "type": {
@@ -4293,7 +4293,7 @@
             {
               "id": 111,
               "name": "getProjection",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L82",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L82",
               "comment": "Get the projection matrix for this lens.\nThe projection matrix is updated before (if it was declared invalid).",
               "tags": [],
               "type": {
@@ -4304,7 +4304,7 @@
             {
               "id": 113,
               "name": "setBound",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L96",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L96",
               "comment": "Set the bounds of this lens.",
               "tags": [],
               "type": {
@@ -4356,27 +4356,27 @@
             "name": "ICameraLens",
             "lib": "nanogl-camera",
             "kind": "Interface",
-            "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+            "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
           }
         },
         {
           "id": 136,
           "name": "PerspectiveLens",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L15",
+          "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L15",
           "comment": "This class provides functionalities for perspective projection.",
           "tags": [],
           "constructors": [
             {
               "id": 137,
               "name": "PerspectiveLens",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L65",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L65",
               "tags": [],
               "type": {
                 "name": "PerspectiveLens",
                 "lib": "nanogl-camera",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L15"
+                "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L15"
               },
               "typeParams": []
             }
@@ -4385,7 +4385,7 @@
             {
               "id": 144,
               "name": "_aspect",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L46",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L46",
               "comment": "The aspect ratio",
               "defaultValue": "1",
               "type": {
@@ -4396,7 +4396,7 @@
             {
               "id": 140,
               "name": "_far",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L26",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L26",
               "comment": "The far plane distance",
               "defaultValue": "10",
               "type": {
@@ -4407,7 +4407,7 @@
             {
               "id": 141,
               "name": "_fov",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L31",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L31",
               "comment": "The field of view",
               "defaultValue": "Math.PI/3",
               "type": {
@@ -4418,7 +4418,7 @@
             {
               "id": 145,
               "name": "_fovMode",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L51",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L51",
               "comment": "The mode of field of view (vertical, horizontal or auto)",
               "defaultValue": "0",
               "type": {
@@ -4429,7 +4429,7 @@
             {
               "id": 143,
               "name": "_hfov",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L41",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L41",
               "comment": "The horizontal field of view",
               "defaultValue": "0",
               "type": {
@@ -4440,7 +4440,7 @@
             {
               "id": 139,
               "name": "_near",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L21",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L21",
               "comment": "The near plane distance",
               "defaultValue": "0.01",
               "type": {
@@ -4451,7 +4451,7 @@
             {
               "id": 146,
               "name": "_proj",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L57",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L57",
               "comment": "The projection matrix for this lens",
               "defaultValue": "Identity 4*4 matrix",
               "type": {
@@ -4462,7 +4462,7 @@
             {
               "id": 147,
               "name": "_valid",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L63",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L63",
               "comment": "Whether the projection matrix is valid or not",
               "defaultValue": "false",
               "type": {
@@ -4473,7 +4473,7 @@
             {
               "id": 142,
               "name": "_vfov",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L36",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L36",
               "comment": "The vertical field of view",
               "defaultValue": "0",
               "type": {
@@ -4486,7 +4486,7 @@
             {
               "id": 162,
               "name": "aspect",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L144",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L144",
               "setter": {
                 "name": "set aspect",
                 "comment": "Set the aspect ratio of this lens.",
@@ -4520,7 +4520,7 @@
             {
               "id": 158,
               "name": "far",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L128",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L128",
               "setter": {
                 "name": "set far",
                 "comment": "Set the far plane distance of this lens.",
@@ -4554,7 +4554,7 @@
             {
               "id": 150,
               "name": "fov",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L98",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L98",
               "setter": {
                 "name": "set fov",
                 "comment": "Shortcut to [setVerticalFov](#item-169).",
@@ -4588,7 +4588,7 @@
             {
               "id": 154,
               "name": "near",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L112",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L112",
               "setter": {
                 "name": "set near",
                 "comment": "Set the near plane distance of this lens.",
@@ -4624,7 +4624,7 @@
             {
               "id": 181,
               "name": "_invalidate",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L238",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L238",
               "comment": "Invalidate lens projection matrix.",
               "tags": [],
               "type": {
@@ -4635,7 +4635,7 @@
             {
               "id": 179,
               "name": "_updateProjection",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L210",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L210",
               "comment": "Update lens projection matrix.",
               "tags": [],
               "type": {
@@ -4646,7 +4646,7 @@
             {
               "id": 172,
               "name": "getHorizontalFov",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L182",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L182",
               "comment": "Get the computed horizontal field of view of this lens.",
               "tags": [],
               "type": {
@@ -4657,7 +4657,7 @@
             {
               "id": 148,
               "name": "getProjection",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L87",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L87",
               "comment": "Get the projection matrix for this lens.\nThe projection matrix is updated before (if it was declared invalid).",
               "tags": [],
               "type": {
@@ -4668,7 +4668,7 @@
             {
               "id": 174,
               "name": "getVerticalFov",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L190",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L190",
               "comment": "Get the computed vertical field of view of this lens.",
               "tags": [],
               "type": {
@@ -4679,7 +4679,7 @@
             {
               "id": 176,
               "name": "setAutoFov",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L201",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L201",
               "comment": "Set the field of view of this lens.\nThe value will be used for either the vertical or horizontal fov depending on the aspect ratio.\nThe fov mode will be changed to auto.",
               "tags": [],
               "type": {
@@ -4701,7 +4701,7 @@
             {
               "id": 166,
               "name": "setHorizontalFov",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L162",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L162",
               "comment": "Set the horizontal field of view of this lens.\nThe fov mode will be changed to horizontal.",
               "tags": [],
               "type": {
@@ -4723,7 +4723,7 @@
             {
               "id": 169,
               "name": "setVerticalFov",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L173",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L173",
               "comment": "Set the vertical field of view of this lens.\nThe fov mode will be changed to vertical.",
               "tags": [],
               "type": {
@@ -4748,7 +4748,7 @@
             "name": "ICameraLens",
             "lib": "nanogl-camera",
             "kind": "Interface",
-            "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+            "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
           }
         }
       ],
@@ -4757,13 +4757,14 @@
         {
           "id": 2,
           "name": "ICameraLens",
-          "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4",
+          "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4",
+          "comment": "A lens for a camera, which handles the projection.",
           "tags": [],
           "properties": [
             {
               "id": 7,
               "name": "aspect",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L14",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L14",
               "comment": "The aspect ratio",
               "type": {
                 "name": "number"
@@ -4773,7 +4774,7 @@
             {
               "id": 6,
               "name": "far",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L12",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L12",
               "comment": "The far plane distance",
               "type": {
                 "name": "number"
@@ -4783,7 +4784,7 @@
             {
               "id": 5,
               "name": "near",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L10",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L10",
               "comment": "The near plane distance",
               "type": {
                 "name": "number"
@@ -4796,7 +4797,7 @@
             {
               "id": 3,
               "name": "getProjection",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L8",
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L8",
               "comment": "Get the projection matrix for this lens.",
               "tags": [],
               "type": {
@@ -4811,13 +4812,13 @@
               "name": "OrthographicLens",
               "lib": "nanogl-camera",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L7"
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L7"
             },
             {
               "name": "PerspectiveLens",
               "lib": "nanogl-camera",
               "kind": "Class",
-              "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L15"
+              "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L15"
             }
           ]
         }
@@ -4899,14 +4900,14 @@
                 "name": "Camera",
                 "lib": "nanogl-camera",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                 "data": {
                   "arguments": [
                     {
                       "name": "ICameraLens",
                       "lib": "nanogl-camera",
                       "kind": "Interface",
-                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
                     }
                   ]
                 },
@@ -9859,7 +9860,7 @@
                 "name": "ICameraLens",
                 "lib": "nanogl-camera",
                 "kind": "Interface",
-                "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
               },
               "tags": []
             },
@@ -9902,7 +9903,7 @@
                 "name": "OrthographicLens",
                 "lib": "nanogl-camera",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L7"
+                "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L7"
               },
               "params": [
                 {
@@ -9925,7 +9926,7 @@
                 "name": "ICameraLens",
                 "lib": "nanogl-camera",
                 "kind": "Interface",
-                "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
               },
               "params": [
                 {
@@ -18952,14 +18953,14 @@
                     "name": "Camera",
                     "lib": "nanogl-camera",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                     "data": {
                       "arguments": [
                         {
                           "name": "ICameraLens",
                           "lib": "nanogl-camera",
                           "kind": "Interface",
-                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
                         }
                       ]
                     }
@@ -19018,14 +19019,14 @@
                     "name": "Camera",
                     "lib": "nanogl-camera",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                     "data": {
                       "arguments": [
                         {
                           "name": "ICameraLens",
                           "lib": "nanogl-camera",
                           "kind": "Interface",
-                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
                         }
                       ]
                     }
@@ -26007,14 +26008,14 @@
                     "name": "Camera",
                     "lib": "nanogl-camera",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                     "data": {
                       "arguments": [
                         {
                           "name": "ICameraLens",
                           "lib": "nanogl-camera",
                           "kind": "Interface",
-                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
                         }
                       ]
                     }
@@ -28872,14 +28873,14 @@
                     "name": "Camera",
                     "lib": "nanogl-camera",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                     "data": {
                       "arguments": [
                         {
                           "name": "ICameraLens",
                           "lib": "nanogl-camera",
                           "kind": "Interface",
-                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
                         }
                       ]
                     }
@@ -29031,14 +29032,14 @@
                     "name": "Camera",
                     "lib": "nanogl-camera",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                     "data": {
                       "arguments": [
                         {
                           "name": "ICameraLens",
                           "lib": "nanogl-camera",
                           "kind": "Interface",
-                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
                         }
                       ]
                     }
@@ -30919,14 +30920,14 @@
                     "name": "Camera",
                     "lib": "nanogl-camera",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                     "data": {
                       "arguments": [
                         {
                           "name": "ICameraLens",
                           "lib": "nanogl-camera",
                           "kind": "Interface",
-                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
                         }
                       ]
                     }
@@ -31932,14 +31933,14 @@
                     "name": "Camera",
                     "lib": "nanogl-camera",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                     "data": {
                       "arguments": [
                         {
                           "name": "ICameraLens",
                           "lib": "nanogl-camera",
                           "kind": "Interface",
-                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
                         }
                       ]
                     }
@@ -32357,14 +32358,14 @@
                     "name": "Camera",
                     "lib": "nanogl-camera",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                     "data": {
                       "arguments": [
                         {
                           "name": "OrthographicLens",
                           "lib": "nanogl-camera",
                           "kind": "Class",
-                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L7"
+                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L7"
                         }
                       ]
                     }
@@ -32406,14 +32407,14 @@
                 "name": "Camera",
                 "lib": "nanogl-camera",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                 "data": {
                   "arguments": [
                     {
                       "name": "OrthographicLens",
                       "lib": "nanogl-camera",
                       "kind": "Class",
-                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ortho-lens.ts#L7"
+                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ortho-lens.ts#L7"
                     }
                   ]
                 }
@@ -33841,14 +33842,14 @@
                 "name": "Camera",
                 "lib": "nanogl-camera",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                 "data": {
                   "arguments": [
                     {
                       "name": "ICameraLens",
                       "lib": "nanogl-camera",
                       "kind": "Interface",
-                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
                     }
                   ]
                 }
@@ -34186,14 +34187,14 @@
                     "name": "Camera",
                     "lib": "nanogl-camera",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                     "data": {
                       "arguments": [
                         {
                           "name": "ICameraLens",
                           "lib": "nanogl-camera",
                           "kind": "Interface",
-                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
                         }
                       ]
                     }
@@ -34322,14 +34323,14 @@
                 "name": "Camera",
                 "lib": "nanogl-camera",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                 "data": {
                   "arguments": [
                     {
                       "name": "ICameraLens",
                       "lib": "nanogl-camera",
                       "kind": "Interface",
-                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
                     }
                   ]
                 }
@@ -34415,14 +34416,14 @@
                 "name": "Camera",
                 "lib": "nanogl-camera",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                 "data": {
                   "arguments": [
                     {
                       "name": "ICameraLens",
                       "lib": "nanogl-camera",
                       "kind": "Interface",
-                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
                     }
                   ]
                 }
@@ -34614,14 +34615,14 @@
                     "name": "Camera",
                     "lib": "nanogl-camera",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                     "data": {
                       "arguments": [
                         {
                           "name": "PerspectiveLens",
                           "lib": "nanogl-camera",
                           "kind": "Class",
-                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L15"
+                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L15"
                         }
                       ]
                     }
@@ -34815,14 +34816,14 @@
                 "name": "Camera",
                 "lib": "nanogl-camera",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                 "data": {
                   "arguments": [
                     {
                       "name": "PerspectiveLens",
                       "lib": "nanogl-camera",
                       "kind": "Class",
-                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/perspective-lens.ts#L15"
+                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L15"
                     }
                   ]
                 }
@@ -36365,14 +36366,14 @@
                 "name": "Camera",
                 "lib": "nanogl-camera",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                 "data": {
                   "arguments": [
                     {
                       "name": "ICameraLens",
                       "lib": "nanogl-camera",
                       "kind": "Interface",
-                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
                     }
                   ]
                 }
@@ -41399,20 +41400,20 @@
           "id": 6,
           "name": "PixelFormats",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L15",
+          "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L19",
           "comment": "This class provides various pixel-format related capabilities.",
           "tags": [],
           "constructors": [
             {
               "id": 10,
               "name": "PixelFormats",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L85",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L89",
               "tags": [],
               "type": {
                 "name": "PixelFormats",
                 "lib": "nanogl-pf",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L15"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L19"
               },
               "params": [
                 {
@@ -41440,13 +41441,13 @@
             {
               "id": 29,
               "name": "A2B10G10R10",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L79",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L83",
               "comment": "Pixel format preset for A2B10G10R10",
               "type": {
                 "name": "FormatDesc",
                 "lib": "nanogl-pf",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L1"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2"
               },
               "tags": [
                 "readonly"
@@ -41455,7 +41456,7 @@
             {
               "id": 18,
               "name": "EXT_color_buffer_float",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L43",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L47",
               "comment": "The EXT_color_buffer_float webgl extension :\nadds the ability to render a variety of floating point formats",
               "type": {
                 "name": "any"
@@ -41465,7 +41466,7 @@
             {
               "id": 19,
               "name": "EXT_color_buffer_half_float",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L48",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L52",
               "comment": "The EXT_color_buffer_half_float webgl extension :\nadds the ability to render to 16-bit floating-point color buffers",
               "type": {
                 "name": "any"
@@ -41475,7 +41476,7 @@
             {
               "id": 14,
               "name": "EXT_texture_float",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L23",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L27",
               "comment": "The OES_texture_float webgl extension :\nexposes floating-point pixel types for textures",
               "type": {
                 "listType": "union",
@@ -41496,7 +41497,7 @@
             {
               "id": 17,
               "name": "EXT_texture_float_linear",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L38",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L42",
               "comment": "The OES_texture_float_linear webgl extension :\nallows linear filtering with floating-point pixel types for textures",
               "type": {
                 "listType": "union",
@@ -41517,7 +41518,7 @@
             {
               "id": 15,
               "name": "EXT_texture_half_float",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L28",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L32",
               "comment": "The OES_texture_half_float webgl extension :\nadds texture formats with 16- and 32-bit floating-point components",
               "type": {
                 "listType": "union",
@@ -41538,7 +41539,7 @@
             {
               "id": 16,
               "name": "EXT_texture_half_float_linear",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L33",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L37",
               "comment": "The OES_texture_half_float_linear webgl extension :\nallows linear filtering with half floating-point pixel types for textures",
               "type": {
                 "listType": "union",
@@ -41559,13 +41560,13 @@
             {
               "id": 27,
               "name": "RGB16F",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L75",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L79",
               "comment": "Pixel format preset for RGB16F",
               "type": {
                 "name": "FormatDesc",
                 "lib": "nanogl-pf",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L1"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2"
               },
               "tags": [
                 "readonly"
@@ -41574,13 +41575,13 @@
             {
               "id": 25,
               "name": "RGB32F",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L71",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L75",
               "comment": "Pixel format preset for RGB32F",
               "type": {
                 "name": "FormatDesc",
                 "lib": "nanogl-pf",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L1"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2"
               },
               "tags": [
                 "readonly"
@@ -41589,13 +41590,13 @@
             {
               "id": 23,
               "name": "RGB8",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L67",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L71",
               "comment": "Pixel format preset for RGB8",
               "type": {
                 "name": "FormatDesc",
                 "lib": "nanogl-pf",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L1"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2"
               },
               "tags": [
                 "readonly"
@@ -41604,13 +41605,13 @@
             {
               "id": 28,
               "name": "RGBA16F",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L77",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L81",
               "comment": "Pixel format preset for RGBA16F",
               "type": {
                 "name": "FormatDesc",
                 "lib": "nanogl-pf",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L1"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2"
               },
               "tags": [
                 "readonly"
@@ -41619,13 +41620,13 @@
             {
               "id": 26,
               "name": "RGBA32F",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L73",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L77",
               "comment": "Pixel format preset for RGBA32F",
               "type": {
                 "name": "FormatDesc",
                 "lib": "nanogl-pf",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L1"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2"
               },
               "tags": [
                 "readonly"
@@ -41634,13 +41635,13 @@
             {
               "id": 24,
               "name": "RGBA8",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L69",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L73",
               "comment": "Pixel format preset for RGBA8",
               "type": {
                 "name": "FormatDesc",
                 "lib": "nanogl-pf",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L1"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2"
               },
               "tags": [
                 "readonly"
@@ -41649,7 +41650,7 @@
             {
               "id": 20,
               "name": "WEBGL_depth_texture",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L53",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L57",
               "comment": "The depth texture webgl extension :\ndefines 2D depth and depth-stencil textures",
               "type": {
                 "name": "any"
@@ -41659,7 +41660,7 @@
             {
               "id": 21,
               "name": "_availables",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L59",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L63",
               "comment": "List of pixel formats that have already been tested for texture allocation\nto be possible or not, and the corresponding result",
               "type": {
                 "name": "Record",
@@ -41682,7 +41683,7 @@
             {
               "id": 22,
               "name": "_renderables",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L64",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L68",
               "comment": "List of pixel formats that have already been tested\nto be color renderable or not, and the corresponding result",
               "type": {
                 "name": "Record",
@@ -41705,7 +41706,7 @@
             {
               "id": 13,
               "name": "gl",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L17",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L21",
               "comment": "The webgl context this ArrayBuffer belongs to",
               "type": {
                 "listType": "union",
@@ -41728,7 +41729,7 @@
             {
               "id": 47,
               "name": "_testAvailable",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L270",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L274",
               "comment": "Test if texture allocation with given pixel format is possible or throws gl error.\n\nUsed by [isAvailable](#item-34)\n\n**Important :** Using this method can change bound texture.",
               "tags": [
                 "private"
@@ -41779,7 +41780,7 @@
             {
               "id": 52,
               "name": "_testRenderable",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L296",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L300",
               "comment": "Test if given format is color renderable or not.\n\nUsed by [isRenderable](#item-39)\n\n**Important :** Using this method can change bound framebuffer and texture.",
               "tags": [
                 "private"
@@ -41830,7 +41831,7 @@
             {
               "id": 30,
               "name": "dispose",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L159",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L163",
               "comment": "Release this instance and its reference in the webgl context.\nAlso release all extensions.",
               "tags": [],
               "type": {
@@ -41841,7 +41842,7 @@
             {
               "id": 44,
               "name": "getRenderableFormat",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L246",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L250",
               "comment": "Get the first color-renderable format from given list or null if there is none.\n\n**Important :** Using this method can change bound framebuffer and texture.",
               "tags": [],
               "type": {
@@ -41857,7 +41858,7 @@
                     "name": "FormatDesc",
                     "lib": "nanogl-pf",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L1"
+                    "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2"
                   }
                 ]
               },
@@ -41869,7 +41870,7 @@
                     "name": "FormatDesc",
                     "lib": "nanogl-pf",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L1",
+                    "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2",
                     "isArray": true
                   },
                   "tags": [],
@@ -41881,7 +41882,7 @@
             {
               "id": 32,
               "name": "hasDepthTexture",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L180",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L184",
               "comment": "Know whether a texture with depth pixel format can be created or not.",
               "tags": [],
               "type": {
@@ -41892,7 +41893,7 @@
             {
               "id": 34,
               "name": "isAvailable",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L197",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L201",
               "comment": "Know whether texture allocation with given pixel format is possible or throws gl error.\n\n**Important :** Using this method can change bound texture.",
               "tags": [],
               "type": {
@@ -41942,7 +41943,7 @@
             {
               "id": 39,
               "name": "isRenderable",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L223",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L227",
               "comment": "Know whether given format is color renderable or not.\n\nThe result will be positive if an FBO to which we attach a texture that is using the given format has status `GL_FRAMEBUFFER_COMPLETE`.\n\n**Important :** Using this method can change bound framebuffer and texture.",
               "tags": [],
               "type": {
@@ -41992,7 +41993,7 @@
             {
               "id": 7,
               "name": "getInstance",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L142",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L146",
               "comment": "Create a PixelFormats instance or return the existing one for given webgl context.",
               "tags": [
                 "static"
@@ -42001,7 +42002,7 @@
                 "name": "PixelFormats",
                 "lib": "nanogl-pf",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L15"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L19"
               },
               "params": [
                 {
@@ -42037,13 +42038,15 @@
           "useInterface": true,
           "id": 1,
           "name": "FormatDesc",
-          "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L1",
+          "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2",
+          "comment": "The definition for a pixel format.",
           "tags": [],
           "properties": [
             {
               "id": 3,
               "name": "format",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L2",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L4",
+              "comment": "The pixel format (`GL_RGB`, `GL_RGBA`, etc.)",
               "type": {
                 "name": "GLenum"
               },
@@ -42052,7 +42055,8 @@
             {
               "id": 4,
               "name": "internal",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L3",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L6",
+              "comment": "The pixel internal format",
               "type": {
                 "name": "GLenum"
               },
@@ -42061,7 +42065,8 @@
             {
               "id": 5,
               "name": "type",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/eb721dd/src/index.ts#L4",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L8",
+              "comment": "The pixel data type (`GL_UNSIGNED_BYTE`, `GL_FLOAT`, etc.)",
               "type": {
                 "name": "GLenum"
               },
@@ -42945,14 +42950,14 @@
                     "name": "Camera",
                     "lib": "nanogl-camera",
                     "kind": "Class",
-                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                    "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                     "data": {
                       "arguments": [
                         {
                           "name": "ICameraLens",
                           "lib": "nanogl-camera",
                           "kind": "Interface",
-                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                          "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
                         }
                       ]
                     }
@@ -43025,14 +43030,14 @@
                 "name": "Camera",
                 "lib": "nanogl-camera",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/index.ts#L18",
+                "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/index.ts#L18",
                 "data": {
                   "arguments": [
                     {
                       "name": "ICameraLens",
                       "lib": "nanogl-camera",
                       "kind": "Interface",
-                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/21adb7a/src/ICameraLens.ts#L4"
+                      "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/ICameraLens.ts#L4"
                     }
                   ]
                 }
