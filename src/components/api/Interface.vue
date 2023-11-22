@@ -21,13 +21,13 @@
         </span>
       </UIPill>
     </div>
-    <Comment v-if="libInterface.comment" :comment="libInterface.comment" />
-    <Comment v-if="libInterface.example" :comment="libInterface.example" />
     <CodeWrapper>
       <span v-if="!isType" class="token keyword">interface </span>
       <span v-else class="token keyword">type </span>
       <span>{{ libInterface.name }}</span>
     </CodeWrapper>
+    <Comment v-if="libInterface.comment" :comment="libInterface.comment" />
+    <Comment v-if="libInterface.example" :comment="libInterface.example" />
     <div v-if="libInterface.properties.length" class="mb-48">
       <h2 id="properties">Properties</h2>
       <div class="space-y-24">

@@ -202,6 +202,8 @@ function parseLibsData(libs) {
                     source: exported.sources[0].url,
                     tags: resolveTags(exported.flags),
                     type: resolveTypes(exported.type, lib.name),
+                    comment: resolveComment(exported.comment?.summary),
+                    example: resolveExample(exported),
                     params: resolveTypeParams(exported.typeParameters, lib)
                 }
                 libObj.types.push(exportedObj)
@@ -211,6 +213,8 @@ function parseLibsData(libs) {
                     name: exported.name,
                     source: exported.sources[0].url,
                     tags: resolveTags(exported.flags),
+                    comment: resolveComment(exported.comment?.summary),
+                    example: resolveExample(exported),
                     members: []
                 }
 

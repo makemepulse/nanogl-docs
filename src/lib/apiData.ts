@@ -130,6 +130,8 @@ export type APIEnum = {
   name: string;
   source: string;
   tags: APITag[];
+  comment: string;
+  example: string;
   members: APIEnumMember[];
 }
 
@@ -139,6 +141,8 @@ export type APILibTypeSimple = {
   source: string;
   tags: APITag[];
   type: APIType;
+  comment: string;
+  example: string;
   params?: APITypeParam[];
   useInterface?: false;
 }
