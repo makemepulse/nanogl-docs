@@ -41400,20 +41400,20 @@
           "id": 6,
           "name": "PixelFormats",
           "originalName": "default",
-          "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L19",
+          "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L19",
           "comment": "This class provides various pixel-format related capabilities.",
           "tags": [],
           "constructors": [
             {
               "id": 10,
               "name": "PixelFormats",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L89",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L89",
               "tags": [],
               "type": {
                 "name": "PixelFormats",
                 "lib": "nanogl-pf",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L19"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L19"
               },
               "params": [
                 {
@@ -41441,13 +41441,13 @@
             {
               "id": 29,
               "name": "A2B10G10R10",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L83",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L83",
               "comment": "Pixel format preset for A2B10G10R10",
               "type": {
                 "name": "FormatDesc",
                 "lib": "nanogl-pf",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L2"
               },
               "tags": [
                 "readonly"
@@ -41456,7 +41456,7 @@
             {
               "id": 18,
               "name": "EXT_color_buffer_float",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L47",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L47",
               "comment": "The EXT_color_buffer_float webgl extension :\nadds the ability to render a variety of floating point formats",
               "type": {
                 "name": "any"
@@ -41466,7 +41466,7 @@
             {
               "id": 19,
               "name": "EXT_color_buffer_half_float",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L52",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L52",
               "comment": "The EXT_color_buffer_half_float webgl extension :\nadds the ability to render to 16-bit floating-point color buffers",
               "type": {
                 "name": "any"
@@ -41476,7 +41476,7 @@
             {
               "id": 14,
               "name": "EXT_texture_float",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L27",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L27",
               "comment": "The OES_texture_float webgl extension :\nexposes floating-point pixel types for textures",
               "type": {
                 "listType": "union",
@@ -41497,7 +41497,7 @@
             {
               "id": 17,
               "name": "EXT_texture_float_linear",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L42",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L42",
               "comment": "The OES_texture_float_linear webgl extension :\nallows linear filtering with floating-point pixel types for textures",
               "type": {
                 "listType": "union",
@@ -41518,7 +41518,7 @@
             {
               "id": 15,
               "name": "EXT_texture_half_float",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L32",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L32",
               "comment": "The OES_texture_half_float webgl extension :\nadds texture formats with 16- and 32-bit floating-point components",
               "type": {
                 "listType": "union",
@@ -41539,7 +41539,7 @@
             {
               "id": 16,
               "name": "EXT_texture_half_float_linear",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L37",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L37",
               "comment": "The OES_texture_half_float_linear webgl extension :\nallows linear filtering with half floating-point pixel types for textures",
               "type": {
                 "listType": "union",
@@ -41560,13 +41560,13 @@
             {
               "id": 27,
               "name": "RGB16F",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L79",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L79",
               "comment": "Pixel format preset for RGB16F",
               "type": {
                 "name": "FormatDesc",
                 "lib": "nanogl-pf",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L2"
               },
               "tags": [
                 "readonly"
@@ -41575,13 +41575,13 @@
             {
               "id": 25,
               "name": "RGB32F",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L75",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L75",
               "comment": "Pixel format preset for RGB32F",
               "type": {
                 "name": "FormatDesc",
                 "lib": "nanogl-pf",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L2"
               },
               "tags": [
                 "readonly"
@@ -41590,13 +41590,13 @@
             {
               "id": 23,
               "name": "RGB8",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L71",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L71",
               "comment": "Pixel format preset for RGB8",
               "type": {
                 "name": "FormatDesc",
                 "lib": "nanogl-pf",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L2"
               },
               "tags": [
                 "readonly"
@@ -41605,13 +41605,13 @@
             {
               "id": 28,
               "name": "RGBA16F",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L81",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L81",
               "comment": "Pixel format preset for RGBA16F",
               "type": {
                 "name": "FormatDesc",
                 "lib": "nanogl-pf",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L2"
               },
               "tags": [
                 "readonly"
@@ -41620,13 +41620,13 @@
             {
               "id": 26,
               "name": "RGBA32F",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L77",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L77",
               "comment": "Pixel format preset for RGBA32F",
               "type": {
                 "name": "FormatDesc",
                 "lib": "nanogl-pf",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L2"
               },
               "tags": [
                 "readonly"
@@ -41635,13 +41635,13 @@
             {
               "id": 24,
               "name": "RGBA8",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L73",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L73",
               "comment": "Pixel format preset for RGBA8",
               "type": {
                 "name": "FormatDesc",
                 "lib": "nanogl-pf",
                 "kind": "Type alias",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L2"
               },
               "tags": [
                 "readonly"
@@ -41650,7 +41650,7 @@
             {
               "id": 20,
               "name": "WEBGL_depth_texture",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L57",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L57",
               "comment": "The depth texture webgl extension :\ndefines 2D depth and depth-stencil textures",
               "type": {
                 "name": "any"
@@ -41660,7 +41660,7 @@
             {
               "id": 21,
               "name": "_availables",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L63",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L63",
               "comment": "List of pixel formats that have already been tested for texture allocation\nto be possible or not, and the corresponding result",
               "type": {
                 "name": "Record",
@@ -41683,7 +41683,7 @@
             {
               "id": 22,
               "name": "_renderables",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L68",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L68",
               "comment": "List of pixel formats that have already been tested\nto be color renderable or not, and the corresponding result",
               "type": {
                 "name": "Record",
@@ -41706,7 +41706,7 @@
             {
               "id": 13,
               "name": "gl",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L21",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L21",
               "comment": "The webgl context this ArrayBuffer belongs to",
               "type": {
                 "listType": "union",
@@ -41729,7 +41729,7 @@
             {
               "id": 47,
               "name": "_testAvailable",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L274",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L274",
               "comment": "Test if texture allocation with given pixel format is possible or throws gl error.\n\nUsed by [isAvailable](#item-34)\n\n**Important :** Using this method can change bound texture.",
               "tags": [
                 "private"
@@ -41780,7 +41780,7 @@
             {
               "id": 52,
               "name": "_testRenderable",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L300",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L300",
               "comment": "Test if given format is color renderable or not.\n\nUsed by [isRenderable](#item-39)\n\n**Important :** Using this method can change bound framebuffer and texture.",
               "tags": [
                 "private"
@@ -41831,7 +41831,7 @@
             {
               "id": 30,
               "name": "dispose",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L163",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L163",
               "comment": "Release this instance and its reference in the webgl context.\nAlso release all extensions.",
               "tags": [],
               "type": {
@@ -41842,7 +41842,7 @@
             {
               "id": 44,
               "name": "getRenderableFormat",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L250",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L250",
               "comment": "Get the first color-renderable format from given list or null if there is none.\n\n**Important :** Using this method can change bound framebuffer and texture.",
               "tags": [],
               "type": {
@@ -41858,7 +41858,7 @@
                     "name": "FormatDesc",
                     "lib": "nanogl-pf",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2"
+                    "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L2"
                   }
                 ]
               },
@@ -41870,7 +41870,7 @@
                     "name": "FormatDesc",
                     "lib": "nanogl-pf",
                     "kind": "Type alias",
-                    "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2",
+                    "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L2",
                     "isArray": true
                   },
                   "tags": [],
@@ -41882,7 +41882,7 @@
             {
               "id": 32,
               "name": "hasDepthTexture",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L184",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L184",
               "comment": "Know whether a texture with depth pixel format can be created or not.",
               "tags": [],
               "type": {
@@ -41893,7 +41893,7 @@
             {
               "id": 34,
               "name": "isAvailable",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L201",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L201",
               "comment": "Know whether texture allocation with given pixel format is possible or throws gl error.\n\n**Important :** Using this method can change bound texture.",
               "tags": [],
               "type": {
@@ -41943,7 +41943,7 @@
             {
               "id": 39,
               "name": "isRenderable",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L227",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L227",
               "comment": "Know whether given format is color renderable or not.\n\nThe result will be positive if an FBO to which we attach a texture that is using the given format has status `GL_FRAMEBUFFER_COMPLETE`.\n\n**Important :** Using this method can change bound framebuffer and texture.",
               "tags": [],
               "type": {
@@ -41993,7 +41993,7 @@
             {
               "id": 7,
               "name": "getInstance",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L146",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L146",
               "comment": "Create a PixelFormats instance or return the existing one for given webgl context.",
               "tags": [
                 "static"
@@ -42002,7 +42002,7 @@
                 "name": "PixelFormats",
                 "lib": "nanogl-pf",
                 "kind": "Class",
-                "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L19"
+                "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L19"
               },
               "params": [
                 {
@@ -42038,14 +42038,14 @@
           "useInterface": true,
           "id": 1,
           "name": "FormatDesc",
-          "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L2",
-          "comment": "The definition for a pixel format.",
+          "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L2",
+          "comment": "The description of a pixel format.",
           "tags": [],
           "properties": [
             {
               "id": 3,
               "name": "format",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L4",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L4",
               "comment": "The pixel format (`GL_RGB`, `GL_RGBA`, etc.)",
               "type": {
                 "name": "GLenum"
@@ -42055,7 +42055,7 @@
             {
               "id": 4,
               "name": "internal",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L6",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L6",
               "comment": "The pixel internal format",
               "type": {
                 "name": "GLenum"
@@ -42065,7 +42065,7 @@
             {
               "id": 5,
               "name": "type",
-              "source": "https://github.com/evanmartiin/nanogl-pf/blob/c88ceb6/src/index.ts#L8",
+              "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L8",
               "comment": "The pixel data type (`GL_UNSIGNED_BYTE`, `GL_FLOAT`, etc.)",
               "type": {
                 "name": "GLenum"
