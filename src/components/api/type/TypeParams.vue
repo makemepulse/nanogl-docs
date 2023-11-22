@@ -2,10 +2,10 @@
   <span class="token punctuation">
     {{ '<' }}
   </span>
-  <template v-for="(arg, i) in args">
-    <Type :data="arg" is-code />
+  <template v-for="(param, i) in params">
+    <span>{{ param.name }}</span>
     <span
-      v-if="i < (args.length - 1)"
+      v-if="i < (params.length - 1)"
       class="token punctuation"
     >
       {{ ', ' }}
@@ -17,10 +17,10 @@
 </template>
 
 <script setup lang="ts">
-import { APIType } from '@lib/apiData';
+import { APITypeParam } from '@lib/apiData';
 
 type Props = {
-  args: APIType[];
+  params: APITypeParam[];
 };
 
 defineProps<Props>();
