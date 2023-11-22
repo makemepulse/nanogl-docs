@@ -3,13 +3,8 @@ import ArrayBuffer from "nanogl/arraybuffer";
 import Camera from "nanogl-camera";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
 import { vec3 } from "gl-matrix";
-// import UnlitPass from "nanogl-pbr/UnlitPass";
-// import GltfLoader from "nanogl-gltf/lib/io/GltfLoader";
-// import { WebImpl } from "nanogl-gltf/lib/io/web";
-// import vShader from "./test.vert";
 
 const preview = (canvasEl) => {
-  console.log(vShader);
   // --CANVAS & CONTEXT--
 
   const canvas = canvasEl || document.getElementById("canvas");
@@ -84,14 +79,6 @@ const preview = (canvasEl) => {
   `;
 
   const prg = new Program(gl, vertexShader, fragmentShader);
-
-  
-  // const unlitPass = new UnlitPass();
-  // unlitPass.glconfig.enableDepthTest().enableCullface();
-
-  // const gltfLoader = new GltfLoader('assets/webgl/models/room.glb', new WebImpl());
-  // console.log(gltfLoader);
-
 
   // --RENDER--
 

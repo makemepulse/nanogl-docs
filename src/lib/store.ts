@@ -11,12 +11,17 @@ const guideList = ref<GuideSection[]>([]);
 const examplesList = ref([]);
 const examplesNames = ref<string[]>([]);
 
+function sortArrays(arrays) {
+  arrays.map(array => array.sort((a,b) => a.name.localeCompare(b.name)));
+}
+
 export function useStore() {
   const router = useRouter();
 
   const init = () => {
     const data = import.meta.glob('../assets/data.json', { eager: true })['../assets/data.json'] as { libs: APILib[] };
-    libsData.value = data.libs
+    data.libs.forEach(lib => sortArrays([lib.classes, lib.enumerations, lib.functions, lib.interfaces, lib.types]));
+    libsData.value = data.libs;
 
     const guideRoutes = router.getRoutes().reduce((acc, route) => {
       if (!route.meta.menuGuide) return acc;
