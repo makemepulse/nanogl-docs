@@ -73,7 +73,7 @@ export function loadChunk(text: string, directory: string, extension: string): s
 
       let out = interpolate;
       if(match.match(include)){
-        let chunkPath = match.trim().replace(/\{\{\s*require\(\s*[\"\']|[\"\']\s*\)\s*\}\}?/gi, '');
+        let chunkPath = match.trim().replace(/\{\{\s*require\(\s*[\"\']|[\"\']\s*\).*\}\}?/gi, '');
         const uid = "module_"+ crypto.randomUUID().replaceAll("-", '');
         deps.push({
           import: "import " + uid + " from '" + chunkPath + "'\n",
@@ -109,6 +109,6 @@ export function loadChunk(text: string, directory: string, extension: string): s
 
 
 
-export function loadShaders(source: string, shader: string, extension: string) {
+export async function loadShaders(source: string, shader: string, extension: string) {
   return loadChunk(source, path.dirname(shader), extension);
 }
