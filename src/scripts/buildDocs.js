@@ -2,6 +2,10 @@ import fs from 'fs';
 
 import { LIB_ITEM_FLAGS_TAGS } from '../lib/constants.js';
 
+const sortByName = (list) => {
+    list.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
+}
+
 const LIBS_URLS = [
     {
         name: 'nanogl',
@@ -112,6 +116,9 @@ function parseLibsData(libs) {
             description: lib.description,
             classes: [],
             functions: [],
+            interfaces: [],
+            enumerations: [],
+            types: [],
         };
 
         const resolveExported = (exported) => {
@@ -129,55 +136,11 @@ function parseLibsData(libs) {
                     accessors: [],
                     methods: [],
                     extends: exported.extendedTypes ? resolveExtends(exported.extendedTypes[0], lib.name) : null,
-                    implements: exported.implementedTypes ? resolveImplements(exported.implementedTypes[0], lib.name) : null,
+                    implements: exported.implementedTypes ? resolveImplementation(exported.implementedTypes[0], lib.name) : null,
                 }
 
                 // exported.children contains all objects coming from the class (constructor, properties, methods, ...)
-                exported.children?.forEach(child => {
-                    if (child.inheritedFrom) {
-                        return;
-                    }
-
-                    const childObj = {
-                        id: child.id,
-                        name: child.kindString === 'Constructor' ? exported.name : child.name,
-                        source: child.sources ? child.sources[0].url : exportedObj.source, // Some classes don't have a constructor, so we use the class source instead of the constructor one
-                    }
-
-                    if (child.kindString === 'Constructor') {
-                        resolveFunction(childObj, child.signatures[0], child.flags, lib.name);
-                        exportedObj.constructors.push(childObj);
-                    } else if (
-                        child.kindString === 'Property' && child.type?.type === 'reflection'
-                        && child.type?.declaration?.signatures?.[0]?.kindString === 'Call signature'
-                    ) {
-                        resolveFunction(childObj, child.type?.declaration?.signatures?.[0], child.flags, lib.name);
-                        exportedObj.methods.push(childObj);
-                    } else if (child.kindString === 'Property') {
-                        childObj.comment = resolveComment(child.comment?.summary);
-                        childObj.defaultValue = resolveDefaultValue(child);
-                        childObj.type = resolveTypes(child.type, lib.name);
-                        childObj.tags = resolveTags(child.flags);
-                        exportedObj.properties.push(childObj);
-                    } else if (child.kindString === 'Accessor') {
-                        if (child.setSignature) {
-                            childObj.setter = {
-                                name: `set ${child.name}`,
-                            };
-                            resolveFunction(childObj.setter, child.setSignature, child.flags, lib.name);
-                        }
-                        if (child.getSignature) {
-                            childObj.getter = {
-                                name: `get ${child.name}`,
-                            };
-                            resolveFunction(childObj.getter, child.getSignature, child.flags, lib.name);
-                        }
-                        exportedObj.accessors.push(childObj);
-                    } else if (child.kindString === 'Method') {
-                        resolveFunction(childObj, child.signatures[0], child.flags, lib.name);
-                        exportedObj.methods.push(childObj);
-                    }
-                })
+                resolveChildren(exported, exportedObj, lib);
 
                 libObj.classes.push(exportedObj);
             } else if (exported.kindString === 'Function') {
@@ -191,6 +154,89 @@ function parseLibsData(libs) {
                     ...functionObj,
                 }
                 libObj.functions.push(exportedObj);
+            } else if (exported.kindString === 'Interface') {
+                const exportedObj = {
+                    id: exported.id,
+                    name: exported.name,
+                    originalName: exported.originalName,
+                    source: exported.sources[0].url,
+                    comment: resolveComment(exported.comment?.summary),
+                    example: resolveExample(exported),
+                    tags: resolveTags(exported.flags),
+                    properties: [],
+                    accessors: [],
+                    methods: [],
+                    extends: exported.extendedTypes ? resolveExtends(exported.extendedTypes[0], lib.name) : null,
+                    implemented: exported.implementedBy
+                        ? exported.implementedBy.map(implementation => resolveImplementation(implementation, lib.name))
+                        : null,
+                }
+
+                // exported.children contains all objects coming from the interface (properties, methods, ...)
+                resolveChildren(exported, exportedObj, lib);
+
+                libObj.interfaces.push(exportedObj);
+            } else if (exported.kindString === 'Type alias' && exported.type.declaration?.children) {
+                const item = exported.type.declaration;
+
+                const exportedObj = {
+                    useInterface: true,
+                    id: exported.id,
+                    name: exported.name,
+                    originalName: exported.originalName,
+                    source: exported.sources[0].url,
+                    comment: resolveComment(exported.comment?.summary),
+                    example: resolveExample(exported),
+                    tags: resolveTags(exported.flags),
+                    properties: [],
+                    accessors: [],
+                    methods: [],
+                    extends: null,
+                    implemented: null,
+                }
+
+                // exported.children contains all objects coming from the type (properties, methods, ...)
+                resolveChildren(item, exportedObj, lib);
+
+                libObj.types.push(exportedObj);
+            } else if (exported.kindString === 'Type alias') {
+                const exportedObj = {
+                    id: exported.id,
+                    name: exported.name,
+                    source: exported.sources[0].url,
+                    tags: resolveTags(exported.flags),
+                    type: resolveTypes(exported.type, lib.name),
+                    comment: resolveComment(exported.comment?.summary),
+                    example: resolveExample(exported),
+                    params: resolveTypeParams(exported.typeParameters, lib)
+                }
+                libObj.types.push(exportedObj)
+            } else if (exported.kindString === 'Enumeration') {
+                const exportedObj = {
+                    id: exported.id,
+                    name: exported.name,
+                    source: exported.sources[0].url,
+                    tags: resolveTags(exported.flags),
+                    comment: resolveComment(exported.comment?.summary),
+                    example: resolveExample(exported),
+                    members: []
+                }
+
+                exported.children.forEach(member => {
+                    if (member.kindString === 'Enumeration Member') {
+                        const memberObj = {
+                            id: member.id,
+                            name: member.name,
+                            comment: resolveComment(member.comment?.summary),
+                            tags: resolveTags(member.flags),
+                            type: resolveTypes(member.type, lib.name)
+                        }
+                        exportedObj.members.push(memberObj)
+                    }
+                })
+                exportedObj.members.sort((a, b) => a.id - b.id)
+
+                libObj.enumerations.push(exportedObj)
             }
         }
 
@@ -206,6 +252,12 @@ function parseLibsData(libs) {
                 file.children.forEach(resolveExported);
             })
         }
+
+        sortByName(libObj.classes);
+        sortByName(libObj.functions);
+        sortByName(libObj.types);
+        sortByName(libObj.enumerations);
+        sortByName(libObj.interfaces);
 
         data.libs.push(libObj);
     });
@@ -239,6 +291,55 @@ function createJson(data) {
 
         console.log("JSON file has been saved.");
     });
+}
+
+// Resolve the children of an item
+function resolveChildren(item, itemObj, lib) {
+    item.children?.forEach(child => {
+        if (child.inheritedFrom) {
+            return;
+        }
+
+        const childObj = {
+            id: child.id,
+            name: child.kindString === 'Constructor' ? item.name : child.name,
+            source: child.sources ? child.sources[0].url : itemObj.source, // Some classes don't have a constructor, so we use the class source instead of the constructor one
+        }
+
+        if (child.kindString === 'Constructor' && itemObj.constructors) {
+            resolveFunction(childObj, child.signatures[0], child.flags, lib.name);
+            itemObj.constructors.push(childObj);
+        } else if (
+            child.kindString === 'Property' && child.type?.type === 'reflection'
+            && child.type?.declaration?.signatures?.[0]?.kindString === 'Call signature'
+        ) {
+            resolveFunction(childObj, child.type?.declaration?.signatures?.[0], child.flags, lib.name);
+            itemObj.methods.push(childObj);
+        } else if (child.kindString === 'Property') {
+            childObj.comment = resolveComment(child.comment?.summary);
+            childObj.defaultValue = resolveDefaultValue(child);
+            childObj.type = resolveTypes(child.type, lib.name);
+            childObj.tags = resolveTags(child.flags);
+            itemObj.properties.push(childObj);
+        } else if (child.kindString === 'Accessor') {
+            if (child.setSignature) {
+                childObj.setter = {
+                    name: `set ${child.name}`,
+                };
+                resolveFunction(childObj.setter, child.setSignature, child.flags, lib.name);
+            }
+            if (child.getSignature) {
+                childObj.getter = {
+                    name: `get ${child.name}`,
+                };
+                resolveFunction(childObj.getter, child.getSignature, child.flags, lib.name);
+            }
+            itemObj.accessors.push(childObj);
+        } else if (child.kindString === 'Method') {
+            resolveFunction(childObj, child.signatures[0], child.flags, lib.name);
+            itemObj.methods.push(childObj);
+        }
+    })
 }
 
 // Resolve the default value of an item
@@ -318,16 +419,7 @@ function resolveFunction(obj, func, flags = [], lib, isType = false) {
         }
     })
     if (!isType) {
-        obj.typeParams = func.typeParameter?.map(typeParam => {
-            return {
-                id: typeParam.id,
-                name: typeParam.name,
-                type: resolveTypes(typeParam.type, lib),
-                tags: resolveTags(typeParam.flags),
-                comment: resolveComment(typeParam.comment?.summary),
-                default: resolveTypes(typeParam.default, lib),
-            }
-        })
+        obj.typeParams = resolveTypeParams(func.typeParameter, lib)
     }
 }
 
@@ -345,25 +437,109 @@ function getExportedFromReference(reference, currentLib) {
     return exported;
 }
 
+// Resolve the type parameters of something (function, type, ...)
+function resolveTypeParams(typeParams, currentLib) {
+    if (!typeParams) return [];
+
+    return typeParams?.map(typeParam => ({
+        id: typeParam.id,
+        name: typeParam.name,
+        type: resolveTypes(typeParam.type, currentLib, true),
+        tags: resolveTags(typeParam.flags),
+        comment: resolveComment(typeParam.comment?.summary),
+        default: resolveTypes(typeParam.default, currentLib),
+    }))
+}
+
 // Resolve the type of something (property, method, param, ...)
-function resolveTypes(type, currentLib) {
+function resolveTypes(type, currentLib, isArgument = false) {
     if (!type) return;
-    if (type.type === 'union') {
-        return type.types.map(type => resolveTypes(type, currentLib));
+    if (type.type === 'union' || type.type === 'tuple' || type.type === 'intersection') {
+        const typeList = type.types || type.elements;
+        return {
+            listType: type.type,
+            list: typeList?.map(type => resolveTypes(type, currentLib))
+        };
     }
     if (type.type === 'intrinsic') {
         return { name: type.name };
     }
-    if (type.type === 'reference') {
-        if (['ArrayLike', 'Set', 'Record', 'Map', 'WeakMap', 'Promise'].includes(type.name)) {
-            return {
-                name: type.name,
-                types: [
-                    ...type.typeArguments.map(type => resolveTypes(type, currentLib)),
-                ],
-            };
-        }
+    if (type.type === 'literal') {
+        const literalType = type.value === null ? 'null' : typeof type.value;
+        return {
+            name: literalType === 'string' ? `'${type.value}'` : `${type.value}`,
+            data: {
+                literalType: literalType,
+            }
+        };
+    }
 
+    if (type.type === 'inferred') {
+        return {
+            name: type.name,
+            isInferred: true
+        };
+    }
+    if (type.type === 'array') {
+        return {
+            ...resolveTypes(type.elementType, currentLib),
+            isArray: true
+        };
+    }
+    if (type.type === 'query') {
+        return {
+            ...resolveTypes(type.queryType, currentLib),
+            isQuery: true
+        };
+    }
+    if (type.type === 'indexedAccess') {
+        const objectType = resolveTypes(type.objectType, currentLib)
+        return {
+            ...objectType,
+            isIndexed: true,
+            data: {
+                ...(objectType.data || {}),
+                indexType: resolveTypes(type.indexType, currentLib),
+            }
+        };
+    }
+
+    if (type.type === 'typeOperator') {
+        const currentType = resolveTypes(type.target, currentLib);
+        return {
+            ...currentType,
+            data: {
+                ...(currentType.data || {}),
+                operator: type.operator,
+            }
+        };
+    }
+    if (type.type === 'predicate') {
+        return {
+            name: type.name,
+            data: {
+                useAsserts: type.asserts,
+                targetType: resolveTypes(type.targetType, currentLib),
+            }
+        }
+    }
+    if (type.type === 'conditional') {
+        const checkType = resolveTypes(type.checkType, currentLib);
+        return {
+            ...checkType,
+            data: {
+                ...(checkType.data || {}),
+                extendsType: resolveTypes(type.extendsType, currentLib),
+                conditionalTypes: [type.trueType, type.falseType].map(condType => resolveTypes(condType, currentLib)),
+            }
+        }
+    }
+    if (type.type === 'reference') {
+        const data = isArgument || !type.typeArguments?.length
+            ? {}
+            : { data: {
+                arguments: type.typeArguments?.map(arg => resolveTypes(arg, currentLib, true))
+            }}
         const exported = getExportedFromReference(type, currentLib);
 
         if (exported) {
@@ -372,21 +548,16 @@ function resolveTypes(type, currentLib) {
                 lib: exported.lib,
                 kind: exported.kind,
                 source: exported.source,
+                ...data,
             };
         }
 
-        return { name: type.name };
-    }
-    if (type.type === 'array') {
         return {
-            ...resolveTypes(type.elementType, currentLib),
-            isArray: true
+            name: type.name,
+            ...data,
         };
     }
-    if (type.type === 'literal') {
-        return { name: `${type.value}` };
-    }
-    if (type.type === 'reflection') {
+    if (type.type === 'reflection' && type.declaration?.signatures) {
         const signature = type.declaration?.signatures?.[0];
 
         if (!signature || signature.kindString !== 'Call signature') return;
@@ -396,12 +567,31 @@ function resolveTypes(type, currentLib) {
 
         return {
             name: 'function',
-            function: funcData,
+            data: {
+                function: funcData,
+            }
         }
     }
-    if (type.type === 'typeOperator') {
-        return resolveTypes(type.target, currentLib);
+    if (type.type === 'reflection' && type.declaration?.children) {
+        const props = [];
+        type.declaration?.children?.forEach(child => {
+            if (child.kindString === 'Property') {
+                props.push({
+                    name: child.name,
+                    type: resolveTypes(child.type, currentLib),
+                })
+            }
+        })
+
+        return {
+            name: 'object',
+            data: {
+                properties: props,
+            }
+        }
     }
+
+    console.log('Unknown type', type.type);
 }
 
 // Resolve the full extends chain
@@ -427,11 +617,11 @@ function resolveExtends(extendsData, currentLib, extendsChain = []) {
     return extendsChain
 }
 
-// Resolve the implements type
-function resolveImplements(implementsData, currentLib) {
-    if (implementsData.type !== 'reference') return;
+// Resolve the implementation type (implements or implemented by)
+function resolveImplementation(implementationData, currentLib) {
+    if (implementationData.type !== 'reference') return;
 
-    const exported = getExportedFromReference(implementsData, currentLib);
+    const exported = getExportedFromReference(implementationData, currentLib);
 
     if (exported) {
         return {

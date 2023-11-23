@@ -23,6 +23,7 @@
     "nanogl-gltf": "^0.2.0",
     "nanogl-node": "^1.2.1",
     "nanogl-pbr": "^3.0.0-beta.15",
+    "nanogl-post": "^1.0.1",
     "nanogl-primitives-2d": "^1.1.0",
     "nanogl-state": "^2.1.0",
     "tweakpane": "^4.0.1",

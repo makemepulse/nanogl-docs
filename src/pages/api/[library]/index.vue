@@ -27,6 +27,39 @@
             />
           </div>
         </div>
+        <div v-if="currentLib.interfaces.length">
+          <h3 id="interfaces" class="mt-8 mb-4">Interfaces</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 auto-rows-fr gap-8">
+            <UIBlockLink
+              v-for="libInterface in currentLib.interfaces"
+              class="px-16 py-8"
+              :url="`/${SECTIONS.API}/${currentLib.name}/${LIB_ITEM_TYPE.INTERFACE}/${libInterface.name}`"
+              :text="libInterface.name"
+            />
+          </div>
+        </div>
+        <div v-if="currentLib.types.length">
+          <h3 id="types" class="mt-8 mb-4">Types</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 auto-rows-fr gap-8">
+            <UIBlockLink
+            v-for="libType in currentLib.types"
+            class="px-16 py-8"
+            :url="`/${SECTIONS.API}/${currentLib.name}/${LIB_ITEM_TYPE.TYPE}/${libType.name}`"
+            :text="libType.name"
+            />
+          </div>
+        </div>
+        <div v-if="currentLib.enumerations.length">
+          <h3 id="enumerations" class="mt-8 mb-4">Enumerations</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 auto-rows-fr gap-8">
+            <UIBlockLink
+              v-for="libEnum in currentLib.enumerations"
+              class="px-16 py-8"
+              :url="`/${SECTIONS.API}/${currentLib.name}/${LIB_ITEM_TYPE.ENUM}/${libEnum.name}`"
+              :text="libEnum.name"
+            />
+          </div>
+        </div>
       </div>
     </div>
     <div class="toc-wrapper">
@@ -41,6 +74,15 @@
           </li>
           <li v-if="currentLib.functions.length">
             <a href="#functions">Functions</a>
+          </li>
+          <li v-if="currentLib.interfaces.length">
+            <a href="#interfaces">Interfaces</a>
+          </li>
+          <li v-if="currentLib.enumerations.length">
+            <a href="#enumerations">Enumerations</a>
+          </li>
+          <li v-if="currentLib.types.length">
+            <a href="#types">Types</a>
           </li>
         </ul>
       </div>

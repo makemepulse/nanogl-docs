@@ -12,6 +12,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
+import Fragment from '@components/Fragment.vue';
+
 type Props = {
   lang?: string,
   isInline?: boolean;
@@ -21,6 +23,6 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const wrapperComponent = computed(() => {
-  return props.isInline ? 'v-fragment' : 'pre';
+  return props.isInline ? Fragment : 'pre';
 })
 </script>

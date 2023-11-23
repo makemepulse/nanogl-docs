@@ -7,6 +7,9 @@ export enum SECTIONS {
 export enum LIB_ITEM_TYPE {
   FUNCTION = 'functions',
   CLASS = 'classes',
+  INTERFACE = 'interfaces',
+  TYPE = 'types',
+  ENUM = 'enumerations',
 }
 
 export enum LIB_ITEM_TAGS {

@@ -9,9 +9,7 @@
       <span class="token punctuation">
         {{  ': ' }}
       </span>
-      <span class="token type">
-        <Type :data="param.type" is-code/>
-      </span>
+      <Type :data="param.type" is-code />
     </template>
     <span
       v-if="index + 1 < func.params.length"
@@ -26,9 +24,11 @@
   <span class="token operator">
     {{  ' => ' }}
   </span>
-  <span v-if="func.type" class="token type">
-    <Type :data="func.type" is-code />
-  </span>
+  <Type
+    v-if="func.type"
+    :data="func.type"
+    is-code
+  />
   <span v-else class="token punctuation">
     {{ '{}' }}
   </span>
