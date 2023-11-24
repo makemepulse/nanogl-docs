@@ -7,6 +7,7 @@ import MdReplaceLink from 'markdown-it-replace-link'
 
 import "prismjs/components/prism-clike";
 import "prismjs/components/prism-javascript";
+import "prismjs/components/prism-typescript";
 import "prismjs/components/prism-c";
 import "prismjs/components/prism-glsl";
 
