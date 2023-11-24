@@ -1,6 +1,7 @@
 import fs from 'fs';
 
-import { LIB_ITEM_FLAGS_TAGS } from '../lib/constants.js';
+import { getLibItemType } from '../lib/utils.ts';
+import { SECTIONS, LIB_ITEM_FLAGS_TAGS } from '../lib/constants.ts';
 
 const sortByName = (list) => {
     list.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
@@ -67,7 +68,10 @@ const LIBS_URLS = [
 const OUTPUT_PATH = './src/assets/data.json';
 
 // List of all exported objects from all libs, used to retrieve the name of an object only referenced by its id
-const exportedList = [];
+const exportedList = {};
+
+// List of all exported objects and their direct children from all libs, used to resolve comment links
+const exportedAllList = {};
 
 // Fetch all 'data.json' files from libs
 async function fetchLibs() {
@@ -88,18 +92,48 @@ async function fetchLibs() {
     parseLibsData(libs);
 }
 
+// Add exported item to exportedList + add exported item and children to exportedAllList
+function addToExportedList(exported, currentLib) {
+    if (!exported) return;
+
+    const item = {
+        id: exported.id,
+        lib: currentLib,
+        name: exported.name,
+        kind: exported.kindString,
+        source: exported.sources[0].url,
+        extends: exported.extendedTypes?.[0],
+    }
+
+    exportedList[currentLib].push(item);
+    exportedAllList[currentLib].push(item);
+
+    if (!exported.children) return;
+
+    exported.children.forEach(child => {
+        if (!child) return;
+        exportedAllList[currentLib].push({
+            id: child.id,
+            lib: currentLib,
+            name: child.name,
+            kind: child.kindString,
+            source: child.sources?.[0].url,
+            extends: child.extendedTypes?.[0],
+            parent: {
+                kind: exported.kindString,
+                name: exported.name
+            }
+        })
+    });
+}
+
 // Setup the exported list for each lib (to use for type & extends resolution)
 function setupExportedList(libs) {
     libs.forEach(lib => {
+        exportedList[lib.name] = [];
+        exportedAllList[lib.name] = [];
         libChildrenAction(lib, (exported) => {
-            exportedList.push({
-                id: exported.id,
-                name: exported.name,
-                lib: lib.name,
-                kind: exported.kindString,
-                source: exported.sources[0].url,
-                extends: exported.extendedTypes?.[0]
-            })
+            addToExportedList(exported, lib.name);
         })
     })
 }
@@ -128,8 +162,8 @@ function parseLibsData(libs) {
                     name: exported.name,
                     originalName: exported.originalName,
                     source: exported.sources[0].url,
-                    comment: resolveComment(exported.comment?.summary),
-                    example: resolveExample(exported),
+                    comment: resolveComment(exported.comment?.summary, lib.name),
+                    example: resolveExample(exported, lib.name),
                     tags: resolveTags(exported.flags),
                     constructors: [],
                     properties: [],
@@ -160,8 +194,8 @@ function parseLibsData(libs) {
                     name: exported.name,
                     originalName: exported.originalName,
                     source: exported.sources[0].url,
-                    comment: resolveComment(exported.comment?.summary),
-                    example: resolveExample(exported),
+                    comment: resolveComment(exported.comment?.summary, lib.name),
+                    example: resolveExample(exported, lib.name),
                     tags: resolveTags(exported.flags),
                     properties: [],
                     accessors: [],
@@ -185,8 +219,8 @@ function parseLibsData(libs) {
                     name: exported.name,
                     originalName: exported.originalName,
                     source: exported.sources[0].url,
-                    comment: resolveComment(exported.comment?.summary),
-                    example: resolveExample(exported),
+                    comment: resolveComment(exported.comment?.summary, lib.name),
+                    example: resolveExample(exported, lib.name),
                     tags: resolveTags(exported.flags),
                     properties: [],
                     accessors: [],
@@ -206,9 +240,9 @@ function parseLibsData(libs) {
                     source: exported.sources[0].url,
                     tags: resolveTags(exported.flags),
                     type: resolveTypes(exported.type, lib.name),
-                    comment: resolveComment(exported.comment?.summary),
-                    example: resolveExample(exported),
-                    params: resolveTypeParams(exported.typeParameters, lib)
+                    comment: resolveComment(exported.comment?.summary, lib.name),
+                    example: resolveExample(exported, lib.name),
+                    params: resolveTypeParams(exported.typeParameters, lib.name)
                 }
                 libObj.types.push(exportedObj)
             } else if (exported.kindString === 'Enumeration') {
@@ -217,8 +251,8 @@ function parseLibsData(libs) {
                     name: exported.name,
                     source: exported.sources[0].url,
                     tags: resolveTags(exported.flags),
-                    comment: resolveComment(exported.comment?.summary),
-                    example: resolveExample(exported),
+                    comment: resolveComment(exported.comment?.summary, lib.name),
+                    example: resolveExample(exported, lib.name),
                     members: []
                 }
 
@@ -227,7 +261,7 @@ function parseLibsData(libs) {
                         const memberObj = {
                             id: member.id,
                             name: member.name,
-                            comment: resolveComment(member.comment?.summary),
+                            comment: resolveComment(member.comment?.summary, lib.name),
                             tags: resolveTags(member.flags),
                             type: resolveTypes(member.type, lib.name)
                         }
@@ -316,7 +350,7 @@ function resolveChildren(item, itemObj, lib) {
             resolveFunction(childObj, child.type?.declaration?.signatures?.[0], child.flags, lib.name);
             itemObj.methods.push(childObj);
         } else if (child.kindString === 'Property') {
-            childObj.comment = resolveComment(child.comment?.summary);
+            childObj.comment = resolveComment(child.comment?.summary, lib.name);
             childObj.defaultValue = resolveDefaultValue(child);
             childObj.type = resolveTypes(child.type, lib.name);
             childObj.tags = resolveTags(child.flags);
@@ -374,13 +408,37 @@ function resolveTags(flags) {
     return tags;
 }
 
+function resolveLink(text, target, currentLib) {
+    const libExported = exportedAllList[currentLib] || [];
+
+    const exportedTarget = libExported.find(
+        exported => exported.id === target
+    );
+
+    if (exportedTarget) {
+        const targetLib = exportedTarget.lib;
+        const targetParent = exportedTarget.parent;
+        const pathItem = targetParent || exportedTarget;
+
+        const targetType = getLibItemType(pathItem.kind);
+        const targetName = pathItem.name;
+        const hash = targetParent ? `#item-${target}` : '';
+
+        if (targetLib && targetType && targetName) {
+            return `[${text}](/${SECTIONS.API}/${targetLib}/${targetType}/${targetName}${hash})`;
+        }
+    }
+
+    return text || '';
+}
+
 // Resolve the comment of an item to markdown
-function resolveComment(comment) {
+function resolveComment(comment, currentLib) {
     if (!comment) return;
 
     const commentData = comment.map(content => {
         if (content.kind === 'inline-tag' && content.tag === '@link') {
-            return `[${content.text}](#item-${content.target})`
+            return resolveLink(content.text, content.target, currentLib)
         }
 
         return content.text || ''
@@ -390,36 +448,36 @@ function resolveComment(comment) {
 }
 
 // Resolve the example of an item to markdown
-function resolveExample(item) {
+function resolveExample(item, currentLib) {
     if (!item.comment?.blockTags) return;
 
     const exampleTag = item.comment.blockTags.find(blockTag => blockTag.tag === '@example');
 
-    return resolveComment(exampleTag?.content);
+    return resolveComment(exampleTag?.content, currentLib);
 }
 
 // Resolve the type, comment and params of a function
-function resolveFunction(obj, func, flags = [], lib, isType = false) {
+function resolveFunction(obj, func, flags = [], currentLib, isType = false) {
     if (!isType) {
-        obj.comment = resolveComment(func.comment?.summary);
-        obj.example = resolveExample(func);
+        obj.comment = resolveComment(func.comment?.summary, currentLib);
+        obj.example = resolveExample(func, currentLib);
         obj.tags = resolveTags(func.flags ? { ...flags, ...func.flags } : flags);
     }
 
-    obj.type = resolveTypes(func.type, lib);
+    obj.type = resolveTypes(func.type, currentLib);
     obj.params = func.parameters?.map(param => {
         return {
             id: param.id,
             name: param.name,
-            type: resolveTypes(param.type, lib),
+            type: resolveTypes(param.type, currentLib),
             tags: resolveTags(param.flags),
-            comment: resolveComment(param.comment?.summary),
+            comment: resolveComment(param.comment?.summary, currentLib),
             optional: param.flags?.isOptional,
             defaultValue: resolveDefaultValue(param),
         }
     })
     if (!isType) {
-        obj.typeParams = resolveTypeParams(func.typeParameter, lib)
+        obj.typeParams = resolveTypeParams(func.typeParameter, currentLib)
     }
 }
 
@@ -428,11 +486,12 @@ function getExportedFromReference(reference, currentLib) {
     if (!reference.id && !reference.package) return;
 
     const lib = reference.package || currentLib;
+    const libExported = exportedList[lib] || [];
 
     // Find the referenced object in the correct lib
     const exported = reference.id
-    ? exportedList.find(exported => exported.id === reference.id && exported.lib === lib)
-    : exportedList.find(exported => exported.name === reference.qualifiedName && exported.lib === lib);
+        ? libExported.find(exported => exported.id === reference.id)
+        : libExported.find(exported => exported.name === reference.qualifiedName);
 
     return exported;
 }
@@ -446,7 +505,7 @@ function resolveTypeParams(typeParams, currentLib) {
         name: typeParam.name,
         type: resolveTypes(typeParam.type, currentLib, true),
         tags: resolveTags(typeParam.flags),
-        comment: resolveComment(typeParam.comment?.summary),
+        comment: resolveComment(typeParam.comment?.summary, currentLib),
         default: resolveTypes(typeParam.default, currentLib),
     }))
 }

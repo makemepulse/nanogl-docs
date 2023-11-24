@@ -104,7 +104,7 @@
 import { computed } from 'vue';
 
 import { APISingleType } from '@lib/apiData';
-import { LIB_ITEM_TYPE } from '@lib/constants';
+import { getLibItemType } from '@lib/utils';
 
 type Props = {
   type: APISingleType;
@@ -114,27 +114,7 @@ type Props = {
 const props = defineProps<Props>();
 
 const itemType = computed(() => {
-  if (props.type.kind === 'Class') {
-    return LIB_ITEM_TYPE.CLASS;
-  }
-
-  if (props.type.kind === 'Function') {
-    return LIB_ITEM_TYPE.FUNCTION;
-  }
-
-  if (props.type.kind === 'Interface') {
-    return LIB_ITEM_TYPE.INTERFACE;
-  }
-
-  if (props.type.kind === 'Type alias') {
-    return LIB_ITEM_TYPE.TYPE;
-  }
-
-  if (props.type.kind === 'Enumeration') {
-    return LIB_ITEM_TYPE.ENUM;
-  }
-
-  return null
+  return getLibItemType(props.type.kind);
 })
 
 const url = computed(() => {

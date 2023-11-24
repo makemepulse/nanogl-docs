@@ -594,7 +594,7 @@
               "id": 25,
               "name": "attrib",
               "source": "https://github.com/evanmartiin/nanogl/blob/224e9eb/src/arraybuffer.ts#L87",
-              "comment": "Add attribute declaration for this buffer. Once the attributes declared, the buffer can be linked to\nthe program's attributes using [attribPointer](#item-38).",
+              "comment": "Add attribute declaration for this buffer. Once the attributes declared, the buffer can be linked to\nthe program's attributes using [attribPointer](/api/nanogl/classes/ArrayBuffer#item-38).",
               "tags": [],
               "type": {
                 "name": "ArrayBuffer",
@@ -650,7 +650,7 @@
               "id": 38,
               "name": "attribPointer",
               "source": "https://github.com/evanmartiin/nanogl/blob/224e9eb/src/arraybuffer.ts#L123",
-              "comment": "Link the given program attributes to this buffer. You should first declare attributes using [attrib](#item-25)\nbefore calling this method.",
+              "comment": "Link the given program attributes to this buffer. You should first declare attributes using [attrib](/api/nanogl/classes/ArrayBuffer#item-25)\nbefore calling this method.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -2281,7 +2281,7 @@
               "id": 268,
               "name": "Program",
               "source": "https://github.com/evanmartiin/nanogl/blob/224e9eb/src/program.ts#L47",
-              "comment": "You can pass optional shader code to immediatly compile shaders or compile them later with [compile](#item-286).",
+              "comment": "You can pass optional shader code to immediatly compile shaders or compile them later with [compile](/api/nanogl/classes/Program#item-286).",
               "tags": [],
               "type": {
                 "name": "Program",
@@ -2469,7 +2469,7 @@
               "id": 284,
               "name": "bind",
               "source": "https://github.com/evanmartiin/nanogl/blob/224e9eb/src/program.ts#L79",
-              "comment": "Alias for [use](#item-282).",
+              "comment": "Alias for [use](/api/nanogl/classes/Program#item-282).",
               "tags": [],
               "type": {
                 "name": "void"
@@ -4562,7 +4562,7 @@
               "source": "https://github.com/evanmartiin/nanogl-camera/blob/33a1548/src/perspective-lens.ts#L98",
               "setter": {
                 "name": "set fov",
-                "comment": "Shortcut to [setVerticalFov](#item-169).",
+                "comment": "Shortcut to [setVerticalFov](/api/nanogl-camera/classes/PerspectiveLens#item-169).",
                 "tags": [],
                 "type": {
                   "name": "void"
@@ -23148,7 +23148,10 @@
               "id": 1851,
               "name": "T",
               "type": {
-                "name": "GltfTypes"
+                "name": "GltfTypes",
+                "lib": "nanogl-gltf",
+                "kind": "Enumeration",
+                "source": "https://github.com/evanmartiin/nanogl-gltf/blob/7bd767f/src/types/GltfTypes.ts#L2"
               },
               "tags": []
             },
@@ -23156,11 +23159,17 @@
               "id": 1852,
               "name": "E",
               "type": {
-                "name": "AnyElement"
+                "name": "AnyElement",
+                "lib": "nanogl-gltf",
+                "kind": "Type alias",
+                "source": "https://github.com/evanmartiin/nanogl-gltf/blob/7bd767f/src/types/Elements.ts#L47"
               },
               "tags": [],
               "default": {
-                "name": "AnyElement"
+                "name": "AnyElement",
+                "lib": "nanogl-gltf",
+                "kind": "Type alias",
+                "source": "https://github.com/evanmartiin/nanogl-gltf/blob/7bd767f/src/types/Elements.ts#L47"
               }
             }
           ]
@@ -23202,7 +23211,10 @@
               "id": 1865,
               "name": "T",
               "type": {
-                "name": "AnyElement"
+                "name": "AnyElement",
+                "lib": "nanogl-gltf",
+                "kind": "Type alias",
+                "source": "https://github.com/evanmartiin/nanogl-gltf/blob/7bd767f/src/types/Elements.ts#L47"
               },
               "tags": []
             }
@@ -23324,7 +23336,10 @@
               "id": 1856,
               "name": "T",
               "type": {
-                "name": "GltfTypes"
+                "name": "GltfTypes",
+                "lib": "nanogl-gltf",
+                "kind": "Enumeration",
+                "source": "https://github.com/evanmartiin/nanogl-gltf/blob/7bd767f/src/types/GltfTypes.ts#L2"
               },
               "tags": []
             },
@@ -24725,7 +24740,7 @@
               "id": 2069,
               "name": "_genCode",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/f248079/src/lighting/AbstractLightModel.ts#L51",
-              "comment": "The method called by [Chunk#genCode](#item-undefined)\nto generate the shader code for this chunk.",
+              "comment": "The method called by Chunk#genCode\nto generate the shader code for this chunk.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -25839,7 +25854,7 @@
               "id": 74,
               "name": "_genCode",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/f248079/src/Chunk.ts#L166",
-              "comment": "The method called by [genCode](#item-65)\nto generate the shader code for this chunk.",
+              "comment": "The method called by [genCode](/api/nanogl-pbr/classes/Chunk#item-65)\nto generate the shader code for this chunk.",
               "tags": [
                 "protected",
                 "abstract"
@@ -26353,7 +26368,7 @@
               "id": 128,
               "name": "_collectChunks",
               "source": "https://github.com/evanmartiin/nanogl-pbr/blob/f248079/src/ChunkCollection.ts#L136",
-              "comment": "Collect all chunks in this collection and setup the\nlists of chunks accordingly.\n\nThis sets the following lists with the current the chunks and their children :\n- [_all](#item-102)\n- [_actives](#item-103)\n- [_setups](#item-105)\n- [_codes](#item-106)",
+              "comment": "Collect all chunks in this collection and setup the\nlists of chunks accordingly.\n\nThis sets the following lists with the current the chunks and their children :\n- [_all](/api/nanogl-pbr/classes/ChunkCollection#item-102)\n- [_actives](/api/nanogl-pbr/classes/ChunkCollection#item-103)\n- [_setups](/api/nanogl-pbr/classes/ChunkCollection#item-105)\n- [_codes](/api/nanogl-pbr/classes/ChunkCollection#item-106)",
               "tags": [],
               "type": {
                 "name": "void"
@@ -29378,7 +29393,7 @@
           "name": "Input",
           "originalName": "default",
           "source": "https://github.com/evanmartiin/nanogl-pbr/blob/f248079/src/Input.ts#L664",
-          "comment": "This class manages inputs for shaders.\n\nIt handles the underlying [InputParam](#item-409),\nfor samplers, uniforms, attributes and constants.",
+          "comment": "This class manages inputs for shaders.\n\nIt handles the underlying [InputParam](/api/nanogl-pbr/types/InputParam),\nfor samplers, uniforms, attributes and constants.",
           "tags": [],
           "constructors": [
             {
@@ -38037,7 +38052,7 @@
               }
             ]
           },
-          "comment": "An input parameter of a [ParamType](#item-395) type.",
+          "comment": "An input parameter of a [ParamType](/api/nanogl-pbr/enumerations/ParamType) type.",
           "params": []
         },
         {
@@ -42902,7 +42917,7 @@
               "id": 47,
               "name": "_testAvailable",
               "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L274",
-              "comment": "Test if texture allocation with given pixel format is possible or throws gl error.\n\nUsed by [isAvailable](#item-34)\n\n**Important :** Using this method can change bound texture.",
+              "comment": "Test if texture allocation with given pixel format is possible or throws gl error.\n\nUsed by [isAvailable](/api/nanogl-pf/classes/PixelFormats#item-34)\n\n**Important :** Using this method can change bound texture.",
               "tags": [
                 "private"
               ],
@@ -42953,7 +42968,7 @@
               "id": 52,
               "name": "_testRenderable",
               "source": "https://github.com/evanmartiin/nanogl-pf/blob/7f646c6/src/index.ts#L300",
-              "comment": "Test if given format is color renderable or not.\n\nUsed by [isRenderable](#item-39)\n\n**Important :** Using this method can change bound framebuffer and texture.",
+              "comment": "Test if given format is color renderable or not.\n\nUsed by [isRenderable](/api/nanogl-pf/classes/PixelFormats#item-39)\n\n**Important :** Using this method can change bound framebuffer and texture.",
               "tags": [
                 "private"
               ],
@@ -46322,7 +46337,7 @@
               "id": 531,
               "name": "render",
               "source": "https://github.com/evanmartiin/nanogl-post/blob/2918dd7/src/post.ts#L367",
-              "comment": "Render the effects.\n\n**Important :** The scene should be rendered to the main FBO before calling this method.\nYou can use [bindColor](#item-529) before rendering the scene to do so.",
+              "comment": "Render the effects.\n\n**Important :** The scene should be rendered to the main FBO before calling this method.\nYou can use [bindColor](/api/nanogl-post/classes/Post#item-529) before rendering the scene to do so.",
               "tags": [],
               "type": {
                 "name": "void"
@@ -50178,7 +50193,7 @@
               "id": 10,
               "name": "resolve",
               "source": "https://github.com/evanmartiin/nanogl-sync/blob/23ac2ad/src/index.ts#L49",
-              "comment": "Call [_complete](#item-50) for every signaled Sync in the pool.",
+              "comment": "Call [_complete](/api/nanogl-sync/classes/Sync#item-50) for every signaled Sync in the pool.",
               "tags": [
                 "static"
               ],
@@ -50226,7 +50241,7 @@
               "id": 48,
               "name": "_release",
               "source": "https://github.com/evanmartiin/nanogl-sync/blob/23ac2ad/src/index.ts#L122",
-              "comment": "Release everything related to this Sync.\n\nUsed by [dispose](#item-31) and [_complete](#item-50).",
+              "comment": "Release everything related to this Sync.\n\nUsed by [dispose](/api/nanogl-sync/classes/Sync#item-31) and [_complete](/api/nanogl-sync/classes/Sync#item-50).",
               "tags": [],
               "type": {
                 "name": "void"
@@ -50248,7 +50263,7 @@
               "id": 45,
               "name": "clientWaitSync",
               "source": "https://github.com/evanmartiin/nanogl-sync/blob/23ac2ad/src/index.ts#L109",
-              "comment": "Shortcut to `gl.clientWaitSync`.\n\n**Important :** The [insert](#item-29) method must have been called before calling this method.",
+              "comment": "Shortcut to `gl.clientWaitSync`.\n\n**Important :** The [insert](/api/nanogl-sync/classes/Sync#item-29) method must have been called before calling this method.",
               "tags": [],
               "type": {
                 "name": "number"
