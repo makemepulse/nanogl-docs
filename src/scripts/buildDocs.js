@@ -67,11 +67,8 @@ const LIBS_URLS = [
 
 const OUTPUT_PATH = './src/assets/data.json';
 
-// List of all exported objects from all libs, used to retrieve the name of an object only referenced by its id
+// List of all exported objects and their direct children from all libs, used to retrieve the name of an object only referenced by its id
 const exportedList = {};
-
-// List of all exported objects and their direct children from all libs, used to resolve comment links
-const exportedAllList = {};
 
 // Fetch all 'data.json' files from libs
 async function fetchLibs() {
@@ -92,7 +89,7 @@ async function fetchLibs() {
     parseLibsData(libs);
 }
 
-// Add exported item to exportedList + add exported item and children to exportedAllList
+// Add exported item to exportedList
 function addToExportedList(exported, currentLib) {
     if (!exported) return;
 
@@ -101,22 +98,23 @@ function addToExportedList(exported, currentLib) {
         lib: currentLib,
         name: exported.name,
         kind: exported.kindString,
+        type: exported.type,
         source: exported.sources[0].url,
         extends: exported.extendedTypes?.[0],
     }
 
     exportedList[currentLib].push(item);
-    exportedAllList[currentLib].push(item);
 
     if (!exported.children) return;
 
     exported.children.forEach(child => {
         if (!child) return;
-        exportedAllList[currentLib].push({
+        exportedList[currentLib].push({
             id: child.id,
             lib: currentLib,
             name: child.name,
             kind: child.kindString,
+            type: exported.type,
             source: child.sources?.[0].url,
             extends: child.extendedTypes?.[0],
             parent: {
@@ -131,7 +129,6 @@ function addToExportedList(exported, currentLib) {
 function setupExportedList(libs) {
     libs.forEach(lib => {
         exportedList[lib.name] = [];
-        exportedAllList[lib.name] = [];
         libChildrenAction(lib, (exported) => {
             addToExportedList(exported, lib.name);
         })
@@ -234,15 +231,16 @@ function parseLibsData(libs) {
 
                 libObj.types.push(exportedObj);
             } else if (exported.kindString === 'Type alias') {
+                const shouldResolveTypeof = exported.comment?.modifierTags?.includes('@resolveTypeof');
                 const exportedObj = {
                     id: exported.id,
                     name: exported.name,
                     source: exported.sources[0].url,
                     tags: resolveTags(exported.flags),
-                    type: resolveTypes(exported.type, lib.name),
+                    type: resolveTypes(exported.type, lib.name, false, shouldResolveTypeof),
                     comment: resolveComment(exported.comment?.summary, lib.name),
                     example: resolveExample(exported, lib.name),
-                    params: resolveTypeParams(exported.typeParameters, lib.name)
+                    params: resolveTypeParams(exported.typeParameters, lib.name, shouldResolveTypeof)
                 }
                 libObj.types.push(exportedObj)
             } else if (exported.kindString === 'Enumeration') {
@@ -409,7 +407,7 @@ function resolveTags(flags) {
 }
 
 function resolveLink(text, target, currentLib) {
-    const libExported = exportedAllList[currentLib] || [];
+    const libExported = exportedList[currentLib] || [];
 
     const exportedTarget = libExported.find(
         exported => exported.id === target
@@ -497,27 +495,27 @@ function getExportedFromReference(reference, currentLib) {
 }
 
 // Resolve the type parameters of something (function, type, ...)
-function resolveTypeParams(typeParams, currentLib) {
+function resolveTypeParams(typeParams, currentLib, shouldResolveTypeof = false) {
     if (!typeParams) return [];
 
     return typeParams?.map(typeParam => ({
         id: typeParam.id,
         name: typeParam.name,
-        type: resolveTypes(typeParam.type, currentLib, true),
+        type: resolveTypes(typeParam.type, currentLib, true, shouldResolveTypeof),
         tags: resolveTags(typeParam.flags),
         comment: resolveComment(typeParam.comment?.summary, currentLib),
-        default: resolveTypes(typeParam.default, currentLib),
+        default: resolveTypes(typeParam.default, currentLib, false, shouldResolveTypeof),
     }))
 }
 
 // Resolve the type of something (property, method, param, ...)
-function resolveTypes(type, currentLib, isArgument = false) {
+function resolveTypes(type, currentLib, isArgument = false, shouldResolveTypeof = false) {
     if (!type) return;
     if (type.type === 'union' || type.type === 'tuple' || type.type === 'intersection') {
         const typeList = type.types || type.elements;
         return {
             listType: type.type,
-            list: typeList?.map(type => resolveTypes(type, currentLib))
+            list: typeList?.map(type => resolveTypes(type, currentLib, isArgument, shouldResolveTypeof))
         };
     }
     if (type.type === 'intrinsic') {
@@ -541,30 +539,40 @@ function resolveTypes(type, currentLib, isArgument = false) {
     }
     if (type.type === 'array') {
         return {
-            ...resolveTypes(type.elementType, currentLib),
+            ...resolveTypes(type.elementType, currentLib, isArgument, shouldResolveTypeof),
             isArray: true
         };
     }
     if (type.type === 'query') {
+        if (shouldResolveTypeof) {
+            const libList = exportedList[currentLib] || [];
+            const exported = libList.find(exported => exported.id === type.queryType.id);
+
+            if (exported && exported.type) {
+                return resolveTypes(exported.type, currentLib, isArgument, shouldResolveTypeof)
+            }
+
+        }
+
         return {
-            ...resolveTypes(type.queryType, currentLib),
+            ...resolveTypes(type.queryType, currentLib, isArgument, shouldResolveTypeof),
             isQuery: true
         };
     }
     if (type.type === 'indexedAccess') {
-        const objectType = resolveTypes(type.objectType, currentLib)
+        const objectType = resolveTypes(type.objectType, currentLib, isArgument, shouldResolveTypeof)
         return {
             ...objectType,
             isIndexed: true,
             data: {
                 ...(objectType.data || {}),
-                indexType: resolveTypes(type.indexType, currentLib),
+                indexType: resolveTypes(type.indexType, currentLib, isArgument, shouldResolveTypeof),
             }
         };
     }
 
     if (type.type === 'typeOperator') {
-        const currentType = resolveTypes(type.target, currentLib);
+        const currentType = resolveTypes(type.target, currentLib, isArgument, shouldResolveTypeof);
         return {
             ...currentType,
             data: {
@@ -578,18 +586,19 @@ function resolveTypes(type, currentLib, isArgument = false) {
             name: type.name,
             data: {
                 useAsserts: type.asserts,
-                targetType: resolveTypes(type.targetType, currentLib),
+                targetType: resolveTypes(type.targetType, currentLib, isArgument, shouldResolveTypeof),
             }
         }
     }
     if (type.type === 'conditional') {
-        const checkType = resolveTypes(type.checkType, currentLib);
+        const checkType = resolveTypes(type.checkType, currentLib, isArgument, shouldResolveTypeof);
         return {
             ...checkType,
             data: {
                 ...(checkType.data || {}),
-                extendsType: resolveTypes(type.extendsType, currentLib),
-                conditionalTypes: [type.trueType, type.falseType].map(condType => resolveTypes(condType, currentLib)),
+                extendsType: resolveTypes(type.extendsType, currentLib, isArgument, shouldResolveTypeof),
+                conditionalTypes: [type.trueType, type.falseType]
+                    .map(condType => resolveTypes(condType, currentLib, isArgument, shouldResolveTypeof)),
             }
         }
     }
@@ -597,7 +606,7 @@ function resolveTypes(type, currentLib, isArgument = false) {
         const data = isArgument || !type.typeArguments?.length
             ? {}
             : { data: {
-                arguments: type.typeArguments?.map(arg => resolveTypes(arg, currentLib, true))
+                arguments: type.typeArguments?.map(arg => resolveTypes(arg, currentLib, true, shouldResolveTypeof))
             }}
         const exported = getExportedFromReference(type, currentLib);
 
@@ -607,6 +616,7 @@ function resolveTypes(type, currentLib, isArgument = false) {
                 lib: exported.lib,
                 kind: exported.kind,
                 source: exported.source,
+                parent: exported.parent,
                 ...data,
             };
         }
@@ -637,7 +647,7 @@ function resolveTypes(type, currentLib, isArgument = false) {
             if (child.kindString === 'Property') {
                 props.push({
                     name: child.name,
-                    type: resolveTypes(child.type, currentLib),
+                    type: resolveTypes(child.type, currentLib, isArgument, shouldResolveTypeof),
                 })
             }
         })

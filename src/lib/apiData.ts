@@ -8,37 +8,47 @@ export type APITypeListType = 'union' | 'intersection' | 'tuple';
 
 export type APITypeOperator = 'keyof' | 'unique' | 'readonly';
 
+export type APITypeParent = {
+  kind: string;
+  name: string;
+}
+
 export type APITypeData = {
-  useAsserts?: boolean;
   operator?: APITypeOperator;
-  function?: APIFunction;
-  properties?: APISimpleVariable[];
-  arguments?: APIType[];
   indexType?: APIType;
-  literalType?: APILiteralType;
-  targetType?: APIType;
   extendsType?: APIType;
   conditionalTypes?: APIType[];
 }
 
-export type APISingleType = {
+export type APISingleTypeData = APITypeData & {
+  useAsserts?: boolean;
+  function?: APIFunction;
+  properties?: APISimpleVariable[];
+  arguments?: APIType[];
+  literalType?: APILiteralType;
+  targetType?: APIType;
+}
+
+export type APIBaseType = {
   name: string;
-  lib?: string;
-  kind?: string;
-  source?: string;
   data?: APITypeData;
   isArray?: boolean;
   isQuery?: boolean;
   isIndexed?: boolean;
+}
+
+export type APISingleType = APIBaseType & {
+  lib?: string;
+  kind?: string;
+  source?: string;
+  data?: APISingleTypeData;
+  parent?: APITypeParent;
   isInferred?: boolean;
 }
 
-export type APIListType = {
-  listType: APITypeListType;
+export type APIListType = APIBaseType & {
   list: APIType[];
-  data?: {
-    operator?: APITypeOperator;
-  };
+  listType?: APITypeListType;
 }
 
 export type APIType = APIListType | APISingleType;

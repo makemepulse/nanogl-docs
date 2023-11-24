@@ -1,34 +1,32 @@
 <template>
   <template v-if="types.length">
     <!-- If multiple different types are accepted -->
-    <template v-if="listData && types.length > 1" >
-      <span v-if="listData.data?.operator" class="token keyword">
-        {{ `${listData.data?.operator} ` }}
-      </span>
-
-      <span v-if="listData.listType === 'tuple'" class="token punctuation">
-        {{ '[' }}
-      </span>
-      <template v-for="(typeData, index) in types">
-        <Type
-          :data="typeData"
-          :isCode="isCode"
-        />
-        <template v-if="index < types.length - 1">
-          <span v-if="listData.listType === 'union'" class="token operator">
-            {{ ' | ' }}
-          </span>
-          <span v-if="listData.listType === 'intersection'" class="token operator">
-            {{ ' & ' }}
-          </span>
-          <span v-if="listData.listType === 'tuple'" class="token punctuation">
-            {{ ', ' }}
-          </span>
+    <template v-if="typeList && types.length > 1" >
+      <TypeWrapper :type-data="typeList">
+        <span v-if="typeList.listType === 'tuple'" class="token punctuation">
+          {{ '[' }}
+        </span>
+        <template v-for="(typeData, index) in types">
+          <Type
+            :data="typeData"
+            :isCode="isCode"
+          />
+          <template v-if="index < types.length - 1">
+            <span v-if="typeList.listType === 'union'" class="token operator">
+              {{ ' | ' }}
+            </span>
+            <span v-if="typeList.listType === 'intersection'" class="token operator">
+              {{ ' & ' }}
+            </span>
+            <span v-if="typeList.listType === 'tuple'" class="token punctuation">
+              {{ ', ' }}
+            </span>
+          </template>
         </template>
-      </template>
-      <span v-if="listData.listType === 'tuple'" class="token punctuation">
-        {{ ']' }}
-      </span>
+        <span v-if="typeList.listType === 'tuple'" class="token punctuation">
+          {{ ']' }}
+        </span>
+      </TypeWrapper>
     </template>
 
     <!-- If it's a simple single type -->
@@ -53,15 +51,15 @@ type Props = {
 
 const props = defineProps<Props>();
 
-const listData = computed(() => {
+const typeList = computed(() => {
   if (!props.data.hasOwnProperty('list') || !props.data.hasOwnProperty('listType')) return;
   return props.data as APIListType;
 });
 
 const types = computed(() => {
   if (!props.data) return [];
-  if (listData.value) {
-    return listData.value.list;
+  if (typeList.value) {
+    return typeList.value.list;
   }
   return [props.data];
 })
