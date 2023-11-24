@@ -95,7 +95,7 @@
     </div>
     <div v-if="func.example" class="my-16">
       <Comment
-        title="example"
+        title="Example"
         :comment="func.example"
         :heading-component="paramsHeadingComponent" />
     </div>
