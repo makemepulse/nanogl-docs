@@ -12,7 +12,11 @@
       <span class="">{{ libEnum.name }}</span>
     </CodeWrapper>
     <Comment v-if="libEnum.comment" :comment="libEnum.comment" />
-    <Comment v-if="libEnum.example" :comment="libEnum.example" />
+    <Comment
+      v-if="libEnum.example"
+      title="Example"
+      :comment="libEnum.example"
+    />
     <div v-if="libEnum.members.length" class="mb-48">
       <h2 id="members">Members</h2>
       <div class="space-y-24">

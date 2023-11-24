@@ -27,7 +27,11 @@
       <span>{{ libInterface.name }}</span>
     </CodeWrapper>
     <Comment v-if="libInterface.comment" :comment="libInterface.comment" />
-    <Comment v-if="libInterface.example" :comment="libInterface.example" />
+    <Comment
+      v-if="libInterface.example"
+      title="Example"
+      :comment="libInterface.example"
+    />
     <div v-if="libInterface.properties.length" class="mb-48">
       <h2 id="properties">Properties</h2>
       <div class="space-y-24">

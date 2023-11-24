@@ -16,7 +16,11 @@
       </UIPill>
     </div>
     <Comment v-if="libClass.comment" :comment="libClass.comment" />
-    <Comment v-if="libClass.example" :comment="libClass.example" />
+    <Comment
+      v-if="libClass.example"
+      title="Example"
+      :comment="libClass.example"
+    />
     <div v-if="libClass.constructors.length" class="mb-48">
       <h2 id="constructor">Constructor</h2>
       <div class="space-y-24">

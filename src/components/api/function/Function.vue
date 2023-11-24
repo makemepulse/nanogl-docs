@@ -91,14 +91,11 @@
         />
       </div>
     </div>
-    <div  v-if="func.example" class="my-16">x"
-      <component
-        :is="paramsHeadingComponent"
-        :id="isFullPage ? `${func.name}-params` : ''"
-      >
-        Example
-      </component>
-      <Comment :comment="func.example" />
+    <div v-if="func.example" class="my-16">
+      <Comment
+        title="example"
+        :comment="func.example"
+        :heading-component="paramsHeadingComponent" />
     </div>
   </div>
 </template>

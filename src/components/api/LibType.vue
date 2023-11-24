@@ -18,7 +18,11 @@
       <Type :data="libType.type" is-code />
     </CodeWrapper>
     <Comment v-if="libType.comment" :comment="libType.comment" />
-    <Comment v-if="libType.example" :comment="libType.example" />
+    <Comment
+      v-if="libType.example"
+      title="Example"
+      :comment="libType.example"
+    />
     <div v-if="libType.params?.length" class="my-16">
       <h3 id="type-params">
         Type parameters
