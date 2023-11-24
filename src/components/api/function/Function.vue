@@ -52,7 +52,9 @@
         <Type :data="func.type" is-code />
       </template>
     </CodeWrapper>
-    <Comment v-if="func.comment" :comment="func.comment" class="my-16" />
+    <div v-if="func.comment" class="my-16">
+      <Comment :comment="func.comment" />
+    </div>
     <div v-if="func.typeParams?.length" class="my-16">
       <component
         :is="paramsHeadingComponent"
