@@ -38195,6 +38195,7 @@
               }
             }
           },
+          "comment": "A function that returns shader code.",
           "params": []
         },
         {

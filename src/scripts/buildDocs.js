@@ -232,13 +232,15 @@ function parseLibsData(libs) {
                 libObj.types.push(exportedObj);
             } else if (exported.kindString === 'Type alias') {
                 const shouldResolveTypeof = exported.comment?.modifierTags?.includes('@resolveTypeof');
+                const commentData = exported.comment?.summary
+                    || exported.type.declaration?.signatures?.[0]?.comment?.summary;
                 const exportedObj = {
                     id: exported.id,
                     name: exported.name,
                     source: exported.sources[0].url,
                     tags: resolveTags(exported.flags),
                     type: resolveTypes(exported.type, lib.name, false, shouldResolveTypeof),
-                    comment: resolveComment(exported.comment?.summary, lib.name),
+                    comment: resolveComment(commentData, lib.name),
                     example: resolveExample(exported, lib.name),
                     params: resolveTypeParams(exported.typeParameters, lib.name, shouldResolveTypeof)
                 }
@@ -660,7 +662,7 @@ function resolveTypes(type, currentLib, isArgument = false, shouldResolveTypeof 
         }
     }
 
-    console.log('Unknown type', type.type);
+    console.log(currentLib, ': Unknown type', type.type);
 }
 
 // Resolve the full extends chain
