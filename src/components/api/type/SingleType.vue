@@ -18,7 +18,6 @@
         v-if="!!url && url.isInternal"
         :class="{ 'code-link': isCode }"
         :to="url.path"
-        target="_blank"
       >
         <span :class="`token ${tokenType}`">
           {{ typeItem.name }}
