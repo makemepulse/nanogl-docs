@@ -13,8 +13,8 @@ import MdAttrs from 'markdown-it-attrs'
 import MdAnchor from 'markdown-it-anchor'
 import MdLinkAttrs from 'markdown-it-link-attributes'
 import MdReplaceLink from 'markdown-it-replace-link'
-import glsl from './build/vite-plugin-nanogl/esbuild-plugin'
 
+import glsl from './build/vite-plugin-nanogl/esbuild-plugin'
 import { ShaderPlugin } from "./build/vite-plugin-nanogl"
 
 // https://vitejs.dev/config/
