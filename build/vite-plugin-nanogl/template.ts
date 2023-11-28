@@ -63,7 +63,7 @@ export default function(
     async transform(source, shader) {
       if (filter(shader)) {
 
-        let input = loadShaders(source, shader, defaultExtension);
+        let input = await loadShaders(source, shader, defaultExtension);
         input = hmr(input);
 
         return await transformWithEsbuild(

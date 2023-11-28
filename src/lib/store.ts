@@ -16,7 +16,7 @@ export function useStore() {
 
   const init = () => {
     const data = import.meta.glob('../assets/data.json', { eager: true })['../assets/data.json'] as { libs: APILib[] };
-    libsData.value = data.libs
+    libsData.value = data.libs;
 
     const guideRoutes = router.getRoutes().reduce((acc, route) => {
       if (!route.meta.menuGuide) return acc;
