@@ -15,7 +15,7 @@ import { useStore } from "@lib/store";
 
 const { examplesNames } = useStore();
 const FOLDERS = ['guide', 'examples'];
-const NAMES = ['add-movement', 'creating-a-scene', ...examplesNames.value];
+const NAMES = ['add-movement', 'creating-a-scene', 'full-screen-shader', ...examplesNames.value];
 
 type Props = {
   name: typeof NAMES[number];
