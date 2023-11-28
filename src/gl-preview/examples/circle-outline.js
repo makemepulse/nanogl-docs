@@ -6,8 +6,6 @@ import { vec3 } from "gl-matrix";
 import { Pane } from 'tweakpane';
 
 const preview = (canvasEl) => {
-
-
   // --CANVAS & CONTEXT--
 
   const canvas = canvasEl || document.getElementById("canvas");
