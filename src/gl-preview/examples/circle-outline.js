@@ -5,7 +5,19 @@ import CircleOutline from "nanogl-primitives-2d/circle-outline";
 import { vec3 } from "gl-matrix";
 import { Pane } from 'tweakpane';
 
+// TODO: remove this
+import ShaderA from "nanogl-pbr/glsl/templates/standard/ibl-pre-sh.vert"
+import ShaderB from "nanogl-pbr/glsl/templates/standard/ibl.frag"
+import UnlitPass from "nanogl-pbr/UnlitPass"
+
+console.log( "Test shader import 1", ShaderA() )
+console.log( "Test shader import 2", ShaderB() )
+console.log( "test import UnlitPass", (new UnlitPass())._shaderSource.frag )
+// ==================
+
 const preview = (canvasEl) => {
+
+  
   // --CANVAS & CONTEXT--
 
   const canvas = canvasEl || document.getElementById("canvas");
