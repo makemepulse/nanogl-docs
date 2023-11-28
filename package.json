@@ -36,6 +36,7 @@
     "@tweakpane/core": "^2.0.1",
     "@vitejs/plugin-vue": "^4.0.0",
     "autoprefixer": "^10.4.16",
+    "nanogl-template": "^1.0.4",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.5",
     "ts-node": "^10.9.1",
