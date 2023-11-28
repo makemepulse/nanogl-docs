@@ -2,7 +2,7 @@
 meta:
   menuGuide: true
   menuName: Add some movement
-  menuOrder: 2
+  menuOrder: 3
 </route>
 
 <div class="content-wrapper">
