@@ -5,7 +5,7 @@ meta:
   menuOrder: 0
 </route>
 
-<div class="content-wrapper">
+<div class="full-content-wrapper">
 
 # Introduction
 
@@ -24,11 +24,5 @@ A starter is also available [on github](https://github.com/makemepulse/nanogl-st
 on the [nanogl starter website]().
 
 <!-- Images or iframes of nanogl starter -->
-
-</div>
-
-<div class="toc-wrapper">
-
-[[toc]]
 
 </div>
