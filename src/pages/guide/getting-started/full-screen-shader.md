@@ -2,7 +2,7 @@
 meta:
   menuGuide: true
   menuName: Full-screen shader
-  menuOrder: 4
+  menuOrder: 5
 </route>
 
 <div class="content-wrapper">

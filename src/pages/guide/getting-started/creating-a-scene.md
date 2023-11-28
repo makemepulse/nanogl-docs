@@ -2,7 +2,7 @@
 meta:
   menuGuide: true
   menuName: Creating a scene
-  menuOrder: 1
+  menuOrder: 2
 </route>
 
 <div class="content-wrapper">

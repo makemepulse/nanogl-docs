@@ -13,17 +13,17 @@ const router = createRouter({
     {
       path: '/',
       name: 'homepage',
-      redirect: '/guide/getting-started/installation',
+      redirect: '/guide/getting-started/introduction',
     },
     {
       path: '/guide',
       name: 'guide',
-      redirect: '/guide/getting-started/installation',
+      redirect: '/guide/getting-started/introduction',
     },
     {
       path: '/guide/getting-started',
       name: 'getting-started',
-      redirect: '/guide/getting-started/installation',
+      redirect: '/guide/getting-started/introduction',
     },
     {
       path: '/guide/quick-guides',

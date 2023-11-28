@@ -2,7 +2,7 @@
 meta:
   menuGuide: true
   menuName: Load a GLTF model
-  menuOrder: 3
+  menuOrder: 4
 </route>
 
 <div class="content-wrapper">

@@ -2,7 +2,7 @@
 meta:
   menuGuide: true
   menuName: Installation
-  menuOrder: 0
+  menuOrder: 1
 </route>
 
 <div class="content-wrapper">
@@ -31,6 +31,18 @@ You can then import what you need like this :
 ```js
 import Program from "nanogl/program"
 ```
+
+### Use the nanogl starter {#starter}
+
+You can also use the [nanogl starter](https://github.com/makemepulse/nanogl-starter) to start a new project,
+ready to use nanogl, and with some useful features.
+
+<UICallout>
+
+**Note :** The nanogl starter is opinionated, it uses specific
+frameworks and structures.
+
+</UICallout>
 
 ### Use the source files {#source-files}
 
