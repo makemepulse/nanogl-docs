@@ -1,9 +1,9 @@
 import Rect from "nanogl-primitives-2d/rect";
 import Camera from "nanogl-camera";
 import Program from "nanogl/program";
+import Texture2D from "nanogl/texture-2d";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
 import { vec3 } from "gl-matrix";
-import { Pane } from 'tweakpane';
 
 const preview = (canvasEl) => {
   let canRender = true;
@@ -33,9 +33,6 @@ const preview = (canvasEl) => {
     // set size to actual size of the current drawing buffer
     size.width = gl.drawingBufferWidth;
     size.height = gl.drawingBufferHeight;
-
-    // re-render scene to update viewport size
-    render();
   };
 
   // use ResizeObserver to handle canvas resize
@@ -53,14 +50,34 @@ const preview = (canvasEl) => {
 
   // --RECTANGLE--
 
-  const PARAMS = {
-    position: { x: -0.5, y: -0.5 },
-    width: 1,
-    height: 1,
-  };
-
   // simple Rectangle made of 2 triangles in an ArrayBuffer
-  let rect = new Rect(gl, PARAMS.position.x, PARAMS.position.y, PARAMS.width, PARAMS.height);
+  let rect = new Rect(gl, -0.75, -0.5, 1.5, 1);
+
+  // --TEXTURE--
+
+  // setup the texture
+  const texture = new Texture2D(gl);
+  // texture is clamped because video is not power of 2
+  texture.clamp();
+  // setup empty texture
+  texture.fromData(16,16, null);
+  // flip the texture vertically
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+
+  let videoReady = false;
+
+  // setup video
+  const video = document.createElement('video');
+  video.src = "/videos/video-sample.mp4";
+  video.loop = true;
+  video.muted = true;
+  video.setAttribute('playsinline', 'true');
+  video.play();
+
+  // set video ready flag when video can play
+  video.oncanplay = () => {
+    videoReady = true;
+  }
 
   // --PROGRAM--
 
@@ -79,19 +96,22 @@ const preview = (canvasEl) => {
     }
   `;
   const fragmentShader = `
-    precision lowp float;
+    precision highp float;
+
+    uniform sampler2D tTex;
 
     varying vec2 vTexCoord;
 
     void main(void){
-      vec3 color = vec3(vTexCoord, 0.0);
-      gl_FragColor = vec4(color, 1.0);
+      gl_FragColor = texture2D(tTex, vTexCoord);
     }
   `;
 
   const prg = new Program(gl, vertexShader, fragmentShader);
 
   // --RENDER--
+
+  let rafID = null;
 
   const render = () => {
     if (!canRender) return;
@@ -106,48 +126,34 @@ const preview = (canvasEl) => {
     camera.updateWorldMatrix();
     camera.updateViewProjectionMatrix(size.width, size.height);
 
+    // update texture with video if ready
+    if (videoReady) {
+      texture.fromImage(video);
+    }
+
     // bind program
     prg.use();
     // update program uniforms
     prg.uMVP(camera._viewProj);
+    prg.tTex(texture);
 
     // link the rectangle buffer to the program, and draw
     rect.attribPointer(prg);
     rect.render();
+
+    // request animation frame
+    rafID = window.requestAnimationFrame(render);
   };
 
-  // --DEBUG--
-
-  const pane = new Pane({
-    container: document.getElementById('debug')
-  });
-
-  const recreateGeometry = () => {
-    rect.dispose();
-    rect = null;
-    rect = new Rect(gl, PARAMS.position.x, PARAMS.position.y, PARAMS.width, PARAMS.height);
-    render();
-  }
-
-  pane.addBinding(PARAMS, 'position', {
-    min: -1.5,
-    max: 0.5,
-  }).on('change', recreateGeometry);
-  pane.addBinding(PARAMS, 'width', {
-    min: 0.1,
-    max: 2,
-  }).on('change', recreateGeometry);
-  pane.addBinding(PARAMS, 'height', {
-    min: 0.1,
-    max: 2,
-  }).on('change', recreateGeometry);
+  setTimeout(render, 0);
 
   // dont forget to disconnect, discard, dispose, delete things at the end, to prevent memory leaks
   const dispose = () => {
     canRender = false;
+    window.cancelAnimationFrame(rafID);
     resizeObserver.disconnect();
-    pane.dispose();
     prg.dispose();
+    texture.dispose();
   }
 
   return dispose;

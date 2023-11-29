@@ -1,11 +1,13 @@
-import Program from "nanogl/program";
 import Camera from "nanogl-camera";
-import PerspectiveLens from "nanogl-camera/perspective-lens";
+import Program from "nanogl/program";
 import RectOutline from "nanogl-primitives-2d/rect-outline";
+import PerspectiveLens from "nanogl-camera/perspective-lens";
 import { vec3 } from "gl-matrix";
 import { Pane } from 'tweakpane';
 
 const preview = (canvasEl) => {
+  let canRender = true;
+
   // --CANVAS & CONTEXT--
 
   const canvas = canvasEl || document.getElementById("canvas");
@@ -93,6 +95,8 @@ const preview = (canvasEl) => {
   // --RENDER--
 
   const render = () => {
+    if (!canRender) return;
+
     // set viewport size
     gl.viewport(0, 0, size.width, size.height);
     // clear viewport
@@ -114,7 +118,7 @@ const preview = (canvasEl) => {
   };
 
   // --DEBUG--
-  
+
   const pane = new Pane({
     container: document.getElementById('debug')
   });
@@ -145,8 +149,10 @@ const preview = (canvasEl) => {
 
   // dont forget to disconnect, discard, dispose, delete things at the end, to prevent memory leaks
   const dispose = () => {
+    canRender = false;
     resizeObserver.disconnect();
     pane.dispose();
+    prg.dispose();
   }
 
   return dispose;

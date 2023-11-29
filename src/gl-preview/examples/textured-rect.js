@@ -1,6 +1,7 @@
 import Rect from "nanogl-primitives-2d/rect";
 import Camera from "nanogl-camera";
 import Program from "nanogl/program";
+import Texture2D from "nanogl/texture-2d";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
 import { vec3 } from "gl-matrix";
 import { Pane } from 'tweakpane';
@@ -53,14 +54,31 @@ const preview = (canvasEl) => {
 
   // --RECTANGLE--
 
+  // simple Rectangle made of 2 triangles in an ArrayBuffer
+  let rect = new Rect(gl, -0.5, -0.5, 1, 1);
+
+  // --TEXTURE--
+
   const PARAMS = {
-    position: { x: -0.5, y: -0.5 },
-    width: 1,
-    height: 1,
+    wrap: 'repeat',
+    uvFactorX: 1,
+    uvFactorY: 1,
   };
 
-  // simple Rectangle made of 2 triangles in an ArrayBuffer
-  let rect = new Rect(gl, PARAMS.position.x, PARAMS.position.y, PARAMS.width, PARAMS.height);
+  // setup the texture
+  const texture = new Texture2D(gl);
+  // image needs size to be a power of 2 for repeat to work
+  texture.repeat();
+
+  // setup the image
+  const img = new Image();
+  img.src = "/images/square-texture.jpg";
+  // set texture data from image on load
+  img.onload = () => {
+    texture.fromImage(img);
+    // re-render scene to update texture
+    render();
+  }
 
   // --PROGRAM--
 
@@ -79,13 +97,15 @@ const preview = (canvasEl) => {
     }
   `;
   const fragmentShader = `
-    precision lowp float;
+    precision highp float;
+
+    uniform sampler2D tTex;
+    uniform vec2 uUVFactor;
 
     varying vec2 vTexCoord;
 
     void main(void){
-      vec3 color = vec3(vTexCoord, 0.0);
-      gl_FragColor = vec4(color, 1.0);
+      gl_FragColor = texture2D(tTex, vTexCoord * uUVFactor);
     }
   `;
 
@@ -110,6 +130,8 @@ const preview = (canvasEl) => {
     prg.use();
     // update program uniforms
     prg.uMVP(camera._viewProj);
+    prg.tTex(texture);
+    prg.uUVFactor([PARAMS.uvFactorX, PARAMS.uvFactorY]);
 
     // link the rectangle buffer to the program, and draw
     rect.attribPointer(prg);
@@ -122,25 +144,37 @@ const preview = (canvasEl) => {
     container: document.getElementById('debug')
   });
 
-  const recreateGeometry = () => {
-    rect.dispose();
-    rect = null;
-    rect = new Rect(gl, PARAMS.position.x, PARAMS.position.y, PARAMS.width, PARAMS.height);
+  const updateTexture = () => {
+    // update texture wrap mode
+    texture.bind();
+
+    if (PARAMS.wrap === 'repeat') {
+      texture.repeat();
+    } else if (PARAMS.wrap === 'clamp') {
+      texture.clamp();
+    } else if (PARAMS.wrap === 'mirror') {
+      texture.mirror();
+    }
+
+    // update render
     render();
   }
 
-  pane.addBinding(PARAMS, 'position', {
-    min: -1.5,
-    max: 0.5,
-  }).on('change', recreateGeometry);
-  pane.addBinding(PARAMS, 'width', {
-    min: 0.1,
-    max: 2,
-  }).on('change', recreateGeometry);
-  pane.addBinding(PARAMS, 'height', {
-    min: 0.1,
-    max: 2,
-  }).on('change', recreateGeometry);
+  pane.addBinding(PARAMS, 'wrap', {
+    options: {
+      repeat: 'repeat',
+      clamp: 'clamp',
+      mirror: 'mirror',
+    }
+  }).on('change', updateTexture);
+  pane.addBinding(PARAMS, 'uvFactorX', {
+    min: 1,
+    max: 3
+  }).on('change', render);
+  pane.addBinding(PARAMS, 'uvFactorY', {
+    min: 1,
+    max: 3
+  }).on('change', render);
 
   // dont forget to disconnect, discard, dispose, delete things at the end, to prevent memory leaks
   const dispose = () => {
@@ -148,6 +182,7 @@ const preview = (canvasEl) => {
     resizeObserver.disconnect();
     pane.dispose();
     prg.dispose();
+    texture.dispose();
   }
 
   return dispose;

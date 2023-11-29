@@ -1,6 +1,7 @@
 export enum ExampleCategory {
   GEOMETRY = "Geometry",
   MATERIAL = "Materials",
+  NONE = "To classify",
 }
 
 export type ExampleEntry = {
@@ -18,7 +19,11 @@ export const examplesData: Record<ExampleCategory, ExampleEntry[]> = {
     { id: "circle-outline", name: "Circle outline", description: "The color here represents the distance from the inner edge of the geometry, directly included in [CircleOutline](/api/nanogl-primitives-2d/classes/CircleOutline) and [RectOutline](/api/nanogl-primitives-2d/classes/RectOutline), with the *aSide* float attribute." },
   ],
   [ExampleCategory.MATERIAL]: [
-    // { id: "clearcoat", name: "Clearcoat", module: Clearcoat },
-    // { id: "unlit", name: "Unlit" },
   ],
+  [ExampleCategory.NONE]: [
+    { id: "full-screen-shader", name: "Full screen shader" },
+    { id: "textured-rect", name: "Textured rectangle" },
+    { id: "video-texture", name: "Video texture" },
+    { id: "fbo-texture", name: "FBO to texture", description: "This example shows how to render to an FBO and use it as a texture." },
+  ]
 }
