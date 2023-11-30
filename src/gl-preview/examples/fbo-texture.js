@@ -329,6 +329,7 @@ const preview = (canvasEl) => {
     prg.dispose();
     fboPrg.dispose();
     fbo.dispose();
+    cubeIBuffer.dispose();
     glState.pop();
     glState.apply();
   }

@@ -228,6 +228,7 @@ const preview = (canvasEl) => {
     pane.dispose();
     prg.dispose();
     texture.dispose();
+    cubeIBuffer.dispose();
     glState.pop();
     glState.apply();
   }

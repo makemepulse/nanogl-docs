@@ -7,6 +7,7 @@ import Texture2D from "nanogl/texture-2d";
 import ArrayBuffer from "nanogl/arraybuffer";
 import IndexBuffer from "nanogl/indexbuffer";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
+import { Pane } from 'tweakpane';
 import { vec3, mat4 } from "gl-matrix";
 
 import { cubePosUvs, cubeIndices } from "../utils/cubeGeometry";
@@ -45,18 +46,26 @@ const preview = (canvasEl) => {
   const resizeObserver = new ResizeObserver(handleResize);
   resizeObserver.observe(canvas);
 
-  // --GL CONFIG--
+  // --GL CONFIGS--
 
   const glState = GLState.get(gl);
 
-  // enable depth test and cull face
-  const cfg = new GLConfig()
-    .enableDepthTest()
+  const cfgDefault = new GLConfig();
+
+  const cfgDepth = new GLConfig()
+    .enableDepthTest();
+
+  const cfgFrontFace = new GLConfig()
+    .enableCullface()
+    .cullFace(gl.FRONT);
+
+  const cfgBackFace = new GLConfig()
     .enableCullface()
     .cullFace(gl.BACK);
 
-  // push config to gl state
-  glState.push(cfg);
+  const cfgAdditive = new GLConfig()
+    .enableBlend()
+    .blendFunc(gl.ONE, gl.ONE);
 
   // --CAMERA--
 
@@ -66,7 +75,7 @@ const preview = (canvasEl) => {
   camera.lens.setAutoFov(35.0 * (Math.PI / 180.0)); // fov is in radians
   camera.lens.near = 0.01;
   camera.lens.far = 50;
-  camera.position.set([0, 0, 10]); // set camera back on z axis
+  camera.position.set([0, 10, 20]); // set camera back on z axis and up on y axis
   camera.lookAt(ORIGIN); // look at origin point
 
   // --CUBE--
@@ -80,46 +89,19 @@ const preview = (canvasEl) => {
   // declare aTexCoord attribute as vec2
   cubeVBuffer.attrib("aTexCoord", 2, gl.FLOAT);
 
-  // --NODE--
+  // --NODES--
 
-  // make a node to be able to scale
-  // the cube to fit video ratio
-  const node = new Node();
-  node.position.set(ORIGIN);
+  // node for the first cube
+  const node1 = new Node();
+  node1.position.set([-1.5, 0, 0]);
+  node1.invalidate();
+  node1.updateWorldMatrix();
 
-  // --TEXTURE--
-
-  // setup the texture
-  const texture = new Texture2D(gl);
-  // texture should be clamped because video size is not power of 2
-  texture.clamp();
-  // setup empty texture
-  texture.fromData(16,16, null);
-  // flip the texture vertically
-  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
-
-  // setup video
-  const video = document.createElement('video');
-  video.src = "/videos/video-sample.mp4";
-  video.loop = true;
-  video.muted = true;
-  video.setAttribute('playsinline', 'true');
-  video.play();
-
-  // --VIDEO READY--
-
-  let videoReady = false;
-
-  video.oncanplay = () => {
-    // scale the node to fit video ratio
-    const ratio = video.videoWidth / video.videoHeight;
-    node.scale.set([ratio, 1, ratio]);
-    node.invalidate();
-    node.updateWorldMatrix();
-
-    // set video ready flag
-    videoReady = true;
-  }
+  // node for the second cube
+  const node2 = new Node();
+  node2.position.set([1.5, 0, 0]);
+  node2.invalidate();
+  node2.updateWorldMatrix();
 
   // --PROGRAM--
 
@@ -140,31 +122,90 @@ const preview = (canvasEl) => {
   const fragmentShader = `
     precision highp float;
 
-    uniform sampler2D tTex;
-
     varying vec2 vTexCoord;
 
     void main(void){
-      gl_FragColor = texture2D(tTex, vTexCoord);
+      vec3 color = vec3(vec2(0.5) + vTexCoord * vec2(0.5), 0.75);
+      gl_FragColor = vec4(color, 1.0);
     }
   `;
 
   const prg = new Program(gl, vertexShader, fragmentShader);
 
-  // --NODE ANIMATION--
+  // --CAMERA ANIMATION--
 
-  const animateNode = () => {
-    // rotate node
-    node.rotateY(-0.008);
-    // invalidate & update node matrix
-    node.invalidate();
-    node.updateWorldMatrix();
+  const animateCamera = (time) => {
+    // rotate camera around origin
+    camera.x = Math.sin(time * 0.0005) * 20;
+    camera.z = Math.cos(time * 0.0005) * 20;
+    // look at origin
+    camera.lookAt(ORIGIN);
+    // invalidate camera matrices
+    camera.invalidate();
   }
 
   // --RENDER--
 
   let rafID = null;
+
   const M4 = mat4.create();
+
+  // render cube
+  const renderCube = (cubeNode) => {
+    // get model view projection matrix from camera with cube node world matrix
+    camera.modelViewProjectionMatrix(M4, cubeNode._wmatrix);
+
+    // bind program
+    prg.use();
+    // update program uniforms
+    prg.uMVP(M4);
+
+    // link the cube vertex buffer to the program,
+    // bind the cube index buffer, and draw
+    cubeVBuffer.attribPointer(prg);
+    cubeIBuffer.bind();
+    cubeIBuffer.drawTriangles();
+  }
+
+  const renderWithCfgSetup = (setupId, node) => {
+    const setup = PARAMS[setupId];
+
+    let count = 0;
+
+    // push configs to gl state
+    if (setup.enableDepth) {
+      glState.push(cfgDepth);
+      count++;
+    }
+    if (setup.enableCullface) {
+      if (setup.cullFace === 'back') {
+        glState.push(cfgBackFace);
+      } else {
+        glState.push(cfgFrontFace);
+      }
+      count++;
+    }
+    if (setup.enableAdditiveBlend) {
+      glState.push(cfgAdditive);
+      count++;
+    }
+
+    if (count === 0) {
+      glState.push(cfgDefault);
+      count++;
+    }
+
+    // apply current gl config
+    glState.apply();
+
+    // render cube
+    renderCube(node);
+
+    // pop configs from gl state
+    for (let i = 0; i < count; i++) {
+      glState.pop();
+    }
+  }
 
   const render = (time = 0) => {
     if (!canRender) return;
@@ -174,35 +215,18 @@ const preview = (canvasEl) => {
     // clear buffers
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-    // apply current gl config
-    glState.apply();
 
-    // animate the node
-    animateNode();
+    // animate the camera
+    animateCamera(time);
 
     // update camera matrices
     camera.updateWorldMatrix();
     camera.updateViewProjectionMatrix(size.width, size.height);
 
-    // get model view projection matrix from camera with node world matrix
-    camera.modelViewProjectionMatrix(M4, node._wmatrix);
-
-    // update texture with video if ready
-    if (videoReady) {
-      texture.fromImage(video);
-    }
-
-    // bind program
-    prg.use();
-    // update program uniforms
-    prg.uMVP(M4);
-    prg.tTex(texture);
-
-    // link the cube vertex buffer to the program,
-    // bind the cube index buffer, and draw
-    cubeVBuffer.attribPointer(prg);
-    cubeIBuffer.bind();
-    cubeIBuffer.drawTriangles();
+    // render first cube at origin
+    renderWithCfgSetup(0, node1);
+    // render second cube using its node
+    renderWithCfgSetup(1, node2);
 
     // request animation frame
     rafID = window.requestAnimationFrame(render);
@@ -210,13 +234,55 @@ const preview = (canvasEl) => {
 
   setTimeout(render, 0);
 
+  // --DEBUG--
+
+  const BASE_PARAMS = {
+    enableDepth: true,
+    enableCullface: true,
+    cullFace: 'back',
+    enableAdditiveBlend: false,
+  };
+
+  const PARAMS = [
+    {
+      ...BASE_PARAMS,
+    },
+    {
+      ...BASE_PARAMS,
+    }
+  ]
+
+  const pane = new Pane({
+    container: document.getElementById('debug')
+  });
+
+  const cube1 = pane.addFolder({
+    title: 'First cube',
+  });
+  const cube2 = pane.addFolder({
+    title: 'Second cube',
+  });
+
+  [cube1, cube2].forEach((folder, i) => {
+    folder.addBinding(PARAMS[i], 'enableDepth');
+    folder.addBinding(PARAMS[i], 'enableCullface');
+    folder.addBinding(PARAMS[i], 'cullFace', {
+      options: {
+        back: 'back',
+        front: 'front',
+      }
+    });
+    folder.addBinding(PARAMS[i], 'enableAdditiveBlend');
+  });
+
+
   // dont forget to disconnect, discard, dispose, delete things at the end, to prevent memory leaks
   const dispose = () => {
     canRender = false;
     window.cancelAnimationFrame(rafID);
     resizeObserver.disconnect();
+    pane.dispose();
     prg.dispose();
-    texture.dispose();
     cubeIBuffer.dispose();
     glState.pop();
     glState.apply();

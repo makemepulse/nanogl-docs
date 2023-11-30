@@ -243,6 +243,7 @@ const preview = (canvasEl) => {
     window.cancelAnimationFrame(rafID);
     resizeObserver.disconnect();
     prg.dispose();
+    cubeIBuffer.dispose();
     glState.pop();
     glState.apply();
   }
