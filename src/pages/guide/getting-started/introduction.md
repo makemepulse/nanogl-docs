@@ -23,6 +23,6 @@ nanogl library, or see some [examples](/examples) of how to use nanogl and its l
 A starter is also available [on github](https://github.com/makemepulse/nanogl-starter), to easily create a nanogl project with a ready-to-go structure, some useful features and examples of what can be done with it. These examples are available
 on the [nanogl starter website]().
 
-<!-- Images or iframes of nanogl starter -->
+<StarterPreview />
 
 </div>
