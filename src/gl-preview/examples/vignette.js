@@ -1,4 +1,3 @@
-import Node from "nanogl-node";
 import Post from "nanogl-post";
 import Fetch from "nanogl-post/effects/fetch";
 import Camera from "nanogl-camera";
@@ -6,11 +5,9 @@ import Program from "nanogl/program";
 import GLState from "nanogl-state/GLState";
 import GLConfig from "nanogl-state/GLConfig";
 import Vignette from "nanogl-post/effects/vignette";
-import Texture2D from "nanogl/texture-2d";
 import ArrayBuffer from "nanogl/arraybuffer";
 import IndexBuffer from "nanogl/indexbuffer";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
-import OrthographicLens from "nanogl-camera/ortho-lens";
 import { Pane } from 'tweakpane';
 import { vec3, mat4 } from "gl-matrix";
 
@@ -159,7 +156,7 @@ const preview = (canvasEl) => {
     if (!canRender) return;
 
     // set clear color
-    gl.clearColor(0.8, 0.8, 0.8, 1.);
+    gl.clearColor(0.28, 0.28, 0.28, 1.);
     // apply current gl config
     glState.apply();
 

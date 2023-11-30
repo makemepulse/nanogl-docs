@@ -1,5 +1,4 @@
 import Fbo from "nanogl/fbo";
-import Circle from "nanogl-primitives-2d/circle";
 import Camera from "nanogl-camera";
 import Program from "nanogl/program";
 import GLState from "nanogl-state/GLState";

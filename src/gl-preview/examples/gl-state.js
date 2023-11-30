@@ -3,7 +3,6 @@ import Camera from "nanogl-camera";
 import Program from "nanogl/program";
 import GLState from "nanogl-state/GLState";
 import GLConfig from "nanogl-state/GLConfig";
-import Texture2D from "nanogl/texture-2d";
 import ArrayBuffer from "nanogl/arraybuffer";
 import IndexBuffer from "nanogl/indexbuffer";
 import PerspectiveLens from "nanogl-camera/perspective-lens";

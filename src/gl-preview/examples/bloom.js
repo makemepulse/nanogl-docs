@@ -1,4 +1,3 @@
-import Node from "nanogl-node";
 import Post from "nanogl-post";
 import Bloom from "nanogl-post/effects/bloom";
 import Fetch from "nanogl-post/effects/fetch";
@@ -6,11 +5,9 @@ import Camera from "nanogl-camera";
 import Program from "nanogl/program";
 import GLState from "nanogl-state/GLState";
 import GLConfig from "nanogl-state/GLConfig";
-import Texture2D from "nanogl/texture-2d";
 import ArrayBuffer from "nanogl/arraybuffer";
 import IndexBuffer from "nanogl/indexbuffer";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
-import OrthographicLens from "nanogl-camera/ortho-lens";
 import { Pane } from 'tweakpane';
 import { vec3, mat4 } from "gl-matrix";
 
