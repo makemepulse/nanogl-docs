@@ -25,5 +25,6 @@ export const examplesData: Record<ExampleCategory, ExampleEntry[]> = {
     { id: "image-texture", name: "Image texture" },
     { id: "video-texture", name: "Video texture" },
     { id: "fbo-texture", name: "FBO to texture", description: "This example shows how to render to an FBO and use it as a texture." },
+    { id: "node-nesting", name: "Node nesting", description: "This example shows how to nest nodes for more complex transforms." },
   ]
 }

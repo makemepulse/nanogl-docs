@@ -3,7 +3,6 @@ import Camera from "nanogl-camera";
 import Program from "nanogl/program";
 import GLState from "nanogl-state/GLState";
 import GLConfig from "nanogl-state/GLConfig";
-import Texture2D from "nanogl/texture-2d";
 import ArrayBuffer from "nanogl/arraybuffer";
 import IndexBuffer from "nanogl/indexbuffer";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
@@ -66,7 +65,7 @@ const preview = (canvasEl) => {
   camera.lens.setAutoFov(35.0 * (Math.PI / 180.0)); // fov is in radians
   camera.lens.near = 0.01;
   camera.lens.far = 50;
-  camera.position.set([0, 0, 10]); // set camera back on z axis
+  camera.position.set([0, 5, 10]); // set camera back on z axis
   camera.lookAt(ORIGIN); // look at origin point
 
   // --CUBE--
@@ -79,47 +78,6 @@ const preview = (canvasEl) => {
   cubeVBuffer.attrib("aPosition", 3, gl.FLOAT);
   // declare aTexCoord attribute as vec2
   cubeVBuffer.attrib("aTexCoord", 2, gl.FLOAT);
-
-  // --NODE--
-
-  // make a node to be able to scale
-  // the cube to fit video ratio
-  const node = new Node();
-  node.position.set(ORIGIN);
-
-  // --TEXTURE--
-
-  // setup the texture
-  const texture = new Texture2D(gl);
-  // texture should be clamped because video size is not power of 2
-  texture.clamp();
-  // setup empty texture
-  texture.fromData(16,16, null);
-  // flip the texture vertically
-  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
-
-  // setup video
-  const video = document.createElement('video');
-  video.src = "/videos/video-sample.mp4";
-  video.loop = true;
-  video.muted = true;
-  video.setAttribute('playsinline', 'true');
-  video.play();
-
-  // --VIDEO READY--
-
-  let videoReady = false;
-
-  video.oncanplay = () => {
-    // scale the node to fit video ratio
-    const ratio = video.videoWidth / video.videoHeight;
-    node.scale.set([ratio, 1, ratio]);
-    node.invalidate();
-    node.updateWorldMatrix();
-
-    // set video ready flag
-    videoReady = true;
-  }
 
   // --PROGRAM--
 
@@ -140,23 +98,87 @@ const preview = (canvasEl) => {
   const fragmentShader = `
     precision highp float;
 
-    uniform sampler2D tTex;
-
     varying vec2 vTexCoord;
 
     void main(void){
-      gl_FragColor = texture2D(tTex, vTexCoord);
+      vec3 color = vec3(vec2(0.5) + vTexCoord * vec2(0.5), 0.75);
+      gl_FragColor = vec4(color, 1.0);
     }
   `;
 
   const prg = new Program(gl, vertexShader, fragmentShader);
 
+  // --NODES--
+
+  // function to create children to given node
+  const createNodeChildren = (parentNode, childrenCount, radius, isVertical = false) => {
+    for (let i = 0; i < childrenCount; i++) {
+      const child = new Node();
+
+      // position children nodes in a circle of given radius
+      // around the parent
+      const angle = (i / childrenCount) * Math.PI * 2;
+      const x = Math.cos(angle) * radius;
+      const y = Math.sin(angle) * radius;
+
+      // if vertical, position children in circle around z axis
+      // else position children in circle around y axis
+      if (isVertical) {
+        child.position.set([x, y, 0]);
+      } else {
+        child.position.set([x, 0, y]);
+      }
+
+      // children nodes are half the size of the parent
+      child.setScale(0.5);
+      // children nodes look at the origin
+      child.lookAt(ORIGIN);
+
+      parentNode.add(child);
+    }
+  }
+
+  // create parent node at the origin with 0.5 scale
+  const node = new Node();
+  node.position.set(ORIGIN);
+  node.setScale(0.5);
+
+  // create parent node children
+  // -> 5 children, circle radius 5, horizontal axis
+  createNodeChildren(node, 5, 5);
+
+  // create children nodes children
+  // -> 3 children, circle radius 4, vertical axis
+  node._children.forEach((childNode) => {
+    createNodeChildren(childNode, 3, 4, true);
+  });
+
   // --NODE ANIMATION--
 
-  const animateNode = () => {
-    // rotate node
-    node.rotateY(-0.008);
+  // recursive function to rotate all nodes
+  // first parent rotates on y axis, all children rotate on z axis
+  const rotateNodes = (currentNode, isZAxis = false) => {
+    if (!isZAxis) {
+      // rotate on y axis
+      currentNode.rotateY(-0.008);
+    } else {
+      // rotate on z axis
+      currentNode.rotateZ(0.008);
+    }
+
+    // rotate children nodes
+    currentNode._children.forEach((childNode, i) => {
+      rotateNodes(childNode, true);
+    });
+  }
+
+  // animate the nodes
+  const animateNodes = () => {
+    // rotate all nodes
+    rotateNodes(node);
+
     // invalidate & update node matrix
+    // this will also update the children matrices
     node.invalidate();
     node.updateWorldMatrix();
   }
@@ -165,6 +187,28 @@ const preview = (canvasEl) => {
 
   let rafID = null;
   const M4 = mat4.create();
+
+  // recursive function to render all cubes
+  const renderCubes = (currentNode) => {
+    // get model view projection matrix from camera with cube node world matrix
+    camera.modelViewProjectionMatrix(M4, currentNode._wmatrix);
+
+    // bind program
+    prg.use();
+    // update program uniforms
+    prg.uMVP(M4);
+
+    // link the cube vertex buffer to the program,
+    // bind the cube index buffer, and draw
+    cubeVBuffer.attribPointer(prg);
+    cubeIBuffer.bind();
+    cubeIBuffer.drawTriangles();
+
+    // render children cubes
+    currentNode._children.forEach((childNode) => {
+      renderCubes(childNode);
+    });
+  }
 
   const render = (time = 0) => {
     if (!canRender) return;
@@ -177,32 +221,15 @@ const preview = (canvasEl) => {
     // apply current gl config
     glState.apply();
 
-    // animate the node
-    animateNode();
+    // animate the nodes
+    animateNodes();
 
     // update camera matrices
     camera.updateWorldMatrix();
     camera.updateViewProjectionMatrix(size.width, size.height);
 
-    // get model view projection matrix from camera with node world matrix
-    camera.modelViewProjectionMatrix(M4, node._wmatrix);
-
-    // update texture with video if ready
-    if (videoReady) {
-      texture.fromImage(video);
-    }
-
-    // bind program
-    prg.use();
-    // update program uniforms
-    prg.uMVP(M4);
-    prg.tTex(texture);
-
-    // link the cube vertex buffer to the program,
-    // bind the cube index buffer, and draw
-    cubeVBuffer.attribPointer(prg);
-    cubeIBuffer.bind();
-    cubeIBuffer.drawTriangles();
+    // render all cubes
+    renderCubes(node);
 
     // request animation frame
     rafID = window.requestAnimationFrame(render);
@@ -216,7 +243,6 @@ const preview = (canvasEl) => {
     window.cancelAnimationFrame(rafID);
     resizeObserver.disconnect();
     prg.dispose();
-    texture.dispose();
     glState.pop();
     glState.apply();
   }
