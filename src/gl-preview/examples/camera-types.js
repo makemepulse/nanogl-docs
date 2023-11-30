@@ -185,7 +185,7 @@ const preview = (canvasEl) => {
     // rotate camera around origin
     currentCamera.x = Math.sin(time * 0.0005) * PARAMS.distance;
     currentCamera.z = Math.cos(time * 0.0005) * PARAMS.distance;
-    currentCamera.y = PARAMS.distance * 0.5;
+    currentCamera.y = PARAMS.distance * 0.4;
     // look at origin
     currentCamera.lookAt(ORIGIN);
     // invalidate camera matrices

@@ -100,7 +100,7 @@ const preview = (canvasEl) => {
   camera.lens.setAutoFov(35.0 * (Math.PI / 180.0)); // fov is in radians
   camera.lens.near = 0.01;
   camera.lens.far = 50;
-  camera.position.set([0, 0, 10]); // set camera back on z axis
+  camera.position.set([0, 4, 10]); // set camera back on z axis and up on y axis
   camera.lookAt(ORIGIN); // look at origin point
 
   // --CUBE--
