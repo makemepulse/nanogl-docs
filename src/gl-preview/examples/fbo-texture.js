@@ -1,12 +1,16 @@
 import Fbo from "nanogl/fbo";
-import Rect from "nanogl-primitives-2d/rect";
 import Circle from "nanogl-primitives-2d/circle";
 import Camera from "nanogl-camera";
 import Program from "nanogl/program";
+import GLState from "nanogl-state/GLState";
+import GLConfig from "nanogl-state/GLConfig";
 import ArrayBuffer from "nanogl/arraybuffer";
+import IndexBuffer from "nanogl/indexbuffer";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
 import { vec3 } from "gl-matrix";
 import { Pane } from 'tweakpane';
+
+import { cubePosUvs, cubeIndices } from "../utils/cubeGeometry";
 
 const preview = (canvasEl) => {
   let canRender = true;
@@ -36,14 +40,24 @@ const preview = (canvasEl) => {
     // set size to actual size of the current drawing buffer
     size.width = gl.drawingBufferWidth;
     size.height = gl.drawingBufferHeight;
-
-    // re-render scene to update viewport size
-    render();
   };
 
   // use ResizeObserver to handle canvas resize
   const resizeObserver = new ResizeObserver(handleResize);
   resizeObserver.observe(canvas);
+
+  // --GL CONFIG--
+
+  const glState = GLState.get(gl);
+
+  // enable depth test and cull face
+  const cfg = new GLConfig()
+    .enableDepthTest()
+    .enableCullface()
+    .cullFace(gl.BACK);
+
+  // push config to gl state
+  glState.push(cfg);
 
   // --FBO--
 
@@ -77,7 +91,7 @@ const preview = (canvasEl) => {
   fboCamera.lens.setAutoFov(35.0 * (Math.PI / 180.0)); // fov is in radians
   fboCamera.lens.near = 0.01;
   fboCamera.lens.far = 50;
-  fboCamera.position.set([0, 3, 5]); // set camera back on z axis and up on y axis
+  fboCamera.position.set([0, 0, 10]); // set camera back on z axis and up on y axis
   fboCamera.lookAt(ORIGIN); // look at origin point
 
   // --CAMERA (FOR NORMAL RENDER)--
@@ -86,44 +100,24 @@ const preview = (canvasEl) => {
   camera.lens.setAutoFov(35.0 * (Math.PI / 180.0)); // fov is in radians
   camera.lens.near = 0.01;
   camera.lens.far = 50;
-  camera.position.set([0, 0, 5]); // set camera back on z axis
+  camera.position.set([0, 0, 10]); // set camera back on z axis
   camera.lookAt(ORIGIN); // look at origin point
 
-  // --CIRCLE (FOR FBO RENDER)--
+  // --CUBE--
 
-  const circle = new Circle(gl, 1, 32);
+  // simple cube with vec3 position, vec2 uvs and indices
+  const cubeVBuffer = new ArrayBuffer(gl, new Float32Array(cubePosUvs));
+  const cubeIBuffer = new IndexBuffer(gl, gl.UNSIGNED_SHORT, new Uint16Array(cubeIndices));
 
-  // --RECT (FOR NORMAL RENDER)--
+  // declare aPosition attribute as vec3
+  cubeVBuffer.attrib("aPosition", 3, gl.FLOAT);
+  // declare aTexCoord attribute as vec2
+  cubeVBuffer.attrib("aTexCoord", 2, gl.FLOAT);
 
-  const rect = new Rect(gl, -0.75, -0.75, 1.5, 1.5);
-
-  // --PROGRAM (FOR FBO CIRCLE)--
+  // --PROGRAM (FOR FBO CUBE)--
 
   const fboVertexShader = `
-    attribute vec2 aPosition;
-
-    uniform mat4 uMVP;
-
-    void main(void){
-      vec4 pos = vec4(aPosition, 0.0, 1.0);
-      gl_Position = uMVP * pos;
-    }
-  `;
-
-  const fboFragmentShader = `
-    precision lowp float;
-    void main(void){
-      vec3 color = vec3(0.5, 0., 0.5);
-      gl_FragColor = vec4(color, 1.0);
-    }
-  `;
-
-  const fboPrg = new Program(gl, fboVertexShader, fboFragmentShader);
-
-  // --PROGRAM (FOR NORMAL RECTANGLE)--
-
-  const vertexShader = `
-    attribute vec2 aPosition;
+    attribute vec3 aPosition;
     attribute vec2 aTexCoord;
 
     uniform mat4 uMVP;
@@ -131,7 +125,39 @@ const preview = (canvasEl) => {
     varying vec2 vTexCoord;
 
     void main(void){
-      vec4 pos = vec4(aPosition, 0.0, 1.0);
+      vec4 pos = vec4(aPosition, 1.0);
+      gl_Position = uMVP * pos;
+      vTexCoord = aTexCoord;
+    }
+  `;
+
+  const fboFragmentShader = `
+    precision lowp float;
+
+    varying vec2 vTexCoord;
+
+    void main(void){
+      float gradient = vTexCoord.x * 0.5 + vTexCoord.y * 0.5;
+      vec3 color = vec3(0.65, 0.38, 0.80);
+      vec3 gradientColor = clamp(color - vec3(gradient * 0.3), vec3(0.), vec3(1.));
+      gl_FragColor = vec4(gradientColor, 1.0);
+    }
+  `;
+
+  const fboPrg = new Program(gl, fboVertexShader, fboFragmentShader);
+
+  // --PROGRAM (FOR NORMAL CUBE)--
+
+  const vertexShader = `
+    attribute vec3 aPosition;
+    attribute vec2 aTexCoord;
+
+    uniform mat4 uMVP;
+
+    varying vec2 vTexCoord;
+
+    void main(void){
+      vec4 pos = vec4(aPosition, 1.0);
       gl_Position = uMVP * pos;
       vTexCoord = aTexCoord;
     }
@@ -145,7 +171,8 @@ const preview = (canvasEl) => {
     varying vec2 vTexCoord;
 
     void main(void){
-      vec4 background = vec4(0.65, 0.45, 0.65, 1.0);
+      vec2 uvGradient = vTexCoord * 0.3;
+      vec4 background = vec4(0.7 + uvGradient.x, 0.7 + uvGradient.y, 1., 1.0);
       vec4 foreground = texture2D(tTex, vTexCoord * uUVFactor);
       gl_FragColor = mix(background, foreground, foreground.a);
     }
@@ -156,9 +183,9 @@ const preview = (canvasEl) => {
   // --CAMERA ANIMATION (FOR FBO RENDER)--
 
   const animateFboCamera = (time) => {
-    // rotate camera around origin
-    fboCamera.x = Math.sin(time * 0.001) * 5;
-    fboCamera.z = Math.cos(time * 0.001) * 5;
+    // camera movement around origin
+    fboCamera.x = Math.sin(time * -0.0008) * 10;
+    fboCamera.y = Math.cos(time * -0.0008) * 10;
     // look at origin
     fboCamera.lookAt(ORIGIN);
     // invalidate camera matrices
@@ -168,10 +195,9 @@ const preview = (canvasEl) => {
   // --CAMERA ANIMATION (FOR NORMAL RENDER)--
 
   const animateCamera = (time) => {
-    // rotate camera around origin (small arc oscillation)
-    const pos = Math.cos(time * 0.0008) * (Math.PI * 0.1);
-    camera.x = Math.sin(pos) * 5;
-    camera.z = Math.cos(pos) * 5;
+    // rotate camera horizontally around origin
+    camera.x = Math.sin(time * 0.0005) * 10;
+    camera.z = Math.cos(time * 0.0005) * 10;
     // look at origin
     camera.lookAt(ORIGIN);
     // invalidate camera matrices
@@ -190,7 +216,7 @@ const preview = (canvasEl) => {
     fbo.defaultViewport();
     // clear all buffers
     gl.clearColor(0, 0, 0, 0);
-    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     // animate camera
     animateFboCamera(time);
@@ -204,9 +230,11 @@ const preview = (canvasEl) => {
     // update program uniforms
     fboPrg.uMVP(fboCamera._viewProj);
 
-    // link the circle to the program, and draw
-    circle.attribPointer(fboPrg);
-    circle.render();
+    // link the cube vertex buffer to the program,
+    // bind the cube index buffer, and draw
+    cubeVBuffer.attribPointer(fboPrg);
+    cubeIBuffer.bind();
+    cubeIBuffer.drawTriangles();
   }
 
   // normal render
@@ -218,7 +246,7 @@ const preview = (canvasEl) => {
     gl.viewport(0, 0, size.width, size.height);
     // clear viewport
     gl.clearColor(0, 0, 0, 0);
-    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     // animate camera
     animateCamera(time);
@@ -234,13 +262,18 @@ const preview = (canvasEl) => {
     prg.tTex(fbo.getColorTexture());
     prg.uUVFactor([PARAMS.uvFactorX, PARAMS.uvFactorY]);
 
-    // link the rectange to the program, and draw
-    rect.attribPointer(prg);
-    rect.render();
+    // link the cube vertex buffer to the program,
+    // bind the cube index buffer, and draw
+    cubeVBuffer.attribPointer(prg);
+    cubeIBuffer.bind();
+    cubeIBuffer.drawTriangles();
   }
 
   const render = (time = 0) => {
     if (!canRender) return;
+
+    // apply current gl config
+    glState.apply();
 
     fboRender(time);
     normalRender(time);
@@ -296,6 +329,8 @@ const preview = (canvasEl) => {
     prg.dispose();
     fboPrg.dispose();
     fbo.dispose();
+    glState.pop();
+    glState.apply();
   }
 
   return dispose;

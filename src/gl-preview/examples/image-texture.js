@@ -1,10 +1,15 @@
-import Rect from "nanogl-primitives-2d/rect";
 import Camera from "nanogl-camera";
 import Program from "nanogl/program";
+import GLState from "nanogl-state/GLState";
+import GLConfig from "nanogl-state/GLConfig";
 import Texture2D from "nanogl/texture-2d";
+import ArrayBuffer from "nanogl/arraybuffer";
+import IndexBuffer from "nanogl/indexbuffer";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
 import { vec3 } from "gl-matrix";
 import { Pane } from 'tweakpane';
+
+import { cubePosUvs, cubeIndices } from "../utils/cubeGeometry";
 
 const preview = (canvasEl) => {
   let canRender = true;
@@ -34,28 +39,46 @@ const preview = (canvasEl) => {
     // set size to actual size of the current drawing buffer
     size.width = gl.drawingBufferWidth;
     size.height = gl.drawingBufferHeight;
-
-    // re-render scene to update viewport size
-    render();
   };
 
   // use ResizeObserver to handle canvas resize
   const resizeObserver = new ResizeObserver(handleResize);
   resizeObserver.observe(canvas);
 
+  // --GL CONFIG--
+
+  const glState = GLState.get(gl);
+
+  // enable depth test and cull face
+  const cfg = new GLConfig()
+    .enableDepthTest()
+    .enableCullface()
+    .cullFace(gl.BACK);
+
+  // push config to gl state
+  glState.push(cfg);
+
   // --CAMERA--
+
+  const ORIGIN = vec3.create();
 
   const camera = new Camera(new PerspectiveLens());
   camera.lens.setAutoFov(35.0 * (Math.PI / 180.0)); // fov is in radians
   camera.lens.near = 0.01;
   camera.lens.far = 50;
-  camera.position.set([0, 0, 5]); // set camera back on z axis
-  camera.lookAt(vec3.create()); // look at origin point
+  camera.position.set([0, 0, 10]); // set camera back on z axis
+  camera.lookAt(ORIGIN); // look at origin point
 
-  // --RECTANGLE--
+  // --CUBE--
 
-  // simple Rectangle made of 2 triangles in an ArrayBuffer
-  let rect = new Rect(gl, -0.5, -0.5, 1, 1);
+  // simple cube with vec3 position, vec2 uvs and indices
+  const cubeVBuffer = new ArrayBuffer(gl, new Float32Array(cubePosUvs));
+  const cubeIBuffer = new IndexBuffer(gl, gl.UNSIGNED_SHORT, new Uint16Array(cubeIndices));
+
+  // declare aPosition attribute as vec3
+  cubeVBuffer.attrib("aPosition", 3, gl.FLOAT);
+  // declare aTexCoord attribute as vec2
+  cubeVBuffer.attrib("aTexCoord", 2, gl.FLOAT);
 
   // --TEXTURE--
 
@@ -76,14 +99,12 @@ const preview = (canvasEl) => {
   // set texture data from image on load
   img.onload = () => {
     texture.fromImage(img);
-    // re-render scene to update texture
-    render();
   }
 
   // --PROGRAM--
 
   const vertexShader = `
-    attribute vec2 aPosition;
+    attribute vec3 aPosition;
     attribute vec2 aTexCoord;
 
     uniform mat4 uMVP;
@@ -91,7 +112,7 @@ const preview = (canvasEl) => {
     varying vec2 vTexCoord;
 
     void main(void){
-      vec4 pos = vec4(aPosition, 0.0, 1.0);
+      vec4 pos = vec4(aPosition, 1.0);
       gl_Position = uMVP * pos;
       vTexCoord = aTexCoord;
     }
@@ -111,16 +132,35 @@ const preview = (canvasEl) => {
 
   const prg = new Program(gl, vertexShader, fragmentShader);
 
+  // --CAMERA ANIMATION--
+
+  const animateCamera = (time) => {
+    // rotate camera around origin
+    camera.x = Math.sin(time * 0.0005) * 10;
+    camera.z = Math.cos(time * 0.0005) * 10;
+    // look at origin
+    camera.lookAt(ORIGIN);
+    // invalidate camera matrices
+    camera.invalidate();
+  }
+
   // --RENDER--
 
-  const render = () => {
+  let rafID = null;
+
+  const render = (time = 0) => {
     if (!canRender) return;
 
     // set viewport size
     gl.viewport(0, 0, size.width, size.height);
-    // clear viewport
+    // clear buffers
     gl.clearColor(0, 0, 0, 0);
-    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    // apply current gl config
+    glState.apply();
+
+    // animate the camera
+    animateCamera(time);
 
     // update camera matrices
     camera.updateWorldMatrix();
@@ -133,10 +173,17 @@ const preview = (canvasEl) => {
     prg.tTex(texture);
     prg.uUVFactor([PARAMS.uvFactorX, PARAMS.uvFactorY]);
 
-    // link the rectangle buffer to the program, and draw
-    rect.attribPointer(prg);
-    rect.render();
+    // link the cube vertex buffer to the program,
+    // bind the cube index buffer, and draw
+    cubeVBuffer.attribPointer(prg);
+    cubeIBuffer.bind();
+    cubeIBuffer.drawTriangles();
+
+    // request animation frame
+    rafID = window.requestAnimationFrame(render);
   };
+
+  setTimeout(render, 0);
 
   // --DEBUG--
 
@@ -155,9 +202,6 @@ const preview = (canvasEl) => {
     } else if (PARAMS.wrap === 'mirror') {
       texture.mirror();
     }
-
-    // update render
-    render();
   }
 
   pane.addBinding(PARAMS, 'wrap', {
@@ -170,19 +214,22 @@ const preview = (canvasEl) => {
   pane.addBinding(PARAMS, 'uvFactorX', {
     min: 1,
     max: 3
-  }).on('change', render);
+  });
   pane.addBinding(PARAMS, 'uvFactorY', {
     min: 1,
     max: 3
-  }).on('change', render);
+  });
 
   // dont forget to disconnect, discard, dispose, delete things at the end, to prevent memory leaks
   const dispose = () => {
     canRender = false;
+    window.cancelAnimationFrame(rafID);
     resizeObserver.disconnect();
     pane.dispose();
     prg.dispose();
     texture.dispose();
+    glState.pop();
+    glState.apply();
   }
 
   return dispose;

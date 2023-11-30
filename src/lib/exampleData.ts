@@ -22,7 +22,7 @@ export const examplesData: Record<ExampleCategory, ExampleEntry[]> = {
   ],
   [ExampleCategory.NONE]: [
     { id: "full-screen-shader", name: "Full screen shader" },
-    { id: "textured-rect", name: "Textured rectangle" },
+    { id: "image-texture", name: "Image texture" },
     { id: "video-texture", name: "Video texture" },
     { id: "fbo-texture", name: "FBO to texture", description: "This example shows how to render to an FBO and use it as a texture." },
   ]
