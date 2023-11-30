@@ -24,6 +24,7 @@ export const examplesData: Record<ExampleCategory, ExampleEntry[]> = {
   [ExampleCategory.POST]: [
     { id: "bloom", name: "Bloom" },
     { id: "vignette", name: "Vignette" },
+    { id: "grain", name: "Grain" },
   ],
   [ExampleCategory.NONE]: [
     { id: "full-screen-shader", name: "Full screen shader" },
