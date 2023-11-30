@@ -27,5 +27,6 @@ export const examplesData: Record<ExampleCategory, ExampleEntry[]> = {
     { id: "fbo-texture", name: "FBO to texture", description: "This example shows how to render to an FBO and use it as a texture." },
     { id: "node-nesting", name: "Node nesting", description: "This example shows how to nest nodes for more complex transforms." },
     { id: "gl-state", name: "GL State", description: "This example shows ways to use the gl state to handle the gl configs." },
+    { id: "camera-types", name: "Cameras", description: "This example shows the difference between orthographic and perspective cameras." },
   ]
 }
