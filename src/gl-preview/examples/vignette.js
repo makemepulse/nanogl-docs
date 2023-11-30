@@ -1,11 +1,11 @@
 import Node from "nanogl-node";
 import Post from "nanogl-post";
-import Bloom from "nanogl-post/effects/bloom";
 import Fetch from "nanogl-post/effects/fetch";
 import Camera from "nanogl-camera";
 import Program from "nanogl/program";
 import GLState from "nanogl-state/GLState";
 import GLConfig from "nanogl-state/GLConfig";
+import Vignette from "nanogl-post/effects/vignette";
 import Texture2D from "nanogl/texture-2d";
 import ArrayBuffer from "nanogl/arraybuffer";
 import IndexBuffer from "nanogl/indexbuffer";
@@ -116,8 +116,9 @@ const preview = (canvasEl) => {
   // --POST-PROCESSING--
 
   const PARAMS = {
-    bloomColor: { r: .4, g: .1, b: .5 },
-    bloomSize: .2,
+    vignetteColor: { r: 0., g: 0., b: 0. },
+    vignetteStrength: 1.,
+    vignetteCurve: 0.8,
   }
 
   // create post-process manager
@@ -128,12 +129,13 @@ const preview = (canvasEl) => {
   const fetch = new Fetch();
   post.add(fetch);
 
-  // add bloom effect
-  const bloom = new Bloom(
-    [PARAMS.bloomColor.r, PARAMS.bloomColor.g, PARAMS.bloomColor.b],
-    PARAMS.bloomSize
+  // add vignette effect
+  const vignette = new Vignette(
+    [PARAMS.vignetteColor.r, PARAMS.vignetteColor.g, PARAMS.vignetteColor.b],
+    PARAMS.vignetteStrength,
+    PARAMS.vignetteCurve,
   );
-  post.add(bloom);
+  post.add(vignette);
 
   // --CAMERA ANIMATION--
 
@@ -156,6 +158,8 @@ const preview = (canvasEl) => {
   const render = (time = 0) => {
     if (!canRender) return;
 
+    // set clear color
+    gl.clearColor(0.8, 0.8, 0.8, 1.);
     // apply current gl config
     glState.apply();
 
@@ -196,19 +200,25 @@ const preview = (canvasEl) => {
     container: document.getElementById('debug')
   });
 
-  pane.addBinding(PARAMS, 'bloomColor', {
+  pane.addBinding(PARAMS, 'vignetteColor', {
     color: { type: 'float' }
   }).on('change', () => {
-    bloom.color[0] = PARAMS.bloomColor.r;
-    bloom.color[1] = PARAMS.bloomColor.g;
-    bloom.color[2] = PARAMS.bloomColor.b;
+    vignette.color[0] = PARAMS.vignetteColor.r;
+    vignette.color[1] = PARAMS.vignetteColor.g;
+    vignette.color[2] = PARAMS.vignetteColor.b;
   });
 
-  pane.addBinding(PARAMS, 'bloomSize', {
+  pane.addBinding(PARAMS, 'vignetteStrength', {
     min: 0,
     max: 1
   }).on('change', () => {
-    bloom.size = PARAMS.bloomSize;
+    vignette.strength = PARAMS.vignetteStrength;
+  });
+  pane.addBinding(PARAMS, 'vignetteCurve', {
+    min: 0,
+    max: 1
+  }).on('change', () => {
+    vignette.curve = PARAMS.vignetteCurve;
   });
 
 
@@ -220,7 +230,8 @@ const preview = (canvasEl) => {
     pane.dispose();
     prg.dispose();
     cubeIBuffer.dispose();
-    bloom.release();
+    fetch.release();
+    vignette.release();
     post.dispose();
     glState.pop();
     glState.apply();
