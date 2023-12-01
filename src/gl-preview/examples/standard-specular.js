@@ -4,7 +4,7 @@ import Camera from "nanogl-camera";
 import GLState from "nanogl-state/GLState";
 import GLConfig from "nanogl-state/GLConfig";
 import Material from "nanogl-pbr/Material"
-import TexCoord from "nanogl-pbr/texcoord"
+import TexCoord from "nanogl-pbr/TexCoord"
 import Texture2D from "nanogl/texture-2d";
 import LightSetup from "nanogl-pbr/lighting/LightSetup";
 import ArrayBuffer from "nanogl/arraybuffer";
@@ -12,7 +12,7 @@ import IndexBuffer from "nanogl/indexbuffer";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
 import { vec3 } from "gl-matrix";
 import { Pane } from 'tweakpane';
-import { StandardSpecular } from "nanogl-pbr/standardpass"
+import { StandardSpecular } from "nanogl-pbr/StandardPass"
 
 import { iblPath, iblSh } from "../utils/iblData";
 import { cubePosUvsNormals, cubeIndices } from "../utils/cubeGeometry";

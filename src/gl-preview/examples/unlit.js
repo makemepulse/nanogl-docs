@@ -3,9 +3,9 @@ import Camera from "nanogl-camera";
 import GLState from "nanogl-state/GLState";
 import GLConfig from "nanogl-state/GLConfig";
 import Material from "nanogl-pbr/Material"
-import TexCoord from "nanogl-pbr/texcoord"
+import TexCoord from "nanogl-pbr/TexCoord"
 import Texture2D from "nanogl/texture-2d";
-import UnlitPass from "nanogl-pbr/unlitpass"
+import UnlitPass from "nanogl-pbr/UnlitPass"
 import ArrayBuffer from "nanogl/arraybuffer";
 import IndexBuffer from "nanogl/indexbuffer";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
