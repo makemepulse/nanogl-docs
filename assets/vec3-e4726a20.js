@@ -1,1 +1,0 @@
-import{A as l}from"./common-a066d304.js";function A(){var r=new l(3);return l!=Float32Array&&(r[0]=0,r[1]=0,r[2]=0),r}(function(){var r=A();return function(n,t,e,c,o,v){var i,u;for(t||(t=3),e||(e=0),c?u=Math.min(c*t+e,n.length):u=n.length,i=e;i<u;i+=t)r[0]=n[i],r[1]=n[i+1],r[2]=n[i+2],o(r,r,v),n[i]=r[0],n[i+1]=r[1],n[i+2]=r[2];return n}})();export{A as c};
