@@ -1,3 +1,5 @@
+import iblSrc from "@assets/images/ibl.rgbm.png";
+
 export const iblSh = new Float32Array([
   0.224084854125977, 0.213043749332428, 0.283314585685730, // L00, irradiance, pre-scaled base
   0.100831791758537, 0.124612621963024, 0.204235553741455, // L1-1, irradiance, pre-scaled base
@@ -10,4 +12,4 @@ export const iblSh = new Float32Array([
   0.051955129951239, 0.036966290324926, 0.029668755829334, // L22, irradiance, pre-scaled base
 ])
 
-export const iblPath = '/images/ibl.rgbm.png';
+export const iblPath = iblSrc;

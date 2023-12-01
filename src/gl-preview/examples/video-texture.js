@@ -9,6 +9,7 @@ import IndexBuffer from "nanogl/indexbuffer";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
 import { vec3, mat4 } from "gl-matrix";
 
+import videoSrc from "@assets/videos/video-sample.mp4";
 import { cubePosUvs, cubeIndices } from "../utils/cubeGeometry";
 
 const preview = (canvasEl) => {
@@ -100,7 +101,7 @@ const preview = (canvasEl) => {
 
   // setup video
   const video = document.createElement('video');
-  video.src = "/videos/video-sample.mp4";
+  video.src = videoSrc;
   video.loop = true;
   video.muted = true;
   video.setAttribute('playsinline', 'true');

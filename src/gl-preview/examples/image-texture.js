@@ -9,6 +9,7 @@ import PerspectiveLens from "nanogl-camera/perspective-lens";
 import { vec3 } from "gl-matrix";
 import { Pane } from 'tweakpane';
 
+import textureSrc from "@assets/images/square-texture.jpg";
 import { cubePosUvs, cubeIndices } from "../utils/cubeGeometry";
 
 const preview = (canvasEl) => {
@@ -95,7 +96,7 @@ const preview = (canvasEl) => {
 
   // setup the image
   const img = new Image();
-  img.src = "/images/square-texture.jpg";
+  img.src = textureSrc;
   // set texture data from image on load
   img.onload = () => {
     texture.fromImage(img);
