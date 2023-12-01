@@ -20,6 +20,7 @@ export const examplesData: Record<ExampleCategory, ExampleEntry[]> = {
     { id: "circle-outline", name: "Circle outline", description: "The color here represents the distance from the inner edge of the geometry, directly included in [CircleOutline](/api/nanogl-primitives-2d/classes/CircleOutline) and [RectOutline](/api/nanogl-primitives-2d/classes/RectOutline), with the *aSide* float attribute." },
   ],
   [ExampleCategory.MATERIAL]: [
+    { id: "unlit", name: "Unlit" },
   ],
   [ExampleCategory.POST]: [
     { id: "bloom", name: "Bloom" },
