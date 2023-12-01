@@ -1,11 +1,8 @@
-import Node from "nanogl-node";
 import Camera from "nanogl-camera";
+import Program from "nanogl/program";
 import GLState from "nanogl-state/GLState";
 import GLConfig from "nanogl-state/GLConfig";
-import Material from "nanogl-pbr/material"
-import TexCoord from "nanogl-pbr/texcoord"
 import Texture2D from "nanogl/texture-2d";
-import UnlitPass from "nanogl-pbr/unlitpass"
 import ArrayBuffer from "nanogl/arraybuffer";
 import IndexBuffer from "nanogl/indexbuffer";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
@@ -48,9 +45,18 @@ const preview = (canvasEl) => {
   const resizeObserver = new ResizeObserver(handleResize);
   resizeObserver.observe(canvas);
 
-  // --GL STATE--
+  // --GL CONFIG--
 
   const glState = GLState.get(gl);
+
+  // enable depth test and cull face
+  const cfg = new GLConfig()
+    .enableDepthTest()
+    .enableCullface()
+    .cullFace(gl.BACK);
+
+  // push config to gl state
+  glState.push(cfg);
 
   // --CAMERA--
 
@@ -74,16 +80,18 @@ const preview = (canvasEl) => {
   // declare aTexCoord attribute as vec2
   cubeVBuffer.attrib("aTexCoord", 2, gl.FLOAT);
 
-  // --NODE--
-
-  // create a node for the cube
-  const node = new Node();
-
   // --TEXTURE--
+
+  const PARAMS = {
+    wrap: 'repeat',
+    uvFactorX: 1,
+    uvFactorY: 1,
+  };
 
   // setup the texture
   const texture = new Texture2D(gl);
-  texture.clamp();
+  // image needs size to be a power of 2 for repeat to work
+  texture.repeat();
 
   // setup the image
   const img = new Image();
@@ -93,43 +101,36 @@ const preview = (canvasEl) => {
     texture.fromImage(img);
   }
 
-  // --MATERIAL--
+  // --PROGRAM--
 
-  const PARAMS = {
-    useTexture: false,
-    color: { r: 1, g: 1, b: 1 },
-  }
+  const vertexShader = `
+    attribute vec3 aPosition;
+    attribute vec2 aTexCoord;
 
-  // create material
-  const material = new Material(gl);
-  // setup material gl config
-  material.glconfig
-    .enableDepthTest()
-    .enableCullface()
-    .cullFace(gl.BACK);
+    uniform mat4 uMVP;
 
-  // create unlit pass and add it to material
-  const unlitPass = new UnlitPass();
-  material.addPass(unlitPass);
+    varying vec2 vTexCoord;
 
-  // function to use color for unlit pass
-  const setupColor = () => {
-    // attach uniform to base color and set current color
-    unlitPass.baseColor
-      .attachUniform('color', 3)
-      .set(PARAMS.color.r, PARAMS.color.g, PARAMS.color.b);
-  }
+    void main(void){
+      vec4 pos = vec4(aPosition, 1.0);
+      gl_Position = uMVP * pos;
+      vTexCoord = aTexCoord;
+    }
+  `;
+  const fragmentShader = `
+    precision highp float;
 
-  // function to use texture for unlit pass
-  const setupTexture = () => {
-    // attach sampler to base color and set texture
-    unlitPass.baseColor
-      .attachSampler('color', TexCoord.create('aTexCoord'))
-      .set(texture);
-  }
+    uniform sampler2D tTex;
+    uniform vec2 uUVFactor;
 
-  // use color by default
-  setupColor();
+    varying vec2 vTexCoord;
+
+    void main(void){
+      gl_FragColor = texture2D(tTex, vTexCoord * uUVFactor);
+    }
+  `;
+
+  const prg = new Program(gl, vertexShader, fragmentShader);
 
   // --CAMERA ANIMATION--
 
@@ -155,9 +156,6 @@ const preview = (canvasEl) => {
     // clear buffers
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-
-    // push material gl config
-    if (material.glconfig) glState.push(material.glconfig);
     // apply current gl config
     glState.apply();
 
@@ -168,20 +166,18 @@ const preview = (canvasEl) => {
     camera.updateWorldMatrix();
     camera.updateViewProjectionMatrix(size.width, size.height);
 
-    // prepare material passes
-    material.getAllPasses().forEach((pass) => {
-      pass.prepare(node, camera);
-    })
+    // bind program
+    prg.use();
+    // update program uniforms
+    prg.uMVP(camera._viewProj);
+    prg.tTex(texture);
+    prg.uUVFactor([PARAMS.uvFactorX, PARAMS.uvFactorY]);
 
-    // link the cube vertex buffer to the material color program,
+    // link the cube vertex buffer to the program,
     // bind the cube index buffer, and draw
-    const prg = material.getProgram('color');
     cubeVBuffer.attribPointer(prg);
     cubeIBuffer.bind();
     cubeIBuffer.drawTriangles();
-
-    // pop material gl config
-    if (material.glconfig) glState.pop();
 
     // request animation frame
     rafID = window.requestAnimationFrame(render);
@@ -195,21 +191,33 @@ const preview = (canvasEl) => {
     container: document.getElementById('debug')
   });
 
-  pane.addBinding(PARAMS, 'useTexture')
-    .on('change', () => {
-      if (PARAMS.useTexture) {
-        setupTexture();
-      } else {
-        setupColor();
-      }
-    });
+  const updateTexture = () => {
+    // update texture wrap mode
+    texture.bind();
 
-  pane.addBinding(PARAMS, 'color', {
-    color: { type: 'float' }
-  }).on('change', () => {
-    // do not set color if texture is used
-    if (PARAMS.useTexture) return;
-    unlitPass.baseColor.param.set(PARAMS.color.r, PARAMS.color.g, PARAMS.color.b);
+    if (PARAMS.wrap === 'repeat') {
+      texture.repeat();
+    } else if (PARAMS.wrap === 'clamp') {
+      texture.clamp();
+    } else if (PARAMS.wrap === 'mirror') {
+      texture.mirror();
+    }
+  }
+
+  pane.addBinding(PARAMS, 'wrap', {
+    options: {
+      repeat: 'repeat',
+      clamp: 'clamp',
+      mirror: 'mirror',
+    }
+  }).on('change', updateTexture);
+  pane.addBinding(PARAMS, 'uvFactorX', {
+    min: 1,
+    max: 3
+  });
+  pane.addBinding(PARAMS, 'uvFactorY', {
+    min: 1,
+    max: 3
   });
 
   // dont forget to disconnect, discard, dispose, delete things at the end, to prevent memory leaks
@@ -218,6 +226,7 @@ const preview = (canvasEl) => {
     window.cancelAnimationFrame(rafID);
     resizeObserver.disconnect();
     pane.dispose();
+    prg.dispose();
     texture.dispose();
     cubeIBuffer.dispose();
     glState.pop();

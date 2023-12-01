@@ -1,16 +1,15 @@
-import Node from "nanogl-node";
+import Post from "nanogl-post";
+import Bloom from "nanogl-post/effects/bloom";
+import Fetch from "nanogl-post/effects/fetch";
 import Camera from "nanogl-camera";
+import Program from "nanogl/program";
 import GLState from "nanogl-state/GLState";
 import GLConfig from "nanogl-state/GLConfig";
-import Material from "nanogl-pbr/material"
-import TexCoord from "nanogl-pbr/texcoord"
-import Texture2D from "nanogl/texture-2d";
-import UnlitPass from "nanogl-pbr/unlitpass"
 import ArrayBuffer from "nanogl/arraybuffer";
 import IndexBuffer from "nanogl/indexbuffer";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
-import { vec3 } from "gl-matrix";
 import { Pane } from 'tweakpane';
+import { vec3 } from "gl-matrix";
 
 import { cubePosUvs, cubeIndices } from "../utils/cubeGeometry";
 
@@ -48,14 +47,22 @@ const preview = (canvasEl) => {
   const resizeObserver = new ResizeObserver(handleResize);
   resizeObserver.observe(canvas);
 
-  // --GL STATE--
+  // --GL CONFIGS--
 
   const glState = GLState.get(gl);
 
-  // --CAMERA--
+  const cfg = new GLConfig()
+    .enableDepthTest()
+    .enableCullface()
+    .cullFace(gl.BACK);
+
+  glState.push(cfg);
+
+  // --CAMERAS--
 
   const ORIGIN = vec3.create();
 
+  // setup perspective camera
   const camera = new Camera(new PerspectiveLens());
   camera.lens.setAutoFov(35.0 * (Math.PI / 180.0)); // fov is in radians
   camera.lens.near = 0.01;
@@ -74,62 +81,56 @@ const preview = (canvasEl) => {
   // declare aTexCoord attribute as vec2
   cubeVBuffer.attrib("aTexCoord", 2, gl.FLOAT);
 
-  // --NODE--
+  // --PROGRAM--
 
-  // create a node for the cube
-  const node = new Node();
+  const vertexShader = `
+    attribute vec3 aPosition;
+    attribute vec2 aTexCoord;
 
-  // --TEXTURE--
+    uniform mat4 uMVP;
 
-  // setup the texture
-  const texture = new Texture2D(gl);
-  texture.clamp();
+    varying vec2 vTexCoord;
 
-  // setup the image
-  const img = new Image();
-  img.src = "/images/square-texture.jpg";
-  // set texture data from image on load
-  img.onload = () => {
-    texture.fromImage(img);
-  }
+    void main(void){
+      vec4 pos = vec4(aPosition, 1.0);
+      gl_Position = uMVP * pos;
+      vTexCoord = aTexCoord;
+    }
+  `;
+  const fragmentShader = `
+    precision highp float;
 
-  // --MATERIAL--
+    varying vec2 vTexCoord;
+
+    void main(void){
+      vec3 color = vec3(vec2(0.5) + vTexCoord * vec2(0.5), 0.75);
+      gl_FragColor = vec4(color, 1.0);
+    }
+  `;
+
+  const prg = new Program(gl, vertexShader, fragmentShader);
+
+  // --POST-PROCESSING--
 
   const PARAMS = {
-    useTexture: false,
-    color: { r: 1, g: 1, b: 1 },
+    bloomColor: { r: .4, g: .1, b: .5 },
+    bloomSize: .2,
   }
 
-  // create material
-  const material = new Material(gl);
-  // setup material gl config
-  material.glconfig
-    .enableDepthTest()
-    .enableCullface()
-    .cullFace(gl.BACK);
+  // create post-process manager
+  const post = new Post(gl, false);
+  post.enabled = true;
 
-  // create unlit pass and add it to material
-  const unlitPass = new UnlitPass();
-  material.addPass(unlitPass);
+  // add fetch effect to get the scene color
+  const fetch = new Fetch();
+  post.add(fetch);
 
-  // function to use color for unlit pass
-  const setupColor = () => {
-    // attach uniform to base color and set current color
-    unlitPass.baseColor
-      .attachUniform('color', 3)
-      .set(PARAMS.color.r, PARAMS.color.g, PARAMS.color.b);
-  }
-
-  // function to use texture for unlit pass
-  const setupTexture = () => {
-    // attach sampler to base color and set texture
-    unlitPass.baseColor
-      .attachSampler('color', TexCoord.create('aTexCoord'))
-      .set(texture);
-  }
-
-  // use color by default
-  setupColor();
+  // add bloom effect
+  const bloom = new Bloom(
+    [PARAMS.bloomColor.r, PARAMS.bloomColor.g, PARAMS.bloomColor.b],
+    PARAMS.bloomSize
+  );
+  post.add(bloom);
 
   // --CAMERA ANIMATION--
 
@@ -150,16 +151,12 @@ const preview = (canvasEl) => {
   const render = (time = 0) => {
     if (!canRender) return;
 
-    // set viewport size
-    gl.viewport(0, 0, size.width, size.height);
-    // clear buffers
-    gl.clearColor(0, 0, 0, 0);
-    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-
-    // push material gl config
-    if (material.glconfig) glState.push(material.glconfig);
     // apply current gl config
     glState.apply();
+
+    // pre render and bind post-process fbo
+    post.preRender(size.width, size.height);
+    post.bindColor();
 
     // animate the camera
     animateCamera(time);
@@ -168,20 +165,19 @@ const preview = (canvasEl) => {
     camera.updateWorldMatrix();
     camera.updateViewProjectionMatrix(size.width, size.height);
 
-    // prepare material passes
-    material.getAllPasses().forEach((pass) => {
-      pass.prepare(node, camera);
-    })
+    // bind program
+    prg.use();
+    // update program uniforms
+    prg.uMVP(camera._viewProj);
 
-    // link the cube vertex buffer to the material color program,
+    // link the cube vertex buffer to the program,
     // bind the cube index buffer, and draw
-    const prg = material.getProgram('color');
     cubeVBuffer.attribPointer(prg);
     cubeIBuffer.bind();
     cubeIBuffer.drawTriangles();
 
-    // pop material gl config
-    if (material.glconfig) glState.pop();
+    // render post-process
+    post.render();
 
     // request animation frame
     rafID = window.requestAnimationFrame(render);
@@ -195,22 +191,21 @@ const preview = (canvasEl) => {
     container: document.getElementById('debug')
   });
 
-  pane.addBinding(PARAMS, 'useTexture')
-    .on('change', () => {
-      if (PARAMS.useTexture) {
-        setupTexture();
-      } else {
-        setupColor();
-      }
-    });
-
-  pane.addBinding(PARAMS, 'color', {
+  pane.addBinding(PARAMS, 'bloomColor', {
     color: { type: 'float' }
   }).on('change', () => {
-    // do not set color if texture is used
-    if (PARAMS.useTexture) return;
-    unlitPass.baseColor.param.set(PARAMS.color.r, PARAMS.color.g, PARAMS.color.b);
+    bloom.color[0] = PARAMS.bloomColor.r;
+    bloom.color[1] = PARAMS.bloomColor.g;
+    bloom.color[2] = PARAMS.bloomColor.b;
   });
+
+  pane.addBinding(PARAMS, 'bloomSize', {
+    min: 0,
+    max: 1
+  }).on('change', () => {
+    bloom.size = PARAMS.bloomSize;
+  });
+
 
   // dont forget to disconnect, discard, dispose, delete things at the end, to prevent memory leaks
   const dispose = () => {
@@ -218,8 +213,10 @@ const preview = (canvasEl) => {
     window.cancelAnimationFrame(rafID);
     resizeObserver.disconnect();
     pane.dispose();
-    texture.dispose();
+    prg.dispose();
     cubeIBuffer.dispose();
+    bloom.release();
+    post.dispose();
     glState.pop();
     glState.apply();
   }

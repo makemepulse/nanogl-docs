@@ -1,6 +1,8 @@
 export enum ExampleCategory {
   GEOMETRY = "Geometry",
   MATERIAL = "Materials",
+  POST = "Post-processing",
+  MISC = "Misc",
 }
 
 export type ExampleEntry = {
@@ -18,7 +20,23 @@ export const examplesData: Record<ExampleCategory, ExampleEntry[]> = {
     { id: "circle-outline", name: "Circle outline", description: "The color here represents the distance from the inner edge of the geometry, directly included in [CircleOutline](/api/nanogl-primitives-2d/classes/CircleOutline) and [RectOutline](/api/nanogl-primitives-2d/classes/RectOutline), with the *aSide* float attribute." },
   ],
   [ExampleCategory.MATERIAL]: [
-    // { id: "clearcoat", name: "Clearcoat", module: Clearcoat },
-    // { id: "unlit", name: "Unlit" },
+    { id: "unlit", name: "Unlit" },
+    { id: "standard-specular", name: "Standard (Specular)" },
+    { id: "standard-metalness", name: "Standard (Metalness)" },
   ],
+  [ExampleCategory.POST]: [
+    { id: "bloom", name: "Bloom" },
+    { id: "dof", name: "Depth of field" },
+    { id: "vignette", name: "Vignette" },
+    { id: "grain", name: "Grain" },
+  ],
+  [ExampleCategory.MISC]: [
+    { id: "full-screen-shader", name: "Full screen shader" },
+    { id: "image-texture", name: "Image texture" },
+    { id: "video-texture", name: "Video texture" },
+    { id: "fbo-texture", name: "FBO to texture", description: "This example shows how to render to an FBO and use it as a texture." },
+    { id: "node-nesting", name: "Node nesting", description: "This example shows how to nest nodes for more complex transforms." },
+    { id: "gl-state", name: "GL State", description: "This example shows ways to use the gl state to handle the gl configs." },
+    { id: "camera-types", name: "Cameras", description: "This example shows the difference between orthographic and perspective cameras." },
+  ]
 }

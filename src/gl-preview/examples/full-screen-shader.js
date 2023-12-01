@@ -1,8 +1,5 @@
-import Camera from "nanogl-camera";
 import Program from "nanogl/program";
 import ArrayBuffer from "nanogl/arraybuffer";
-import PerspectiveLens from "nanogl-camera/perspective-lens";
-import { vec3 } from "gl-matrix";
 
 const preview = (canvasEl) => {
   let canRender = true;
@@ -32,84 +29,85 @@ const preview = (canvasEl) => {
     // set size to actual size of the current drawing buffer
     size.width = gl.drawingBufferWidth;
     size.height = gl.drawingBufferHeight;
-
-    // re-render scene to update viewport size
-    render();
   };
 
   // use ResizeObserver to handle canvas resize
   const resizeObserver = new ResizeObserver(handleResize);
   resizeObserver.observe(canvas);
 
-  // --CAMERA--
-
-  const camera = new Camera(new PerspectiveLens());
-  camera.lens.setAutoFov(35.0 * (Math.PI / 180.0)); // fov is in radians
-  camera.lens.near = 0.01;
-  camera.lens.far = 50;
-  camera.position.set([0, 0, 5]); // set camera back on z axis
-  camera.lookAt(vec3.create()); // look at origin point
-
   // --BUFFER--
 
-  // simple triangle with vec2 position
-  const shapeVertices = new Float32Array([1, 0, 0, 0, 0, 1]);
-  const shape = new ArrayBuffer(gl, shapeVertices);
+  // full-screen triangle with vec2 position and vec2 uvs
+  const quadData = new Float32Array([
+    -1, 3, 0, 2,
+    -1, -1, 0, 0,
+    3, -1, 2, 0,
+  ]);
+  const quad = new ArrayBuffer(gl, quadData);
 
   // declare aPosition attribute as vec2
-  shape.attrib("aPosition", 2, gl.FLOAT);
+  quad.attrib('aPosition', 2, gl.FLOAT);
+  quad.attrib('aTexCoord', 2, gl.FLOAT);
 
   // --PROGRAM--
 
   const vertexShader = `
     attribute vec2 aPosition;
+    attribute vec2 aTexCoord;
 
-    uniform mat4 uMVP;
+    varying vec2 vUv;
 
     void main(void){
-      vec4 pos = vec4(aPosition, 0.0, 1.0);
-      gl_Position = uMVP * pos;
+      gl_Position = vec4(aPosition, 0.0, 1.0);
+      vUv = aTexCoord;
     }
-  `;
-
+  `
   const fragmentShader = `
     precision lowp float;
+
+    uniform float uTime;
+
+    varying vec2 vUv;
+
     void main(void){
-      vec3 red = vec3(1.0, 0.0, 0.0);
-      gl_FragColor = vec4(red, 1.0);
+      // oscillate between 0 and 1 over time
+      float blue = cos(uTime) * 0.5 + 0.5;
+      gl_FragColor = vec4(vUv, blue, 1.0);
     }
-  `;
+  `
 
   const prg = new Program(gl, vertexShader, fragmentShader);
 
   // --RENDER--
 
-  const render = () => {
+  let rafID = null;
+
+  const render = (time = 0) => {
     if (!canRender) return;
 
-    // set viewport size
+    // setup viewport
     gl.viewport(0, 0, size.width, size.height);
-    // clear viewport
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
 
-    // update camera matrices
-    camera.updateWorldMatrix();
-    camera.updateViewProjectionMatrix(size.width, size.height);
-
     // bind program
     prg.use();
-    // update program uniforms
-    prg.uMVP(camera._viewProj);
+    prg.uTime(time * 0.001);
 
-    // link the shape buffer to the program, and draw
-    shape.attribPointer(prg);
-    shape.drawTriangles();
+    // link the quad buffer to the program, and draw
+    quad.attribPointer(prg);
+    quad.drawTriangles();
+
+    // request animation frame
+    rafID = window.requestAnimationFrame(render);
   };
+
+  setTimeout(render, 0);
 
   // dont forget to disconnect, discard, dispose, delete things at the end, to prevent memory leaks
   const dispose = () => {
     canRender = false;
+    window.cancelAnimationFrame(rafID);
     resizeObserver.disconnect();
     prg.dispose();
   }
