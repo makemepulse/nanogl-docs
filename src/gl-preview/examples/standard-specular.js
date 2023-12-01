@@ -1,3 +1,4 @@
+import Ibl from "nanogl-pbr/lighting/Ibl";
 import Node from "nanogl-node";
 import Camera from "nanogl-camera";
 import GLState from "nanogl-state/GLState";
@@ -9,13 +10,12 @@ import LightSetup from "nanogl-pbr/lighting/LightSetup";
 import ArrayBuffer from "nanogl/arraybuffer";
 import IndexBuffer from "nanogl/indexbuffer";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
-import DirectionalLight from "nanogl-pbr/lighting/DirectionalLight";
 import { vec3 } from "gl-matrix";
 import { Pane } from 'tweakpane';
 import { StandardSpecular } from "nanogl-pbr/standardpass"
 
-import { cubePosUvs, cubeIndices } from "../utils/cubeGeometry";
-import { AmbientLight, AmbientLightModel } from "../utils/ambientLight"
+import { iblPath, iblSh } from "../utils/iblData";
+import { cubePosUvsNormals, cubeIndices } from "../utils/cubeGeometry";
 
 const preview = (canvasEl) => {
   let canRender = true;
@@ -69,13 +69,15 @@ const preview = (canvasEl) => {
   // --CUBE--
 
   // simple cube with vec3 position, vec2 uvs and indices
-  const cubeVBuffer = new ArrayBuffer(gl, new Float32Array(cubePosUvs));
+  const cubeVBuffer = new ArrayBuffer(gl, new Float32Array(cubePosUvsNormals));
   const cubeIBuffer = new IndexBuffer(gl, gl.UNSIGNED_SHORT, new Uint16Array(cubeIndices));
 
   // declare aPosition attribute as vec3
   cubeVBuffer.attrib("aPosition", 3, gl.FLOAT);
   // declare aTexCoord attribute as vec2
   cubeVBuffer.attrib("aTexCoord", 2, gl.FLOAT);
+  // declare aNormal attribute as vec3
+  cubeVBuffer.attrib("aNormal", 3, gl.FLOAT);
 
   // --NODE--
 
@@ -98,28 +100,41 @@ const preview = (canvasEl) => {
 
   // --LIGHTING--
 
+  // create light setup
   const lightSetup = new LightSetup();
   lightSetup.bounds.fromMinMax([-1,-1,-1],[1,1,1]);
 
-  const ambientLight = new AmbientLight();
+  // create iblTexture
+  const iblTexture = new Texture2D(gl, gl.RGBA);
+  iblTexture.clamp();
 
-  lightSetup.stdModel.registerLightModel(new AmbientLightModel());
-  lightSetup.add(ambientLight);
+  // create ibl light
+  const ibl = new Ibl(iblTexture, iblSh);
+  ibl.iblFormat = 'OCTA';
+  ibl.shFormat = 'SH9';
+  ibl.hdrEncoding = 'RGBM';
 
-  const directionalLight = new DirectionalLight();
-  directionalLight._color.set([.6, .6, .6]);
-  directionalLight.position.set([5, 5, 0]);
-  directionalLight.lookAt(ORIGIN);
-  directionalLight.castShadows = false;
-  directionalLight.invalidate();
-  directionalLight.updateWorldMatrix();
-  lightSetup.add(directionalLight);
+  // setup the image for the ibl texture
+  const iblImg = new Image();
+  iblImg.src = iblPath;
+  // set texture data from image on load
+  iblImg.onload = () => {
+    iblTexture.fromImage(iblImg);
+  }
+
+  // add ibl to light setup
+  lightSetup.add(ibl);
 
   // --MATERIAL--
 
   const PARAMS = {
     useTexture: false,
-    baseColor: { r: 1, g: 1, b: 1 },
+    baseColor: { r: 0.5, g: 0, b: 0.5 },
+    specularColor: { r: 0, g: 0, b: 0.5 },
+    emissiveColor: { r: 0, g: 0, b: 0 },
+    glossiness: 0.8,
+    alpha: 1,
+    isTransparent: false,
   }
 
   // create material
@@ -128,21 +143,33 @@ const preview = (canvasEl) => {
   material.glconfig
     .enableDepthTest()
     .enableCullface()
-    .cullFace(gl.BACK);
+    .cullFace(gl.BACK)
+    .enableBlend()
+    .blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
   // create specular pass and add it to material
   const specularPass = new StandardSpecular();
   material.addPass(specularPass);
 
-  // setup specular color
-  specularPass.surface.specular.attachUniform('specular', 3).set(.5, .5, .5);
-  // setup specular glossiness amount
-  specularPass.surface.glossiness.attachUniform('glossiness', 1).set(0.5);
-
   // setup light setup for specular pass
   specularPass.setLightSetup(lightSetup);
+  // setup specular color
+  specularPass.surface.specular.attachUniform('specular', 3)
+    .set(PARAMS.specularColor.r, PARAMS.specularColor.g, PARAMS.specularColor.b);
+  // setup glossiness amount
+  specularPass.surface.glossiness.attachUniform('glossiness', 1)
+    .set(PARAMS.glossiness);
+  // setup emissive
+  specularPass.emissive.attachUniform('emissive', 3)
+    .set(PARAMS.emissiveColor.r, PARAMS.emissiveColor.g, PARAMS.emissiveColor.b);
+  // setup alpha
+  specularPass.alpha.attachUniform('alpha', 1)
+    .set(PARAMS.alpha);
+  // setup alpha mode
+  specularPass.alphaMode
+    .set('OPAQUE');
 
-  // function to use color for unlit pass
+  // function to use color for base color
   const setupColor = () => {
     // attach uniform to base color and set current color
     specularPass.surface.baseColor
@@ -150,7 +177,7 @@ const preview = (canvasEl) => {
       .set(PARAMS.baseColor.r, PARAMS.baseColor.g, PARAMS.baseColor.b);
   }
 
-  // function to use texture for unlit pass
+  // function to use texture for base color
   const setupTexture = () => {
     // attach sampler to base color and set texture
     specularPass.surface.baseColor
@@ -165,7 +192,8 @@ const preview = (canvasEl) => {
 
   const animateNode = () => {
     // rotate node
-    node.rotateY(-0.008);
+    node.rotateY(-0.005);
+    node.rotateX(0.005);
     // invalidate & update node matrix
     node.invalidate();
     node.updateWorldMatrix();
@@ -196,6 +224,7 @@ const preview = (canvasEl) => {
     camera.updateWorldMatrix();
     camera.updateViewProjectionMatrix(size.width, size.height);
 
+    // prepare light setup
     lightSetup.prepare(gl);
 
     // prepare material passes
@@ -225,7 +254,18 @@ const preview = (canvasEl) => {
     container: document.getElementById('debug')
   });
 
-  pane.addBinding(PARAMS, 'useTexture')
+  const specular = pane.addFolder({
+    title: 'Specular'
+  })
+  const standard = pane.addFolder({
+    title: 'Standard'
+  })
+
+  const changeColor = (inputParam, val) => {
+    inputParam.set(val.r, val.g, val.b);
+  }
+
+  specular.addBinding(PARAMS, 'useTexture')
     .on('change', () => {
       if (PARAMS.useTexture) {
         setupTexture();
@@ -233,14 +273,33 @@ const preview = (canvasEl) => {
         setupColor();
       }
     });
-
-  pane.addBinding(PARAMS, 'baseColor', {
+  specular.addBinding(PARAMS, 'baseColor', {
     color: { type: 'float' }
   }).on('change', () => {
     // do not set color if texture is used
     if (PARAMS.useTexture) return;
-    specularPass.surface.baseColor.param.set(PARAMS.baseColor.r, PARAMS.baseColor.g, PARAMS.baseColor.b);
+    changeColor(specularPass.surface.baseColor.param, PARAMS.baseColor);
   });
+  specular.addBinding(PARAMS, 'specularColor', {
+    color: { type: 'float' }
+  }).on('change', () => changeColor(specularPass.surface.specular.param, PARAMS.specularColor));
+  specular.addBinding(PARAMS, 'glossiness', {
+    min: 0,
+    max: 1,
+    step: 0.1
+  }).on('change', () => specularPass.surface.glossiness.param.set(PARAMS.glossiness));
+  standard.addBinding(PARAMS, 'emissiveColor', {
+    color: { type: 'float' }
+  }).on('change', () => changeColor(specularPass.emissive.param, PARAMS.emissiveColor));
+  standard.addBinding(PARAMS, 'isTransparent').on('change', () => {
+    specularPass.alphaMode.set(PARAMS.isTransparent ? 'BLEND' : 'OPAQUE');
+  });
+  standard.addBinding(PARAMS, 'alpha', {
+    min: 0,
+    max: 1,
+    step: 0.1
+  }).on('change', () => specularPass.alpha.param.set(PARAMS.alpha));
+
   // dont forget to disconnect, discard, dispose, delete things at the end, to prevent memory leaks
   const dispose = () => {
     canRender = false;
