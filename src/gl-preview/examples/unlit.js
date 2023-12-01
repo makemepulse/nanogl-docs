@@ -115,7 +115,7 @@ const preview = (canvasEl) => {
   // function to use color for unlit pass
   const setupColor = () => {
     // attach uniform to base color and set current color
-    const toto = unlitPass.baseColor
+    unlitPass.baseColor
       .attachUniform('color', 3)
       .set(PARAMS.color.r, PARAMS.color.g, PARAMS.color.b);
   }
