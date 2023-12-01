@@ -3,7 +3,7 @@ import Node from "nanogl-node";
 import Camera from "nanogl-camera";
 import GLState from "nanogl-state/GLState";
 import GLConfig from "nanogl-state/GLConfig";
-import Material from "nanogl-pbr/material"
+import Material from "nanogl-pbr/Material"
 import TexCoord from "nanogl-pbr/texcoord"
 import Texture2D from "nanogl/texture-2d";
 import LightSetup from "nanogl-pbr/lighting/LightSetup";
