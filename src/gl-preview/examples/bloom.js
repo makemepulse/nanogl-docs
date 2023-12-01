@@ -9,7 +9,7 @@ import ArrayBuffer from "nanogl/arraybuffer";
 import IndexBuffer from "nanogl/indexbuffer";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
 import { Pane } from 'tweakpane';
-import { vec3, mat4 } from "gl-matrix";
+import { vec3 } from "gl-matrix";
 
 import { cubePosUvs, cubeIndices } from "../utils/cubeGeometry";
 
@@ -147,8 +147,6 @@ const preview = (canvasEl) => {
   // --RENDER--
 
   let rafID = null;
-
-  const M4 = mat4.create();
 
   const render = (time = 0) => {
     if (!canRender) return;

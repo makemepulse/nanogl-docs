@@ -1,15 +1,16 @@
+import Dof from "nanogl-post/effects/dof";
+import Node from "nanogl-node";
 import Post from "nanogl-post";
 import Fetch from "nanogl-post/effects/fetch";
 import Camera from "nanogl-camera";
 import Program from "nanogl/program";
 import GLState from "nanogl-state/GLState";
 import GLConfig from "nanogl-state/GLConfig";
-import Vignette from "nanogl-post/effects/vignette";
 import ArrayBuffer from "nanogl/arraybuffer";
 import IndexBuffer from "nanogl/indexbuffer";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
 import { Pane } from 'tweakpane';
-import { vec3 } from "gl-matrix";
+import { vec3, mat4 } from "gl-matrix";
 
 import { cubePosUvs, cubeIndices } from "../utils/cubeGeometry";
 
@@ -19,7 +20,7 @@ const preview = (canvasEl) => {
   // --CANVAS & CONTEXT--
 
   const canvas = canvasEl || document.getElementById("canvas");
-  const gl = canvas.getContext("webgl");
+  const gl = canvas.getContext("webgl", { antialias: true });
 
   // --SIZING--
 
@@ -67,7 +68,7 @@ const preview = (canvasEl) => {
   camera.lens.setAutoFov(35.0 * (Math.PI / 180.0)); // fov is in radians
   camera.lens.near = 0.01;
   camera.lens.far = 50;
-  camera.position.set([0, 4, 10]); // set camera back on z axis and up on y axis
+  camera.position.set([0, 4, 15]); // set camera back on z axis and up on y axis
   camera.lookAt(ORIGIN); // look at origin point
 
   // --CUBE--
@@ -80,6 +81,26 @@ const preview = (canvasEl) => {
   cubeVBuffer.attrib("aPosition", 3, gl.FLOAT);
   // declare aTexCoord attribute as vec2
   cubeVBuffer.attrib("aTexCoord", 2, gl.FLOAT);
+
+  // --NODES--
+
+  const nodes = [];
+  const nodeRows = 4;
+  const nodeCols = 3;
+  const nodeSize = 3;
+  const nodeRowHalfSize = (nodeRows - 1) * nodeSize * 0.5;
+  const nodeColHalfSize = (nodeCols - 1) * nodeSize * 0.5;
+
+  // create a nodeRows x nodeCols grid of nodes
+  for (let i = 0; i < nodeRows; i++) {
+    for (let j = 0; j < nodeCols; j++) {
+      const node = new Node();
+      node.position.set([i * nodeSize - nodeRowHalfSize, 0, j * nodeSize - nodeColHalfSize]);
+      node.invalidate();
+      node.updateWorldMatrix();
+      nodes.push(node);
+    }
+  }
 
   // --PROGRAM--
 
@@ -113,9 +134,12 @@ const preview = (canvasEl) => {
   // --POST-PROCESSING--
 
   const PARAMS = {
-    vignetteColor: { r: 0., g: 0., b: 0. },
-    vignetteStrength: 1.,
-    vignetteCurve: 0.8,
+    near: 10,
+    far: 40,
+    focus: 25,
+    focusRange: 3,
+    d0: 0.2,
+    d1: 0.2,
   }
 
   // create post-process manager
@@ -126,20 +150,28 @@ const preview = (canvasEl) => {
   const fetch = new Fetch();
   post.add(fetch);
 
-  // add vignette effect
-  const vignette = new Vignette(
-    [PARAMS.vignetteColor.r, PARAMS.vignetteColor.g, PARAMS.vignetteColor.b],
-    PARAMS.vignetteStrength,
-    PARAMS.vignetteCurve,
-  );
-  post.add(vignette);
+  // add depth of field effect
+  const dof = new Dof(camera);
+  // set near depth
+  dof.near = PARAMS.near;
+  // set far depth
+  dof.far = PARAMS.far;
+  // set focus depth
+  dof.focus = PARAMS.focus;
+  // set focus range
+  dof.focusRange = PARAMS.focusRange;
+  // set distance where the fade from the unblurred sample to the small blur happens
+  dof.d0 = PARAMS.d0;
+  // set distance where the fade from the the small blur to the medium blur happens
+  dof.d1 = PARAMS.d1;
+  post.add(dof);
 
   // --CAMERA ANIMATION--
 
   const animateCamera = (time) => {
     // rotate camera around origin
-    camera.x = Math.sin(time * 0.0005) * 10;
-    camera.z = Math.cos(time * 0.0005) * 10;
+    camera.x = Math.sin(time * 0.0005) * 15;
+    camera.z = Math.cos(time * 0.0005) * 15;
     // look at origin
     camera.lookAt(ORIGIN);
     // invalidate camera matrices
@@ -149,6 +181,25 @@ const preview = (canvasEl) => {
   // --RENDER--
 
   let rafID = null;
+
+  const M4 = mat4.create();
+
+  // render cube
+  const renderCube = (cubeNode) => {
+    // get model view projection matrix from camera with cube node world matrix
+    camera.modelViewProjectionMatrix(M4, cubeNode._wmatrix);
+
+    // bind program
+    prg.use();
+    // update program uniforms
+    prg.uMVP(M4);
+
+    // link the cube vertex buffer to the program,
+    // bind the cube index buffer, and draw
+    cubeVBuffer.attribPointer(prg);
+    cubeIBuffer.bind();
+    cubeIBuffer.drawTriangles();
+  }
 
   const render = (time = 0) => {
     if (!canRender) return;
@@ -169,16 +220,10 @@ const preview = (canvasEl) => {
     camera.updateWorldMatrix();
     camera.updateViewProjectionMatrix(size.width, size.height);
 
-    // bind program
-    prg.use();
-    // update program uniforms
-    prg.uMVP(camera._viewProj);
-
-    // link the cube vertex buffer to the program,
-    // bind the cube index buffer, and draw
-    cubeVBuffer.attribPointer(prg);
-    cubeIBuffer.bind();
-    cubeIBuffer.drawTriangles();
+    // render every cube
+    nodes.forEach((node) => {
+      renderCube(node)
+    })
 
     // render post-process
     post.render();
@@ -195,26 +240,40 @@ const preview = (canvasEl) => {
     container: document.getElementById('debug')
   });
 
-  pane.addBinding(PARAMS, 'vignetteColor', {
-    color: { type: 'float' }
-  }).on('change', () => {
-    vignette.color[0] = PARAMS.vignetteColor.r;
-    vignette.color[1] = PARAMS.vignetteColor.g;
-    vignette.color[2] = PARAMS.vignetteColor.b;
-  });
+  const changeDofParam = (name, value) => {
+    dof[name] = value;
+  }
 
-  pane.addBinding(PARAMS, 'vignetteStrength', {
+  pane.addBinding(PARAMS, 'near', {
     min: 0,
-    max: 1
-  }).on('change', () => {
-    vignette.strength = PARAMS.vignetteStrength;
-  });
-  pane.addBinding(PARAMS, 'vignetteCurve', {
+    max: 50,
+    step: 1
+  }).on('change', () => changeDofParam('near', PARAMS.near));
+  pane.addBinding(PARAMS, 'far', {
+    min: 10,
+    max: 80,
+    step: 1
+  }).on('change', () => changeDofParam('far', PARAMS.far));
+  pane.addBinding(PARAMS, 'focus', {
     min: 0,
-    max: 1
-  }).on('change', () => {
-    vignette.curve = PARAMS.vignetteCurve;
-  });
+    max: 80,
+    step: 1
+  }).on('change', () => changeDofParam('focus', PARAMS.focus));
+  pane.addBinding(PARAMS, 'focusRange', {
+    min: 1,
+    max: 40,
+    step: 0.5
+  }).on('change', () => changeDofParam('focusRange', PARAMS.focusRange));
+  pane.addBinding(PARAMS, 'd0', {
+    min: 0,
+    max: 0.4,
+    step: 0.01
+  }).on('change', () => changeDofParam('d0', PARAMS.d0));
+  pane.addBinding(PARAMS, 'd1', {
+    min: 0,
+    max: 0.8,
+    step: 0.05
+  }).on('change', () => changeDofParam('d1', PARAMS.d1));
 
 
   // dont forget to disconnect, discard, dispose, delete things at the end, to prevent memory leaks
@@ -226,7 +285,7 @@ const preview = (canvasEl) => {
     prg.dispose();
     cubeIBuffer.dispose();
     fetch.release();
-    vignette.release();
+    dof.release();
     post.dispose();
     glState.pop();
     glState.apply();

@@ -23,6 +23,7 @@ export const examplesData: Record<ExampleCategory, ExampleEntry[]> = {
   ],
   [ExampleCategory.POST]: [
     { id: "bloom", name: "Bloom" },
+    { id: "dof", name: "Depth of field" },
     { id: "vignette", name: "Vignette" },
     { id: "grain", name: "Grain" },
   ],

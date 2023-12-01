@@ -139,6 +139,7 @@ const preview = (canvasEl) => {
   const nodeRowHalfSize = (nodeRows - 1) * nodeSize * 0.5;
   const nodeColHalfSize = (nodeCols - 1) * nodeSize * 0.5;
 
+  // create a nodeRows x nodeCols grid of nodes
   for (let i = 0; i < nodeRows; i++) {
     for (let j = 0; j < nodeCols; j++) {
       const node = new Node();
