@@ -2,7 +2,7 @@ export enum ExampleCategory {
   GEOMETRY = "Geometry",
   MATERIAL = "Materials",
   POST = "Post-processing",
-  NONE = "To classify",
+  MISC = "Misc",
 }
 
 export type ExampleEntry = {
@@ -30,7 +30,7 @@ export const examplesData: Record<ExampleCategory, ExampleEntry[]> = {
     { id: "vignette", name: "Vignette" },
     { id: "grain", name: "Grain" },
   ],
-  [ExampleCategory.NONE]: [
+  [ExampleCategory.MISC]: [
     { id: "full-screen-shader", name: "Full screen shader" },
     { id: "image-texture", name: "Image texture" },
     { id: "video-texture", name: "Video texture" },
