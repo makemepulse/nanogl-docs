@@ -12,7 +12,7 @@ import IndexBuffer from "nanogl/indexbuffer";
 import PerspectiveLens from "nanogl-camera/perspective-lens";
 import { vec3 } from "gl-matrix";
 import { Pane } from 'tweakpane';
-import { StandardSpecular } from "nanogl-pbr/standardpass"
+import { StandardMetalness } from "nanogl-pbr/standardpass"
 
 import { iblPath, iblSh } from "../utils/iblData";
 import { cubePosUvsNormals, cubeIndices } from "../utils/cubeGeometry";
@@ -130,9 +130,9 @@ const preview = (canvasEl) => {
   const PARAMS = {
     useTexture: false,
     baseColor: { r: 0.5, g: 0, b: 0.5 },
-    specularColor: { r: 0, g: 0, b: 0.5 },
+    metalness: 0.8,
+    roughness: 0.2,
     emissiveColor: { r: 0, g: 0, b: 0 },
-    glossiness: 0.8,
     alpha: 1,
     isTransparent: false,
   }
@@ -147,32 +147,32 @@ const preview = (canvasEl) => {
     .enableBlend()
     .blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
-  // create specular pass and add it to material
-  const specularPass = new StandardSpecular();
-  material.addPass(specularPass);
+  // create metalness pass and add it to material
+  const metalnessPass = new StandardMetalness();
+  material.addPass(metalnessPass);
 
-  // setup light setup for specular pass
-  specularPass.setLightSetup(lightSetup);
-  // setup specular color
-  specularPass.surface.specular.attachUniform('specular', 3)
-    .set(PARAMS.specularColor.r, PARAMS.specularColor.g, PARAMS.specularColor.b);
-  // setup glossiness amount
-  specularPass.surface.glossiness.attachUniform('glossiness', 1)
-    .set(PARAMS.glossiness);
+  // setup light setup for metalness pass
+  metalnessPass.setLightSetup(lightSetup);
+  // setup metalness amount
+  metalnessPass.surface.metalness.attachUniform('metalness', 1)
+    .set(PARAMS.metalness);
+  // setup roughness amount
+  metalnessPass.surface.roughness.attachUniform('roughness', 1)
+    .set(PARAMS.roughness);
   // setup emissive
-  specularPass.emissive.attachUniform('emissive', 3)
+  metalnessPass.emissive.attachUniform('emissive', 3)
     .set(PARAMS.emissiveColor.r, PARAMS.emissiveColor.g, PARAMS.emissiveColor.b);
   // setup alpha
-  specularPass.alpha.attachUniform('alpha', 1)
+  metalnessPass.alpha.attachUniform('alpha', 1)
     .set(PARAMS.alpha);
   // setup alpha mode
-  specularPass.alphaMode
+  metalnessPass.alphaMode
     .set('OPAQUE');
 
   // function to use color for base color
   const setupColor = () => {
     // attach uniform to base color and set current color
-    specularPass.surface.baseColor
+    metalnessPass.surface.baseColor
       .attachUniform('color', 3)
       .set(PARAMS.baseColor.r, PARAMS.baseColor.g, PARAMS.baseColor.b);
   }
@@ -180,7 +180,7 @@ const preview = (canvasEl) => {
   // function to use texture for base color
   const setupTexture = () => {
     // attach sampler to base color and set texture
-    specularPass.surface.baseColor
+    metalnessPass.surface.baseColor
       .attachSampler('color', TexCoord.create('aTexCoord'))
       .set(texture);
   }
@@ -254,8 +254,8 @@ const preview = (canvasEl) => {
     container: document.getElementById('debug')
   });
 
-  const specular = pane.addFolder({
-    title: 'Specular'
+  const metalness = pane.addFolder({
+    title: 'Metalness'
   })
   const standard = pane.addFolder({
     title: 'Standard'
@@ -265,7 +265,7 @@ const preview = (canvasEl) => {
     inputParam.set(val.r, val.g, val.b);
   }
 
-  specular.addBinding(PARAMS, 'useTexture')
+  metalness.addBinding(PARAMS, 'useTexture')
     .on('change', () => {
       if (PARAMS.useTexture) {
         setupTexture();
@@ -273,33 +273,35 @@ const preview = (canvasEl) => {
         setupColor();
       }
     });
-  specular.addBinding(PARAMS, 'baseColor', {
+  metalness.addBinding(PARAMS, 'baseColor', {
     color: { type: 'float' }
   }).on('change', () => {
     // do not set color if texture is used
     if (PARAMS.useTexture) return;
-    changeColor(specularPass.surface.baseColor.param, PARAMS.baseColor);
+    changeColor(metalnessPass.surface.baseColor.param, PARAMS.baseColor);
   });
-  specular.addBinding(PARAMS, 'specularColor', {
-    color: { type: 'float' }
-  }).on('change', () => changeColor(specularPass.surface.specular.param, PARAMS.specularColor));
-  specular.addBinding(PARAMS, 'glossiness', {
+  metalness.addBinding(PARAMS, 'metalness', {
     min: 0,
     max: 1,
     step: 0.1
-  }).on('change', () => specularPass.surface.glossiness.param.set(PARAMS.glossiness));
+  }).on('change', () => metalnessPass.surface.metalness.param.set(PARAMS.metalness));
+  metalness.addBinding(PARAMS, 'roughness', {
+    min: 0,
+    max: 1,
+    step: 0.1
+  }).on('change', () => metalnessPass.surface.roughness.param.set(PARAMS.roughness));
 
   standard.addBinding(PARAMS, 'emissiveColor', {
     color: { type: 'float' }
-  }).on('change', () => changeColor(specularPass.emissive.param, PARAMS.emissiveColor));
+  }).on('change', () => changeColor(metalnessPass.emissive.param, PARAMS.emissiveColor));
   standard.addBinding(PARAMS, 'isTransparent').on('change', () => {
-    specularPass.alphaMode.set(PARAMS.isTransparent ? 'BLEND' : 'OPAQUE');
+    metalnessPass.alphaMode.set(PARAMS.isTransparent ? 'BLEND' : 'OPAQUE');
   });
   standard.addBinding(PARAMS, 'alpha', {
     min: 0,
     max: 1,
     step: 0.1
-  }).on('change', () => specularPass.alpha.param.set(PARAMS.alpha));
+  }).on('change', () => metalnessPass.alpha.param.set(PARAMS.alpha));
 
   // dont forget to disconnect, discard, dispose, delete things at the end, to prevent memory leaks
   const dispose = () => {

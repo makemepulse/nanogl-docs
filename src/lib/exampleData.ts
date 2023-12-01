@@ -22,6 +22,7 @@ export const examplesData: Record<ExampleCategory, ExampleEntry[]> = {
   [ExampleCategory.MATERIAL]: [
     { id: "unlit", name: "Unlit" },
     { id: "standard-specular", name: "Standard (Specular)" },
+    { id: "standard-metalness", name: "Standard (Metalness)" },
   ],
   [ExampleCategory.POST]: [
     { id: "bloom", name: "Bloom" },
