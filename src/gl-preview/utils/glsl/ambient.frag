@@ -1,0 +1,4 @@
+
+{
+  lightingData.lightingColor += uLAmbientColor;
+}
