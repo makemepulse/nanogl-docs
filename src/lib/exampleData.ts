@@ -45,5 +45,6 @@ export const examplesData: Record<ExampleCategory, ExampleEntry[]> = {
     { id: "node-nesting", name: "Node nesting", description: "This example shows how to nest nodes for more complex transforms." },
     { id: "gl-state", name: "GL State", description: "This example shows ways to use the gl state to handle the gl configs." },
     { id: "camera-types", name: "Cameras", description: "This example shows the difference between orthographic and perspective cameras." },
+    // { id: "orbit-controls", name: "Orbit controls" },
   ],
 }

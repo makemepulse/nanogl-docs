@@ -40,6 +40,12 @@ GltfIO.loadGltf("/src/assets/webgl/models/suzanne/Suzanne.gltf").then(async (loa
 });
 ```
 
+<UICallout type="info">
+
+**Note :** This is the most basic way of loading a model with nanogl-gltf, but some more complete and detailed implementations may be better suited to your project (light management, animations, adding extensions support, ...). You can see one on the [starter](https://github.com/makemepulse/nanogl-starter).
+
+</UICallout>
+
 ## Render the model
 
 Then, to render the model, you just have to call the render function on each gltf's renderable (they all are [MeshRenderer](/api/nanogl-gltf/classes/MeshRenderer)).
@@ -334,4 +340,9 @@ const render = () => {
 
 [[toc]]
 
+</div>
+
+<div class="nav-wrapper">
+  <a class="prev" href="/guide/getting-started/add-movement">Add some movement</a>
+  <a class="next" href="/guide/getting-started/full-screen-shader">Full-screen shader</a>
 </div>

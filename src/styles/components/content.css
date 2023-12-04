@@ -95,6 +95,38 @@
     .full-content-wrapper {
       @apply col-span-8 px-20 py-32;
     }
+
+    .nav-wrapper {
+      @apply col-span-6 px-20 py-32 grid grid-cols-7;
+
+      &.without-toc {
+        @apply col-span-8;
+      }
+
+      .prev, .next {
+        @apply text-16 font-medium bg-grey-25 px-32 py-32 rounded-md col-span-3 transition-all border-2 border-transparent;
+
+        &:hover {
+          @apply bg-transparent border-grey-50;
+        }
+      }
+
+      .prev {
+        &::before {
+          @apply inline-block mr-12;
+          content: "←";
+        }
+      }
+
+      .next {
+        @apply col-start-5 text-right;
+
+        &::after {
+          @apply inline-block ml-12;
+          content: "→";
+        }
+      }
+    }
   }
 
   .page-body {

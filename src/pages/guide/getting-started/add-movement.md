@@ -318,3 +318,8 @@ render();
 [[toc]]
 
 </div>
+
+<div class="nav-wrapper">
+  <a class="prev" href="/guide/getting-started/creating-a-scene">Creating a scene</a>
+  <a class="next" href="/guide/getting-started/load-gltf">Load a GLTF model</a>
+</div>

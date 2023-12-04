@@ -84,3 +84,8 @@ The [gl-matrix](https://glmatrix.net/) package is also useful for vector & matri
 [[toc]]
 
 </div>
+
+<div class="nav-wrapper">
+  <a class="prev" href="/guide/getting-started/introduction">Introduction</a>
+  <a class="next" href="/guide/getting-started/creating-a-scene">Creating a scene</a>
+</div>
