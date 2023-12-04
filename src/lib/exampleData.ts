@@ -2,6 +2,7 @@ export enum ExampleCategory {
   GEOMETRY = "Geometry",
   MATERIAL = "Materials",
   POST = "Post-processing",
+  GLTF = "glTF",
   MISC = "Misc",
 }
 
@@ -30,6 +31,12 @@ export const examplesData: Record<ExampleCategory, ExampleEntry[]> = {
     { id: "vignette", name: "Vignette" },
     { id: "grain", name: "Grain" },
   ],
+  [ExampleCategory.GLTF]: [
+    { id: "basic-gltf", name: "Basic model", description: "Model taken from [KhronosGroup's Github](https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0/Suzanne), made by Norbert Nopper." },
+    { id: "animated-gltf", name: "Animated model", description: "Model taken from [KhronosGroup's Github](https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0/BoxAnimated), made by Cesium." },
+    { id: "skinned-gltf", name: "Skinned model", description: "Model taken from [KhronosGroup's Github](https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0/BrainStem), made by Keith Hunter and owned by Smith Micro Software." },
+    { id: "morphed-gltf", name: "Morphed model", description: "Model taken from [KhronosGroup's Github](https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0/AnimatedMorphCube)." },
+  ],
   [ExampleCategory.MISC]: [
     { id: "full-screen-shader", name: "Full screen shader" },
     { id: "image-texture", name: "Image texture" },
@@ -38,5 +45,5 @@ export const examplesData: Record<ExampleCategory, ExampleEntry[]> = {
     { id: "node-nesting", name: "Node nesting", description: "This example shows how to nest nodes for more complex transforms." },
     { id: "gl-state", name: "GL State", description: "This example shows ways to use the gl state to handle the gl configs." },
     { id: "camera-types", name: "Cameras", description: "This example shows the difference between orthographic and perspective cameras." },
-  ]
+  ],
 }
