@@ -330,3 +330,7 @@ render(0);
 [[toc]]
 
 </div>
+
+<div class="nav-wrapper">
+  <a class="prev" href="/guide/getting-started/load-gltf">Load a GLTF model</a>
+</div>

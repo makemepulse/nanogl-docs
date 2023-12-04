@@ -383,3 +383,8 @@ Of course, in a bigger project, it would be preferable to create functions and/o
 [[toc]]
 
 </div>
+
+<div class="nav-wrapper">
+  <a class="prev" href="/guide/getting-started/installation">Installation</a>
+  <a class="next" href="/guide/getting-started/add-movement">Add some movement</a>
+</div>
