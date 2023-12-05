@@ -10,57 +10,57 @@ const sortByName = (list) => {
 const LIBS_URLS = [
     {
         name: 'nanogl',
-        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl/develop/docs/data.json',
+        url: 'https://raw.githubusercontent.com/plepers/nanogl/develop/docs/data.json',
         description: 'WebGL micro framework'
     },
     {
         name: 'nanogl-camera',
-        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-camera/develop/docs/data.json',
+        url: 'https://raw.githubusercontent.com/plepers/nanogl-camera/develop/docs/data.json',
         description: 'Cameras for nanogl'
     },
     {
         name: 'nanogl-gltf',
-        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-gltf/develop/docs/data.json',
+        url: 'https://raw.githubusercontent.com/plepers/nanogl-gltf/develop/docs/data.json',
         description: 'Handle .gltf files'
     },
     {
         name: 'nanogl-node',
-        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-node/develop/docs/data.json',
+        url: 'https://raw.githubusercontent.com/plepers/nanogl-node/develop/docs/data.json',
         description: 'Handle nested objects transform in 3D space'
     },
     {
         name: 'nanogl-primitives-2d',
-        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-primitives-2d/master/docs/data.json',
+        url: 'https://raw.githubusercontent.com/plepers/nanogl-primitives-2d/master/docs/data.json',
         description: 'Basic 2D primitives for nanogl'
     },
     {
         name: 'nanogl-pbr',
-        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-pbr/next/3.0/docs/data.json',
+        url: 'https://raw.githubusercontent.com/plepers/nanogl-pbr/next/3.0/docs/data.json',
         description: 'Physically based rendering materials for nanogl'
     },
     {
         name: 'nanogl-pf',
-        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-pf/develop/docs/data.json',
+        url: 'https://raw.githubusercontent.com/plepers/nanogl-pf/develop/docs/data.json',
         description: 'Provide pixel format related capabilities'
     },
     {
         name: 'nanogl-post',
-        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-post/develop/docs/data.json',
+        url: 'https://raw.githubusercontent.com/plepers/nanogl-post/develop/docs/data.json',
         description: 'Post-processing for nanogl'
     },
     {
         name: 'nanogl-state',
-        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-state/develop/docs/data.json',
+        url: 'https://raw.githubusercontent.com/plepers/nanogl-state/develop/docs/data.json',
         description: 'Efficient webgl state management'
     },
     {
         name: 'nanogl-sync',
-        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-sync/master/docs/data.json',
+        url: 'https://raw.githubusercontent.com/plepers/nanogl-sync/master/docs/data.json',
         description: 'WebGLSync for nanogl'
     },
     {
         name: 'nanogl-vao',
-        url: 'https://raw.githubusercontent.com/evanmartiin/nanogl-vao/develop/docs/data.json',
+        url: 'https://raw.githubusercontent.com/plepers/nanogl-vao/develop/docs/data.json',
         description: 'OES_vertex_array_object extension support for nanogl'
     },
 ]
