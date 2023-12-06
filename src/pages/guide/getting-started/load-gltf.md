@@ -29,7 +29,7 @@ import GltfIO from "nanogl-gltf/lib/io/web";
 let gltf = null;
 
 // load gltf from url
-GltfIO.loadGltf("/models/suzanne/Suzanne.gltf").then(async (loadedGltf) => {
+GltfIO.loadGltf("../models/suzanne/Suzanne.gltf").then(async (loadedGltf) => {
   gltf = loadedGltf;
 
   // link gltf to gl context
@@ -127,7 +127,7 @@ Then we need to apply this LightSetup to every material of the gltf model.
 
 ```js
 // load gltf from url
-GltfIO.loadGltf("/models/suzanne/Suzanne.gltf").then(async (loadedGltf) => {
+GltfIO.loadGltf("../models/suzanne/Suzanne.gltf").then(async (loadedGltf) => {
   // ...
 
   await gltf.allocate(gl);
@@ -281,7 +281,7 @@ lightSetup.add(ibl);
 let gltf = null;
 
 // load gltf from url
-GltfIO.loadGltf("/models/suzanne/Suzanne.gltf").then(async (loadedGltf) => {
+GltfIO.loadGltf("../models/suzanne/Suzanne.gltf").then(async (loadedGltf) => {
   gltf = loadedGltf;
 
   // link gltf to gl context

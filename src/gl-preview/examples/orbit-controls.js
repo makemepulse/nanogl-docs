@@ -144,7 +144,7 @@ const preview = (canvasEl) => {
   let gltf = null;
 
   // load gltf from url
-  GltfIO.loadGltf("/models/suzanne/Suzanne.gltf").then(async (loadedGltf) => {
+  GltfIO.loadGltf("../models/suzanne/Suzanne.gltf").then(async (loadedGltf) => {
     gltf = loadedGltf;
 
     // link gltf to gl context
