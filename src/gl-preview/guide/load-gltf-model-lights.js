@@ -54,7 +54,7 @@ const preview = (canvasEl) => {
   let gltf = null;
 
   // load gltf from url
-  GltfIO.loadGltf(new URL('../../../models/suzanne/Suzanne.gltf', import.meta.url).href).then(async (loadedGltf) => {
+  GltfIO.loadGltf(`../../..${import.meta.env.VITE_APP_BASE_URL || ''}/models/suzanne/Suzanne.gltf`).then(async (loadedGltf) => {
     gltf = loadedGltf;
 
     // link gltf to gl context
