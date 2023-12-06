@@ -99,7 +99,7 @@ const preview = (canvasEl) => {
   let gltf = null;
 
   // load gltf from url
-  GltfIO.loadGltf("/src/assets/webgl/models/BoxAnimated.gltf").then(async (loadedGltf) => {
+  GltfIO.loadGltf("/models/BoxAnimated.gltf").then(async (loadedGltf) => {
     gltf = loadedGltf;
 
     // link gltf to gl context
