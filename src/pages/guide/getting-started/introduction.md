@@ -27,5 +27,5 @@ A starter is also available [on github](https://github.com/makemepulse/nanogl-st
 </div>
 
 <div class="nav-wrapper without-toc">
-  <a class="next" href="/guide/getting-started/installation">Installation</a>
+  <RouterLink to="/guide/getting-started/installation" class="next">Installation</RouterLink>
 </div>

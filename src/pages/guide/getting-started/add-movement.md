@@ -320,6 +320,6 @@ render();
 </div>
 
 <div class="nav-wrapper">
-  <a class="prev" href="/guide/getting-started/creating-a-scene">Creating a scene</a>
-  <a class="next" href="/guide/getting-started/load-gltf">Load a GLTF model</a>
+  <RouterLink to="/guide/getting-started/creating-a-scene" class="prev">Creating a scene</RouterLink>
+  <RouterLink to="/guide/getting-started/load-gltf" class="next">Load a GLTF model</RouterLink>
 </div>
