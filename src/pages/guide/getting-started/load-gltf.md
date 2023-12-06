@@ -343,6 +343,6 @@ const render = () => {
 </div>
 
 <div class="nav-wrapper">
-  <a class="prev" href="/guide/getting-started/add-movement">Add some movement</a>
-  <a class="next" href="/guide/getting-started/full-screen-shader">Full-screen shader</a>
+  <RouterLink to="/guide/getting-started/add-movement" class="prev">Add some movement</RouterLink>
+  <RouterLink to="/guide/getting-started/full-screen-shader" class="next">Full-screen shader</RouterLink>
 </div>

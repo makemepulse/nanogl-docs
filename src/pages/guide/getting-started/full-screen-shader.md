@@ -332,5 +332,5 @@ render(0);
 </div>
 
 <div class="nav-wrapper">
-  <a class="prev" href="/guide/getting-started/load-gltf">Load a GLTF model</a>
+  <RouterLink to="/guide/getting-started/load-gltf" class="prev">Load a GLTF model</RouterLink>
 </div>
