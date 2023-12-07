@@ -49,7 +49,25 @@
       }
     }
     pre[class*=language-] {
-      @apply my-16;
+      @apply my-16 relative;
+
+      .m-mdic-copy-wrapper {
+        .u-mdic-copy-btn {
+          @apply absolute top-12 right-12 px-12 py-6 bg-grey rounded transition-all opacity-50;
+
+          &:hover {
+            @apply opacity-100;
+          }
+        }
+
+        .u-mdic-copy-notify {
+          @apply absolute top-48 right-12 text-green-25 mt-4 hidden text-14;
+        }
+
+        .u-mdic-copy-code_lang {
+          @apply absolute bottom-12 right-12 text-light-grey pointer-events-none;
+        }
+      }
     }
   }
 

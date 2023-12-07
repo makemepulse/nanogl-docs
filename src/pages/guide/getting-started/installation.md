@@ -35,7 +35,7 @@ import Program from "nanogl/program"
 ### Use the nanogl starter {#starter}
 
 You can also use the [nanogl starter](https://github.com/makemepulse/nanogl-starter) to start a new project,
-ready to use nanogl, and with some useful features.
+ready to use nanogl, and with some useful features (see [here](https://sample.nanogl.com/) some samples showcasing those features).
 
 <UICallout>
 
