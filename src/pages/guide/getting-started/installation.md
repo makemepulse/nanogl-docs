@@ -18,17 +18,17 @@ You can use nanogl in any Javascript project.
 The easiest way to install nanogl is with a package manager.
 You will need to install [Node.js](https://nodejs.org/en) or [Yarn](https://yarnpkg.com/), then you can run the corresponding line :
 
-```bash
+```bash {one-line}
 npm i nanogl
 ```
 or
-```bash
+```bash {one-line}
 yarn add nanogl
 ```
 
 You can then import what you need like this :
 
-```js
+```js {one-line}
 import Program from "nanogl/program"
 ```
 
@@ -51,7 +51,7 @@ frameworks and structures.
 You can download the zipped repository [here](https://github.com/plepers/nanogl/archive/refs/heads/develop.zip). Add the folder to your project, keeping the desired files.
 You can then import what you need like this :
 
-```js
+```js {one-line}
 import Program from "path/to/folder/program.js"
 ```
 
