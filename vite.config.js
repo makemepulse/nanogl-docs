@@ -11,6 +11,7 @@ import MdToC from 'markdown-it-table-of-contents'
 import MdPrism from 'markdown-it-prism'
 import MdAttrs from 'markdown-it-attrs'
 import MdAnchor from 'markdown-it-anchor'
+import MdCodeCopy from 'markdown-it-copy'
 import MdLinkAttrs from 'markdown-it-link-attributes'
 import MdReplaceLink from 'markdown-it-replace-link'
 
@@ -64,6 +65,11 @@ export default defineConfig(({ mode }) => {
             containerClass: 'toc',
             includeLevel: [2, 3, 4],
             containerHeaderHtml: '<h2 class="my-8">Summary</h2>',
+          })
+          md.use(MdCodeCopy, {
+            successText: "copied!",
+            failText: "failed",
+            showCodeLanguage: true
           })
         }
       }),
