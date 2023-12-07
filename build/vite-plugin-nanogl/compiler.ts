@@ -58,7 +58,7 @@ export function loadChunk(text: string): string {
   var index = 0;
   var source = "__p+='";
 
-  const include = /\{\{\s*require\((\s*([^\s<>]+)\s*)\)\s*\}\}?/g
+  const include = /\{\{\s*require\((.+)\)\s*\}\}?/g
   let deps = [];
 
   text.replace(matcher, function(match, scoped, evaluate, interpolate, offset) {
