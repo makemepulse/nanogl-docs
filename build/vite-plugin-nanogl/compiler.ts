@@ -42,7 +42,7 @@ var escapeChar = function(match) {
   return '\\' + escapes[match];
 };
 
-export function loadChunk(text: string, directory: string, extension: string): string {
+export function loadChunk(text: string): string {
 
   const settings = templateSettings;
 
@@ -58,7 +58,7 @@ export function loadChunk(text: string, directory: string, extension: string): s
   var index = 0;
   var source = "__p+='";
 
-  const include = /\{\{\s*require\((\s*([^\s<>]+)\s*)\)\s*\}\}?/g
+  const include = /\{\{\s*require\((.+)\)\s*\}\}?/g
   let deps = [];
 
   text.replace(matcher, function(match, scoped, evaluate, interpolate, offset) {
@@ -74,7 +74,7 @@ export function loadChunk(text: string, directory: string, extension: string): s
       let out = interpolate;
       if(match.match(include)){
         let chunkPath = match.trim().replace(/\{\{\s*require\(\s*[\"\']|[\"\']\s*\).*\}\}?/gi, '');
-        const uid = "module_"+ crypto.randomUUID().replaceAll("-", '');
+        const uid = "module_"+ crypto.randomUUID().replaceAll( "-", '' );
         deps.push({
           import: "import " + uid + " from '" + chunkPath + "'\n",
         });
@@ -110,5 +110,5 @@ export function loadChunk(text: string, directory: string, extension: string): s
 
 
 export async function loadShaders(source: string, shader: string, extension: string) {
-  return loadChunk(source, path.dirname(shader), extension);
+  return loadChunk(source);//, path.dirname(shader), extension);
 }
