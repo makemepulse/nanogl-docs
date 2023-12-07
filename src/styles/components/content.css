@@ -68,6 +68,10 @@
           @apply absolute bottom-12 right-12 text-light-grey pointer-events-none;
         }
       }
+
+      &:has(code[one-line]) .m-mdic-copy-wrapper .u-mdic-copy-code_lang {
+        @apply hidden;
+      }
     }
   }
 
