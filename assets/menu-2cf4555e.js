@@ -1,0 +1,1 @@
+import{A as e,K as t,H as a}from"./runtime-core.esm-bundler-6b582627.js";const o={xmlns:"http://www.w3.org/2000/svg",width:"30",height:"30"},s=a("path",{d:"M3 7a1 1 0 1 0 0 2h24a1 1 0 1 0 0-2H3zm0 7a1 1 0 1 0 0 2h24a1 1 0 1 0 0-2H3zm0 7a1 1 0 1 0 0 2h24a1 1 0 1 0 0-2H3z"},null,-1),n=[s];function c(h,r){return e(),t("svg",o,n)}const _={render:c};export{_ as default,c as render};
