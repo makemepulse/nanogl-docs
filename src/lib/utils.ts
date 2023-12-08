@@ -1,3 +1,4 @@
+import { computed } from "vue";
 import { LIB_ITEM_TYPE } from "./constants.ts";
 
 export const getLibItemType = (kind) => {
@@ -23,3 +24,7 @@ export const getLibItemType = (kind) => {
 
   return null
 }
+
+export const isMobile = computed(() => {
+  return window.innerWidth < 1024;
+})

@@ -1,5 +1,5 @@
 <template>
-  <div class="content-wrapper" :id="`function-${libFunction.name}`">
+  <div class="content-wrapper mt-56 md:mt-48 lg:mt-0" :id="`function-${libFunction.name}`">
     <div id="introduction" class="h1-container">
       <Title
         :name="libFunction.name"
@@ -11,7 +11,7 @@
   </div>
   <div class="toc-wrapper">
     <div class="toc">
-      <h2>Summary</h2>
+      <h2 class="my-8 toc-header">Summary</h2>
       <ul>
         <li>
           <a href="#introduction">Introduction</a>

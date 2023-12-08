@@ -11,7 +11,7 @@
         currentSection === section ? 'selected text-primary' : ''
       ]"
     >
-      <span class="text-18">{{ name }}</span>
+      <span class="text-16 md:text-18">{{ name }}</span>
       <span v-if="subMenu" class="relative">
         <UIIcon
           name="arrow-down"

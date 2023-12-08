@@ -1,5 +1,5 @@
 <template>
-  <div class="content-wrapper" :id="`class-${libInterface.name}`">
+  <div class="content-wrapper mt-56 lg:mt-0" :class="libInterface.extends ? 'md:mt-16' : 'md:mt-48'" :id="`class-${libInterface.name}`">
     <Extends :extendsList="libInterface.extends" />
     <div id="introduction" class="h1-container flex flex-col">
       <Title
@@ -69,7 +69,7 @@
   </div>
   <div class="toc-wrapper">
     <div class="toc">
-      <h2>Summary</h2>
+      <h2 class="my-8 toc-header">Summary</h2>
       <ul>
         <li>
           <a href="#introduction">Introduction</a>
