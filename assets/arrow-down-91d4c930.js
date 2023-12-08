@@ -1,1 +1,0 @@
-import{A as e,C as o,E as t}from"./runtime-core.esm-bundler-b2e16801.js";const n={viewBox:"0 0 30 18"},r=t("path",{d:"M28 2 15.5 16 2 2"},null,-1),s=[r];function c(a,d){return e(),o("svg",n,s)}const i={render:c};export{i as default,c as render};
