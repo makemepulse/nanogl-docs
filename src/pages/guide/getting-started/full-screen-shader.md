@@ -198,7 +198,6 @@ need to go from 0 to 2.
 To do so, we only need to modify our quadData array buffer.
 
 ```js
-
 // ...
 
 // full-screen triangle with vec2 position and vec2 uvs

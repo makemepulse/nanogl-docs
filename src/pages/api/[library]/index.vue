@@ -1,7 +1,7 @@
 <template>
   <NotFound v-if="!currentLib" />
   <div v-else class="page-body-toc">
-    <div class="content-wrapper">
+    <div class="content-wrapper mt-56 md:mt-0">
       <h1 id="introduction">{{ currentLib.name }}</h1>
       <p>{{  currentLib.description }}</p>
       <div class="mt-16 flex flex-col gap-8">
@@ -64,7 +64,7 @@
     </div>
     <div class="toc-wrapper">
       <div class="toc">
-        <h2>Summary</h2>
+        <h2 class="my-8 toc-header">Summary</h2>
         <ul>
           <li>
             <a href="#introduction">Introduction</a>

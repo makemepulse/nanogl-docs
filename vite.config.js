@@ -64,7 +64,7 @@ export default defineConfig(({ mode }) => {
           md.use(MdToC, {
             containerClass: 'toc',
             includeLevel: [2, 3, 4],
-            containerHeaderHtml: '<h2 class="my-8">Summary</h2>',
+            containerHeaderHtml: '<h2 class="my-8 toc-header">Summary</h2>',
           })
           md.use(MdCodeCopy, {
             successText: "copied!",

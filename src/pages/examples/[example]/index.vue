@@ -1,8 +1,8 @@
 <template>
   <NotFound v-if="!currentExample" />
   <div v-else class="w-full h-full page-examples">
-    <div class="relative z-[1] w-full h-full flex justify-between pointer-events-none overflow-hidden">
-      <div class="self-start w-fit lg:max-w-[33%] p-12 flex flex-col bg-light-grey rounded-md pointer-events-auto">
+    <div class="relative z-[1] w-full h-full flex justify-between pointer-events-none overflow-hidden gap-8 flex-col-reverse md:flex-row">
+      <div class="self-end md:self-start w-fit lg:max-w-[33%] p-12 flex flex-col bg-light-grey rounded-md pointer-events-auto">
         <h1 class="text-16">
           {{ currentExample.category }} — {{ currentExample.name }}
         </h1>
@@ -19,7 +19,7 @@
           icon="code"
           icon-stroke
         />
-        <div id="debug" class="pointer-events-auto"></div>
+        <div id="debug" class="pointer-events-auto self-end"></div>
       </div>
     </div>
     <GLPreview :name="exampleName" folder="examples" class="absolute top-0 left-0 w-full z-0" />
