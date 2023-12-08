@@ -29,3 +29,25 @@
     @apply pl-16;
   }
 }
+
+.menu {
+  @apply z-20 fixed -translate-x-full transition-all bg-grey;
+  @apply md:sticky md:translate-x-0 md:transition-none md:bg-transparent;
+
+  &.opened {
+    @apply translate-x-0;
+  }
+}
+
+.open-menu {
+  @apply z-10 fixed left-20 top-menu mt-24 bg-grey rounded w-fit pl-8 pr-12 py-6 text-18 text-right font-bold flex items-center gap-8;
+  @apply md:hidden;
+
+  &:hover {
+    @apply cursor-pointer;
+  }
+
+  svg {
+    @apply scale-75;
+  }
+}

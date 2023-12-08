@@ -1,4 +1,7 @@
 .content {
+  @apply col-span-10 col-start-1;
+  @apply md:col-span-8 md:col-start-3;
+
   .page-body,
   .markdown-body .content-wrapper,
   .markdown-body .full-content-wrapper,
@@ -103,15 +106,67 @@
     }
   }
 
+
+  .page-body,
+  .markdown-body .content-wrapper,
+  .markdown-body .full-content-wrapper {
+    @apply mt-56;
+    @apply md:mt-0;
+  }
+
   .markdown-body, .page-body-toc {
     @apply grid grid-cols-8;
 
     .content-wrapper {
-      @apply col-span-6 px-20 py-32;
+      @apply px-20 py-32 col-span-8;
+      @apply lg:col-span-6;
     }
 
     .toc-wrapper {
-      @apply col-span-2 col-start-7 sticky top-menu h-full-menu px-20 py-32 overflow-auto scrollbar;
+      @apply px-20 py-32 overflow-auto scrollbar;
+      @apply col-start-1 col-span-8 fixed right-0 -mt-16 md:mt-0;
+      @apply lg:col-start-7 lg:h-full-menu lg:top-menu lg:col-span-2 lg:sticky;
+
+      .toc {
+        @apply flex flex-col items-end;
+        @apply lg:block;
+
+        h2 {
+          @apply bg-grey rounded w-fit px-12 py-6 text-18 text-right;
+          @apply lg:bg-transparent lg:p-0 lg:text-24 lg:text-left;
+
+          &::after {
+            content: '\25be';
+            margin-left: 1rem;
+          }
+
+          @media (min-width: 1024px) {
+            &::after {
+              content: '';
+              margin-left: 0;
+            }
+          }
+
+          &:hover {
+            @apply cursor-pointer lg:cursor-auto;
+          }
+        }
+
+        &.opened {
+          > ul {
+            @apply bg-grey rounded px-12 py-4;
+            @apply lg:bg-transparent lg:p-0;
+          }
+
+          ul {
+            @apply h-full lg:h-auto;
+          }
+        }
+
+        ul {
+          @apply overflow-hidden h-0 lg:h-auto;
+        }
+      }
     }
 
     .full-content-wrapper {
@@ -119,7 +174,9 @@
     }
 
     .nav-wrapper {
-      @apply col-span-6 px-20 py-32 grid grid-cols-7;
+      @apply px-20 py-32 grid grid-cols-7;
+      @apply col-span-8;
+      @apply lg:col-span-6;
 
       &.without-toc {
         @apply col-span-8;
@@ -156,6 +213,7 @@
   }
 
   .page-examples {
-    @apply p-20;
+    @apply p-20 h-full-menu;
+    @apply md:h-full;
   }
 }

@@ -1,6 +1,7 @@
 import { OnLoadArgs, OnLoadResult, Plugin, PluginBuild } from "esbuild";
 import fs from 'node:fs'
-import compiler from "nanogl-template/lib/compiler";
+// import compiler from "nanogl-template/lib/compiler";
+import { loadChunk } from "./compiler";
 
 function glsl(): Plugin {
 
@@ -11,9 +12,9 @@ function glsl(): Plugin {
 		setup(build: PluginBuild) {
 
 			async function onLoad(args: OnLoadArgs): Promise<OnLoadResult> {
-                console.log( "run glsl plugin for", args.path);
-                let source = await fs.promises.readFile(args.path, 'utf8')
-                const compiledGlsl = compiler(source)
+				let source = await fs.promises.readFile(args.path, 'utf8')
+				const compiledGlsl = loadChunk(source);
+                // const compiledGlsl = compiler(source)
 
 				return {
 					contents: compiledGlsl

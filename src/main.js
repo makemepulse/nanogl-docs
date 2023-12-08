@@ -41,7 +41,7 @@ const router = createRouter({
       component: NotFound
     }
   ],
-  history: createWebHistory(import.meta.env.VITE_APP_BASE_URL || '/'),
+  history: createWebHistory(import.meta.env.VITE_APP_BASE_URL || undefined),
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
       const elem = document.querySelector(to.hash)

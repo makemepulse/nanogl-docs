@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue';
 
-export type Icon = 'arrow-down' | 'arrow-right' | 'github';
+export type Icon = 'arrow-down' | 'arrow-right' | 'github' | 'menu' | 'close' | 'search';
 
 type Props = {
   name: Icon;
