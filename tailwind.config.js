@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-const TRANSPARENCY = [50, 25, 10, 5];
+const TRANSPARENCY = [75, 50, 25, 10, 5];
 
 const rem = (px) => (px ? `${(px / 16).toFixed(7)}rem` : "0rem");
 

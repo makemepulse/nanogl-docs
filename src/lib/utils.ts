@@ -25,6 +25,10 @@ export const getLibItemType = (kind) => {
   return null
 }
 
+export const isTablet = computed(() => {
+  return window.innerWidth <= 1024 && window.innerWidth > 640;
+})
+
 export const isMobile = computed(() => {
-  return window.innerWidth < 1024;
+  return window.innerWidth <= 640;
 })

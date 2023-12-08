@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useStore } from '@lib/store';
 import { useMarkdown } from '@lib/markdown';
-import { isMobile } from '@lib/utils';
+import { isTablet } from '@lib/utils';
 import { onMounted, onUnmounted, ref } from 'vue';
 
 const { init: initStore } = useStore();
@@ -13,13 +13,13 @@ initMarkdown();
 const app = ref<HTMLDivElement | null>();
 
 onMounted(() => {
-  if (isMobile.value) {
+  if (isTablet.value) {
     app.value.addEventListener('click', onClickContent);
   }
 })
 
 onUnmounted(() => {
-  if (isMobile.value) {
+  if (isTablet.value) {
     app.value.removeEventListener('click', onClickContent);
   }
 })
@@ -55,4 +55,5 @@ const onClickContent = (e) => {
       </div>
     </div>
   </div>
+  <Search />
 </template>
