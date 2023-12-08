@@ -6,6 +6,7 @@
           nanogl
         </RouterLink>
       </h1>
+      <Search />
       <div class="flex gap-32">
         <SectionLink
           v-for="section in sections"
