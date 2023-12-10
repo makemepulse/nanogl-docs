@@ -13,7 +13,7 @@
 import { useStore } from '@lib/store';
 import { SECTIONS } from '@lib/constants';
 import { onMounted, onUnmounted, ref } from 'vue';
-import { isTablet } from '@lib/utils';
+import { isMobile, isTablet } from '@lib/utils';
 
 const { currentSection } = useStore();
 
@@ -21,20 +21,22 @@ const menu = ref<HTMLDivElement | null>();
 const openMenu = ref<HTMLDivElement | null>();
 
 onMounted(() => {
-  if (isTablet.value) {
+  if (isTablet.value || isMobile.value) {
     openMenu.value.addEventListener('click', onOpenMenu);
     document.body.addEventListener('click', onClickBody);
   }
 });
 
 onUnmounted(() => {
-  if (isTablet.value) {
+  if (isTablet.value || isMobile.value) {
     openMenu.value.removeEventListener('click', onOpenMenu);
     document.body.removeEventListener('click', onClickBody);
   }
 });
 
 const onOpenMenu = () => {
+  console.log('click');
+  
   if (!menu.value) return;
   const opened = menu.value.classList.contains('opened');
   
