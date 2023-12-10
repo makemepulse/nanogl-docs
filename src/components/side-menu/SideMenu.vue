@@ -35,8 +35,6 @@ onUnmounted(() => {
 });
 
 const onOpenMenu = () => {
-  console.log('click');
-  
   if (!menu.value) return;
   const opened = menu.value.classList.contains('opened');
   
