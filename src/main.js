@@ -61,6 +61,30 @@ const router = createRouter({
   },
 })
 
+const getTitle = (to) => {
+  if (to.params.library) {
+    return to.params.library;
+  }
+
+  if (to.name.startsWith('guide')) {
+    return 'Guide';
+  }
+
+  if (to.name.startsWith('api')) {
+    return 'API';
+  }
+
+  if (to.name.startsWith('examples')) {
+    return 'Examples';
+  }
+}
+
+router.beforeEach((to, from, next) => {
+  const title = getTitle(to);
+  window.document.title = title ? `NanoGL | ${title}` : 'NanoGL';
+  next();
+});
+
 createApp(App)
   .use(router)
   .mount('#app');
